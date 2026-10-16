@@ -1,0 +1,37 @@
+{
+  "checked_date": "2026-10-16",
+  "official_revision": "e1963801aa4cf33a5a03520b39fa6620a7894c54",
+  "method": "Source review of local benchmark metrics against pinned original graders. Dilemma/Field directly load the original official evaluation functions; their hashes/provenance are in results_vision.json. This does not reproduce the contest container, resource accounting, or full submission-validation pipeline.",
+  "sources": [
+    {
+      "problem": "Find the Order",
+      "url": "https://raw.githubusercontent.com/IOAI-official/IOAI-2026/e1963801aa4cf33a5a03520b39fa6620a7894c54/Individual-Contest/1_Find_the_Order/code/grading-original/check.py",
+      "sha256": "ad599419f5e827157a443266fbe88ea1274d1e9bf8652dc127beb3e772548dc9",
+      "metric": "100 * mean dialogue pairwise order accuracy; official display rounds to 4 decimals"
+    },
+    {
+      "problem": "Robot Chasing",
+      "url": "https://raw.githubusercontent.com/IOAI-official/IOAI-2026/e1963801aa4cf33a5a03520b39fa6620a7894c54/Individual-Contest/2_Robot_Chasing/code/grading-original/check.py",
+      "sha256": "4a0a23a4cd521ee90b93b60eb3733b7d4d1d19dfd4fbea1971cf2e6b302395d8",
+      "metric": "100 * mean per-robot action accuracy; official display rounds to 4 decimals"
+    },
+    {
+      "problem": "Potato",
+      "url": "https://raw.githubusercontent.com/IOAI-official/IOAI-2026/e1963801aa4cf33a5a03520b39fa6620a7894c54/Individual-Contest/3_Potato/code/grading-original/grader.py",
+      "sha256": "5fc8699587c12a0798af6f27f0cc0e86af9c21c8a8c239a78716458f5042c9f3",
+      "metric": "120 games; 30 turns; 1 - 0.02 * max(0, winning_turn - 10), unsolved=0; official display rounds suite score to 2 decimals"
+    },
+    {
+      "problem": "Potato split wrapper",
+      "url": "https://raw.githubusercontent.com/IOAI-official/IOAI-2026/e1963801aa4cf33a5a03520b39fa6620a7894c54/Individual-Contest/3_Potato/code/grading-original/split_grader.py",
+      "sha256": "3399f49f239cfb03b421570bb0540cf3975a6e864f945b7d849d290611842fa0",
+      "metric": "Separates released A/B secrets and preserves core scoring"
+    },
+    {
+      "problem": "Ghost of the Machine",
+      "url": "https://raw.githubusercontent.com/IOAI-official/IOAI-2026/e1963801aa4cf33a5a03520b39fa6620a7894c54/Individual-Contest/5_Ghost_of_Machine/code/grading-original/checker.py",
+      "sha256": "fff325efa327ec4b9126ef0363c7736fa8a1a35b097710555fb3ba1a2d2a8eaa",
+      "metric": "100 * mean(exp(-abs(predicted_char - true_char)/100)); official output preserves full precision"
+    }
+  ]
+}
