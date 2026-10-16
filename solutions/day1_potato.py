@@ -72,7 +72,8 @@ class PublicEmbeddingPlayer:
     """A fresh instance per game; all instances share the similarity matrix."""
 
     def __init__(self, words=None, similarities=None, temperature=0.06,
-                 error_floor=0.08, support_size=256, deadline=None):
+                 error_floor=0.12, support_size=256, deadline=None,
+                 posterior_mode="mixture", guess_after=8):
         global _SHARED
         if words is None or similarities is None:
             if _SHARED is None:
@@ -83,37 +84,50 @@ class PublicEmbeddingPlayer:
         self.word_to_index = {w.casefold(): i for i, w in enumerate(self.words)}
         if self.similarities.shape != (len(words), len(words)):
             raise ValueError("Expected a square vocabulary similarity matrix")
-        self.log_weight = np.zeros(len(words), dtype=np.float64)
+        if posterior_mode not in {"single", "mixture"}:
+            raise ValueError("posterior_mode must be single or mixture")
+        if not np.isfinite(temperature) or temperature <= 0 or not 0 < error_floor < 0.5:
+            raise ValueError("finite temperature > 0 and 0 < error_floor < 0.5 required")
+        if not 1 <= guess_after <= 30:
+            raise ValueError("guess_after must be between 1 and 30")
+        self.temperatures = ([temperature] if posterior_mode == "single"
+                             else [temperature / 2, temperature, temperature * 2])
+        self.component_log_weight = np.zeros((len(self.temperatures), len(words)), dtype=np.float64)
+        self.log_weight = self.component_log_weight[0]  # single-mode compatibility
         self.proposed = set()
         self.temperature = temperature
         self.error_floor = error_floor
         self.support_size = max(1, support_size)
         self.deadline = deadline
+        self.guess_after = guess_after
 
     def posterior(self):
-        weights = self.log_weight.copy()
+        weights = self.component_log_weight.copy()
         if self.proposed:
-            weights[list(self.proposed)] = -np.inf
-        finite = np.isfinite(weights)
-        if not finite.any():
+            weights[:, list(self.proposed)] = -np.inf
+        if not np.isfinite(weights).any():
             raise RuntimeError("No unused vocabulary words remain")
-        weights = np.exp(weights - np.max(weights[finite]))
-        return weights / weights.sum()
+        weights = np.exp(weights - weights.max(axis=1, keepdims=True))
+        weights /= weights.sum(axis=1, keepdims=True)
+        # Mix normalized posteriors: a confident component cannot suppress the
+        # more cautious components merely because its likelihood scale differs.
+        return weights.mean(axis=0)
 
     def observe(self, message):
         first = self.word_to_index[message["word1"].casefold()]
         second = self.word_to_index[message["word2"].casefold()]
-        self.log_weight += comparison_log_likelihood(
-            self.similarities, first, second, message["verdict"],
-            self.temperature, self.error_floor,
-        )
+        for component, temperature in zip(self.component_log_weight, self.temperatures):
+            component += comparison_log_likelihood(
+                self.similarities, first, second, message["verdict"],
+                temperature, self.error_floor,
+            )
 
     def choose(self, champion, turn):
         posterior = self.posterior()
         ranked = np.argsort(-posterior)
         best = int(ranked[0])
-        # These are starting heuristics, not contest-benchmarked optima.
-        if (turn >= 24 or posterior[best] >= (0.18 if turn >= 16 else 0.35)
+        # Fixed using public-only synthetic development before released A/B.
+        if (turn >= self.guess_after or posterior[best] >= (0.18 if turn >= 16 else 0.35)
                 or (self.deadline is not None and time.monotonic() > self.deadline - 15)):
             return best
 
@@ -174,7 +188,9 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--data-dir", default=os.environ.get("POTATO_DATA_DIR", "dataset"))
     parser.add_argument("--temperature", type=float, default=0.06)
-    parser.add_argument("--error-floor", type=float, default=0.08)
+    parser.add_argument("--error-floor", type=float, default=0.12)
+    parser.add_argument("--posterior-mode", choices=["single", "mixture"], default="mixture")
+    parser.add_argument("--guess-after", type=int, default=8)
     parser.add_argument("--support-size", type=int, default=256)
     parser.add_argument("--budget-seconds", type=float, default=580.0)
     args = parser.parse_args()
@@ -185,6 +201,7 @@ def main():
     run_interactive(lambda: PublicEmbeddingPlayer(
         *_SHARED, temperature=args.temperature, error_floor=args.error_floor,
         support_size=args.support_size, deadline=start + args.budget_seconds,
+        posterior_mode=args.posterior_mode, guess_after=args.guess_after,
     ))
 
 
