@@ -1,6 +1,6 @@
 # Day 1 · Find the Order
 
-제안 풀이입니다. 공식 정답 코드나 입상자의 검증된 최고 성능 풀이가 아닙니다. 아래 프로그램은 출력 형식과 핵심 계산을 합성 데이터로 검사했으며, 실제 대회 음성·GPU 전체 평가 점수는 측정하지 않았습니다.
+공식 공개 데이터로 평가하는 제안 풀이입니다. 공식 정답 코드나 입상자의 검증된 최고 성능 풀이가 아닙니다. 출력 형식과 핵심 계산은 합성 테스트로 검사하고, 실제 데이터 점수와 시간은 아래 실측 표에 별도로 기록합니다. 원대회 Linux 컨테이너가 아닌 로컬 Windows 환경의 결과입니다.
 
 ## 문제와 채점
 
@@ -48,6 +48,9 @@ models/qwen2.5-0.5b/
 # 모델과 수치 라이브러리 없이 실행 가능한 baseline
 python solutions/day1_find_the_order.py --prefix-only
 
+# 이 저장소에서 실행하는 CPU 음향 대안: scipy/numpy 필요, 모델 가중치 불필요
+python benchmarks/order_acoustic_candidate.py --test-dir dataset/test_public --output answers.json
+
 # 제공된 로컬 모델만 사용, 기본 540초의 소프트 예산
 python solutions/day1_find_the_order.py --budget 540
 
@@ -70,3 +73,49 @@ Python에서 `main([...])`으로도 호출할 수 있습니다. 공식 제출용
 인접 발화 자연스러움은 대회의 모든 쌍 순서 정확도와 같은 목적함수가 아닙니다. 더 발전시키려면 학습 대화로 `i가 j보다 먼저 나오는가`를 직접 학습하고, 각 발화의 예상 순위를 합산해 정렬하는 방법을 검토할 수 있습니다. 이것은 현재 코드에 포함하지 않은 대안이며, 더 좋은 성능이라고 단정할 근거는 없습니다.
 
 공개 검증 데이터로 prefix baseline, 언어 모델만 사용, 화자 제약 포함의 세 점수를 비교한 뒤 선택하는 것이 좋습니다. 숨겨진 정답 조회, 미리 계산한 답 삽입, 허용되지 않은 모델 사용은 이 풀이에 포함되지 않습니다.
+
+## 공개 데이터 실측
+
+데이터 revision은 `71a35b5a566665e242416eba45f018dc378663b8`입니다. `public/pretrain` 20대화만 개발용으로 사용하고, 최종 평가 정답은 별도 scorer에서만 읽었습니다. `public/pretest` 20대화는 원래 공개 시험의 일부입니다. 현재 공개된 대회 후 자료인 A/B는 각각 100대화입니다.
+
+| 방법 / 평가 구간 | 대화별 쌍 순서 정확도 | 새 프로세스 벽시계 |
+|---|---:|---:|
+| Prefix-only / pretrain 개발용 20개 | 69.3335% | 0.269초 |
+| Prefix + 화자 교대만 / pretrain 개발용 20개 | 70.5481% | 6.278초 |
+| 원본 Whisper + Qwen / pretrain 개발용 20개 | **75.5781%** | 109.517초 |
+| Prefix-only / pretest 20개 | 68.9534% | 0.263초 |
+| 원본 Whisper + Qwen / pretest 20개 | **75.9140%** | 82.715초 |
+| Prefix-only / Leaderboard A 100개 | 68.9690% | 0.551초 |
+| Prefix-only / Leaderboard B 100개 | 69.1460% | 0.476초 |
+| Prefix + 화자 교대만 / Leaderboard A 100개 | 69.0880% | 42.270초 |
+| Prefix + 화자 교대만 / Leaderboard B 100개 | 69.7803% | 43.236초 |
+| 원본 Whisper + Qwen / Leaderboard A 100개 | **76.5214%** | 362.131초 |
+| 원본 Whisper + Qwen / Leaderboard B 100개 | **74.0884%** | 266.970초 |
+
+Prefix-only와 화자 교대 후보는 CPU에서 Whisper와 Qwen 없이 실행했습니다. 원본 Whisper + Qwen 개발 실행은 RTX 4070 Laptop GPU 8GB에서 20개 대화 전부를 처리했고 오류·fallback은 없었습니다. 원본 설정을 변경하지 않았습니다. 모델 revision은 Whisper-small `973afd24965f72e36ca33b3055d56a652f456b4d`, Qwen2.5-0.5B `060db6499f32faf8b98477b0a26969ef7d8b9987`입니다.
+
+같은 설정의 전체 GPU 평가도 A/B 각각 **100/100개 대화를 Qwen으로 복원했고 prefix fallback은 0개**였습니다. `ordered dialogue` 로그 개수를 직접 확인했으며, 각 출력의 잘못된 순열도 0개였습니다. Prefix-only보다 A에서 +7.5524%p, B에서 +4.9425%p 높았습니다. 원본 전체 파이프라인의 유효성을 확인한 결과이며, 이번 실측을 통해 그 소스를 개선했다는 뜻은 아닙니다. A/B 실행 사이에도 소스와 하이퍼파라미터를 바꾸지 않았습니다.
+
+Pretest도 20개 대화 전부 처리했습니다. `public/pretest/11/chunk_2.wav`는 실제 249,856바이트인데 RIFF 헤더가 274,430바이트를 선언하는 원본 파일 문제로 경고가 났습니다. 고정 revision URL에서 별도로 받은 원본과 평가용 파일의 SHA256이 `adc5d9d2672718da8c8284578e5d1700231abbc9af42922447cf8bd51dda1784`로 일치함을 확인했습니다. 데이터를 수정하지 않고 scipy가 읽은 실제 오디오 부분을 그대로 사용했습니다. 경고 때문에 fallback으로 전환된 것은 아닙니다.
+
+화자 교대만 사용하는 작은 후보는 개발용 20개 중 15개 대화에서 보수적 화자 판정이 통과했습니다. 이때 채택된 157개 클립의 화자 구분은 개발 정답의 교대 순서와 모두 일치했습니다. 이 진단은 순서 정확도와 다른 수치입니다.
+
+설정을 고정하고 평가한 A/B에서는 각각 72개, 71개 대화에 화자 제약이 적용됐고 prefix-only 대비 +0.1190%p, +0.6344%p였습니다. 상승 폭은 작습니다. GPU나 모델 가중치 없이 실행하는 대안으로 볼 수 있지만, 이것만으로 대화 내용의 순서를 충분히 복원하지는 못합니다. A/B를 본 뒤 설정을 추가 조정하지 않았습니다.
+
+각 설정 1회, CPU Intel Core Ultra 9 185H / threads 4 / Python 3.11 환경입니다. 시간에는 라이브러리 import와 입력 읽기를 포함하고, 다운로드·scorer는 제외했습니다. 모델 가중치가 없어도 prefix-only 수치는 재현할 수 있습니다. [실측 JSON과 전체 명령](../benchmarks/results_order_robot.json), [실행·채점 재현기](../benchmarks/reproduce_order_robot.py), [고정 revision 다운로드 도구](../benchmarks/download_order_robot.py), [음향 후보 코드](../benchmarks/order_acoustic_candidate.py)를 참고하십시오.
+
+저장된 예측에는 고정 revision의 공식 `score_submission`도 별도로 적용했습니다. [교차 검증 결과](../benchmarks/scoring_audit_order_robot.json)는 이 문제 11회와 Robot Chasing 8회, 총 19회 모두 점수가 소수점 4자리까지 일치함을 확인합니다. 이는 채점 수식의 확인이며 원대회 Podman·notebook·시간 제한 환경 전체를 재현했다는 뜻은 아닙니다.
+
+## 일반 clone에서 재현
+
+아래는 저장소 최상위에서 실행하는 PowerShell 예시입니다. 앞서 설명한 Python 의존성과 `huggingface_hub`가 설치되어 있어야 합니다. 다운로드는 고정 revision을 사용하며 공개 오디오 전체와 두 모델에 약 2.71GB가 필요합니다. 실제 실행 기록 JSON의 `<workspace>/outputs/IOAI` 경로를 복사할 필요는 없습니다.
+
+```powershell
+python benchmarks/download_order_robot.py order-data --workspace work/bench-order-robot
+python benchmarks/download_order_robot.py order-eval --workspace work/bench-order-robot
+python benchmarks/download_order_robot.py models --workspace work/bench-order-robot
+$benchPath = (Resolve-Path work/bench-order-robot).Path
+python benchmarks/reproduce_order_robot.py run --task order --label full_a --script solutions/day1_find_the_order.py --dataset work/bench-order-robot/order/test_leaderboard_a/dataset --truth work/bench-order-robot/scorer-only/order/test_leaderboard_a_answers.json --run-dir work/bench-order-robot/runs/full_a --data-revision 71a35b5a566665e242416eba45f018dc378663b8 --split test_leaderboard_a --device cuda --threads 4 --timeout 630 -- --budget 540 --whisper "$benchPath/models/whisper-small" --qwen "$benchPath/models/qwen2.5-0.5b"
+```
+
+`order-data`를 먼저 실행해야 `order-eval`의 공통 데이터 배치가 완료됩니다. B는 명령의 `test_leaderboard_a`와 `full_a`를 각각 `test_leaderboard_b`, `full_b`로 바꿉니다. 이미 예측 파일이 있는 실행 폴더는 재사용하지 않습니다. `--truth`는 재현 실행기의 사후 scorer에만 전달되며, 풀이 프로세스에는 입력 디렉터리와 모델 경로만 전달됩니다. Linux에서는 `$benchPath` 대신 `"$(pwd)/work/bench-order-robot"`를 모델 경로 앞에 사용하면 됩니다.
