@@ -1,4 +1,4 @@
-"""IOAI 2026 Day 1: Robot Chasing, proposed per-robot small-MLP solution.
+"""IOAI 2026 Day 1: Robot Chasing, per-robot compact tabular classifiers.
 
 Uses only training labels, deterministic instruction parsing and observable grid
 features. No path-planner assumptions, pretrained model or test-label reads.
@@ -266,12 +266,58 @@ def train_predict(train, labels, test, defaults, args, stop_at):
     return predictions
 
 
+def hist_train_predict(train, labels, test, defaults, args, stop_at):
+    """CPU-friendly boosted trees, selected using a training-only holdout.
+
+    Uses the 176 engineered/word features after the 1152 full-grid one-hot
+    features. The MLP option retains the complete grid representation.
+    """
+    import numpy as np
+    from sklearn.ensemble import HistGradientBoostingClassifier
+    from threadpoolctl import threadpool_limits
+
+    predictions = [int(defaults[o["robot_id"]]) for o in test]
+    for robot in range(6):
+        if time.monotonic() >= stop_at:
+            print("training budget exhausted; untrained robots keep majority actions", flush=True)
+            break
+        train_indices = [i for i, o in enumerate(train) if o["robot_id"] == robot]
+        test_indices = [i for i, o in enumerate(test) if o["robot_id"] == robot]
+        if not train_indices or not test_indices:
+            continue
+        features = []
+        for row, i in enumerate(train_indices):
+            features.append(feature_vector(train[i])[1152:])
+            if row % 256 == 0 and time.monotonic() >= stop_at:
+                print("training budget exhausted during features; partial predictions retained", flush=True)
+                return predictions
+        x = np.stack(features)
+        y = np.asarray([labels[i] for i in train_indices])
+        xt = np.stack([feature_vector(test[i])[1152:] for i in test_indices])
+        model = HistGradientBoostingClassifier(
+            max_iter=args.hist_iterations, learning_rate=0.1,
+            max_leaf_nodes=31, l2_regularization=1,
+            early_stopping=len(train_indices) >= 100,
+            validation_fraction=args.validation_fraction, n_iter_no_change=15,
+            random_state=args.seed + robot)
+        with threadpool_limits(limits=args.cpu_threads):
+            model.fit(x, y)
+            predicted = model.predict(xt)
+        for index, action in zip(test_indices, predicted):
+            predictions[index] = int(action)
+        write_predictions(predictions, args.output)
+        print(f"robot {robot}: hist iterations={model.n_iter_}, features={x.shape[1]}", flush=True)
+    return predictions
+
+
 def make_parser():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--dataset-root", default="dataset")
     parser.add_argument("--output", default="predictions.json")
     parser.add_argument("--budget", type=float, default=270, help="soft total seconds; statement limit is 300s")
     parser.add_argument("--epochs", type=int, default=60)
+    parser.add_argument("--model", choices=("hist", "mlp"), default="mlp")
+    parser.add_argument("--hist-iterations", type=int, default=128)
     parser.add_argument("--hidden", type=int, default=192)
     parser.add_argument("--batch-size", type=int, default=512)
     parser.add_argument("--learning-rate", type=float, default=0.002)
@@ -284,7 +330,7 @@ def make_parser():
 
 def main(argv=None):
     args = make_parser().parse_args(argv)
-    if min(args.hidden, args.batch_size, args.patience, args.cpu_threads) < 1:
+    if min(args.hidden, args.batch_size, args.patience, args.cpu_threads, args.hist_iterations) < 1:
         raise ValueError("model sizes, patience and CPU threads must be positive")
     if not 0 < args.validation_fraction < 0.5 or args.learning_rate <= 0:
         raise ValueError("invalid validation fraction or learning rate")
@@ -298,9 +344,15 @@ def main(argv=None):
     write_predictions(predictions, args.output)
     if args.epochs > 0 and time.monotonic() < started + args.budget - 20:
         try:
-            predictions = train_predict(train, labels, test, defaults, args, started + args.budget - 20)
+            predictor = hist_train_predict if args.model == "hist" else train_predict
+            predictions = predictor(train, labels, test, defaults, args, started + args.budget - 20)
         except Exception as exc:
-            print(f"training failed; saved per-robot majority fallback retained: {exc}", file=sys.stderr)
+            # A later robot can fail after earlier robots were already saved.
+            # Preserve that progress instead of overwriting it with all-majority.
+            saved = json.loads(Path(args.output).read_text(encoding="utf-8"))
+            if len(saved) == len(test) and all(type(x) is int and 0 <= x < 6 for x in saved):
+                predictions = saved
+            print(f"training failed; saved partial predictions/fallback retained: {exc}", file=sys.stderr)
     write_predictions(predictions, args.output)
     print(f"wrote {len(predictions)} predictions in {time.monotonic() - started:.1f}s")
     return predictions

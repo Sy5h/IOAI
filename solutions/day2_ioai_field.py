@@ -74,7 +74,7 @@ def fit_affine_i(model, xy, values):
     return residual
 
 
-def calibrate_i_threshold(model, validation_regions, safety=0.5):
+def calibrate_i_threshold(model, validation_regions, safety=1.5):
     """Require a margin above every observed non-I example; not a guarantee."""
     device = next(model.parameters()).device
     xy = torch.cat([pair[0] for pair in validation_regions[1:]], 0).to(device)
@@ -131,8 +131,8 @@ def train_o(model, samples, deadline, max_steps=2500, batch_size=2048):
 
 
 def train_one_config(cfg, make_batch, model_class, device, deadline,
-                     samples_per_region=4096, validation_per_region=1024, seed=2026,
-                     router_steps=2500, o_steps=2500, i_safety=0.5):
+                     samples_per_region=4096, validation_per_region=16384, seed=2026,
+                     router_steps=2500, o_steps=2500, i_safety=1.5):
     torch.manual_seed(seed)
     i_min, i_max = float(cfg.i_grad_min), float(cfg.i_grad_max)
     if not i_max > i_min:
@@ -166,11 +166,11 @@ def main(argv=None):
     parser.add_argument("--output", default="model.pt")
     parser.add_argument("--seconds", type=float, default=265)
     parser.add_argument("--samples-per-region", type=int, default=4096)
-    parser.add_argument("--validation-per-region", type=int, default=1024)
+    parser.add_argument("--validation-per-region", type=int, default=16384)
     parser.add_argument("--seed", type=int, default=2026)
     parser.add_argument("--router-steps", type=int, default=2500)
     parser.add_argument("--o-steps", type=int, default=2500)
-    parser.add_argument("--i-safety", type=float, default=0.5)
+    parser.add_argument("--i-safety", type=float, default=1.5)
     args = parser.parse_args(argv)
     start = time.monotonic()
     try:
