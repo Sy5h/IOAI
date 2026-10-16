@@ -1,0 +1,290 @@
+{
+  "official_source_revision": "e1963801aa4cf33a5a03520b39fa6620a7894c54",
+  "scope": "Execute pinned original score_submission and its metric helper functions only; no Podman, GPU, timeout or notebook wrapper.",
+  "sources": {
+    "order": {
+      "url": "https://github.com/IOAI-official/IOAI-2026/blob/e1963801aa4cf33a5a03520b39fa6620a7894c54/Individual-Contest/1_Find_the_Order/code/grading-original/check.py",
+      "sha256": "ad599419f5e827157a443266fbe88ea1274d1e9bf8652dc127beb3e772548dc9"
+    },
+    "robot": {
+      "url": "https://github.com/IOAI-official/IOAI-2026/blob/e1963801aa4cf33a5a03520b39fa6620a7894c54/Individual-Contest/2_Robot_Chasing/code/grading-original/check.py",
+      "sha256": "4a0a23a4cd521ee90b93b60eb3733b7d4d1d19dfd4fbea1971cf2e6b302395d8"
+    }
+  },
+  "all_match": true,
+  "runs": [
+    {
+      "run_id": "order_acoustic_a",
+      "official_score_rounded_4dp": 69.088,
+      "benchmark_score_rounded_4dp": 69.088,
+      "matches": true,
+      "official_details": {
+        "pairwise_accuracy": 0.69088,
+        "dialogues": 100,
+        "valid_predictions": 100
+      }
+    },
+    {
+      "run_id": "order_acoustic_b",
+      "official_score_rounded_4dp": 69.7803,
+      "benchmark_score_rounded_4dp": 69.7803,
+      "matches": true,
+      "official_details": {
+        "pairwise_accuracy": 0.697803,
+        "dialogues": 100,
+        "valid_predictions": 100
+      }
+    },
+    {
+      "run_id": "order_acoustic_development",
+      "official_score_rounded_4dp": 70.5481,
+      "benchmark_score_rounded_4dp": 70.5481,
+      "matches": true,
+      "official_details": {
+        "pairwise_accuracy": 0.705481,
+        "dialogues": 20,
+        "valid_predictions": 20
+      }
+    },
+    {
+      "run_id": "order_baseline_a",
+      "official_score_rounded_4dp": 76.5214,
+      "benchmark_score_rounded_4dp": 76.5214,
+      "matches": true,
+      "official_details": {
+        "pairwise_accuracy": 0.765214,
+        "dialogues": 100,
+        "valid_predictions": 100
+      }
+    },
+    {
+      "run_id": "order_baseline_b",
+      "official_score_rounded_4dp": 74.0884,
+      "benchmark_score_rounded_4dp": 74.0884,
+      "matches": true,
+      "official_details": {
+        "pairwise_accuracy": 0.740884,
+        "dialogues": 100,
+        "valid_predictions": 100
+      }
+    },
+    {
+      "run_id": "order_baseline_development",
+      "official_score_rounded_4dp": 75.5781,
+      "benchmark_score_rounded_4dp": 75.5781,
+      "matches": true,
+      "official_details": {
+        "pairwise_accuracy": 0.755781,
+        "dialogues": 20,
+        "valid_predictions": 20
+      }
+    },
+    {
+      "run_id": "order_baseline_pretest",
+      "official_score_rounded_4dp": 75.914,
+      "benchmark_score_rounded_4dp": 75.914,
+      "matches": true,
+      "official_details": {
+        "pairwise_accuracy": 0.75914,
+        "dialogues": 20,
+        "valid_predictions": 20
+      }
+    },
+    {
+      "run_id": "order_prefix_a",
+      "official_score_rounded_4dp": 68.969,
+      "benchmark_score_rounded_4dp": 68.969,
+      "matches": true,
+      "official_details": {
+        "pairwise_accuracy": 0.68969,
+        "dialogues": 100,
+        "valid_predictions": 100
+      }
+    },
+    {
+      "run_id": "order_prefix_b",
+      "official_score_rounded_4dp": 69.146,
+      "benchmark_score_rounded_4dp": 69.146,
+      "matches": true,
+      "official_details": {
+        "pairwise_accuracy": 0.69146,
+        "dialogues": 100,
+        "valid_predictions": 100
+      }
+    },
+    {
+      "run_id": "order_prefix_development",
+      "official_score_rounded_4dp": 69.3335,
+      "benchmark_score_rounded_4dp": 69.3335,
+      "matches": true,
+      "official_details": {
+        "pairwise_accuracy": 0.693335,
+        "dialogues": 20,
+        "valid_predictions": 20
+      }
+    },
+    {
+      "run_id": "order_prefix_pretest",
+      "official_score_rounded_4dp": 68.9534,
+      "benchmark_score_rounded_4dp": 68.9534,
+      "matches": true,
+      "official_details": {
+        "pairwise_accuracy": 0.689534,
+        "dialogues": 20,
+        "valid_predictions": 20
+      }
+    },
+    {
+      "run_id": "robot_baseline_a",
+      "official_score_rounded_4dp": 64.9167,
+      "benchmark_score_rounded_4dp": 64.9167,
+      "matches": true,
+      "official_details": {
+        "per_robot_accuracy": 0.649167,
+        "robots": 6,
+        "per_robot": [
+          0.656667,
+          0.681667,
+          0.656667,
+          0.643333,
+          0.636667,
+          0.62
+        ],
+        "predictions": 3600
+      }
+    },
+    {
+      "run_id": "robot_baseline_b",
+      "official_score_rounded_4dp": 63.9444,
+      "benchmark_score_rounded_4dp": 63.9444,
+      "matches": true,
+      "official_details": {
+        "per_robot_accuracy": 0.639444,
+        "robots": 6,
+        "per_robot": [
+          0.66,
+          0.64,
+          0.62,
+          0.636667,
+          0.658333,
+          0.621667
+        ],
+        "predictions": 3600
+      }
+    },
+    {
+      "run_id": "robot_baseline_holdout",
+      "official_score_rounded_4dp": 64.7333,
+      "benchmark_score_rounded_4dp": 64.7333,
+      "matches": true,
+      "official_details": {
+        "per_robot_accuracy": 0.647333,
+        "robots": 6,
+        "per_robot": [
+          0.6785,
+          0.654,
+          0.637,
+          0.632,
+          0.6435,
+          0.639
+        ],
+        "predictions": 12000
+      }
+    },
+    {
+      "run_id": "robot_hist_a",
+      "official_score_rounded_4dp": 63.75,
+      "benchmark_score_rounded_4dp": 63.75,
+      "matches": true,
+      "official_details": {
+        "per_robot_accuracy": 0.6375,
+        "robots": 6,
+        "per_robot": [
+          0.656667,
+          0.676667,
+          0.633333,
+          0.603333,
+          0.606667,
+          0.648333
+        ],
+        "predictions": 3600
+      }
+    },
+    {
+      "run_id": "robot_hist_b",
+      "official_score_rounded_4dp": 64.5278,
+      "benchmark_score_rounded_4dp": 64.5278,
+      "matches": true,
+      "official_details": {
+        "per_robot_accuracy": 0.645278,
+        "robots": 6,
+        "per_robot": [
+          0.675,
+          0.668333,
+          0.64,
+          0.656667,
+          0.601667,
+          0.63
+        ],
+        "predictions": 3600
+      }
+    },
+    {
+      "run_id": "robot_hist_holdout",
+      "official_score_rounded_4dp": 66.5083,
+      "benchmark_score_rounded_4dp": 66.5083,
+      "matches": true,
+      "official_details": {
+        "per_robot_accuracy": 0.665083,
+        "robots": 6,
+        "per_robot": [
+          0.6835,
+          0.676,
+          0.663,
+          0.666,
+          0.645,
+          0.657
+        ],
+        "predictions": 12000
+      }
+    },
+    {
+      "run_id": "robot_mlp_pretest",
+      "official_score_rounded_4dp": 63.0,
+      "benchmark_score_rounded_4dp": 63.0,
+      "matches": true,
+      "official_details": {
+        "per_robot_accuracy": 0.63,
+        "robots": 6,
+        "per_robot": [
+          0.6,
+          0.64,
+          0.62,
+          0.68,
+          0.66,
+          0.58
+        ],
+        "predictions": 600
+      }
+    },
+    {
+      "run_id": "robot_trees_holdout",
+      "official_score_rounded_4dp": 65.15,
+      "benchmark_score_rounded_4dp": 65.15,
+      "matches": true,
+      "official_details": {
+        "per_robot_accuracy": 0.6515,
+        "robots": 6,
+        "per_robot": [
+          0.6745,
+          0.659,
+          0.639,
+          0.655,
+          0.639,
+          0.6425
+        ],
+        "predictions": 12000
+      }
+    }
+  ]
+}
