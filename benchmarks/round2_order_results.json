@@ -1,0 +1,620 @@
+{
+  "measurement_date": "2026-10-16",
+  "task": "Find the Order",
+  "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+  "baseline_source_sha256": "1474a40641722150965baf3d2d531166f28a34d9ebf150c618be7d3a51baecbe",
+  "data_revision": "71a35b5a566665e242416eba45f018dc378663b8",
+  "model_revisions": {
+    "whisper-small": "973afd24965f72e36ca33b3055d56a652f456b4d",
+    "Qwen2.5-0.5B": "060db6499f32faf8b98477b0a26969ef7d8b9987"
+  },
+  "selection": {
+    "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+    "development_split": "public/pretrain:20 dialogues",
+    "selected_change": {
+      "beam": 256
+    },
+    "reason": "Largest mean pairwise score among eight prespecified simple search alternatives; same Whisper and Qwen models. Beam 64 was also strong. No A/B inputs or labels were used for selection.",
+    "cache_note": "Development scores reused ASR and all-pair Qwen scores at LM batch8, so cached baseline75.8797 differs slightly from prior deployed batch4 baseline75.5781. Final measurements use original batch4 and fresh processes. Cache never supplied to final solver.",
+    "protocol": "Freeze beam256 before public pretest and released A/B re-evaluation. Prior A/B were previously observed, so this is development re-evaluation. Baseline A/B scores and timing from round1 retained as historical reference."
+  },
+  "development_search": [
+    {
+      "width": 16,
+      "speakers": true,
+      "global_weight": 0,
+      "center": false,
+      "mean": 75.8796750634986,
+      "first10": 75.97612681436212,
+      "last10": 75.78322331263507,
+      "seconds": 0.010092600001371466
+    },
+    {
+      "width": 64,
+      "speakers": true,
+      "global_weight": 0,
+      "center": false,
+      "mean": 79.57835710041593,
+      "first10": 78.98779814956285,
+      "last10": 80.168916051269,
+      "seconds": 0.03606700000818819
+    },
+    {
+      "width": 256,
+      "speakers": true,
+      "global_weight": 0,
+      "center": false,
+      "mean": 80.07781842340667,
+      "first10": 78.02234530175706,
+      "last10": 82.13329154505625,
+      "seconds": 0.12191269999311771
+    },
+    {
+      "width": 64,
+      "speakers": true,
+      "global_weight": 0,
+      "center": true,
+      "mean": 79.09531644825763,
+      "first10": 77.94881588999235,
+      "last10": 80.2418170065229,
+      "seconds": 0.036825300005148165
+    },
+    {
+      "width": 64,
+      "speakers": true,
+      "global_weight": 0.25,
+      "center": true,
+      "mean": 78.02447144358909,
+      "first10": 75.80712588065529,
+      "last10": 80.2418170065229,
+      "seconds": 0.06175600001006387
+    },
+    {
+      "width": 64,
+      "speakers": true,
+      "global_weight": 1.0,
+      "center": true,
+      "mean": 79.07758499670265,
+      "first10": 75.80712588065529,
+      "last10": 82.34804411274999,
+      "seconds": 0.06035540001175832
+    },
+    {
+      "width": 64,
+      "speakers": false,
+      "global_weight": 0,
+      "center": false,
+      "mean": 77.9171580053933,
+      "first10": 77.50483829895595,
+      "last10": 78.32947771183065,
+      "seconds": 0.05014449999725912
+    },
+    {
+      "width": 64,
+      "speakers": false,
+      "global_weight": 0.25,
+      "center": true,
+      "mean": 78.38835674129793,
+      "first10": 77.73453017570665,
+      "last10": 79.04218330688919,
+      "seconds": 0.08769270000630058
+    }
+  ],
+  "notes": [
+    "The only solver change is the default beam width from 16 to 256; models, ASR, Qwen scoring, speaker filter and time budget are unchanged.",
+    "All eight alternatives were selected on public/pretrain 20 dialogues. first10/last10 are descriptive subsets of the same development sample, not untouched holdouts.",
+    "Development reused Qwen/ASR scores, with LM batch8 and all eligible edges. Search-only seconds exclude model work and are not final runtime. The cache is not supplied to final solvers, which keep original LM batch4.",
+    "Historical baseline source SHA256 is identical to the 991a49b snapshot. Historical timings are earlier runs, not fresh paired round-two baseline measurements; small timing changes cannot be attributed to beam width.",
+    "Each recorded successful run used a fresh solver process and recomputed transcription/model scores. Time includes imports, local model/data loading, inference, answer writing and exit; downloads and scoring are excluded.",
+    "Prior A/B were observed before this development round. The beam was fixed before the new pretest/A/B evaluations. These are released-data development re-evaluations, not independent blind tests.",
+    "GPU was scheduled per task, but CPU, I/O and other agents' work could overlap. Driver/OS caches may be warm. The original contest Linux/Podman environment was not reproduced.",
+    "An initial pretest dispatch used a nonexistent input folder and failed before inference. It has no score. The corrected path was rerun; both records are preserved.",
+    "No raw transcripts, answer arrays, audio, cache contents or model weights are published. Scorer-only reference files are read only after solver execution."
+  ],
+  "official_scoring_crosscheck": {
+    "revision": "e1963801aa4cf33a5a03520b39fa6620a7894c54",
+    "source_sha256": "ad599419f5e827157a443266fbe88ea1274d1e9bf8652dc127beb3e772548dc9",
+    "url": "https://github.com/IOAI-official/IOAI-2026/blob/e1963801aa4cf33a5a03520b39fa6620a7894c54/Individual-Contest/1_Find_the_Order/code/grading-original/check.py",
+    "scope": "Pinned validate_permutation, score_one, score_submission functions only; no container or resource wrapper.",
+    "all_match": true,
+    "runs": [
+      {
+        "run": "order_baseline_pretest",
+        "variant": "historical_baseline",
+        "official_score_rounded_4dp": 75.914,
+        "benchmark_score_rounded_4dp": 75.914,
+        "matches": true,
+        "details": {
+          "pairwise_accuracy": 0.75914,
+          "dialogues": 20,
+          "valid_predictions": 20
+        }
+      },
+      {
+        "run": "order_baseline_a",
+        "variant": "historical_baseline",
+        "official_score_rounded_4dp": 76.5214,
+        "benchmark_score_rounded_4dp": 76.5214,
+        "matches": true,
+        "details": {
+          "pairwise_accuracy": 0.765214,
+          "dialogues": 100,
+          "valid_predictions": 100
+        }
+      },
+      {
+        "run": "order_baseline_b",
+        "variant": "historical_baseline",
+        "official_score_rounded_4dp": 74.0884,
+        "benchmark_score_rounded_4dp": 74.0884,
+        "matches": true,
+        "details": {
+          "pairwise_accuracy": 0.740884,
+          "dialogues": 100,
+          "valid_predictions": 100
+        }
+      },
+      {
+        "run": "pretest-corrected",
+        "variant": "candidate",
+        "official_score_rounded_4dp": 79.1531,
+        "benchmark_score_rounded_4dp": 79.1531,
+        "matches": true,
+        "details": {
+          "pairwise_accuracy": 0.791531,
+          "dialogues": 20,
+          "valid_predictions": 20
+        }
+      },
+      {
+        "run": "leaderboard_a",
+        "variant": "candidate",
+        "official_score_rounded_4dp": 77.7727,
+        "benchmark_score_rounded_4dp": 77.7727,
+        "matches": true,
+        "details": {
+          "pairwise_accuracy": 0.777727,
+          "dialogues": 100,
+          "valid_predictions": 100
+        }
+      },
+      {
+        "run": "leaderboard_b",
+        "variant": "candidate",
+        "official_score_rounded_4dp": 77.9223,
+        "benchmark_score_rounded_4dp": 77.9223,
+        "matches": true,
+        "details": {
+          "pairwise_accuracy": 0.779223,
+          "dialogues": 100,
+          "valid_predictions": 100
+        }
+      }
+    ]
+  },
+  "runs": [
+    {
+      "label": "baseline_full_public_pretest",
+      "task": "order",
+      "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+      "started_utc": "2026-10-16T12:41:19.677465+00:00",
+      "script_sha256": "1474a40641722150965baf3d2d531166f28a34d9ebf150c618be7d3a51baecbe",
+      "command": [
+        "<python>\\python.exe",
+        "-u",
+        "<workspace>\\work\\bench-order-robot\\baseline\\day1_find_the_order.py",
+        "--test-dir",
+        "<workspace>\\work\\bench-order-robot\\order\\official\\test_public",
+        "--output",
+        "<workspace>\\work\\bench-order-robot\\runs\\order_baseline_pretest\\answers.json",
+        "--budget",
+        "540",
+        "--whisper",
+        "<workspace>/work/bench-order-robot/models/whisper-small",
+        "--qwen",
+        "<workspace>/work/bench-order-robot/models/qwen2.5-0.5b"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\order\\official",
+      "data_revision": "71a35b5a566665e242416eba45f018dc378663b8",
+      "evaluation_split": "public_pretest",
+      "truth_sha256": "cd44ef11d60aa3a655d79a0978f72a646d5b10311365624da1d9ee03d2f896bb",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cuda",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 82.71452570000838,
+      "solver_logged_fallback": false,
+      "log_tail": "<workspace>\\work\\bench-order-robot\\baseline\\day1_find_the_order.py:118: WavFileWarning: Reached EOF prematurely; finished at 249856 bytes, expected 274430 bytes from header.\n  rate, audio = wavfile.read(str(path))\nYou have passed task=transcribe, but also have set `forced_decoder_ids` to [[1, None], [2, 50359]] which creates a conflict. `forced_decoder_ids` will be ignored in favor of task=transcribe.\nStarting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)\nordered dialogue 11 (7 turns)\nordered dialogue 1494 (7 turns)\nordered dialogue 456 (7 turns)\nordered dialogue 1257 (8 turns)\nordered dialogue 1448 (8 turns)\nordered dialogue 384 (8 turns)\nordered dialogue 649 (8 turns)\nordered dialogue 268 (9 turns)\nordered dialogue 446 (9 turns)\nordered dialogue 577 (9 turns)\nordered dialogue 1149 (10 turns)\nordered dialogue 202 (10 turns)\nordered dialogue 1401 (11 turns)\nordered dialogue 697 (12 turns)\nordered dialogue 570 (13 turns)\nordered dialogue 656 (14 turns)\nordered dialogue 682 (15 turns)\nordered dialogue 1385 (16 turns)\nordered dialogue 340 (17 turns)\nordered dialogue 69 (18 turns)\nwrote 20 valid permutations in 81.2s\n",
+      "result": {
+        "metric": "mean_dialogue_pairwise_order_accuracy_percent",
+        "score": 75.914049186108,
+        "dialogues": 20,
+        "invalid_dialogues": 0
+      },
+      "variant": "historical_baseline",
+      "measurement_round": 1,
+      "ordered_dialogues": 20
+    },
+    {
+      "label": "baseline_full_leaderboard_a",
+      "task": "order",
+      "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+      "started_utc": "2026-10-16T12:50:10.407056+00:00",
+      "script_sha256": "1474a40641722150965baf3d2d531166f28a34d9ebf150c618be7d3a51baecbe",
+      "command": [
+        "<python>\\python.exe",
+        "-u",
+        "<workspace>\\work\\bench-order-robot\\baseline\\day1_find_the_order.py",
+        "--test-dir",
+        "<workspace>\\work\\bench-order-robot\\order\\test_leaderboard_a\\dataset\\test_public",
+        "--output",
+        "<workspace>\\work\\bench-order-robot\\runs\\order_baseline_a\\answers.json",
+        "--budget",
+        "540",
+        "--whisper",
+        "<workspace>/work/bench-order-robot/models/whisper-small",
+        "--qwen",
+        "<workspace>/work/bench-order-robot/models/qwen2.5-0.5b"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\order\\test_leaderboard_a\\dataset",
+      "data_revision": "71a35b5a566665e242416eba45f018dc378663b8",
+      "evaluation_split": "test_leaderboard_a",
+      "truth_sha256": "77e84a9c4a2c9728ad4034ee31b819ec74b31ec055de868cd582cd9e91d21997",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cuda",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 362.13142050000897,
+      "solver_logged_fallback": false,
+      "log_tail": "ns)\nordered dialogue 1239 (9 turns)\nordered dialogue 1351 (9 turns)\nordered dialogue 1372 (9 turns)\nordered dialogue 152 (9 turns)\nordered dialogue 161 (9 turns)\nordered dialogue 265 (9 turns)\nordered dialogue 348 (9 turns)\nordered dialogue 386 (9 turns)\nordered dialogue 424 (9 turns)\nordered dialogue 1123 (10 turns)\nordered dialogue 1384 (10 turns)\nordered dialogue 16 (10 turns)\nordered dialogue 211 (10 turns)\nordered dialogue 555 (10 turns)\nordered dialogue 662 (10 turns)\nordered dialogue 714 (10 turns)\nordered dialogue 799 (10 turns)\nordered dialogue 892 (10 turns)\nordered dialogue 990 (10 turns)\nordered dialogue 147 (11 turns)\nordered dialogue 1652 (11 turns)\nordered dialogue 1911 (11 turns)\nordered dialogue 208 (11 turns)\nordered dialogue 284 (11 turns)\nordered dialogue 674 (11 turns)\nordered dialogue 844 (11 turns)\nordered dialogue 1211 (12 turns)\nordered dialogue 25 (12 turns)\nordered dialogue 762 (12 turns)\nordered dialogue 826 (12 turns)\nordered dialogue 852 (12 turns)\nordered dialogue 973 (12 turns)\nordered dialogue 136 (13 turns)\nordered dialogue 294 (13 turns)\nordered dialogue 538 (13 turns)\nordered dialogue 609 (13 turns)\nordered dialogue 730 (13 turns)\nordered dialogue 786 (13 turns)\nordered dialogue 1280 (14 turns)\nordered dialogue 141 (14 turns)\nordered dialogue 253 (14 turns)\nordered dialogue 810 (14 turns)\nordered dialogue 903 (14 turns)\nordered dialogue 960 (14 turns)\nordered dialogue 1002 (15 turns)\nordered dialogue 204 (15 turns)\nordered dialogue 443 (15 turns)\nordered dialogue 458 (15 turns)\nordered dialogue 612 (15 turns)\nordered dialogue 1169 (16 turns)\nordered dialogue 1283 (16 turns)\nordered dialogue 571 (16 turns)\nordered dialogue 910 (16 turns)\nordered dialogue 1482 (17 turns)\nordered dialogue 1798 (17 turns)\nordered dialogue 365 (17 turns)\nordered dialogue 1073 (18 turns)\nordered dialogue 1500 (18 turns)\nordered dialogue 410 (19 turns)\nordered dialogue 501 (20 turns)\nordered dialogue 940 (20 turns)\nwrote 100 valid permutations in 360.6s\n",
+      "result": {
+        "metric": "mean_dialogue_pairwise_order_accuracy_percent",
+        "score": 76.52137022763952,
+        "dialogues": 100,
+        "invalid_dialogues": 0
+      },
+      "variant": "historical_baseline",
+      "measurement_round": 1,
+      "ordered_dialogues": 100
+    },
+    {
+      "label": "baseline_full_leaderboard_b",
+      "task": "order",
+      "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+      "started_utc": "2026-10-16T12:56:26.717076+00:00",
+      "script_sha256": "1474a40641722150965baf3d2d531166f28a34d9ebf150c618be7d3a51baecbe",
+      "command": [
+        "<python>\\python.exe",
+        "-u",
+        "<workspace>\\work\\bench-order-robot\\baseline\\day1_find_the_order.py",
+        "--test-dir",
+        "<workspace>\\work\\bench-order-robot\\order\\test_leaderboard_b\\dataset\\test_public",
+        "--output",
+        "<workspace>\\work\\bench-order-robot\\runs\\order_baseline_b\\answers.json",
+        "--budget",
+        "540",
+        "--whisper",
+        "<workspace>/work/bench-order-robot/models/whisper-small",
+        "--qwen",
+        "<workspace>/work/bench-order-robot/models/qwen2.5-0.5b"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\order\\test_leaderboard_b\\dataset",
+      "data_revision": "71a35b5a566665e242416eba45f018dc378663b8",
+      "evaluation_split": "test_leaderboard_b",
+      "truth_sha256": "6f9ecbad802502e4ecd292ce914c0debf0cd4dabae5e4eaf257b1438b26fdc7c",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cuda",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 266.9700521999912,
+      "solver_logged_fallback": false,
+      "log_tail": "9 turns)\nordered dialogue 1165 (9 turns)\nordered dialogue 1227 (9 turns)\nordered dialogue 188 (9 turns)\nordered dialogue 295 (9 turns)\nordered dialogue 372 (9 turns)\nordered dialogue 769 (9 turns)\nordered dialogue 861 (9 turns)\nordered dialogue 868 (9 turns)\nordered dialogue 999 (9 turns)\nordered dialogue 298 (10 turns)\nordered dialogue 523 (10 turns)\nordered dialogue 598 (10 turns)\nordered dialogue 758 (10 turns)\nordered dialogue 773 (10 turns)\nordered dialogue 85 (10 turns)\nordered dialogue 896 (10 turns)\nordered dialogue 916 (10 turns)\nordered dialogue 952 (10 turns)\nordered dialogue 970 (10 turns)\nordered dialogue 1080 (11 turns)\nordered dialogue 117 (11 turns)\nordered dialogue 1244 (11 turns)\nordered dialogue 401 (11 turns)\nordered dialogue 845 (11 turns)\nordered dialogue 961 (11 turns)\nordered dialogue 978 (11 turns)\nordered dialogue 1032 (12 turns)\nordered dialogue 1641 (12 turns)\nordered dialogue 1695 (12 turns)\nordered dialogue 230 (12 turns)\nordered dialogue 389 (12 turns)\nordered dialogue 825 (12 turns)\nordered dialogue 102 (13 turns)\nordered dialogue 2 (13 turns)\nordered dialogue 459 (13 turns)\nordered dialogue 549 (13 turns)\nordered dialogue 79 (13 turns)\nordered dialogue 986 (13 turns)\nordered dialogue 1154 (14 turns)\nordered dialogue 231 (14 turns)\nordered dialogue 359 (14 turns)\nordered dialogue 362 (14 turns)\nordered dialogue 522 (14 turns)\nordered dialogue 770 (14 turns)\nordered dialogue 1191 (15 turns)\nordered dialogue 1905 (15 turns)\nordered dialogue 519 (15 turns)\nordered dialogue 610 (15 turns)\nordered dialogue 632 (15 turns)\nordered dialogue 1085 (16 turns)\nordered dialogue 486 (16 turns)\nordered dialogue 837 (16 turns)\nordered dialogue 922 (16 turns)\nordered dialogue 1245 (17 turns)\nordered dialogue 678 (17 turns)\nordered dialogue 996 (17 turns)\nordered dialogue 127 (18 turns)\nordered dialogue 559 (18 turns)\nordered dialogue 146 (19 turns)\nordered dialogue 1117 (20 turns)\nordered dialogue 278 (20 turns)\nwrote 100 valid permutations in 265.5s\n",
+      "result": {
+        "metric": "mean_dialogue_pairwise_order_accuracy_percent",
+        "score": 74.08843136567594,
+        "dialogues": 100,
+        "invalid_dialogues": 0
+      },
+      "variant": "historical_baseline",
+      "measurement_round": 1,
+      "ordered_dialogues": 100
+    },
+    {
+      "label": "round2_beam256_pretest",
+      "task": "order",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:15:08.668953+00:00",
+      "script_sha256": "7568c8ea3e574c92755f86c61c616b2969261b248ec244297e1d5563beeae963",
+      "command": [
+        "<python>\\python.exe",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\solutions\\day1_find_the_order.py",
+        "--test-dir",
+        "<workspace>\\work\\bench-order-robot\\order\\official\\test_public",
+        "--output",
+        "<workspace>\\work\\round2\\order-runs\\pretest-corrected\\answers.json",
+        "--budget",
+        "540",
+        "--whisper",
+        "<workspace>/work/bench-order-robot/models/whisper-small",
+        "--qwen",
+        "<workspace>/work/bench-order-robot/models/qwen2.5-0.5b"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\order\\official",
+      "data_revision": "71a35b5a566665e242416eba45f018dc378663b8",
+      "evaluation_split": "public_pretest",
+      "truth_sha256": "cd44ef11d60aa3a655d79a0978f72a646d5b10311365624da1d9ee03d2f896bb",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cuda",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 78.7487395000062,
+      "solver_logged_fallback": false,
+      "log_tail": "<workspace>\\outputs\\IOAI\\solutions\\day1_find_the_order.py:118: WavFileWarning: Reached EOF prematurely; finished at 249856 bytes, expected 274430 bytes from header.\n  rate, audio = wavfile.read(str(path))\nYou have passed task=transcribe, but also have set `forced_decoder_ids` to [[1, None], [2, 50359]] which creates a conflict. `forced_decoder_ids` will be ignored in favor of task=transcribe.\nStarting from v4.46, the `logits` model output will have the same type as the model (except at train time, where it will always be FP32)\nordered dialogue 11 (7 turns)\nordered dialogue 1494 (7 turns)\nordered dialogue 456 (7 turns)\nordered dialogue 1257 (8 turns)\nordered dialogue 1448 (8 turns)\nordered dialogue 384 (8 turns)\nordered dialogue 649 (8 turns)\nordered dialogue 268 (9 turns)\nordered dialogue 446 (9 turns)\nordered dialogue 577 (9 turns)\nordered dialogue 1149 (10 turns)\nordered dialogue 202 (10 turns)\nordered dialogue 1401 (11 turns)\nordered dialogue 697 (12 turns)\nordered dialogue 570 (13 turns)\nordered dialogue 656 (14 turns)\nordered dialogue 682 (15 turns)\nordered dialogue 1385 (16 turns)\nordered dialogue 340 (17 turns)\nordered dialogue 69 (18 turns)\nwrote 20 valid permutations in 77.2s\n",
+      "result": {
+        "metric": "mean_dialogue_pairwise_order_accuracy_percent",
+        "score": 79.15305854276444,
+        "dialogues": 20,
+        "invalid_dialogues": 0
+      },
+      "variant": "candidate",
+      "measurement_round": 2,
+      "ordered_dialogues": 20
+    },
+    {
+      "label": "round2_beam256_leaderboard_a",
+      "task": "order",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:18:28.111034+00:00",
+      "script_sha256": "7568c8ea3e574c92755f86c61c616b2969261b248ec244297e1d5563beeae963",
+      "command": [
+        "<python>\\python.exe",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\solutions\\day1_find_the_order.py",
+        "--test-dir",
+        "<workspace>\\work\\bench-order-robot\\order\\test_leaderboard_a\\dataset\\test_public",
+        "--output",
+        "<workspace>\\work\\round2\\order-runs\\leaderboard_a\\answers.json",
+        "--budget",
+        "540",
+        "--whisper",
+        "<workspace>/work/bench-order-robot/models/whisper-small",
+        "--qwen",
+        "<workspace>/work/bench-order-robot/models/qwen2.5-0.5b"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\order\\test_leaderboard_a\\dataset",
+      "data_revision": "71a35b5a566665e242416eba45f018dc378663b8",
+      "evaluation_split": "leaderboard_a",
+      "truth_sha256": "77e84a9c4a2c9728ad4034ee31b819ec74b31ec055de868cd582cd9e91d21997",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cuda",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 277.68240560000413,
+      "solver_logged_fallback": false,
+      "log_tail": "ns)\nordered dialogue 1239 (9 turns)\nordered dialogue 1351 (9 turns)\nordered dialogue 1372 (9 turns)\nordered dialogue 152 (9 turns)\nordered dialogue 161 (9 turns)\nordered dialogue 265 (9 turns)\nordered dialogue 348 (9 turns)\nordered dialogue 386 (9 turns)\nordered dialogue 424 (9 turns)\nordered dialogue 1123 (10 turns)\nordered dialogue 1384 (10 turns)\nordered dialogue 16 (10 turns)\nordered dialogue 211 (10 turns)\nordered dialogue 555 (10 turns)\nordered dialogue 662 (10 turns)\nordered dialogue 714 (10 turns)\nordered dialogue 799 (10 turns)\nordered dialogue 892 (10 turns)\nordered dialogue 990 (10 turns)\nordered dialogue 147 (11 turns)\nordered dialogue 1652 (11 turns)\nordered dialogue 1911 (11 turns)\nordered dialogue 208 (11 turns)\nordered dialogue 284 (11 turns)\nordered dialogue 674 (11 turns)\nordered dialogue 844 (11 turns)\nordered dialogue 1211 (12 turns)\nordered dialogue 25 (12 turns)\nordered dialogue 762 (12 turns)\nordered dialogue 826 (12 turns)\nordered dialogue 852 (12 turns)\nordered dialogue 973 (12 turns)\nordered dialogue 136 (13 turns)\nordered dialogue 294 (13 turns)\nordered dialogue 538 (13 turns)\nordered dialogue 609 (13 turns)\nordered dialogue 730 (13 turns)\nordered dialogue 786 (13 turns)\nordered dialogue 1280 (14 turns)\nordered dialogue 141 (14 turns)\nordered dialogue 253 (14 turns)\nordered dialogue 810 (14 turns)\nordered dialogue 903 (14 turns)\nordered dialogue 960 (14 turns)\nordered dialogue 1002 (15 turns)\nordered dialogue 204 (15 turns)\nordered dialogue 443 (15 turns)\nordered dialogue 458 (15 turns)\nordered dialogue 612 (15 turns)\nordered dialogue 1169 (16 turns)\nordered dialogue 1283 (16 turns)\nordered dialogue 571 (16 turns)\nordered dialogue 910 (16 turns)\nordered dialogue 1482 (17 turns)\nordered dialogue 1798 (17 turns)\nordered dialogue 365 (17 turns)\nordered dialogue 1073 (18 turns)\nordered dialogue 1500 (18 turns)\nordered dialogue 410 (19 turns)\nordered dialogue 501 (20 turns)\nordered dialogue 940 (20 turns)\nwrote 100 valid permutations in 276.1s\n",
+      "result": {
+        "metric": "mean_dialogue_pairwise_order_accuracy_percent",
+        "score": 77.77265107613397,
+        "dialogues": 100,
+        "invalid_dialogues": 0
+      },
+      "variant": "candidate",
+      "measurement_round": 2,
+      "ordered_dialogues": 100
+    },
+    {
+      "label": "round2_beam256_leaderboard_b",
+      "task": "order",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:23:33.641520+00:00",
+      "script_sha256": "7568c8ea3e574c92755f86c61c616b2969261b248ec244297e1d5563beeae963",
+      "command": [
+        "<python>\\python.exe",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\solutions\\day1_find_the_order.py",
+        "--test-dir",
+        "<workspace>\\work\\bench-order-robot\\order\\test_leaderboard_b\\dataset\\test_public",
+        "--output",
+        "<workspace>\\work\\round2\\order-runs\\leaderboard_b\\answers.json",
+        "--budget",
+        "540",
+        "--whisper",
+        "<workspace>/work/bench-order-robot/models/whisper-small",
+        "--qwen",
+        "<workspace>/work/bench-order-robot/models/qwen2.5-0.5b"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\order\\test_leaderboard_b\\dataset",
+      "data_revision": "71a35b5a566665e242416eba45f018dc378663b8",
+      "evaluation_split": "leaderboard_b",
+      "truth_sha256": "6f9ecbad802502e4ecd292ce914c0debf0cd4dabae5e4eaf257b1438b26fdc7c",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cuda",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 254.28561700000137,
+      "solver_logged_fallback": false,
+      "log_tail": "9 turns)\nordered dialogue 1165 (9 turns)\nordered dialogue 1227 (9 turns)\nordered dialogue 188 (9 turns)\nordered dialogue 295 (9 turns)\nordered dialogue 372 (9 turns)\nordered dialogue 769 (9 turns)\nordered dialogue 861 (9 turns)\nordered dialogue 868 (9 turns)\nordered dialogue 999 (9 turns)\nordered dialogue 298 (10 turns)\nordered dialogue 523 (10 turns)\nordered dialogue 598 (10 turns)\nordered dialogue 758 (10 turns)\nordered dialogue 773 (10 turns)\nordered dialogue 85 (10 turns)\nordered dialogue 896 (10 turns)\nordered dialogue 916 (10 turns)\nordered dialogue 952 (10 turns)\nordered dialogue 970 (10 turns)\nordered dialogue 1080 (11 turns)\nordered dialogue 117 (11 turns)\nordered dialogue 1244 (11 turns)\nordered dialogue 401 (11 turns)\nordered dialogue 845 (11 turns)\nordered dialogue 961 (11 turns)\nordered dialogue 978 (11 turns)\nordered dialogue 1032 (12 turns)\nordered dialogue 1641 (12 turns)\nordered dialogue 1695 (12 turns)\nordered dialogue 230 (12 turns)\nordered dialogue 389 (12 turns)\nordered dialogue 825 (12 turns)\nordered dialogue 102 (13 turns)\nordered dialogue 2 (13 turns)\nordered dialogue 459 (13 turns)\nordered dialogue 549 (13 turns)\nordered dialogue 79 (13 turns)\nordered dialogue 986 (13 turns)\nordered dialogue 1154 (14 turns)\nordered dialogue 231 (14 turns)\nordered dialogue 359 (14 turns)\nordered dialogue 362 (14 turns)\nordered dialogue 522 (14 turns)\nordered dialogue 770 (14 turns)\nordered dialogue 1191 (15 turns)\nordered dialogue 1905 (15 turns)\nordered dialogue 519 (15 turns)\nordered dialogue 610 (15 turns)\nordered dialogue 632 (15 turns)\nordered dialogue 1085 (16 turns)\nordered dialogue 486 (16 turns)\nordered dialogue 837 (16 turns)\nordered dialogue 922 (16 turns)\nordered dialogue 1245 (17 turns)\nordered dialogue 678 (17 turns)\nordered dialogue 996 (17 turns)\nordered dialogue 127 (18 turns)\nordered dialogue 559 (18 turns)\nordered dialogue 146 (19 turns)\nordered dialogue 1117 (20 turns)\nordered dialogue 278 (20 turns)\nwrote 100 valid permutations in 253.1s\n",
+      "result": {
+        "metric": "mean_dialogue_pairwise_order_accuracy_percent",
+        "score": 77.92230393445561,
+        "dialogues": 100,
+        "invalid_dialogues": 0
+      },
+      "variant": "candidate",
+      "measurement_round": 2,
+      "ordered_dialogues": 100
+    },
+    {
+      "label": "round2_beam256_pretest",
+      "task": "order",
+      "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+      "started_utc": "2026-10-16T13:14:27.910008+00:00",
+      "script_sha256": "7568c8ea3e574c92755f86c61c616b2969261b248ec244297e1d5563beeae963",
+      "command": [
+        "<python>\\python.exe",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\solutions\\day1_find_the_order.py",
+        "--test-dir",
+        "<workspace>\\work\\bench-order-robot\\order\\pretest\\dataset\\test_public",
+        "--output",
+        "<workspace>\\work\\round2\\order-runs\\pretest\\answers.json",
+        "--budget",
+        "540",
+        "--whisper",
+        "<workspace>/work/bench-order-robot/models/whisper-small",
+        "--qwen",
+        "<workspace>/work/bench-order-robot/models/qwen2.5-0.5b"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\order\\pretest\\dataset",
+      "data_revision": "71a35b5a566665e242416eba45f018dc378663b8",
+      "evaluation_split": "public_pretest",
+      "truth_sha256": "cd44ef11d60aa3a655d79a0978f72a646d5b10311365624da1d9ee03d2f896bb",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cuda",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 1,
+      "status": "failed",
+      "run_seconds": 0.2538773999986006,
+      "solver_logged_fallback": false,
+      "log_tail": "Traceback (most recent call last):\n  File \"<workspace>\\outputs\\IOAI\\solutions\\day1_find_the_order.py\", line 388, in <module>\n    main()\n  File \"<workspace>\\outputs\\IOAI\\solutions\\day1_find_the_order.py\", line 365, in main\n    records = load_dialogues(args.test_dir)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<workspace>\\outputs\\IOAI\\solutions\\day1_find_the_order.py\", line 81, in load_dialogues\n    prefixes = json.loads((test_dir / \"prefix.json\").read_text(encoding=\"utf-8\"))\n                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<python>\\Lib\\pathlib.py\", line 1058, in read_text\n    with self.open(mode='r', encoding=encoding, errors=errors) as f:\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<python>\\Lib\\pathlib.py\", line 1044, in open\n    return io.open(self, mode, buffering, encoding, errors, newline)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nFileNotFoundError: [Errno 2] No such file or directory: '<workspace>\\\\work\\\\bench-order-robot\\\\order\\\\pretest\\\\dataset\\\\test_public\\\\prefix.json'\n",
+      "variant": "failed_dispatch",
+      "measurement_round": 2,
+      "ordered_dialogues": 0,
+      "score": null
+    }
+  ],
+  "pending": []
+}

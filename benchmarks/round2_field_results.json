@@ -1,0 +1,1547 @@
+{
+  "round": 2,
+  "task": "IOAI Field",
+  "status": "completed",
+  "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+  "workflow_url": "https://github.com/Sy5h/IOAI/actions/runs/38907040090",
+  "workflow_head": "a5053a9b20d18eacc590590bd1cb5d6a473cb747",
+  "job_id": 116993104474,
+  "official_revision": "e1963801aa4cf33a5a03520b39fa6620a7894c54",
+  "dataset_revision": "35136ba0abb05ea8dcdb6ec3db200617a9da6104",
+  "data_repository": "IOAI-official/ioai-2026-ioai-field",
+  "scope": "Released public/A/B single configurations. Development re-evaluation after earlier A/B observations; not an independent final test or hidden leaderboard submission.",
+  "timing_note": "training.wall_seconds includes each training subprocess and excludes package installation, download, and scoring; scoring.wall_seconds includes the scoring subprocess. run_seconds is their sum. One run per final configuration and implementation; timing is not a speed guarantee.",
+  "selection": {
+    "split": "public/train_config",
+    "seeds": [
+      314159,
+      271828
+    ],
+    "points_per_region": 8192,
+    "training_seed": 2026,
+    "criterion": "Highest mean official score across two public generated holdouts; prefer fewer bands on ties.",
+    "candidates": {
+      "baseline_991a49b": {
+        "candidate": "baseline_991a49b",
+        "geometry_bands": 0,
+        "geometry_axis": "affine",
+        "training_source_sha256": "020024de3943b7f0a9659d74a6efc9bce43a0662f6765679ba7282aecec47933",
+        "model_source_sha256": "d5cc9371f773354d8968e50a2136fa0e94f887a942074130e6a4b081aeb77a35",
+        "configuration_count": 1,
+        "training": {
+          "command": [
+            "python",
+            "<work-dir>/repository-baseline/day2_ioai_field.py",
+            "--seconds",
+            "265",
+            "--router-steps",
+            "2500",
+            "--o-steps",
+            "2500",
+            "--validation-per-region",
+            "16384",
+            "--i-safety",
+            "1.5"
+          ],
+          "wall_seconds": 20.909712538000036,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "validation": {
+          "314159": {
+            "scoring": {
+              "command": [
+                "python",
+                "<repository>/tools/benchmark_field.py",
+                "--score-model",
+                "<work-dir>/selection_baseline_991a49b/model.pt",
+                "--config-dir",
+                "<work-dir>/dataset/public/train_config",
+                "--output",
+                "<work-dir>/selection_baseline_991a49b/validation_314159.json",
+                "--eval-seed",
+                "314159",
+                "--n-per-region",
+                "8192"
+              ],
+              "wall_seconds": 3.6259378919999676,
+              "exit_code": 0,
+              "timed_out": false
+            },
+            "result": {
+              "score": {
+                "I_score": 0.5047886033851028,
+                "I_explain": "I: n=8192, mae=4.49176e+19, scale=9.07039e+19. score = 1 - min(mae/scale, 1) = 1 - min(4.49176e+19/9.07039e+19, 1) = 0.504789",
+                "O_score": 0.6869391164599625,
+                "O_explain": "O: n=8192, mae=0.572268, scale=1.82798. score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939",
+                "A_score": 1.0,
+                "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1",
+                "I_entropy_score": 1.0,
+                "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+                "bg_score": 0.7052949294447899,
+                "bg_explain": "bg: n=8192, mae=0.0294705, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295",
+                "total_score": 77.94045298579711,
+                "total_explain": "Total: weighted mean of region scores * 100 = 77.9405",
+                "param_count": 17424,
+                "param_explain": "Params: 17424 < 20260 => no penalty",
+                "__explain__": "[I]\n  I: n=8192, mae=4.49176e+19, scale=9.07039e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(4.49176e+19/9.07039e+19, 1) = 0.504789.\n\n[O]\n  O: n=8192, mae=0.572268, scale=1.82798.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0294705, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.\n\n[param multiplier]\n  Params: 17424 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 77.9405."
+              },
+              "evaluation_config": {
+                "n_per_region": 8192,
+                "seed": 314159,
+                "range_mode": "p99",
+                "entropy_runs": 10,
+                "entropy_mode": "std",
+                "enforce_unit_interval": true,
+                "entropy_min": -2026,
+                "entropy_max": 2026,
+                "max_params": 20260,
+                "param_penalty": 0.5
+              },
+              "torch_seed": 316185,
+              "configuration_count": 1,
+              "points_per_region_per_config": 8192,
+              "scoring_seconds": 2.382063274000018,
+              "hardware": {
+                "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+                "python": "3.13.16",
+                "cpu": "x86_64",
+                "cpu_count": 4,
+                "torch": "2.8.0+cpu",
+                "cuda_available": false,
+                "device_used": "CPU",
+                "torch_threads": 4
+              }
+            }
+          },
+          "271828": {
+            "scoring": {
+              "command": [
+                "python",
+                "<repository>/tools/benchmark_field.py",
+                "--score-model",
+                "<work-dir>/selection_baseline_991a49b/model.pt",
+                "--config-dir",
+                "<work-dir>/dataset/public/train_config",
+                "--output",
+                "<work-dir>/selection_baseline_991a49b/validation_271828.json",
+                "--eval-seed",
+                "271828",
+                "--n-per-region",
+                "8192"
+              ],
+              "wall_seconds": 3.6238612039999794,
+              "exit_code": 0,
+              "timed_out": false
+            },
+            "result": {
+              "score": {
+                "I_score": 0.5064052496647555,
+                "I_explain": "I: n=8192, mae=4.52882e+19, scale=9.17517e+19. score = 1 - min(mae/scale, 1) = 1 - min(4.52882e+19/9.17517e+19, 1) = 0.506405",
+                "O_score": 0.6872067883082162,
+                "O_explain": "O: n=8192, mae=0.571968, scale=1.82858. score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207",
+                "A_score": 1.0,
+                "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1",
+                "I_entropy_score": 1.0,
+                "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+                "bg_score": 0.7539310529828072,
+                "bg_explain": "bg: n=8192, mae=0.0246069, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931",
+                "total_score": 78.95086181911559,
+                "total_explain": "Total: weighted mean of region scores * 100 = 78.9509",
+                "param_count": 17424,
+                "param_explain": "Params: 17424 < 20260 => no penalty",
+                "__explain__": "[I]\n  I: n=8192, mae=4.52882e+19, scale=9.17517e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(4.52882e+19/9.17517e+19, 1) = 0.506405.\n\n[O]\n  O: n=8192, mae=0.571968, scale=1.82858.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0246069, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.\n\n[param multiplier]\n  Params: 17424 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 78.9509."
+              },
+              "evaluation_config": {
+                "n_per_region": 8192,
+                "seed": 271828,
+                "range_mode": "p99",
+                "entropy_runs": 10,
+                "entropy_mode": "std",
+                "enforce_unit_interval": true,
+                "entropy_min": -2026,
+                "entropy_max": 2026,
+                "max_params": 20260,
+                "param_penalty": 0.5
+              },
+              "torch_seed": 273854,
+              "configuration_count": 1,
+              "points_per_region_per_config": 8192,
+              "scoring_seconds": 2.4219308190000106,
+              "hardware": {
+                "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+                "python": "3.13.16",
+                "cpu": "x86_64",
+                "cpu_count": 4,
+                "torch": "2.8.0+cpu",
+                "cuda_available": false,
+                "device_used": "CPU",
+                "torch_threads": 4
+              }
+            }
+          }
+        },
+        "mean_validation_score": 78.44565740245635
+      },
+      "hulls16_affine": {
+        "candidate": "hulls16_affine",
+        "geometry_bands": 16,
+        "geometry_axis": "affine",
+        "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd",
+        "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c",
+        "configuration_count": 1,
+        "training": {
+          "command": [
+            "python",
+            "<repository>/solutions/day2_ioai_field.py",
+            "--seconds",
+            "265",
+            "--router-steps",
+            "2500",
+            "--o-steps",
+            "2500",
+            "--validation-per-region",
+            "16384",
+            "--i-safety",
+            "1.5",
+            "--i-geometry-bands",
+            "16",
+            "--i-geometry-axis",
+            "affine"
+          ],
+          "wall_seconds": 25.468681062999963,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "validation": {
+          "314159": {
+            "scoring": {
+              "command": [
+                "python",
+                "<repository>/tools/benchmark_field.py",
+                "--score-model",
+                "<work-dir>/selection_hulls16_affine/model.pt",
+                "--config-dir",
+                "<work-dir>/dataset/public/train_config",
+                "--output",
+                "<work-dir>/selection_hulls16_affine/validation_314159.json",
+                "--eval-seed",
+                "314159",
+                "--n-per-region",
+                "8192"
+              ],
+              "wall_seconds": 3.8748723680000126,
+              "exit_code": 0,
+              "timed_out": false
+            },
+            "result": {
+              "score": {
+                "I_score": 0.7141086312574588,
+                "I_explain": "I: n=8192, mae=2.59314e+19, scale=9.07039e+19. score = 1 - min(mae/scale, 1) = 1 - min(2.59314e+19/9.07039e+19, 1) = 0.714109",
+                "O_score": 0.6869391164599625,
+                "O_explain": "O: n=8192, mae=0.572268, scale=1.82798. score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939",
+                "A_score": 1.0,
+                "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1",
+                "I_entropy_score": 1.0,
+                "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+                "bg_score": 0.7052949294447899,
+                "bg_explain": "bg: n=8192, mae=0.0294705, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295",
+                "total_score": 82.12685354324422,
+                "total_explain": "Total: weighted mean of region scores * 100 = 82.1269",
+                "param_count": 17844,
+                "param_explain": "Params: 17844 < 20260 => no penalty",
+                "__explain__": "[I]\n  I: n=8192, mae=2.59314e+19, scale=9.07039e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(2.59314e+19/9.07039e+19, 1) = 0.714109.\n\n[O]\n  O: n=8192, mae=0.572268, scale=1.82798.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0294705, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.\n\n[param multiplier]\n  Params: 17844 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 82.1269."
+              },
+              "evaluation_config": {
+                "n_per_region": 8192,
+                "seed": 314159,
+                "range_mode": "p99",
+                "entropy_runs": 10,
+                "entropy_mode": "std",
+                "enforce_unit_interval": true,
+                "entropy_min": -2026,
+                "entropy_max": 2026,
+                "max_params": 20260,
+                "param_penalty": 0.5
+              },
+              "torch_seed": 316185,
+              "configuration_count": 1,
+              "points_per_region_per_config": 8192,
+              "scoring_seconds": 2.54843123400002,
+              "hardware": {
+                "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+                "python": "3.13.16",
+                "cpu": "x86_64",
+                "cpu_count": 4,
+                "torch": "2.8.0+cpu",
+                "cuda_available": false,
+                "device_used": "CPU",
+                "torch_threads": 4
+              }
+            }
+          },
+          "271828": {
+            "scoring": {
+              "command": [
+                "python",
+                "<repository>/tools/benchmark_field.py",
+                "--score-model",
+                "<work-dir>/selection_hulls16_affine/model.pt",
+                "--config-dir",
+                "<work-dir>/dataset/public/train_config",
+                "--output",
+                "<work-dir>/selection_hulls16_affine/validation_271828.json",
+                "--eval-seed",
+                "271828",
+                "--n-per-region",
+                "8192"
+              ],
+              "wall_seconds": 3.926427332000003,
+              "exit_code": 0,
+              "timed_out": false
+            },
+            "result": {
+              "score": {
+                "I_score": 0.7138963061165751,
+                "I_explain": "I: n=8192, mae=2.62505e+19, scale=9.17517e+19. score = 1 - min(mae/scale, 1) = 1 - min(2.62505e+19/9.17517e+19, 1) = 0.713896",
+                "O_score": 0.6872067883082162,
+                "O_explain": "O: n=8192, mae=0.571968, scale=1.82858. score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207",
+                "A_score": 1.0,
+                "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1",
+                "I_entropy_score": 1.0,
+                "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+                "bg_score": 0.7539310529828072,
+                "bg_explain": "bg: n=8192, mae=0.0246069, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931",
+                "total_score": 83.10068294815197,
+                "total_explain": "Total: weighted mean of region scores * 100 = 83.1007",
+                "param_count": 17844,
+                "param_explain": "Params: 17844 < 20260 => no penalty",
+                "__explain__": "[I]\n  I: n=8192, mae=2.62505e+19, scale=9.17517e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(2.62505e+19/9.17517e+19, 1) = 0.713896.\n\n[O]\n  O: n=8192, mae=0.571968, scale=1.82858.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0246069, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.\n\n[param multiplier]\n  Params: 17844 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 83.1007."
+              },
+              "evaluation_config": {
+                "n_per_region": 8192,
+                "seed": 271828,
+                "range_mode": "p99",
+                "entropy_runs": 10,
+                "entropy_mode": "std",
+                "enforce_unit_interval": true,
+                "entropy_min": -2026,
+                "entropy_max": 2026,
+                "max_params": 20260,
+                "param_penalty": 0.5
+              },
+              "torch_seed": 273854,
+              "configuration_count": 1,
+              "points_per_region_per_config": 8192,
+              "scoring_seconds": 2.5773968670000045,
+              "hardware": {
+                "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+                "python": "3.13.16",
+                "cpu": "x86_64",
+                "cpu_count": 4,
+                "torch": "2.8.0+cpu",
+                "cuda_available": false,
+                "device_used": "CPU",
+                "torch_threads": 4
+              }
+            }
+          }
+        },
+        "mean_validation_score": 82.6137682456981,
+        "fitted_geometry": {
+          "bands": 16,
+          "axis": "affine",
+          "accepted_pieces": 8,
+          "rejected_pieces": 8,
+          "degenerate_pieces": 0,
+          "positive_training_coverage": 0.49296873807907104,
+          "geometry_parameters": 420,
+          "positive_samples": 20480,
+          "negative_samples": 131072
+        }
+      },
+      "hulls32_affine": {
+        "candidate": "hulls32_affine",
+        "geometry_bands": 32,
+        "geometry_axis": "affine",
+        "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd",
+        "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c",
+        "configuration_count": 1,
+        "training": {
+          "command": [
+            "python",
+            "<repository>/solutions/day2_ioai_field.py",
+            "--seconds",
+            "265",
+            "--router-steps",
+            "2500",
+            "--o-steps",
+            "2500",
+            "--validation-per-region",
+            "16384",
+            "--i-safety",
+            "1.5",
+            "--i-geometry-bands",
+            "32",
+            "--i-geometry-axis",
+            "affine"
+          ],
+          "wall_seconds": 21.00960850399997,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "validation": {
+          "314159": {
+            "scoring": {
+              "command": [
+                "python",
+                "<repository>/tools/benchmark_field.py",
+                "--score-model",
+                "<work-dir>/selection_hulls32_affine/model.pt",
+                "--config-dir",
+                "<work-dir>/dataset/public/train_config",
+                "--output",
+                "<work-dir>/selection_hulls32_affine/validation_314159.json",
+                "--eval-seed",
+                "314159",
+                "--n-per-region",
+                "8192"
+              ],
+              "wall_seconds": 4.230880108000008,
+              "exit_code": 0,
+              "timed_out": false
+            },
+            "result": {
+              "score": {
+                "I_score": 0.807209062932192,
+                "I_explain": "I: n=8192, mae=1.74869e+19, scale=9.07039e+19. score = 1 - min(mae/scale, 1) = 1 - min(1.74869e+19/9.07039e+19, 1) = 0.807209",
+                "O_score": 0.6869391164599625,
+                "O_explain": "O: n=8192, mae=0.572268, scale=1.82798. score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939",
+                "A_score": 1.0,
+                "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1",
+                "I_entropy_score": 1.0,
+                "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+                "bg_score": 0.7052949294447899,
+                "bg_explain": "bg: n=8192, mae=0.0294705, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295",
+                "total_score": 83.98886217673889,
+                "total_explain": "Total: weighted mean of region scores * 100 = 83.9889",
+                "param_count": 18462,
+                "param_explain": "Params: 18462 < 20260 => no penalty",
+                "__explain__": "[I]\n  I: n=8192, mae=1.74869e+19, scale=9.07039e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(1.74869e+19/9.07039e+19, 1) = 0.807209.\n\n[O]\n  O: n=8192, mae=0.572268, scale=1.82798.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0294705, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.\n\n[param multiplier]\n  Params: 18462 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 83.9889."
+              },
+              "evaluation_config": {
+                "n_per_region": 8192,
+                "seed": 314159,
+                "range_mode": "p99",
+                "entropy_runs": 10,
+                "entropy_mode": "std",
+                "enforce_unit_interval": true,
+                "entropy_min": -2026,
+                "entropy_max": 2026,
+                "max_params": 20260,
+                "param_penalty": 0.5
+              },
+              "torch_seed": 316185,
+              "configuration_count": 1,
+              "points_per_region_per_config": 8192,
+              "scoring_seconds": 2.8427681080000298,
+              "hardware": {
+                "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+                "python": "3.13.16",
+                "cpu": "x86_64",
+                "cpu_count": 4,
+                "torch": "2.8.0+cpu",
+                "cuda_available": false,
+                "device_used": "CPU",
+                "torch_threads": 4
+              }
+            }
+          },
+          "271828": {
+            "scoring": {
+              "command": [
+                "python",
+                "<repository>/tools/benchmark_field.py",
+                "--score-model",
+                "<work-dir>/selection_hulls32_affine/model.pt",
+                "--config-dir",
+                "<work-dir>/dataset/public/train_config",
+                "--output",
+                "<work-dir>/selection_hulls32_affine/validation_271828.json",
+                "--eval-seed",
+                "271828",
+                "--n-per-region",
+                "8192"
+              ],
+              "wall_seconds": 4.228785225999957,
+              "exit_code": 0,
+              "timed_out": false
+            },
+            "result": {
+              "score": {
+                "I_score": 0.8055824610229408,
+                "I_explain": "I: n=8192, mae=1.78381e+19, scale=9.17517e+19. score = 1 - min(mae/scale, 1) = 1 - min(1.78381e+19/9.17517e+19, 1) = 0.805582",
+                "O_score": 0.6872067883082162,
+                "O_explain": "O: n=8192, mae=0.571968, scale=1.82858. score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207",
+                "A_score": 1.0,
+                "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1",
+                "I_entropy_score": 1.0,
+                "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+                "bg_score": 0.7539310529828072,
+                "bg_explain": "bg: n=8192, mae=0.0246069, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931",
+                "total_score": 84.93440604627928,
+                "total_explain": "Total: weighted mean of region scores * 100 = 84.9344",
+                "param_count": 18462,
+                "param_explain": "Params: 18462 < 20260 => no penalty",
+                "__explain__": "[I]\n  I: n=8192, mae=1.78381e+19, scale=9.17517e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(1.78381e+19/9.17517e+19, 1) = 0.805582.\n\n[O]\n  O: n=8192, mae=0.571968, scale=1.82858.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0246069, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.\n\n[param multiplier]\n  Params: 18462 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 84.9344."
+              },
+              "evaluation_config": {
+                "n_per_region": 8192,
+                "seed": 271828,
+                "range_mode": "p99",
+                "entropy_runs": 10,
+                "entropy_mode": "std",
+                "enforce_unit_interval": true,
+                "entropy_min": -2026,
+                "entropy_max": 2026,
+                "max_params": 20260,
+                "param_penalty": 0.5
+              },
+              "torch_seed": 273854,
+              "configuration_count": 1,
+              "points_per_region_per_config": 8192,
+              "scoring_seconds": 2.8698006340000006,
+              "hardware": {
+                "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+                "python": "3.13.16",
+                "cpu": "x86_64",
+                "cpu_count": 4,
+                "torch": "2.8.0+cpu",
+                "cuda_available": false,
+                "device_used": "CPU",
+                "torch_threads": 4
+              }
+            }
+          }
+        },
+        "mean_validation_score": 84.46163411150908,
+        "fitted_geometry": {
+          "bands": 32,
+          "axis": "affine",
+          "accepted_pieces": 21,
+          "rejected_pieces": 11,
+          "degenerate_pieces": 0,
+          "positive_training_coverage": 0.63916015625,
+          "geometry_parameters": 1038,
+          "positive_samples": 20480,
+          "negative_samples": 131072
+        }
+      },
+      "hulls16_pca": {
+        "candidate": "hulls16_pca",
+        "geometry_bands": 16,
+        "geometry_axis": "pca",
+        "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd",
+        "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c",
+        "configuration_count": 1,
+        "training": {
+          "command": [
+            "python",
+            "<repository>/solutions/day2_ioai_field.py",
+            "--seconds",
+            "265",
+            "--router-steps",
+            "2500",
+            "--o-steps",
+            "2500",
+            "--validation-per-region",
+            "16384",
+            "--i-safety",
+            "1.5",
+            "--i-geometry-bands",
+            "16",
+            "--i-geometry-axis",
+            "pca"
+          ],
+          "wall_seconds": 26.326337948999992,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "validation": {
+          "314159": {
+            "scoring": {
+              "command": [
+                "python",
+                "<repository>/tools/benchmark_field.py",
+                "--score-model",
+                "<work-dir>/selection_hulls16_pca/model.pt",
+                "--config-dir",
+                "<work-dir>/dataset/public/train_config",
+                "--output",
+                "<work-dir>/selection_hulls16_pca/validation_314159.json",
+                "--eval-seed",
+                "314159",
+                "--n-per-region",
+                "8192"
+              ],
+              "wall_seconds": 3.874003626999979,
+              "exit_code": 0,
+              "timed_out": false
+            },
+            "result": {
+              "score": {
+                "I_score": 0.8533829999441997,
+                "I_explain": "I: n=8192, mae=1.32987e+19, scale=9.07039e+19. score = 1 - min(mae/scale, 1) = 1 - min(1.32987e+19/9.07039e+19, 1) = 0.853383",
+                "O_score": 0.6869391164599625,
+                "O_explain": "O: n=8192, mae=0.572268, scale=1.82798. score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939",
+                "A_score": 1.0,
+                "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1",
+                "I_entropy_score": 1.0,
+                "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+                "bg_score": 0.7052949294447899,
+                "bg_explain": "bg: n=8192, mae=0.0294705, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295",
+                "total_score": 84.91234091697905,
+                "total_explain": "Total: weighted mean of region scores * 100 = 84.9123",
+                "param_count": 18048,
+                "param_explain": "Params: 18048 < 20260 => no penalty",
+                "__explain__": "[I]\n  I: n=8192, mae=1.32987e+19, scale=9.07039e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(1.32987e+19/9.07039e+19, 1) = 0.853383.\n\n[O]\n  O: n=8192, mae=0.572268, scale=1.82798.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0294705, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.\n\n[param multiplier]\n  Params: 18048 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 84.9123."
+              },
+              "evaluation_config": {
+                "n_per_region": 8192,
+                "seed": 314159,
+                "range_mode": "p99",
+                "entropy_runs": 10,
+                "entropy_mode": "std",
+                "enforce_unit_interval": true,
+                "entropy_min": -2026,
+                "entropy_max": 2026,
+                "max_params": 20260,
+                "param_penalty": 0.5
+              },
+              "torch_seed": 316185,
+              "configuration_count": 1,
+              "points_per_region_per_config": 8192,
+              "scoring_seconds": 2.6473743389999527,
+              "hardware": {
+                "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+                "python": "3.13.16",
+                "cpu": "x86_64",
+                "cpu_count": 4,
+                "torch": "2.8.0+cpu",
+                "cuda_available": false,
+                "device_used": "CPU",
+                "torch_threads": 4
+              }
+            }
+          },
+          "271828": {
+            "scoring": {
+              "command": [
+                "python",
+                "<repository>/tools/benchmark_field.py",
+                "--score-model",
+                "<work-dir>/selection_hulls16_pca/model.pt",
+                "--config-dir",
+                "<work-dir>/dataset/public/train_config",
+                "--output",
+                "<work-dir>/selection_hulls16_pca/validation_271828.json",
+                "--eval-seed",
+                "271828",
+                "--n-per-region",
+                "8192"
+              ],
+              "wall_seconds": 3.8737459309999736,
+              "exit_code": 0,
+              "timed_out": false
+            },
+            "result": {
+              "score": {
+                "I_score": 0.8525655399006854,
+                "I_explain": "I: n=8192, mae=1.35274e+19, scale=9.17517e+19. score = 1 - min(mae/scale, 1) = 1 - min(1.35274e+19/9.17517e+19, 1) = 0.852566",
+                "O_score": 0.6872067883082162,
+                "O_explain": "O: n=8192, mae=0.571968, scale=1.82858. score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207",
+                "A_score": 1.0,
+                "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1",
+                "I_entropy_score": 1.0,
+                "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+                "bg_score": 0.7539310529828072,
+                "bg_explain": "bg: n=8192, mae=0.0246069, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931",
+                "total_score": 85.87406762383416,
+                "total_explain": "Total: weighted mean of region scores * 100 = 85.8741",
+                "param_count": 18048,
+                "param_explain": "Params: 18048 < 20260 => no penalty",
+                "__explain__": "[I]\n  I: n=8192, mae=1.35274e+19, scale=9.17517e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(1.35274e+19/9.17517e+19, 1) = 0.852566.\n\n[O]\n  O: n=8192, mae=0.571968, scale=1.82858.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0246069, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.\n\n[param multiplier]\n  Params: 18048 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 85.8741."
+              },
+              "evaluation_config": {
+                "n_per_region": 8192,
+                "seed": 271828,
+                "range_mode": "p99",
+                "entropy_runs": 10,
+                "entropy_mode": "std",
+                "enforce_unit_interval": true,
+                "entropy_min": -2026,
+                "entropy_max": 2026,
+                "max_params": 20260,
+                "param_penalty": 0.5
+              },
+              "torch_seed": 273854,
+              "configuration_count": 1,
+              "points_per_region_per_config": 8192,
+              "scoring_seconds": 2.6685148909999725,
+              "hardware": {
+                "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+                "python": "3.13.16",
+                "cpu": "x86_64",
+                "cpu_count": 4,
+                "torch": "2.8.0+cpu",
+                "cuda_available": false,
+                "device_used": "CPU",
+                "torch_threads": 4
+              }
+            }
+          }
+        },
+        "mean_validation_score": 85.39320427040661,
+        "fitted_geometry": {
+          "bands": 16,
+          "axis": "pca",
+          "accepted_pieces": 12,
+          "rejected_pieces": 4,
+          "degenerate_pieces": 0,
+          "positive_training_coverage": 0.739501953125,
+          "geometry_parameters": 624,
+          "positive_samples": 20480,
+          "negative_samples": 131072
+        }
+      },
+      "hulls32_pca": {
+        "candidate": "hulls32_pca",
+        "geometry_bands": 32,
+        "geometry_axis": "pca",
+        "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd",
+        "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c",
+        "configuration_count": 1,
+        "training": {
+          "command": [
+            "python",
+            "<repository>/solutions/day2_ioai_field.py",
+            "--seconds",
+            "265",
+            "--router-steps",
+            "2500",
+            "--o-steps",
+            "2500",
+            "--validation-per-region",
+            "16384",
+            "--i-safety",
+            "1.5",
+            "--i-geometry-bands",
+            "32",
+            "--i-geometry-axis",
+            "pca"
+          ],
+          "wall_seconds": 25.264564898000003,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "validation": {
+          "314159": {
+            "scoring": {
+              "command": [
+                "python",
+                "<repository>/tools/benchmark_field.py",
+                "--score-model",
+                "<work-dir>/selection_hulls32_pca/model.pt",
+                "--config-dir",
+                "<work-dir>/dataset/public/train_config",
+                "--output",
+                "<work-dir>/selection_hulls32_pca/validation_314159.json",
+                "--eval-seed",
+                "314159",
+                "--n-per-region",
+                "8192"
+              ],
+              "wall_seconds": 4.377466354999967,
+              "exit_code": 0,
+              "timed_out": false
+            },
+            "result": {
+              "score": {
+                "I_score": 0.9108283309249401,
+                "I_explain": "I: n=8192, mae=8.08821e+18, scale=9.07039e+19. score = 1 - min(mae/scale, 1) = 1 - min(8.08821e+18/9.07039e+19, 1) = 0.910828",
+                "O_score": 0.6869391164599625,
+                "O_explain": "O: n=8192, mae=0.572268, scale=1.82798. score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939",
+                "A_score": 1.0,
+                "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1",
+                "I_entropy_score": 1.0,
+                "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+                "bg_score": 0.7052949294447899,
+                "bg_explain": "bg: n=8192, mae=0.0294705, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295",
+                "total_score": 86.06124753659385,
+                "total_explain": "Total: weighted mean of region scores * 100 = 86.0612",
+                "param_count": 18726,
+                "param_explain": "Params: 18726 < 20260 => no penalty",
+                "__explain__": "[I]\n  I: n=8192, mae=8.08821e+18, scale=9.07039e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(8.08821e+18/9.07039e+19, 1) = 0.910828.\n\n[O]\n  O: n=8192, mae=0.572268, scale=1.82798.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0294705, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.\n\n[param multiplier]\n  Params: 18726 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 86.0612."
+              },
+              "evaluation_config": {
+                "n_per_region": 8192,
+                "seed": 314159,
+                "range_mode": "p99",
+                "entropy_runs": 10,
+                "entropy_mode": "std",
+                "enforce_unit_interval": true,
+                "entropy_min": -2026,
+                "entropy_max": 2026,
+                "max_params": 20260,
+                "param_penalty": 0.5
+              },
+              "torch_seed": 316185,
+              "configuration_count": 1,
+              "points_per_region_per_config": 8192,
+              "scoring_seconds": 3.0059749330000045,
+              "hardware": {
+                "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+                "python": "3.13.16",
+                "cpu": "x86_64",
+                "cpu_count": 4,
+                "torch": "2.8.0+cpu",
+                "cuda_available": false,
+                "device_used": "CPU",
+                "torch_threads": 4
+              }
+            }
+          },
+          "271828": {
+            "scoring": {
+              "command": [
+                "python",
+                "<repository>/tools/benchmark_field.py",
+                "--score-model",
+                "<work-dir>/selection_hulls32_pca/model.pt",
+                "--config-dir",
+                "<work-dir>/dataset/public/train_config",
+                "--output",
+                "<work-dir>/selection_hulls32_pca/validation_271828.json",
+                "--eval-seed",
+                "271828",
+                "--n-per-region",
+                "8192"
+              ],
+              "wall_seconds": 4.123308554999994,
+              "exit_code": 0,
+              "timed_out": false
+            },
+            "result": {
+              "score": {
+                "I_score": 0.9090583233472006,
+                "I_explain": "I: n=8192, mae=8.34406e+18, scale=9.17517e+19. score = 1 - min(mae/scale, 1) = 1 - min(8.34406e+18/9.17517e+19, 1) = 0.909058",
+                "O_score": 0.6872067883082162,
+                "O_explain": "O: n=8192, mae=0.571968, scale=1.82858. score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207",
+                "A_score": 1.0,
+                "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1",
+                "I_entropy_score": 1.0,
+                "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+                "bg_score": 0.7539310529828072,
+                "bg_explain": "bg: n=8192, mae=0.0246069, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931",
+                "total_score": 87.00392329276447,
+                "total_explain": "Total: weighted mean of region scores * 100 = 87.0039",
+                "param_count": 18726,
+                "param_explain": "Params: 18726 < 20260 => no penalty",
+                "__explain__": "[I]\n  I: n=8192, mae=8.34406e+18, scale=9.17517e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(8.34406e+18/9.17517e+19, 1) = 0.909058.\n\n[O]\n  O: n=8192, mae=0.571968, scale=1.82858.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0246069, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.\n\n[param multiplier]\n  Params: 18726 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 87.0039."
+              },
+              "evaluation_config": {
+                "n_per_region": 8192,
+                "seed": 271828,
+                "range_mode": "p99",
+                "entropy_runs": 10,
+                "entropy_mode": "std",
+                "enforce_unit_interval": true,
+                "entropy_min": -2026,
+                "entropy_max": 2026,
+                "max_params": 20260,
+                "param_penalty": 0.5
+              },
+              "torch_seed": 273854,
+              "configuration_count": 1,
+              "points_per_region_per_config": 8192,
+              "scoring_seconds": 2.848496670999964,
+              "hardware": {
+                "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+                "python": "3.13.16",
+                "cpu": "x86_64",
+                "cpu_count": 4,
+                "torch": "2.8.0+cpu",
+                "cuda_available": false,
+                "device_used": "CPU",
+                "torch_threads": 4
+              }
+            }
+          }
+        },
+        "mean_validation_score": 86.53258541467916,
+        "fitted_geometry": {
+          "bands": 32,
+          "axis": "pca",
+          "accepted_pieces": 27,
+          "rejected_pieces": 5,
+          "degenerate_pieces": 0,
+          "positive_training_coverage": 0.821484386920929,
+          "geometry_parameters": 1302,
+          "positive_samples": 20480,
+          "negative_samples": 131072
+        }
+      }
+    },
+    "selected": {
+      "candidate": "hulls32_pca",
+      "bands": 32,
+      "axis": "pca"
+    }
+  },
+  "runs": {
+    "public": {
+      "repository_baseline": {
+        "candidate": "baseline_991a49b",
+        "geometry_bands": 0,
+        "geometry_axis": "affine",
+        "training_source_sha256": "020024de3943b7f0a9659d74a6efc9bce43a0662f6765679ba7282aecec47933",
+        "model_source_sha256": "d5cc9371f773354d8968e50a2136fa0e94f887a942074130e6a4b081aeb77a35",
+        "configuration_count": 1,
+        "training": {
+          "command": [
+            "python",
+            "<work-dir>/repository-baseline/day2_ioai_field.py",
+            "--seconds",
+            "265",
+            "--router-steps",
+            "2500",
+            "--o-steps",
+            "2500",
+            "--validation-per-region",
+            "16384",
+            "--i-safety",
+            "1.5"
+          ],
+          "wall_seconds": 24.872932778999996,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "scoring": {
+          "command": [
+            "python",
+            "<repository>/tools/benchmark_field.py",
+            "--score-model",
+            "<work-dir>/public_repository_baseline/model.pt",
+            "--config-dir",
+            "<work-dir>/dataset/public/train_config",
+            "--output",
+            "<work-dir>/public_repository_baseline/score.json"
+          ],
+          "wall_seconds": 1.5172762809999654,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "result": {
+          "score": {
+            "I_score": 0.5262717576994052,
+            "I_explain": "I: n=512, mae=4.43779e+19, scale=9.36781e+19. score = 1 - min(mae/scale, 1) = 1 - min(4.43779e+19/9.36781e+19, 1) = 0.526272",
+            "O_score": 0.6851611455182913,
+            "O_explain": "O: n=512, mae=0.574464, scale=1.82463. score = 1 - min(mae/scale, 1) = 1 - min(0.574464/1.82463, 1) = 0.685161",
+            "A_score": 1.0,
+            "A_explain": "A: n=512, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1",
+            "I_entropy_score": 1.0,
+            "I_entropy_explain": "I_entropy: n=512, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+            "bg_score": 0.6674500405788422,
+            "bg_explain": "bg: n=512, mae=0.033255, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.033255/0.1, 1) = 0.66745",
+            "total_score": 77.57765887593078,
+            "total_explain": "Total: weighted mean of region scores * 100 = 77.5777",
+            "param_count": 17424,
+            "param_explain": "Params: 17424 < 20260 => no penalty",
+            "__explain__": "[I]\n  I: n=512, mae=4.43779e+19, scale=9.36781e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(4.43779e+19/9.36781e+19, 1) = 0.526272.\n\n[O]\n  O: n=512, mae=0.574464, scale=1.82463.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.574464/1.82463, 1) = 0.685161.\n\n[A]\n  A: n=512, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=512, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=512, mae=0.033255, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.033255/0.1, 1) = 0.66745.\n\n[param multiplier]\n  Params: 17424 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 77.5777."
+          },
+          "evaluation_config": {
+            "n_per_region": 512,
+            "seed": 0,
+            "range_mode": "p99",
+            "entropy_runs": 10,
+            "entropy_mode": "std",
+            "enforce_unit_interval": true,
+            "entropy_min": -2026,
+            "entropy_max": 2026,
+            "max_params": 20260,
+            "param_penalty": 0.5
+          },
+          "torch_seed": 2026,
+          "configuration_count": 1,
+          "points_per_region_per_config": 512,
+          "scoring_seconds": 0.16167280899998104,
+          "hardware": {
+            "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+            "python": "3.13.16",
+            "cpu": "x86_64",
+            "cpu_count": 4,
+            "torch": "2.8.0+cpu",
+            "cuda_available": false,
+            "device_used": "CPU",
+            "torch_threads": 4
+          }
+        },
+        "run_seconds": 26.39020905999996
+      },
+      "selected_candidate": {
+        "candidate": "hulls32_pca",
+        "geometry_bands": 32,
+        "geometry_axis": "pca",
+        "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd",
+        "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c",
+        "configuration_count": 1,
+        "training": {
+          "command": [
+            "python",
+            "<repository>/solutions/day2_ioai_field.py",
+            "--seconds",
+            "265",
+            "--router-steps",
+            "2500",
+            "--o-steps",
+            "2500",
+            "--validation-per-region",
+            "16384",
+            "--i-safety",
+            "1.5",
+            "--i-geometry-bands",
+            "32",
+            "--i-geometry-axis",
+            "pca"
+          ],
+          "wall_seconds": 20.95728714300003,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "scoring": {
+          "command": [
+            "python",
+            "<repository>/tools/benchmark_field.py",
+            "--score-model",
+            "<work-dir>/public_selected_candidate/model.pt",
+            "--config-dir",
+            "<work-dir>/dataset/public/train_config",
+            "--output",
+            "<work-dir>/public_selected_candidate/score.json"
+          ],
+          "wall_seconds": 1.5678280899999777,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "result": {
+          "score": {
+            "I_score": 0.9065054216766484,
+            "I_explain": "I: n=512, mae=8.75839e+18, scale=9.36781e+19. score = 1 - min(mae/scale, 1) = 1 - min(8.75839e+18/9.36781e+19, 1) = 0.906505",
+            "O_score": 0.6851611455182913,
+            "O_explain": "O: n=512, mae=0.574464, scale=1.82463. score = 1 - min(mae/scale, 1) = 1 - min(0.574464/1.82463, 1) = 0.685161",
+            "A_score": 1.0,
+            "A_explain": "A: n=512, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1",
+            "I_entropy_score": 1.0,
+            "I_entropy_explain": "I_entropy: n=512, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+            "bg_score": 0.6674500405788422,
+            "bg_explain": "bg: n=512, mae=0.033255, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.033255/0.1, 1) = 0.66745",
+            "total_score": 85.18233215547563,
+            "total_explain": "Total: weighted mean of region scores * 100 = 85.1823",
+            "param_count": 18726,
+            "param_explain": "Params: 18726 < 20260 => no penalty",
+            "__explain__": "[I]\n  I: n=512, mae=8.75839e+18, scale=9.36781e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(8.75839e+18/9.36781e+19, 1) = 0.906505.\n\n[O]\n  O: n=512, mae=0.574464, scale=1.82463.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.574464/1.82463, 1) = 0.685161.\n\n[A]\n  A: n=512, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=512, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=512, mae=0.033255, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.033255/0.1, 1) = 0.66745.\n\n[param multiplier]\n  Params: 18726 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 85.1823."
+          },
+          "evaluation_config": {
+            "n_per_region": 512,
+            "seed": 0,
+            "range_mode": "p99",
+            "entropy_runs": 10,
+            "entropy_mode": "std",
+            "enforce_unit_interval": true,
+            "entropy_min": -2026,
+            "entropy_max": 2026,
+            "max_params": 20260,
+            "param_penalty": 0.5
+          },
+          "torch_seed": 2026,
+          "configuration_count": 1,
+          "points_per_region_per_config": 512,
+          "scoring_seconds": 0.18929296099997828,
+          "hardware": {
+            "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+            "python": "3.13.16",
+            "cpu": "x86_64",
+            "cpu_count": 4,
+            "torch": "2.8.0+cpu",
+            "cuda_available": false,
+            "device_used": "CPU",
+            "torch_threads": 4
+          }
+        },
+        "fitted_geometry": {
+          "bands": 32,
+          "axis": "pca",
+          "accepted_pieces": 27,
+          "rejected_pieces": 5,
+          "degenerate_pieces": 0,
+          "positive_training_coverage": 0.821484386920929,
+          "geometry_parameters": 1302,
+          "positive_samples": 20480,
+          "negative_samples": 131072
+        },
+        "run_seconds": 22.525115233000008
+      }
+    },
+    "released_leaderboard_a": {
+      "repository_baseline": {
+        "candidate": "baseline_991a49b",
+        "geometry_bands": 0,
+        "geometry_axis": "affine",
+        "training_source_sha256": "020024de3943b7f0a9659d74a6efc9bce43a0662f6765679ba7282aecec47933",
+        "model_source_sha256": "d5cc9371f773354d8968e50a2136fa0e94f887a942074130e6a4b081aeb77a35",
+        "configuration_count": 1,
+        "training": {
+          "command": [
+            "python",
+            "<work-dir>/repository-baseline/day2_ioai_field.py",
+            "--seconds",
+            "265",
+            "--router-steps",
+            "2500",
+            "--o-steps",
+            "2500",
+            "--validation-per-region",
+            "16384",
+            "--i-safety",
+            "1.5"
+          ],
+          "wall_seconds": 19.862478334000002,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "scoring": {
+          "command": [
+            "python",
+            "<repository>/tools/benchmark_field.py",
+            "--score-model",
+            "<work-dir>/released_leaderboard_a_repository_baseline/model.pt",
+            "--config-dir",
+            "<work-dir>/dataset/private/leaderboard_a_config",
+            "--output",
+            "<work-dir>/released_leaderboard_a_repository_baseline/score.json"
+          ],
+          "wall_seconds": 1.4706555600000115,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "result": {
+          "score": {
+            "I_score": 0.68325881382909,
+            "I_explain": "I: n=512, mae=2.88502e+19, scale=9.10845e+19. score = 1 - min(mae/scale, 1) = 1 - min(2.88502e+19/9.10845e+19, 1) = 0.683259",
+            "O_score": 0.6868124996050216,
+            "O_explain": "O: n=512, mae=0.573641, scale=1.83162. score = 1 - min(mae/scale, 1) = 1 - min(0.573641/1.83162, 1) = 0.686812",
+            "A_score": 0.994140625,
+            "A_explain": "A: n=512, mae=0.00585938, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 0.994141",
+            "I_entropy_score": 1.0,
+            "I_entropy_explain": "I_entropy: n=512, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+            "bg_score": 0.9107724614441395,
+            "bg_explain": "bg: n=512, mae=0.00892275, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.00892275/0.1, 1) = 0.910772",
+            "total_score": 85.49968799756502,
+            "total_explain": "Total: weighted mean of region scores * 100 = 85.4997",
+            "param_count": 17424,
+            "param_explain": "Params: 17424 < 20260 => no penalty",
+            "__explain__": "[I]\n  I: n=512, mae=2.88502e+19, scale=9.10845e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(2.88502e+19/9.10845e+19, 1) = 0.683259.\n\n[O]\n  O: n=512, mae=0.573641, scale=1.83162.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.573641/1.83162, 1) = 0.686812.\n\n[A]\n  A: n=512, mae=0.00585938, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 0.994141.\n\n[I_entropy]\n  I_entropy: n=512, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=512, mae=0.00892275, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.00892275/0.1, 1) = 0.910772.\n\n[param multiplier]\n  Params: 17424 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 85.4997."
+          },
+          "evaluation_config": {
+            "n_per_region": 512,
+            "seed": 0,
+            "range_mode": "p99",
+            "entropy_runs": 10,
+            "entropy_mode": "std",
+            "enforce_unit_interval": true,
+            "entropy_min": -2026,
+            "entropy_max": 2026,
+            "max_params": 20260,
+            "param_penalty": 0.5
+          },
+          "torch_seed": 2026,
+          "configuration_count": 1,
+          "points_per_region_per_config": 512,
+          "scoring_seconds": 0.20291028099995856,
+          "hardware": {
+            "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+            "python": "3.13.16",
+            "cpu": "x86_64",
+            "cpu_count": 4,
+            "torch": "2.8.0+cpu",
+            "cuda_available": false,
+            "device_used": "CPU",
+            "torch_threads": 4
+          }
+        },
+        "run_seconds": 21.333133894000014
+      },
+      "selected_candidate": {
+        "candidate": "hulls32_pca",
+        "geometry_bands": 32,
+        "geometry_axis": "pca",
+        "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd",
+        "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c",
+        "configuration_count": 1,
+        "training": {
+          "command": [
+            "python",
+            "<repository>/solutions/day2_ioai_field.py",
+            "--seconds",
+            "265",
+            "--router-steps",
+            "2500",
+            "--o-steps",
+            "2500",
+            "--validation-per-region",
+            "16384",
+            "--i-safety",
+            "1.5",
+            "--i-geometry-bands",
+            "32",
+            "--i-geometry-axis",
+            "pca"
+          ],
+          "wall_seconds": 21.263849152999967,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "scoring": {
+          "command": [
+            "python",
+            "<repository>/tools/benchmark_field.py",
+            "--score-model",
+            "<work-dir>/released_leaderboard_a_selected_candidate/model.pt",
+            "--config-dir",
+            "<work-dir>/dataset/private/leaderboard_a_config",
+            "--output",
+            "<work-dir>/released_leaderboard_a_selected_candidate/score.json"
+          ],
+          "wall_seconds": 1.6187168319999614,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "result": {
+          "score": {
+            "I_score": 0.9840932401618171,
+            "I_explain": "I: n=512, mae=1.44886e+18, scale=9.10845e+19. score = 1 - min(mae/scale, 1) = 1 - min(1.44886e+18/9.10845e+19, 1) = 0.984093",
+            "O_score": 0.6868124996050216,
+            "O_explain": "O: n=512, mae=0.573641, scale=1.83162. score = 1 - min(mae/scale, 1) = 1 - min(0.573641/1.83162, 1) = 0.686812",
+            "A_score": 0.994140625,
+            "A_explain": "A: n=512, mae=0.00585938, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 0.994141",
+            "I_entropy_score": 1.0,
+            "I_entropy_explain": "I_entropy: n=512, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+            "bg_score": 0.9107724614441395,
+            "bg_explain": "bg: n=512, mae=0.00892275, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.00892275/0.1, 1) = 0.910772",
+            "total_score": 91.51637652421958,
+            "total_explain": "Total: weighted mean of region scores * 100 = 91.5164",
+            "param_count": 18990,
+            "param_explain": "Params: 18990 < 20260 => no penalty",
+            "__explain__": "[I]\n  I: n=512, mae=1.44886e+18, scale=9.10845e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(1.44886e+18/9.10845e+19, 1) = 0.984093.\n\n[O]\n  O: n=512, mae=0.573641, scale=1.83162.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.573641/1.83162, 1) = 0.686812.\n\n[A]\n  A: n=512, mae=0.00585938, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 0.994141.\n\n[I_entropy]\n  I_entropy: n=512, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=512, mae=0.00892275, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.00892275/0.1, 1) = 0.910772.\n\n[param multiplier]\n  Params: 18990 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 91.5164."
+          },
+          "evaluation_config": {
+            "n_per_region": 512,
+            "seed": 0,
+            "range_mode": "p99",
+            "entropy_runs": 10,
+            "entropy_mode": "std",
+            "enforce_unit_interval": true,
+            "entropy_min": -2026,
+            "entropy_max": 2026,
+            "max_params": 20260,
+            "param_penalty": 0.5
+          },
+          "torch_seed": 2026,
+          "configuration_count": 1,
+          "points_per_region_per_config": 512,
+          "scoring_seconds": 0.2346178239999972,
+          "hardware": {
+            "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+            "python": "3.13.16",
+            "cpu": "x86_64",
+            "cpu_count": 4,
+            "torch": "2.8.0+cpu",
+            "cuda_available": false,
+            "device_used": "CPU",
+            "torch_threads": 4
+          }
+        },
+        "fitted_geometry": {
+          "bands": 32,
+          "axis": "pca",
+          "accepted_pieces": 32,
+          "rejected_pieces": 0,
+          "degenerate_pieces": 0,
+          "positive_training_coverage": 0.9742676019668579,
+          "geometry_parameters": 1566,
+          "positive_samples": 20480,
+          "negative_samples": 131072
+        },
+        "run_seconds": 22.88256598499993
+      }
+    },
+    "released_leaderboard_b": {
+      "repository_baseline": {
+        "candidate": "baseline_991a49b",
+        "geometry_bands": 0,
+        "geometry_axis": "affine",
+        "training_source_sha256": "020024de3943b7f0a9659d74a6efc9bce43a0662f6765679ba7282aecec47933",
+        "model_source_sha256": "d5cc9371f773354d8968e50a2136fa0e94f887a942074130e6a4b081aeb77a35",
+        "configuration_count": 1,
+        "training": {
+          "command": [
+            "python",
+            "<work-dir>/repository-baseline/day2_ioai_field.py",
+            "--seconds",
+            "265",
+            "--router-steps",
+            "2500",
+            "--o-steps",
+            "2500",
+            "--validation-per-region",
+            "16384",
+            "--i-safety",
+            "1.5"
+          ],
+          "wall_seconds": 18.50762588599997,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "scoring": {
+          "command": [
+            "python",
+            "<repository>/tools/benchmark_field.py",
+            "--score-model",
+            "<work-dir>/released_leaderboard_b_repository_baseline/model.pt",
+            "--config-dir",
+            "<work-dir>/dataset/private/leaderboard_b_config",
+            "--output",
+            "<work-dir>/released_leaderboard_b_repository_baseline/score.json"
+          ],
+          "wall_seconds": 1.4680100580000044,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "result": {
+          "score": {
+            "I_score": 0.4836844723815681,
+            "I_explain": "I: n=512, mae=4.65728e+17, scale=9.02022e+17. score = 1 - min(mae/scale, 1) = 1 - min(4.65728e+17/9.02022e+17, 1) = 0.483684",
+            "O_score": 0.6962337071309864,
+            "O_explain": "O: n=512, mae=0.554563, scale=1.82562. score = 1 - min(mae/scale, 1) = 1 - min(0.554563/1.82562, 1) = 0.696234",
+            "A_score": 0.998046875,
+            "A_explain": "A: n=512, mae=0.00195312, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 0.998047",
+            "I_entropy_score": 1.0,
+            "I_entropy_explain": "I_entropy: n=512, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+            "bg_score": 0.45909008383750916,
+            "bg_explain": "bg: n=512, mae=0.054091, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.054091/0.1, 1) = 0.45909",
+            "total_score": 72.74110276700128,
+            "total_explain": "Total: weighted mean of region scores * 100 = 72.7411",
+            "param_count": 17424,
+            "param_explain": "Params: 17424 < 20260 => no penalty",
+            "__explain__": "[I]\n  I: n=512, mae=4.65728e+17, scale=9.02022e+17.\n  score = 1 - min(mae/scale, 1) = 1 - min(4.65728e+17/9.02022e+17, 1) = 0.483684.\n\n[O]\n  O: n=512, mae=0.554563, scale=1.82562.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.554563/1.82562, 1) = 0.696234.\n\n[A]\n  A: n=512, mae=0.00195312, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 0.998047.\n\n[I_entropy]\n  I_entropy: n=512, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=512, mae=0.054091, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.054091/0.1, 1) = 0.45909.\n\n[param multiplier]\n  Params: 17424 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 72.7411."
+          },
+          "evaluation_config": {
+            "n_per_region": 512,
+            "seed": 0,
+            "range_mode": "p99",
+            "entropy_runs": 10,
+            "entropy_mode": "std",
+            "enforce_unit_interval": true,
+            "entropy_min": -2026,
+            "entropy_max": 2026,
+            "max_params": 20260,
+            "param_penalty": 0.5
+          },
+          "torch_seed": 2026,
+          "configuration_count": 1,
+          "points_per_region_per_config": 512,
+          "scoring_seconds": 0.12832412699998486,
+          "hardware": {
+            "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+            "python": "3.13.16",
+            "cpu": "x86_64",
+            "cpu_count": 4,
+            "torch": "2.8.0+cpu",
+            "cuda_available": false,
+            "device_used": "CPU",
+            "torch_threads": 4
+          }
+        },
+        "run_seconds": 19.975635943999976
+      },
+      "selected_candidate": {
+        "candidate": "hulls32_pca",
+        "geometry_bands": 32,
+        "geometry_axis": "pca",
+        "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd",
+        "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c",
+        "configuration_count": 1,
+        "training": {
+          "command": [
+            "python",
+            "<repository>/solutions/day2_ioai_field.py",
+            "--seconds",
+            "265",
+            "--router-steps",
+            "2500",
+            "--o-steps",
+            "2500",
+            "--validation-per-region",
+            "16384",
+            "--i-safety",
+            "1.5",
+            "--i-geometry-bands",
+            "32",
+            "--i-geometry-axis",
+            "pca"
+          ],
+          "wall_seconds": 25.066914858000075,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "scoring": {
+          "command": [
+            "python",
+            "<repository>/tools/benchmark_field.py",
+            "--score-model",
+            "<work-dir>/released_leaderboard_b_selected_candidate/model.pt",
+            "--config-dir",
+            "<work-dir>/dataset/private/leaderboard_b_config",
+            "--output",
+            "<work-dir>/released_leaderboard_b_selected_candidate/score.json"
+          ],
+          "wall_seconds": 1.5172613820000151,
+          "exit_code": 0,
+          "timed_out": false
+        },
+        "result": {
+          "score": {
+            "I_score": 0.9395776352317442,
+            "I_explain": "I: n=512, mae=5.45023e+16, scale=9.02022e+17. score = 1 - min(mae/scale, 1) = 1 - min(5.45023e+16/9.02022e+17, 1) = 0.939578",
+            "O_score": 0.6962337071309864,
+            "O_explain": "O: n=512, mae=0.554563, scale=1.82562. score = 1 - min(mae/scale, 1) = 1 - min(0.554563/1.82562, 1) = 0.696234",
+            "A_score": 0.998046875,
+            "A_explain": "A: n=512, mae=0.00195312, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 0.998047",
+            "I_entropy_score": 1.0,
+            "I_entropy_explain": "I_entropy: n=512, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1",
+            "bg_score": 0.45909008383750916,
+            "bg_explain": "bg: n=512, mae=0.054091, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.054091/0.1, 1) = 0.45909",
+            "total_score": 81.8589660240048,
+            "total_explain": "Total: weighted mean of region scores * 100 = 81.8590",
+            "param_count": 18915,
+            "param_explain": "Params: 18915 < 20260 => no penalty",
+            "__explain__": "[I]\n  I: n=512, mae=5.45023e+16, scale=9.02022e+17.\n  score = 1 - min(mae/scale, 1) = 1 - min(5.45023e+16/9.02022e+17, 1) = 0.939578.\n\n[O]\n  O: n=512, mae=0.554563, scale=1.82562.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.554563/1.82562, 1) = 0.696234.\n\n[A]\n  A: n=512, mae=0.00195312, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 0.998047.\n\n[I_entropy]\n  I_entropy: n=512, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=512, mae=0.054091, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.054091/0.1, 1) = 0.45909.\n\n[param multiplier]\n  Params: 18915 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 81.8590."
+          },
+          "evaluation_config": {
+            "n_per_region": 512,
+            "seed": 0,
+            "range_mode": "p99",
+            "entropy_runs": 10,
+            "entropy_mode": "std",
+            "enforce_unit_interval": true,
+            "entropy_min": -2026,
+            "entropy_max": 2026,
+            "max_params": 20260,
+            "param_penalty": 0.5
+          },
+          "torch_seed": 2026,
+          "configuration_count": 1,
+          "points_per_region_per_config": 512,
+          "scoring_seconds": 0.16311477499993998,
+          "hardware": {
+            "platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39",
+            "python": "3.13.16",
+            "cpu": "x86_64",
+            "cpu_count": 4,
+            "torch": "2.8.0+cpu",
+            "cuda_available": false,
+            "device_used": "CPU",
+            "torch_threads": 4
+          }
+        },
+        "fitted_geometry": {
+          "bands": 32,
+          "axis": "pca",
+          "accepted_pieces": 29,
+          "rejected_pieces": 3,
+          "degenerate_pieces": 0,
+          "positive_training_coverage": 0.881591796875,
+          "geometry_parameters": 1491,
+          "positive_samples": 20480,
+          "negative_samples": 131072
+        },
+        "run_seconds": 26.58417624000009
+      }
+    }
+  },
+  "comparison": {
+    "public": {
+      "baseline_score": 77.57765887593078,
+      "selected_score": 85.18233215547563,
+      "score_change": 7.604673279544855,
+      "baseline_training_seconds": 24.872932778999996,
+      "selected_training_seconds": 20.95728714300003,
+      "selected_parameter_count": 18726
+    },
+    "released_leaderboard_a": {
+      "baseline_score": 85.49968799756502,
+      "selected_score": 91.51637652421958,
+      "score_change": 6.016688526654562,
+      "baseline_training_seconds": 19.862478334000002,
+      "selected_training_seconds": 21.263849152999967,
+      "selected_parameter_count": 18990
+    },
+    "released_leaderboard_b": {
+      "baseline_score": 72.74110276700128,
+      "selected_score": 81.8589660240048,
+      "score_change": 9.11786325700352,
+      "baseline_training_seconds": 18.50762588599997,
+      "selected_training_seconds": 25.066914858000075,
+      "selected_parameter_count": 18915
+    }
+  },
+  "adoption": {
+    "selected_defaults": {
+      "i_geometry_bands": 32,
+      "i_geometry_axis": "pca"
+    },
+    "tested_explicit_cli": "--i-geometry-bands 32 --i-geometry-axis pca",
+    "post_benchmark_changes": "Only three default declarations changed: train_one_config band/axis defaults and the two corresponding CLI defaults. All measured runs already supplied these exact explicit CLI settings.",
+    "tested_training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd",
+    "final_training_source_sha256": "1a995862c3b5a2e6da7760de42904e6b92a13fc656fb542906b202aebc720267",
+    "final_model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c",
+    "tested_source_reconstructed_exactly_by_reverting_defaults": true,
+    "default_cli_equivalence_test": "tests/test_round2_field.py::GeometryTests::test_selected_defaults_match_the_benchmarked_explicit_cli"
+  },
+  "constraints": {
+    "official_validator": "Passed in all six final official evaluations; evaluator count_params validates the saved module state and rejects registered buffers or unregistered persistent tensors.",
+    "parameter_limit_exclusive": 20260,
+    "theoretical_max_with_32_bands": 19344,
+    "custom_model_imports": [
+      "torch",
+      "torch.nn"
+    ],
+    "inference_randomness": "nn.Dropout only",
+    "geometry_training_data": "Only allowed make_batch outputs: 20480 I positives and 131072 non-I calibration points per config.",
+    "no_protected_generator_replacement": true
+  },
+  "local_validation": {
+    "test_files": [
+      "tests/test_day2_vision.py",
+      "tests/test_round2_field.py"
+    ],
+    "tests_passed": 16,
+    "tests_failed": 0,
+    "test_runner_seconds": 3.19,
+    "device": "CPU",
+    "torch_threads": 1,
+    "scope": "Synthetic contracts plus selected-default CLI equivalence; these are not official-data scores."
+  },
+  "sanitized_log": "round2_field.log",
+  "raw_job_log_sha256": "ae25b4bc2c6b4bb18cae4d125632d7236fd74e5f5c4b4b21ccab2f61cfe5a327"
+}

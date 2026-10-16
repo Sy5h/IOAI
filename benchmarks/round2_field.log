@@ -1,0 +1,598 @@
+﻿2026-10-16T13:20:08.4964328Z Current runner version: '2.337.0'
+2026-10-16T13:20:08.4981502Z ##[group]Runner Image Provisioner
+2026-10-16T13:20:08.4982033Z Hosted Compute Agent
+2026-10-16T13:20:08.4982445Z Version: 20261012.601
+2026-10-16T13:20:08.4982820Z Commit: f3dc54e1fb89da6852db922499a0233137369e1d
+2026-10-16T13:20:08.4983258Z Build Date: 2026-10-12T17:48:21Z
+2026-10-16T13:20:08.4983747Z Worker ID: {d1a62b3a-f6b8-4911-a94f-de7ffea65d63}
+2026-10-16T13:20:08.4984163Z Region: centralus
+2026-10-16T13:20:08.4984562Z Cloud: Azure
+2026-10-16T13:20:08.4984886Z ##[endgroup]
+2026-10-16T13:20:08.4985850Z ##[group]Operating System
+2026-10-16T13:20:08.4986267Z Ubuntu
+2026-10-16T13:20:08.4986580Z 24.04.5
+2026-10-16T13:20:08.4986908Z LTS
+2026-10-16T13:20:08.4987231Z ##[endgroup]
+2026-10-16T13:20:08.4987589Z ##[group]Runner Image
+2026-10-16T13:20:08.4987974Z Image: ubuntu-24.04
+2026-10-16T13:20:08.4988343Z Version: 20261012.334.1
+2026-10-16T13:20:08.4989249Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261012.334/images/ubuntu/Ubuntu2404-Readme.md
+2026-10-16T13:20:08.4990155Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261012.334
+2026-10-16T13:20:08.4990795Z ##[endgroup]
+2026-10-16T13:20:08.4991456Z ##[group]GITHUB_TOKEN Permissions
+2026-10-16T13:20:08.4992845Z Contents: read
+2026-10-16T13:20:08.4993219Z Metadata: read
+2026-10-16T13:20:08.4993591Z ##[endgroup]
+2026-10-16T13:20:08.4994869Z Secret source: Actions
+2026-10-16T13:20:08.4995381Z Cache mode: write
+2026-10-16T13:20:08.4995889Z Prepare workflow directory
+2026-10-16T13:20:08.5200844Z Prepare all required actions
+2026-10-16T13:20:08.5234129Z Getting action download info
+2026-10-16T13:20:08.7676539Z Download action repository 'actions/checkout@v4' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-10-16T13:20:08.8684515Z Download action repository 'actions/setup-python@v5' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-10-16T13:20:08.9557765Z Download action repository 'actions/upload-artifact@v4' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-10-16T13:20:09.1532119Z Complete job name: field-round2-cpu
+2026-10-16T13:20:09.1977636Z ##[group]Run actions/checkout@v4
+2026-10-16T13:20:09.1978039Z with:
+2026-10-16T13:20:09.1978273Z   repository: Sy5h/IOAI
+2026-10-16T13:20:09.1980341Z   token: ***
+2026-10-16T13:20:09.1980574Z   ssh-strict: true
+2026-10-16T13:20:09.1980957Z   ssh-user: git
+2026-10-16T13:20:09.1981305Z   persist-credentials: true
+2026-10-16T13:20:09.1981649Z   clean: true
+2026-10-16T13:20:09.1981897Z   sparse-checkout-cone-mode: true
+2026-10-16T13:20:09.1982215Z   fetch-depth: 1
+2026-10-16T13:20:09.1982450Z   fetch-tags: false
+2026-10-16T13:20:09.1982692Z   show-progress: true
+2026-10-16T13:20:09.1982932Z   lfs: false
+2026-10-16T13:20:09.1983164Z   submodules: false
+2026-10-16T13:20:09.1983413Z   set-safe-directory: true
+2026-10-16T13:20:09.1983697Z   allow-unsafe-pr-checkout: false
+2026-10-16T13:20:09.1984091Z ##[endgroup]
+2026-10-16T13:20:09.2634230Z Syncing repository: Sy5h/IOAI
+2026-10-16T13:20:09.2635888Z ##[group]Getting Git version info
+2026-10-16T13:20:09.2636345Z Working directory is '<repository>'
+2026-10-16T13:20:09.2636907Z [command]/usr/bin/git version
+2026-10-16T13:20:09.2734522Z git version 2.55.0
+2026-10-16T13:20:09.2748387Z ##[endgroup]
+2026-10-16T13:20:09.2760636Z Temporarily overriding HOME='<runner-temp>' before making global git config changes
+2026-10-16T13:20:09.2761910Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-16T13:20:09.2764799Z [command]/usr/bin/git config --global --add safe.directory <repository>
+2026-10-16T13:20:09.2809933Z Deleting the contents of '<repository>'
+2026-10-16T13:20:09.2816102Z ##[group]Initializing the repository
+2026-10-16T13:20:09.2819959Z [command]/usr/bin/git init <repository>
+2026-10-16T13:20:09.2966244Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-10-16T13:20:09.2967424Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-10-16T13:20:09.2968499Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-10-16T13:20:09.2969127Z hint: call:
+2026-10-16T13:20:09.2969470Z hint:
+2026-10-16T13:20:09.2969951Z hint: 	git config --global init.defaultBranch <name>
+2026-10-16T13:20:09.2970508Z hint:
+2026-10-16T13:20:09.2971003Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-10-16T13:20:09.2971776Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-10-16T13:20:09.2972394Z hint:
+2026-10-16T13:20:09.2972622Z hint: 	git branch -m <name>
+2026-10-16T13:20:09.2972877Z hint:
+2026-10-16T13:20:09.2973218Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-10-16T13:20:09.2973730Z Initialized empty Git repository in <repository>/.git/
+2026-10-16T13:20:09.2989917Z [command]/usr/bin/git remote add origin https://github.com/Sy5h/IOAI
+2026-10-16T13:20:09.3033145Z ##[endgroup]
+2026-10-16T13:20:09.3033646Z ##[group]Disabling automatic garbage collection
+2026-10-16T13:20:09.3037451Z [command]/usr/bin/git config --local gc.auto 0
+2026-10-16T13:20:09.3072756Z ##[endgroup]
+2026-10-16T13:20:09.3073319Z ##[group]Setting up auth
+2026-10-16T13:20:09.3078860Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-16T13:20:09.3110317Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-16T13:20:09.3395619Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-16T13:20:09.3423551Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-16T13:20:09.3628506Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-16T13:20:09.3658363Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-16T13:20:09.3836814Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-10-16T13:20:09.3871416Z ##[endgroup]
+2026-10-16T13:20:09.3872028Z ##[group]Fetching the repository
+2026-10-16T13:20:09.3878288Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +a5053a9b20d18eacc590590bd1cb5d6a473cb747:refs/remotes/origin/main
+2026-10-16T13:20:09.8108305Z From https://github.com/Sy5h/IOAI
+2026-10-16T13:20:09.8108990Z  * [new ref]         a5053a9b20d18eacc590590bd1cb5d6a473cb747 -> origin/main
+2026-10-16T13:20:09.8111961Z ##[endgroup]
+2026-10-16T13:20:09.8112680Z ##[group]Determining the checkout info
+2026-10-16T13:20:09.8113936Z ##[endgroup]
+2026-10-16T13:20:09.8118194Z [command]/usr/bin/git sparse-checkout disable
+2026-10-16T13:20:09.8170585Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-10-16T13:20:09.8189218Z ##[group]Checking out the ref
+2026-10-16T13:20:09.8192830Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2026-10-16T13:20:09.8291310Z Switched to a new branch 'main'
+2026-10-16T13:20:09.8295804Z branch 'main' set up to track 'origin/main'.
+2026-10-16T13:20:09.8300264Z ##[endgroup]
+2026-10-16T13:20:09.8333126Z [command]/usr/bin/git log -1 --format=%H
+2026-10-16T13:20:09.8355095Z a5053a9b20d18eacc590590bd1cb5d6a473cb747
+2026-10-16T13:20:09.8559850Z ##[group]Run actions/setup-python@v5
+2026-10-16T13:20:09.8560220Z with:
+2026-10-16T13:20:09.8560486Z   python-version: 3.13
+2026-10-16T13:20:09.8560770Z   check-latest: false
+2026-10-16T13:20:09.8562994Z   token: ***
+2026-10-16T13:20:09.8563260Z   update-environment: true
+2026-10-16T13:20:09.8563568Z   allow-prereleases: false
+2026-10-16T13:20:09.8564013Z   freethreaded: false
+2026-10-16T13:20:09.8564287Z ##[endgroup]
+2026-10-16T13:20:09.9442176Z ##[group]Installed versions
+2026-10-16T13:20:09.9515802Z (node:2087) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-16T13:20:09.9517141Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-16T13:20:09.9517879Z Successfully set up CPython (3.13.16)
+2026-10-16T13:20:09.9518762Z ##[endgroup]
+2026-10-16T13:20:09.9754481Z ##[group]Run python -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu
+2026-10-16T13:20:09.9755302Z [36;1mpython -m pip install torch==2.8.0 --index-url https://download.pytorch.org/whl/cpu[0m
+2026-10-16T13:20:09.9755914Z [36;1mpython -m pip install numpy==2.3.3 matplotlib==3.10.6[0m
+2026-10-16T13:20:09.9998504Z shell: /usr/bin/bash -e {0}
+2026-10-16T13:20:09.9998839Z env:
+2026-10-16T13:20:09.9999308Z   pythonLocation: <python-runtime>
+2026-10-16T13:20:09.9999831Z   PKG_CONFIG_PATH: <python-runtime>
+2026-10-16T13:20:10.0000327Z   Python_ROOT_DIR: <python-runtime>
+2026-10-16T13:20:10.0000777Z   Python2_ROOT_DIR: <python-runtime>
+2026-10-16T13:20:10.0001224Z   Python3_ROOT_DIR: <python-runtime>
+2026-10-16T13:20:10.0001676Z   LD_LIBRARY_PATH: <python-runtime>
+2026-10-16T13:20:10.0002066Z ##[endgroup]
+2026-10-16T13:20:11.6296144Z Looking in indexes: https://download.pytorch.org/whl/cpu
+2026-10-16T13:20:11.7960516Z Collecting torch==2.8.0
+2026-10-16T13:20:11.9367567Z   Downloading torch-2.8.0%2Bcpu-cp313-cp313-manylinux_2_28_x86_64.whl.metadata (29 kB)
+2026-10-16T13:20:11.9659392Z Collecting filelock (from torch==2.8.0)
+2026-10-16T13:20:12.0501980Z   Downloading filelock-3.32.3-py3-none-any.whl.metadata (2.0 kB)
+2026-10-16T13:20:12.0720158Z Collecting typing-extensions>=4.10.0 (from torch==2.8.0)
+2026-10-16T13:20:12.0873487Z   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+2026-10-16T13:20:12.1052428Z Collecting setuptools (from torch==2.8.0)
+2026-10-16T13:20:12.1185110Z   Downloading setuptools-78.1.0-py3-none-any.whl.metadata (6.6 kB)
+2026-10-16T13:20:12.1417582Z Collecting sympy>=1.13.3 (from torch==2.8.0)
+2026-10-16T13:20:12.1571936Z   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+2026-10-16T13:20:12.1863913Z Collecting networkx (from torch==2.8.0)
+2026-10-16T13:20:12.2020019Z   Downloading networkx-3.6.1-py3-none-any.whl.metadata (6.8 kB)
+2026-10-16T13:20:12.2238825Z Collecting jinja2 (from torch==2.8.0)
+2026-10-16T13:20:12.2376529Z   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+2026-10-16T13:20:12.2634225Z Collecting fsspec (from torch==2.8.0)
+2026-10-16T13:20:12.2792983Z   Downloading fsspec-2026.7.0-py3-none-any.whl.metadata (10 kB)
+2026-10-16T13:20:12.3089182Z Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.8.0)
+2026-10-16T13:20:12.3242884Z   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+2026-10-16T13:20:12.3493611Z Collecting MarkupSafe>=2.0 (from jinja2->torch==2.8.0)
+2026-10-16T13:20:12.3634136Z   Downloading markupsafe-3.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+2026-10-16T13:20:12.4432337Z Downloading torch-2.8.0%2Bcpu-cp313-cp313-manylinux_2_28_x86_64.whl (183.9 MB)
+2026-10-16T13:20:14.7899899Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 183.9/183.9 MB 80.0 MB/s  0:00:02
+2026-10-16T13:20:14.8055951Z Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+2026-10-16T13:20:14.9791887Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.3/6.3 MB 45.9 MB/s  0:00:00
+2026-10-16T13:20:14.9951764Z Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+2026-10-16T13:20:14.9987739Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 536.2/536.2 kB 131.2 MB/s  0:00:00
+2026-10-16T13:20:15.0146940Z Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+2026-10-16T13:20:15.0322706Z Downloading filelock-3.32.3-py3-none-any.whl (98 kB)
+2026-10-16T13:20:15.0497930Z Downloading fsspec-2026.7.0-py3-none-any.whl (206 kB)
+2026-10-16T13:20:15.0650901Z Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+2026-10-16T13:20:15.0822165Z Downloading markupsafe-3.0.3-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+2026-10-16T13:20:15.0989637Z Downloading networkx-3.6.1-py3-none-any.whl (2.1 MB)
+2026-10-16T13:20:15.1083541Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.1/2.1 MB 233.6 MB/s  0:00:00
+2026-10-16T13:20:15.1219181Z Downloading setuptools-78.1.0-py3-none-any.whl (1.3 MB)
+2026-10-16T13:20:15.1558171Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 36.5 MB/s  0:00:00
+2026-10-16T13:20:15.4212103Z Installing collected packages: mpmath, typing-extensions, sympy, setuptools, networkx, MarkupSafe, fsspec, filelock, jinja2, torch
+2026-10-16T13:20:27.2055292Z 
+2026-10-16T13:20:27.2069798Z Successfully installed MarkupSafe-3.0.3 filelock-3.32.3 fsspec-2026.7.0 jinja2-3.1.6 mpmath-1.3.0 networkx-3.6.1 setuptools-78.1.0 sympy-1.14.0 torch-2.8.0+cpu typing-extensions-4.16.0
+2026-10-16T13:20:27.7814851Z Collecting numpy==2.3.3
+2026-10-16T13:20:27.8445244Z   Downloading numpy-2.3.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+2026-10-16T13:20:27.9443535Z Collecting matplotlib==3.10.6
+2026-10-16T13:20:27.9555005Z   Downloading matplotlib-3.10.6-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (11 kB)
+2026-10-16T13:20:28.0038221Z Collecting contourpy>=1.0.1 (from matplotlib==3.10.6)
+2026-10-16T13:20:28.0142139Z   Downloading contourpy-1.4.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (3.8 kB)
+2026-10-16T13:20:28.0361569Z Collecting cycler>=0.10 (from matplotlib==3.10.6)
+2026-10-16T13:20:28.0459325Z   Downloading cycler-0.12.1-py3-none-any.whl.metadata (3.8 kB)
+2026-10-16T13:20:28.1332094Z Collecting fonttools>=4.22.0 (from matplotlib==3.10.6)
+2026-10-16T13:20:28.1435066Z   Downloading fonttools-4.67.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (137 kB)
+2026-10-16T13:20:28.2093291Z Collecting kiwisolver>=1.3.1 (from matplotlib==3.10.6)
+2026-10-16T13:20:28.2192458Z   Downloading kiwisolver-1.5.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (5.2 kB)
+2026-10-16T13:20:28.2418070Z Collecting packaging>=20.0 (from matplotlib==3.10.6)
+2026-10-16T13:20:28.2516973Z   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-10-16T13:20:28.3458398Z Collecting pillow>=8 (from matplotlib==3.10.6)
+2026-10-16T13:20:28.3558406Z   Downloading pillow-12.3.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+2026-10-16T13:20:28.3819603Z Collecting pyparsing>=2.3.1 (from matplotlib==3.10.6)
+2026-10-16T13:20:28.3915098Z   Downloading pyparsing-3.3.3-py3-none-any.whl.metadata (5.9 kB)
+2026-10-16T13:20:28.4121021Z Collecting python-dateutil>=2.7 (from matplotlib==3.10.6)
+2026-10-16T13:20:28.4217277Z   Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl.metadata (8.4 kB)
+2026-10-16T13:20:28.4439658Z Collecting six>=1.5 (from python-dateutil>=2.7->matplotlib==3.10.6)
+2026-10-16T13:20:28.4538052Z   Downloading six-1.17.0-py2.py3-none-any.whl.metadata (1.7 kB)
+2026-10-16T13:20:28.4685797Z Downloading numpy-2.3.3-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.6 MB)
+2026-10-16T13:20:28.9912810Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.6/16.6 MB 32.9 MB/s  0:00:00
+2026-10-16T13:20:29.0020449Z Downloading matplotlib-3.10.6-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)
+2026-10-16T13:20:29.1170629Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 8.7/8.7 MB 74.8 MB/s  0:00:00
+2026-10-16T13:20:29.1273842Z Downloading contourpy-1.4.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (384 kB)
+2026-10-16T13:20:29.1399671Z Downloading cycler-0.12.1-py3-none-any.whl (8.3 kB)
+2026-10-16T13:20:29.1522208Z Downloading fonttools-4.67.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (5.4 MB)
+2026-10-16T13:20:29.2086803Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 5.4/5.4 MB 93.7 MB/s  0:00:00
+2026-10-16T13:20:29.2188921Z Downloading kiwisolver-1.5.1-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (1.5 MB)
+2026-10-16T13:20:29.2309143Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.5/1.5 MB 125.1 MB/s  0:00:00
+2026-10-16T13:20:29.2403450Z Downloading packaging-26.3-py3-none-any.whl (129 kB)
+2026-10-16T13:20:29.2556066Z Downloading pillow-12.3.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (6.9 MB)
+2026-10-16T13:20:29.3346646Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 6.9/6.9 MB 91.4 MB/s  0:00:00
+2026-10-16T13:20:29.3456233Z Downloading pyparsing-3.3.3-py3-none-any.whl (126 kB)
+2026-10-16T13:20:29.3605365Z Downloading python_dateutil-2.9.0.post0-py2.py3-none-any.whl (229 kB)
+2026-10-16T13:20:29.3727389Z Downloading six-1.17.0-py2.py3-none-any.whl (11 kB)
+2026-10-16T13:20:29.4736865Z Installing collected packages: six, pyparsing, pillow, packaging, numpy, kiwisolver, fonttools, cycler, python-dateutil, contourpy, matplotlib
+2026-10-16T13:20:32.7844645Z 
+2026-10-16T13:20:32.7861799Z Successfully installed contourpy-1.4.0 cycler-0.12.1 fonttools-4.67.0 kiwisolver-1.5.1 matplotlib-3.10.6 numpy-2.3.3 packaging-26.3 pillow-12.3.0 pyparsing-3.3.3 python-dateutil-2.9.0.post0 six-1.17.0
+2026-10-16T13:20:32.8723215Z ##[group]Run python tools/benchmark_field_round2.py --work-dir work/field-round2
+2026-10-16T13:20:32.8723555Z [36;1mpython tools/benchmark_field_round2.py --work-dir work/field-round2[0m
+2026-10-16T13:20:32.8777833Z shell: /usr/bin/bash -e {0}
+2026-10-16T13:20:32.8777978Z env:
+2026-10-16T13:20:32.8778133Z   pythonLocation: <python-runtime>
+2026-10-16T13:20:32.8778373Z   PKG_CONFIG_PATH: <python-runtime>
+2026-10-16T13:20:32.8778611Z   Python_ROOT_DIR: <python-runtime>
+2026-10-16T13:20:32.8778884Z   Python2_ROOT_DIR: <python-runtime>
+2026-10-16T13:20:32.8779261Z   Python3_ROOT_DIR: <python-runtime>
+2026-10-16T13:20:32.8779566Z   LD_LIBRARY_PATH: <python-runtime>
+2026-10-16T13:20:32.8779752Z ##[endgroup]
+2026-10-16T13:20:58.7630961Z --- selection_baseline_991a49b/training.log: final 15 lines ---
+2026-10-16T13:20:58.7633801Z COMMAND ["python", "<work-dir>/repository-baseline/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5"]
+2026-10-16T13:20:58.7634508Z params=17424; I normalized MAE=3.48e-08; router_steps=2500; O_steps=2500; I threshold=6.1; validation_per_region=16384; I safety=1.5
+2026-10-16T13:20:58.7634814Z Saved model.pt; configs=1; elapsed=18.5s
+2026-10-16T13:21:02.3891740Z --- selection_baseline_991a49b/validation_314159.log: final 15 lines ---
+2026-10-16T13:21:02.3892056Z 
+2026-10-16T13:21:02.3892133Z [I_entropy]
+2026-10-16T13:21:02.3892327Z   I_entropy: n=8192, runs=10, mode=std.
+2026-10-16T13:21:02.3892664Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:21:02.3892929Z   Final score = mean(point scores) = 1.
+2026-10-16T13:21:02.3893073Z 
+2026-10-16T13:21:02.3893136Z [bg]
+2026-10-16T13:21:02.3893314Z   bg: n=8192, mae=0.0294705, scale=0.1.
+2026-10-16T13:21:02.3893601Z   score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.
+2026-10-16T13:21:02.3893822Z 
+2026-10-16T13:21:02.3893903Z [param multiplier]
+2026-10-16T13:21:02.3894082Z   Params: 17424 < 20260 => no penalty.
+2026-10-16T13:21:02.3894215Z 
+2026-10-16T13:21:02.3894280Z [total]
+2026-10-16T13:21:02.3894476Z   Total: weighted mean of region scores * 100 = 77.9405.
+2026-10-16T13:21:06.0132777Z --- selection_baseline_991a49b/validation_271828.log: final 15 lines ---
+2026-10-16T13:21:06.0133093Z 
+2026-10-16T13:21:06.0133161Z [I_entropy]
+2026-10-16T13:21:06.0133337Z   I_entropy: n=8192, runs=10, mode=std.
+2026-10-16T13:21:06.0133597Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:21:06.0134268Z   Final score = mean(point scores) = 1.
+2026-10-16T13:21:06.0134416Z 
+2026-10-16T13:21:06.0134481Z [bg]
+2026-10-16T13:21:06.0134641Z   bg: n=8192, mae=0.0246069, scale=0.1.
+2026-10-16T13:21:06.0134923Z   score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.
+2026-10-16T13:21:06.0135117Z 
+2026-10-16T13:21:06.0135195Z [param multiplier]
+2026-10-16T13:21:06.0135376Z   Params: 17424 < 20260 => no penalty.
+2026-10-16T13:21:06.0135518Z 
+2026-10-16T13:21:06.0135579Z [total]
+2026-10-16T13:21:06.0135772Z   Total: weighted mean of region scores * 100 = 78.9509.
+2026-10-16T13:21:06.0147588Z ROUND2_SELECTION baseline_991a49b {"candidate": "baseline_991a49b", "geometry_bands": 0, "geometry_axis": "affine", "training_source_sha256": "020024de3943b7f0a9659d74a6efc9bce43a0662f6765679ba7282aecec47933", "model_source_sha256": "d5cc9371f773354d8968e50a2136fa0e94f887a942074130e6a4b081aeb77a35", "configuration_count": 1, "training": {"command": ["python", "<work-dir>/repository-baseline/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5"], "wall_seconds": 20.909712538000036, "exit_code": 0, "timed_out": false}, "validation": {"314159": {"scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/selection_baseline_991a49b/model.pt", "--config-dir", "<work-dir>/dataset/public/train_config", "--output", "<work-dir>/selection_baseline_991a49b/validation_314159.json", "--eval-seed", "314159", "--n-per-region", "8192"], "wall_seconds": 3.6259378919999676, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.5047886033851028, "I_explain": "I: n=8192, mae=4.49176e+19, scale=9.07039e+19. score = 1 - min(mae/scale, 1) = 1 - min(4.49176e+19/9.07039e+19, 1) = 0.504789", "O_score": 0.6869391164599625, "O_explain": "O: n=8192, mae=0.572268, scale=1.82798. score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939", "A_score": 1.0, "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.7052949294447899, "bg_explain": "bg: n=8192, mae=0.0294705, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295", "total_score": 77.94045298579711, "total_explain": "Total: weighted mean of region scores * 100 = 77.9405", "param_count": 17424, "param_explain": "Params: 17424 < 20260 => no penalty", "__explain__": "[I]\n  I: n=8192, mae=4.49176e+19, scale=9.07039e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(4.49176e+19/9.07039e+19, 1) = 0.504789.\n\n[O]\n  O: n=8192, mae=0.572268, scale=1.82798.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0294705, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.\n\n[param multiplier]\n  Params: 17424 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 77.9405."}, "evaluation_config": {"n_per_region": 8192, "seed": 314159, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 316185, "configuration_count": 1, "points_per_region_per_config": 8192, "scoring_seconds": 2.382063274000018, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}, "271828": {"scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/selection_baseline_991a49b/model.pt", "--config-dir", "<work-dir>/dataset/public/train_config", "--output", "<work-dir>/selection_baseline_991a49b/validation_271828.json", "--eval-seed", "271828", "--n-per-region", "8192"], "wall_seconds": 3.6238612039999794, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.5064052496647555, "I_explain": "I: n=8192, mae=4.52882e+19, scale=9.17517e+19. score = 1 - min(mae/scale, 1) = 1 - min(4.52882e+19/9.17517e+19, 1) = 0.506405", "O_score": 0.6872067883082162, "O_explain": "O: n=8192, mae=0.571968, scale=1.82858. score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207", "A_score": 1.0, "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.7539310529828072, "bg_explain": "bg: n=8192, mae=0.0246069, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931", "total_score": 78.95086181911559, "total_explain": "Total: weighted mean of region scores * 100 = 78.9509", "param_count": 17424, "param_explain": "Params: 17424 < 20260 => no penalty", "__explain__": "[I]\n  I: n=8192, mae=4.52882e+19, scale=9.17517e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(4.52882e+19/9.17517e+19, 1) = 0.506405.\n\n[O]\n  O: n=8192, mae=0.571968, scale=1.82858.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0246069, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.\n\n[param multiplier]\n  Params: 17424 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 78.9509."}, "evaluation_config": {"n_per_region": 8192, "seed": 271828, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 273854, "configuration_count": 1, "points_per_region_per_config": 8192, "scoring_seconds": 2.4219308190000106, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}}, "mean_validation_score": 78.44565740245635}
+2026-10-16T13:21:31.4829807Z --- selection_hulls16_affine/training.log: final 15 lines ---
+2026-10-16T13:21:31.4830890Z COMMAND ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "16", "--i-geometry-axis", "affine"]
+2026-10-16T13:21:31.4832216Z I_GEOMETRY {"bands": 16, "axis": "affine", "accepted_pieces": 8, "rejected_pieces": 8, "degenerate_pieces": 0, "positive_training_coverage": 0.49296873807907104, "geometry_parameters": 420, "positive_samples": 20480, "negative_samples": 131072}
+2026-10-16T13:21:31.4833128Z params=17844; I normalized MAE=3.48e-08; router_steps=2500; O_steps=2500; I threshold=6.1; validation_per_region=16384; I safety=1.5
+2026-10-16T13:21:31.4833838Z Saved model.pt; configs=1; elapsed=24.2s
+2026-10-16T13:21:35.3579837Z --- selection_hulls16_affine/validation_314159.log: final 15 lines ---
+2026-10-16T13:21:35.3580123Z 
+2026-10-16T13:21:35.3580173Z [I_entropy]
+2026-10-16T13:21:35.3580321Z   I_entropy: n=8192, runs=10, mode=std.
+2026-10-16T13:21:35.3580507Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:21:35.3580688Z   Final score = mean(point scores) = 1.
+2026-10-16T13:21:35.3580787Z 
+2026-10-16T13:21:35.3580829Z [bg]
+2026-10-16T13:21:35.3580937Z   bg: n=8192, mae=0.0294705, scale=0.1.
+2026-10-16T13:21:35.3581115Z   score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.
+2026-10-16T13:21:35.3581248Z 
+2026-10-16T13:21:35.3581299Z [param multiplier]
+2026-10-16T13:21:35.3581423Z   Params: 17844 < 20260 => no penalty.
+2026-10-16T13:21:35.3581517Z 
+2026-10-16T13:21:35.3581559Z [total]
+2026-10-16T13:21:35.3581691Z   Total: weighted mean of region scores * 100 = 82.1269.
+2026-10-16T13:21:39.2846396Z --- selection_hulls16_affine/validation_271828.log: final 15 lines ---
+2026-10-16T13:21:39.2846721Z 
+2026-10-16T13:21:39.2846794Z [I_entropy]
+2026-10-16T13:21:39.2846968Z   I_entropy: n=8192, runs=10, mode=std.
+2026-10-16T13:21:39.2847600Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:21:39.2847870Z   Final score = mean(point scores) = 1.
+2026-10-16T13:21:39.2848012Z 
+2026-10-16T13:21:39.2848073Z [bg]
+2026-10-16T13:21:39.2848226Z   bg: n=8192, mae=0.0246069, scale=0.1.
+2026-10-16T13:21:39.2848488Z   score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.
+2026-10-16T13:21:39.2848687Z 
+2026-10-16T13:21:39.2848768Z [param multiplier]
+2026-10-16T13:21:39.2848948Z   Params: 17844 < 20260 => no penalty.
+2026-10-16T13:21:39.2849278Z 
+2026-10-16T13:21:39.2849341Z [total]
+2026-10-16T13:21:39.2849526Z   Total: weighted mean of region scores * 100 = 83.1007.
+2026-10-16T13:21:39.2860849Z ROUND2_SELECTION hulls16_affine {"candidate": "hulls16_affine", "geometry_bands": 16, "geometry_axis": "affine", "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd", "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c", "configuration_count": 1, "training": {"command": ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "16", "--i-geometry-axis", "affine"], "wall_seconds": 25.468681062999963, "exit_code": 0, "timed_out": false}, "validation": {"314159": {"scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/selection_hulls16_affine/model.pt", "--config-dir", "<work-dir>/dataset/public/train_config", "--output", "<work-dir>/selection_hulls16_affine/validation_314159.json", "--eval-seed", "314159", "--n-per-region", "8192"], "wall_seconds": 3.8748723680000126, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.7141086312574588, "I_explain": "I: n=8192, mae=2.59314e+19, scale=9.07039e+19. score = 1 - min(mae/scale, 1) = 1 - min(2.59314e+19/9.07039e+19, 1) = 0.714109", "O_score": 0.6869391164599625, "O_explain": "O: n=8192, mae=0.572268, scale=1.82798. score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939", "A_score": 1.0, "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.7052949294447899, "bg_explain": "bg: n=8192, mae=0.0294705, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295", "total_score": 82.12685354324422, "total_explain": "Total: weighted mean of region scores * 100 = 82.1269", "param_count": 17844, "param_explain": "Params: 17844 < 20260 => no penalty", "__explain__": "[I]\n  I: n=8192, mae=2.59314e+19, scale=9.07039e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(2.59314e+19/9.07039e+19, 1) = 0.714109.\n\n[O]\n  O: n=8192, mae=0.572268, scale=1.82798.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0294705, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.\n\n[param multiplier]\n  Params: 17844 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 82.1269."}, "evaluation_config": {"n_per_region": 8192, "seed": 314159, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 316185, "configuration_count": 1, "points_per_region_per_config": 8192, "scoring_seconds": 2.54843123400002, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}, "271828": {"scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/selection_hulls16_affine/model.pt", "--config-dir", "<work-dir>/dataset/public/train_config", "--output", "<work-dir>/selection_hulls16_affine/validation_271828.json", "--eval-seed", "271828", "--n-per-region", "8192"], "wall_seconds": 3.926427332000003, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.7138963061165751, "I_explain": "I: n=8192, mae=2.62505e+19, scale=9.17517e+19. score = 1 - min(mae/scale, 1) = 1 - min(2.62505e+19/9.17517e+19, 1) = 0.713896", "O_score": 0.6872067883082162, "O_explain": "O: n=8192, mae=0.571968, scale=1.82858. score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207", "A_score": 1.0, "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.7539310529828072, "bg_explain": "bg: n=8192, mae=0.0246069, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931", "total_score": 83.10068294815197, "total_explain": "Total: weighted mean of region scores * 100 = 83.1007", "param_count": 17844, "param_explain": "Params: 17844 < 20260 => no penalty", "__explain__": "[I]\n  I: n=8192, mae=2.62505e+19, scale=9.17517e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(2.62505e+19/9.17517e+19, 1) = 0.713896.\n\n[O]\n  O: n=8192, mae=0.571968, scale=1.82858.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0246069, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.\n\n[param multiplier]\n  Params: 17844 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 83.1007."}, "evaluation_config": {"n_per_region": 8192, "seed": 271828, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 273854, "configuration_count": 1, "points_per_region_per_config": 8192, "scoring_seconds": 2.5773968670000045, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}}, "mean_validation_score": 82.6137682456981}
+2026-10-16T13:22:00.2954658Z --- selection_hulls32_affine/training.log: final 15 lines ---
+2026-10-16T13:22:00.2955578Z COMMAND ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "32", "--i-geometry-axis", "affine"]
+2026-10-16T13:22:00.2956543Z I_GEOMETRY {"bands": 32, "axis": "affine", "accepted_pieces": 21, "rejected_pieces": 11, "degenerate_pieces": 0, "positive_training_coverage": 0.63916015625, "geometry_parameters": 1038, "positive_samples": 20480, "negative_samples": 131072}
+2026-10-16T13:22:00.2957442Z params=18462; I normalized MAE=3.48e-08; router_steps=2500; O_steps=2500; I threshold=6.1; validation_per_region=16384; I safety=1.5
+2026-10-16T13:22:00.2957760Z Saved model.pt; configs=1; elapsed=19.8s
+2026-10-16T13:22:04.5264541Z --- selection_hulls32_affine/validation_314159.log: final 15 lines ---
+2026-10-16T13:22:04.5266526Z 
+2026-10-16T13:22:04.5266722Z [I_entropy]
+2026-10-16T13:22:04.5267111Z   I_entropy: n=8192, runs=10, mode=std.
+2026-10-16T13:22:04.5267439Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:22:04.5267717Z   Final score = mean(point scores) = 1.
+2026-10-16T13:22:04.5267878Z 
+2026-10-16T13:22:04.5267947Z [bg]
+2026-10-16T13:22:04.5268115Z   bg: n=8192, mae=0.0294705, scale=0.1.
+2026-10-16T13:22:04.5268423Z   score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.
+2026-10-16T13:22:04.5268685Z 
+2026-10-16T13:22:04.5268808Z [param multiplier]
+2026-10-16T13:22:04.5269206Z   Params: 18462 < 20260 => no penalty.
+2026-10-16T13:22:04.5269358Z 
+2026-10-16T13:22:04.5269432Z [total]
+2026-10-16T13:22:04.5269662Z   Total: weighted mean of region scores * 100 = 83.9889.
+2026-10-16T13:22:08.7554816Z --- selection_hulls32_affine/validation_271828.log: final 15 lines ---
+2026-10-16T13:22:08.7555143Z 
+2026-10-16T13:22:08.7555228Z [I_entropy]
+2026-10-16T13:22:08.7555415Z   I_entropy: n=8192, runs=10, mode=std.
+2026-10-16T13:22:08.7555693Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:22:08.7555972Z   Final score = mean(point scores) = 1.
+2026-10-16T13:22:08.7556134Z 
+2026-10-16T13:22:08.7556203Z [bg]
+2026-10-16T13:22:08.7556379Z   bg: n=8192, mae=0.0246069, scale=0.1.
+2026-10-16T13:22:08.7556673Z   score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.
+2026-10-16T13:22:08.7556893Z 
+2026-10-16T13:22:08.7556977Z [param multiplier]
+2026-10-16T13:22:08.7557178Z   Params: 18462 < 20260 => no penalty.
+2026-10-16T13:22:08.7557345Z 
+2026-10-16T13:22:08.7557417Z [total]
+2026-10-16T13:22:08.7557630Z   Total: weighted mean of region scores * 100 = 84.9344.
+2026-10-16T13:22:08.7574211Z ROUND2_SELECTION hulls32_affine {"candidate": "hulls32_affine", "geometry_bands": 32, "geometry_axis": "affine", "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd", "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c", "configuration_count": 1, "training": {"command": ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "32", "--i-geometry-axis", "affine"], "wall_seconds": 21.00960850399997, "exit_code": 0, "timed_out": false}, "validation": {"314159": {"scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/selection_hulls32_affine/model.pt", "--config-dir", "<work-dir>/dataset/public/train_config", "--output", "<work-dir>/selection_hulls32_affine/validation_314159.json", "--eval-seed", "314159", "--n-per-region", "8192"], "wall_seconds": 4.230880108000008, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.807209062932192, "I_explain": "I: n=8192, mae=1.74869e+19, scale=9.07039e+19. score = 1 - min(mae/scale, 1) = 1 - min(1.74869e+19/9.07039e+19, 1) = 0.807209", "O_score": 0.6869391164599625, "O_explain": "O: n=8192, mae=0.572268, scale=1.82798. score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939", "A_score": 1.0, "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.7052949294447899, "bg_explain": "bg: n=8192, mae=0.0294705, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295", "total_score": 83.98886217673889, "total_explain": "Total: weighted mean of region scores * 100 = 83.9889", "param_count": 18462, "param_explain": "Params: 18462 < 20260 => no penalty", "__explain__": "[I]\n  I: n=8192, mae=1.74869e+19, scale=9.07039e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(1.74869e+19/9.07039e+19, 1) = 0.807209.\n\n[O]\n  O: n=8192, mae=0.572268, scale=1.82798.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0294705, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.\n\n[param multiplier]\n  Params: 18462 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 83.9889."}, "evaluation_config": {"n_per_region": 8192, "seed": 314159, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 316185, "configuration_count": 1, "points_per_region_per_config": 8192, "scoring_seconds": 2.8427681080000298, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}, "271828": {"scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/selection_hulls32_affine/model.pt", "--config-dir", "<work-dir>/dataset/public/train_config", "--output", "<work-dir>/selection_hulls32_affine/validation_271828.json", "--eval-seed", "271828", "--n-per-region", "8192"], "wall_seconds": 4.228785225999957, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.8055824610229408, "I_explain": "I: n=8192, mae=1.78381e+19, scale=9.17517e+19. score = 1 - min(mae/scale, 1) = 1 - min(1.78381e+19/9.17517e+19, 1) = 0.805582", "O_score": 0.6872067883082162, "O_explain": "O: n=8192, mae=0.571968, scale=1.82858. score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207", "A_score": 1.0, "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.7539310529828072, "bg_explain": "bg: n=8192, mae=0.0246069, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931", "total_score": 84.93440604627928, "total_explain": "Total: weighted mean of region scores * 100 = 84.9344", "param_count": 18462, "param_explain": "Params: 18462 < 20260 => no penalty", "__explain__": "[I]\n  I: n=8192, mae=1.78381e+19, scale=9.17517e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(1.78381e+19/9.17517e+19, 1) = 0.805582.\n\n[O]\n  O: n=8192, mae=0.571968, scale=1.82858.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0246069, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.\n\n[param multiplier]\n  Params: 18462 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 84.9344."}, "evaluation_config": {"n_per_region": 8192, "seed": 271828, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 273854, "configuration_count": 1, "points_per_region_per_config": 8192, "scoring_seconds": 2.8698006340000006, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}}, "mean_validation_score": 84.46163411150908}
+2026-10-16T13:22:35.0833789Z --- selection_hulls16_pca/training.log: final 15 lines ---
+2026-10-16T13:22:35.0834821Z COMMAND ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "16", "--i-geometry-axis", "pca"]
+2026-10-16T13:22:35.0836234Z I_GEOMETRY {"bands": 16, "axis": "pca", "accepted_pieces": 12, "rejected_pieces": 4, "degenerate_pieces": 0, "positive_training_coverage": 0.739501953125, "geometry_parameters": 624, "positive_samples": 20480, "negative_samples": 131072}
+2026-10-16T13:22:35.0837139Z params=18048; I normalized MAE=3.48e-08; router_steps=2500; O_steps=2500; I threshold=6.1; validation_per_region=16384; I safety=1.5
+2026-10-16T13:22:35.0837644Z Saved model.pt; configs=1; elapsed=25.2s
+2026-10-16T13:22:38.9575643Z --- selection_hulls16_pca/validation_314159.log: final 15 lines ---
+2026-10-16T13:22:38.9577378Z 
+2026-10-16T13:22:38.9577575Z [I_entropy]
+2026-10-16T13:22:38.9577837Z   I_entropy: n=8192, runs=10, mode=std.
+2026-10-16T13:22:38.9578107Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:22:38.9578346Z   Final score = mean(point scores) = 1.
+2026-10-16T13:22:38.9578543Z 
+2026-10-16T13:22:38.9578611Z [bg]
+2026-10-16T13:22:38.9578785Z   bg: n=8192, mae=0.0294705, scale=0.1.
+2026-10-16T13:22:38.9579219Z   score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.
+2026-10-16T13:22:38.9579439Z 
+2026-10-16T13:22:38.9579521Z [param multiplier]
+2026-10-16T13:22:38.9579715Z   Params: 18048 < 20260 => no penalty.
+2026-10-16T13:22:38.9579859Z 
+2026-10-16T13:22:38.9579923Z [total]
+2026-10-16T13:22:38.9580127Z   Total: weighted mean of region scores * 100 = 84.9123.
+2026-10-16T13:22:42.8315086Z --- selection_hulls16_pca/validation_271828.log: final 15 lines ---
+2026-10-16T13:22:42.8315476Z 
+2026-10-16T13:22:42.8316226Z [I_entropy]
+2026-10-16T13:22:42.8316785Z   I_entropy: n=8192, runs=10, mode=std.
+2026-10-16T13:22:42.8317177Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:22:42.8317472Z   Final score = mean(point scores) = 1.
+2026-10-16T13:22:42.8317628Z 
+2026-10-16T13:22:42.8317709Z [bg]
+2026-10-16T13:22:42.8318362Z   bg: n=8192, mae=0.0246069, scale=0.1.
+2026-10-16T13:22:42.8318648Z   score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.
+2026-10-16T13:22:42.8318863Z 
+2026-10-16T13:22:42.8318942Z [param multiplier]
+2026-10-16T13:22:42.8319308Z   Params: 18048 < 20260 => no penalty.
+2026-10-16T13:22:42.8319459Z 
+2026-10-16T13:22:42.8319526Z [total]
+2026-10-16T13:22:42.8319736Z   Total: weighted mean of region scores * 100 = 85.8741.
+2026-10-16T13:22:42.8330647Z ROUND2_SELECTION hulls16_pca {"candidate": "hulls16_pca", "geometry_bands": 16, "geometry_axis": "pca", "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd", "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c", "configuration_count": 1, "training": {"command": ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "16", "--i-geometry-axis", "pca"], "wall_seconds": 26.326337948999992, "exit_code": 0, "timed_out": false}, "validation": {"314159": {"scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/selection_hulls16_pca/model.pt", "--config-dir", "<work-dir>/dataset/public/train_config", "--output", "<work-dir>/selection_hulls16_pca/validation_314159.json", "--eval-seed", "314159", "--n-per-region", "8192"], "wall_seconds": 3.874003626999979, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.8533829999441997, "I_explain": "I: n=8192, mae=1.32987e+19, scale=9.07039e+19. score = 1 - min(mae/scale, 1) = 1 - min(1.32987e+19/9.07039e+19, 1) = 0.853383", "O_score": 0.6869391164599625, "O_explain": "O: n=8192, mae=0.572268, scale=1.82798. score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939", "A_score": 1.0, "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.7052949294447899, "bg_explain": "bg: n=8192, mae=0.0294705, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295", "total_score": 84.91234091697905, "total_explain": "Total: weighted mean of region scores * 100 = 84.9123", "param_count": 18048, "param_explain": "Params: 18048 < 20260 => no penalty", "__explain__": "[I]\n  I: n=8192, mae=1.32987e+19, scale=9.07039e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(1.32987e+19/9.07039e+19, 1) = 0.853383.\n\n[O]\n  O: n=8192, mae=0.572268, scale=1.82798.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0294705, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.\n\n[param multiplier]\n  Params: 18048 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 84.9123."}, "evaluation_config": {"n_per_region": 8192, "seed": 314159, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 316185, "configuration_count": 1, "points_per_region_per_config": 8192, "scoring_seconds": 2.6473743389999527, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}, "271828": {"scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/selection_hulls16_pca/model.pt", "--config-dir", "<work-dir>/dataset/public/train_config", "--output", "<work-dir>/selection_hulls16_pca/validation_271828.json", "--eval-seed", "271828", "--n-per-region", "8192"], "wall_seconds": 3.8737459309999736, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.8525655399006854, "I_explain": "I: n=8192, mae=1.35274e+19, scale=9.17517e+19. score = 1 - min(mae/scale, 1) = 1 - min(1.35274e+19/9.17517e+19, 1) = 0.852566", "O_score": 0.6872067883082162, "O_explain": "O: n=8192, mae=0.571968, scale=1.82858. score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207", "A_score": 1.0, "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.7539310529828072, "bg_explain": "bg: n=8192, mae=0.0246069, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931", "total_score": 85.87406762383416, "total_explain": "Total: weighted mean of region scores * 100 = 85.8741", "param_count": 18048, "param_explain": "Params: 18048 < 20260 => no penalty", "__explain__": "[I]\n  I: n=8192, mae=1.35274e+19, scale=9.17517e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(1.35274e+19/9.17517e+19, 1) = 0.852566.\n\n[O]\n  O: n=8192, mae=0.571968, scale=1.82858.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0246069, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.\n\n[param multiplier]\n  Params: 18048 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 85.8741."}, "evaluation_config": {"n_per_region": 8192, "seed": 271828, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 273854, "configuration_count": 1, "points_per_region_per_config": 8192, "scoring_seconds": 2.6685148909999725, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}}, "mean_validation_score": 85.39320427040661}
+2026-10-16T13:23:08.0974084Z --- selection_hulls32_pca/training.log: final 15 lines ---
+2026-10-16T13:23:08.0975047Z COMMAND ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "32", "--i-geometry-axis", "pca"]
+2026-10-16T13:23:08.0975925Z I_GEOMETRY {"bands": 32, "axis": "pca", "accepted_pieces": 27, "rejected_pieces": 5, "degenerate_pieces": 0, "positive_training_coverage": 0.821484386920929, "geometry_parameters": 1302, "positive_samples": 20480, "negative_samples": 131072}
+2026-10-16T13:23:08.0976513Z params=18726; I normalized MAE=3.48e-08; router_steps=2500; O_steps=2500; I threshold=6.1; validation_per_region=16384; I safety=1.5
+2026-10-16T13:23:08.0976806Z Saved model.pt; configs=1; elapsed=24.0s
+2026-10-16T13:23:12.4749901Z --- selection_hulls32_pca/validation_314159.log: final 15 lines ---
+2026-10-16T13:23:12.4750607Z 
+2026-10-16T13:23:12.4752746Z [I_entropy]
+2026-10-16T13:23:12.4752992Z   I_entropy: n=8192, runs=10, mode=std.
+2026-10-16T13:23:12.4753287Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:23:12.4753598Z   Final score = mean(point scores) = 1.
+2026-10-16T13:23:12.4753768Z 
+2026-10-16T13:23:12.4753839Z [bg]
+2026-10-16T13:23:12.4754016Z   bg: n=8192, mae=0.0294705, scale=0.1.
+2026-10-16T13:23:12.4754323Z   score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.
+2026-10-16T13:23:12.4754581Z 
+2026-10-16T13:23:12.4754663Z [param multiplier]
+2026-10-16T13:23:12.4754854Z   Params: 18726 < 20260 => no penalty.
+2026-10-16T13:23:12.4755000Z 
+2026-10-16T13:23:12.4755069Z [total]
+2026-10-16T13:23:12.4755279Z   Total: weighted mean of region scores * 100 = 86.0612.
+2026-10-16T13:23:16.5984801Z --- selection_hulls32_pca/validation_271828.log: final 15 lines ---
+2026-10-16T13:23:16.5985221Z 
+2026-10-16T13:23:16.5985357Z [I_entropy]
+2026-10-16T13:23:16.5985564Z   I_entropy: n=8192, runs=10, mode=std.
+2026-10-16T13:23:16.5985831Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:23:16.5986093Z   Final score = mean(point scores) = 1.
+2026-10-16T13:23:16.5986191Z 
+2026-10-16T13:23:16.5986234Z [bg]
+2026-10-16T13:23:16.5986703Z   bg: n=8192, mae=0.0246069, scale=0.1.
+2026-10-16T13:23:16.5986988Z   score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.
+2026-10-16T13:23:16.5987194Z 
+2026-10-16T13:23:16.5987267Z [param multiplier]
+2026-10-16T13:23:16.5987415Z   Params: 18726 < 20260 => no penalty.
+2026-10-16T13:23:16.5987509Z 
+2026-10-16T13:23:16.5987553Z [total]
+2026-10-16T13:23:16.5987686Z   Total: weighted mean of region scores * 100 = 87.0039.
+2026-10-16T13:23:16.5998297Z ROUND2_SELECTION hulls32_pca {"candidate": "hulls32_pca", "geometry_bands": 32, "geometry_axis": "pca", "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd", "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c", "configuration_count": 1, "training": {"command": ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "32", "--i-geometry-axis", "pca"], "wall_seconds": 25.264564898000003, "exit_code": 0, "timed_out": false}, "validation": {"314159": {"scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/selection_hulls32_pca/model.pt", "--config-dir", "<work-dir>/dataset/public/train_config", "--output", "<work-dir>/selection_hulls32_pca/validation_314159.json", "--eval-seed", "314159", "--n-per-region", "8192"], "wall_seconds": 4.377466354999967, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.9108283309249401, "I_explain": "I: n=8192, mae=8.08821e+18, scale=9.07039e+19. score = 1 - min(mae/scale, 1) = 1 - min(8.08821e+18/9.07039e+19, 1) = 0.910828", "O_score": 0.6869391164599625, "O_explain": "O: n=8192, mae=0.572268, scale=1.82798. score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939", "A_score": 1.0, "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.7052949294447899, "bg_explain": "bg: n=8192, mae=0.0294705, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295", "total_score": 86.06124753659385, "total_explain": "Total: weighted mean of region scores * 100 = 86.0612", "param_count": 18726, "param_explain": "Params: 18726 < 20260 => no penalty", "__explain__": "[I]\n  I: n=8192, mae=8.08821e+18, scale=9.07039e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(8.08821e+18/9.07039e+19, 1) = 0.910828.\n\n[O]\n  O: n=8192, mae=0.572268, scale=1.82798.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.572268/1.82798, 1) = 0.686939.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0294705, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0294705/0.1, 1) = 0.705295.\n\n[param multiplier]\n  Params: 18726 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 86.0612."}, "evaluation_config": {"n_per_region": 8192, "seed": 314159, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 316185, "configuration_count": 1, "points_per_region_per_config": 8192, "scoring_seconds": 3.0059749330000045, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}, "271828": {"scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/selection_hulls32_pca/model.pt", "--config-dir", "<work-dir>/dataset/public/train_config", "--output", "<work-dir>/selection_hulls32_pca/validation_271828.json", "--eval-seed", "271828", "--n-per-region", "8192"], "wall_seconds": 4.123308554999994, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.9090583233472006, "I_explain": "I: n=8192, mae=8.34406e+18, scale=9.17517e+19. score = 1 - min(mae/scale, 1) = 1 - min(8.34406e+18/9.17517e+19, 1) = 0.909058", "O_score": 0.6872067883082162, "O_explain": "O: n=8192, mae=0.571968, scale=1.82858. score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207", "A_score": 1.0, "A_explain": "A: n=8192, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=8192, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.7539310529828072, "bg_explain": "bg: n=8192, mae=0.0246069, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931", "total_score": 87.00392329276447, "total_explain": "Total: weighted mean of region scores * 100 = 87.0039", "param_count": 18726, "param_explain": "Params: 18726 < 20260 => no penalty", "__explain__": "[I]\n  I: n=8192, mae=8.34406e+18, scale=9.17517e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(8.34406e+18/9.17517e+19, 1) = 0.909058.\n\n[O]\n  O: n=8192, mae=0.571968, scale=1.82858.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.571968/1.82858, 1) = 0.687207.\n\n[A]\n  A: n=8192, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=8192, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=8192, mae=0.0246069, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.0246069/0.1, 1) = 0.753931.\n\n[param multiplier]\n  Params: 18726 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 87.0039."}, "evaluation_config": {"n_per_region": 8192, "seed": 271828, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 273854, "configuration_count": 1, "points_per_region_per_config": 8192, "scoring_seconds": 2.848496670999964, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}}, "mean_validation_score": 86.53258541467916}
+2026-10-16T13:23:16.6008845Z ROUND2_SELECTED {"candidate": "hulls32_pca", "bands": 32, "axis": "pca"}
+2026-10-16T13:23:41.4732160Z --- public_repository_baseline/training.log: final 15 lines ---
+2026-10-16T13:23:41.4733091Z COMMAND ["python", "<work-dir>/repository-baseline/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5"]
+2026-10-16T13:23:41.4733779Z params=17424; I normalized MAE=3.48e-08; router_steps=2500; O_steps=2500; I threshold=6.1; validation_per_region=16384; I safety=1.5
+2026-10-16T13:23:41.4734087Z Saved model.pt; configs=1; elapsed=23.6s
+2026-10-16T13:23:42.9906468Z --- public_repository_baseline/score.log: final 15 lines ---
+2026-10-16T13:23:42.9909549Z 
+2026-10-16T13:23:42.9909631Z [I_entropy]
+2026-10-16T13:23:42.9909844Z   I_entropy: n=512, runs=10, mode=std.
+2026-10-16T13:23:42.9910362Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:23:42.9910556Z   Final score = mean(point scores) = 1.
+2026-10-16T13:23:42.9910667Z 
+2026-10-16T13:23:42.9910711Z [bg]
+2026-10-16T13:23:42.9910828Z   bg: n=512, mae=0.033255, scale=0.1.
+2026-10-16T13:23:42.9911019Z   score = 1 - min(mae/scale, 1) = 1 - min(0.033255/0.1, 1) = 0.66745.
+2026-10-16T13:23:42.9911163Z 
+2026-10-16T13:23:42.9911217Z [param multiplier]
+2026-10-16T13:23:42.9911353Z   Params: 17424 < 20260 => no penalty.
+2026-10-16T13:23:42.9911452Z 
+2026-10-16T13:23:42.9911499Z [total]
+2026-10-16T13:23:42.9911642Z   Total: weighted mean of region scores * 100 = 77.5777.
+2026-10-16T13:23:42.9919490Z ROUND2_FINAL_RESULT public repository_baseline {"candidate": "baseline_991a49b", "geometry_bands": 0, "geometry_axis": "affine", "training_source_sha256": "020024de3943b7f0a9659d74a6efc9bce43a0662f6765679ba7282aecec47933", "model_source_sha256": "d5cc9371f773354d8968e50a2136fa0e94f887a942074130e6a4b081aeb77a35", "configuration_count": 1, "training": {"command": ["python", "<work-dir>/repository-baseline/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5"], "wall_seconds": 24.872932778999996, "exit_code": 0, "timed_out": false}, "scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/public_repository_baseline/model.pt", "--config-dir", "<work-dir>/dataset/public/train_config", "--output", "<work-dir>/public_repository_baseline/score.json"], "wall_seconds": 1.5172762809999654, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.5262717576994052, "I_explain": "I: n=512, mae=4.43779e+19, scale=9.36781e+19. score = 1 - min(mae/scale, 1) = 1 - min(4.43779e+19/9.36781e+19, 1) = 0.526272", "O_score": 0.6851611455182913, "O_explain": "O: n=512, mae=0.574464, scale=1.82463. score = 1 - min(mae/scale, 1) = 1 - min(0.574464/1.82463, 1) = 0.685161", "A_score": 1.0, "A_explain": "A: n=512, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=512, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.6674500405788422, "bg_explain": "bg: n=512, mae=0.033255, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.033255/0.1, 1) = 0.66745", "total_score": 77.57765887593078, "total_explain": "Total: weighted mean of region scores * 100 = 77.5777", "param_count": 17424, "param_explain": "Params: 17424 < 20260 => no penalty", "__explain__": "[I]\n  I: n=512, mae=4.43779e+19, scale=9.36781e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(4.43779e+19/9.36781e+19, 1) = 0.526272.\n\n[O]\n  O: n=512, mae=0.574464, scale=1.82463.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.574464/1.82463, 1) = 0.685161.\n\n[A]\n  A: n=512, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=512, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=512, mae=0.033255, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.033255/0.1, 1) = 0.66745.\n\n[param multiplier]\n  Params: 17424 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 77.5777."}, "evaluation_config": {"n_per_region": 512, "seed": 0, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 2026, "configuration_count": 1, "points_per_region_per_config": 512, "scoring_seconds": 0.16167280899998104, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}
+2026-10-16T13:24:03.9492914Z --- public_selected_candidate/training.log: final 15 lines ---
+2026-10-16T13:24:03.9493640Z COMMAND ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "32", "--i-geometry-axis", "pca"]
+2026-10-16T13:24:03.9494523Z I_GEOMETRY {"bands": 32, "axis": "pca", "accepted_pieces": 27, "rejected_pieces": 5, "degenerate_pieces": 0, "positive_training_coverage": 0.821484386920929, "geometry_parameters": 1302, "positive_samples": 20480, "negative_samples": 131072}
+2026-10-16T13:24:03.9495134Z params=18726; I normalized MAE=3.48e-08; router_steps=2500; O_steps=2500; I threshold=6.1; validation_per_region=16384; I safety=1.5
+2026-10-16T13:24:03.9495438Z Saved model.pt; configs=1; elapsed=19.7s
+2026-10-16T13:24:05.5172910Z --- public_selected_candidate/score.log: final 15 lines ---
+2026-10-16T13:24:05.5173184Z 
+2026-10-16T13:24:05.5173259Z [I_entropy]
+2026-10-16T13:24:05.5173444Z   I_entropy: n=512, runs=10, mode=std.
+2026-10-16T13:24:05.5173708Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:24:05.5173976Z   Final score = mean(point scores) = 1.
+2026-10-16T13:24:05.5174134Z 
+2026-10-16T13:24:05.5174199Z [bg]
+2026-10-16T13:24:05.5174364Z   bg: n=512, mae=0.033255, scale=0.1.
+2026-10-16T13:24:05.5174646Z   score = 1 - min(mae/scale, 1) = 1 - min(0.033255/0.1, 1) = 0.66745.
+2026-10-16T13:24:05.5174862Z 
+2026-10-16T13:24:05.5174943Z [param multiplier]
+2026-10-16T13:24:05.5175168Z   Params: 18726 < 20260 => no penalty.
+2026-10-16T13:24:05.5175315Z 
+2026-10-16T13:24:05.5175382Z [total]
+2026-10-16T13:24:05.5175590Z   Total: weighted mean of region scores * 100 = 85.1823.
+2026-10-16T13:24:05.5182679Z ROUND2_FINAL_RESULT public selected_candidate {"candidate": "hulls32_pca", "geometry_bands": 32, "geometry_axis": "pca", "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd", "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c", "configuration_count": 1, "training": {"command": ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "32", "--i-geometry-axis", "pca"], "wall_seconds": 20.95728714300003, "exit_code": 0, "timed_out": false}, "scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/public_selected_candidate/model.pt", "--config-dir", "<work-dir>/dataset/public/train_config", "--output", "<work-dir>/public_selected_candidate/score.json"], "wall_seconds": 1.5678280899999777, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.9065054216766484, "I_explain": "I: n=512, mae=8.75839e+18, scale=9.36781e+19. score = 1 - min(mae/scale, 1) = 1 - min(8.75839e+18/9.36781e+19, 1) = 0.906505", "O_score": 0.6851611455182913, "O_explain": "O: n=512, mae=0.574464, scale=1.82463. score = 1 - min(mae/scale, 1) = 1 - min(0.574464/1.82463, 1) = 0.685161", "A_score": 1.0, "A_explain": "A: n=512, mae=0, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 1", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=512, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.6674500405788422, "bg_explain": "bg: n=512, mae=0.033255, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.033255/0.1, 1) = 0.66745", "total_score": 85.18233215547563, "total_explain": "Total: weighted mean of region scores * 100 = 85.1823", "param_count": 18726, "param_explain": "Params: 18726 < 20260 => no penalty", "__explain__": "[I]\n  I: n=512, mae=8.75839e+18, scale=9.36781e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(8.75839e+18/9.36781e+19, 1) = 0.906505.\n\n[O]\n  O: n=512, mae=0.574464, scale=1.82463.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.574464/1.82463, 1) = 0.685161.\n\n[A]\n  A: n=512, mae=0, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 1.\n\n[I_entropy]\n  I_entropy: n=512, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=512, mae=0.033255, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.033255/0.1, 1) = 0.66745.\n\n[param multiplier]\n  Params: 18726 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 85.1823."}, "evaluation_config": {"n_per_region": 512, "seed": 0, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 2026, "configuration_count": 1, "points_per_region_per_config": 512, "scoring_seconds": 0.18929296099997828, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}
+2026-10-16T13:24:25.3822431Z --- released_leaderboard_a_repository_baseline/training.log: final 15 lines ---
+2026-10-16T13:24:25.3823290Z COMMAND ["python", "<work-dir>/repository-baseline/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5"]
+2026-10-16T13:24:25.3824020Z params=17424; I normalized MAE=4.8e-08; router_steps=2500; O_steps=2500; I threshold=8.18; validation_per_region=16384; I safety=1.5
+2026-10-16T13:24:25.3824322Z Saved model.pt; configs=1; elapsed=18.6s
+2026-10-16T13:24:26.8530088Z --- released_leaderboard_a_repository_baseline/score.log: final 15 lines ---
+2026-10-16T13:24:26.8530369Z 
+2026-10-16T13:24:26.8530420Z [I_entropy]
+2026-10-16T13:24:26.8530567Z   I_entropy: n=512, runs=10, mode=std.
+2026-10-16T13:24:26.8530764Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:24:26.8530956Z   Final score = mean(point scores) = 1.
+2026-10-16T13:24:26.8531062Z 
+2026-10-16T13:24:26.8531109Z [bg]
+2026-10-16T13:24:26.8531219Z   bg: n=512, mae=0.00892275, scale=0.1.
+2026-10-16T13:24:26.8531411Z   score = 1 - min(mae/scale, 1) = 1 - min(0.00892275/0.1, 1) = 0.910772.
+2026-10-16T13:24:26.8532152Z 
+2026-10-16T13:24:26.8532226Z [param multiplier]
+2026-10-16T13:24:26.8532409Z   Params: 17424 < 20260 => no penalty.
+2026-10-16T13:24:26.8532548Z 
+2026-10-16T13:24:26.8532612Z [total]
+2026-10-16T13:24:26.8532820Z   Total: weighted mean of region scores * 100 = 85.4997.
+2026-10-16T13:24:26.8541185Z ROUND2_FINAL_RESULT released_leaderboard_a repository_baseline {"candidate": "baseline_991a49b", "geometry_bands": 0, "geometry_axis": "affine", "training_source_sha256": "020024de3943b7f0a9659d74a6efc9bce43a0662f6765679ba7282aecec47933", "model_source_sha256": "d5cc9371f773354d8968e50a2136fa0e94f887a942074130e6a4b081aeb77a35", "configuration_count": 1, "training": {"command": ["python", "<work-dir>/repository-baseline/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5"], "wall_seconds": 19.862478334000002, "exit_code": 0, "timed_out": false}, "scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/released_leaderboard_a_repository_baseline/model.pt", "--config-dir", "<work-dir>/dataset/private/leaderboard_a_config", "--output", "<work-dir>/released_leaderboard_a_repository_baseline/score.json"], "wall_seconds": 1.4706555600000115, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.68325881382909, "I_explain": "I: n=512, mae=2.88502e+19, scale=9.10845e+19. score = 1 - min(mae/scale, 1) = 1 - min(2.88502e+19/9.10845e+19, 1) = 0.683259", "O_score": 0.6868124996050216, "O_explain": "O: n=512, mae=0.573641, scale=1.83162. score = 1 - min(mae/scale, 1) = 1 - min(0.573641/1.83162, 1) = 0.686812", "A_score": 0.994140625, "A_explain": "A: n=512, mae=0.00585938, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 0.994141", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=512, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.9107724614441395, "bg_explain": "bg: n=512, mae=0.00892275, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.00892275/0.1, 1) = 0.910772", "total_score": 85.49968799756502, "total_explain": "Total: weighted mean of region scores * 100 = 85.4997", "param_count": 17424, "param_explain": "Params: 17424 < 20260 => no penalty", "__explain__": "[I]\n  I: n=512, mae=2.88502e+19, scale=9.10845e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(2.88502e+19/9.10845e+19, 1) = 0.683259.\n\n[O]\n  O: n=512, mae=0.573641, scale=1.83162.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.573641/1.83162, 1) = 0.686812.\n\n[A]\n  A: n=512, mae=0.00585938, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 0.994141.\n\n[I_entropy]\n  I_entropy: n=512, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=512, mae=0.00892275, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.00892275/0.1, 1) = 0.910772.\n\n[param multiplier]\n  Params: 17424 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 85.4997."}, "evaluation_config": {"n_per_region": 512, "seed": 0, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 2026, "configuration_count": 1, "points_per_region_per_config": 512, "scoring_seconds": 0.20291028099995856, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}
+2026-10-16T13:24:48.1183307Z --- released_leaderboard_a_selected_candidate/training.log: final 15 lines ---
+2026-10-16T13:24:48.1184519Z COMMAND ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "32", "--i-geometry-axis", "pca"]
+2026-10-16T13:24:48.1185590Z I_GEOMETRY {"bands": 32, "axis": "pca", "accepted_pieces": 32, "rejected_pieces": 0, "degenerate_pieces": 0, "positive_training_coverage": 0.9742676019668579, "geometry_parameters": 1566, "positive_samples": 20480, "negative_samples": 131072}
+2026-10-16T13:24:48.1186290Z params=18990; I normalized MAE=4.8e-08; router_steps=2500; O_steps=2500; I threshold=8.18; validation_per_region=16384; I safety=1.5
+2026-10-16T13:24:48.1186660Z Saved model.pt; configs=1; elapsed=19.9s
+2026-10-16T13:24:49.7372054Z --- released_leaderboard_a_selected_candidate/score.log: final 15 lines ---
+2026-10-16T13:24:49.7373728Z 
+2026-10-16T13:24:49.7373918Z [I_entropy]
+2026-10-16T13:24:49.7374166Z   I_entropy: n=512, runs=10, mode=std.
+2026-10-16T13:24:49.7374440Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:24:49.7374633Z   Final score = mean(point scores) = 1.
+2026-10-16T13:24:49.7374743Z 
+2026-10-16T13:24:49.7375115Z [bg]
+2026-10-16T13:24:49.7375220Z   bg: n=512, mae=0.00892275, scale=0.1.
+2026-10-16T13:24:49.7375403Z   score = 1 - min(mae/scale, 1) = 1 - min(0.00892275/0.1, 1) = 0.910772.
+2026-10-16T13:24:49.7375540Z 
+2026-10-16T13:24:49.7375592Z [param multiplier]
+2026-10-16T13:24:49.7375717Z   Params: 18990 < 20260 => no penalty.
+2026-10-16T13:24:49.7375819Z 
+2026-10-16T13:24:49.7375864Z [total]
+2026-10-16T13:24:49.7375998Z   Total: weighted mean of region scores * 100 = 91.5164.
+2026-10-16T13:24:49.7381872Z ROUND2_FINAL_RESULT released_leaderboard_a selected_candidate {"candidate": "hulls32_pca", "geometry_bands": 32, "geometry_axis": "pca", "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd", "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c", "configuration_count": 1, "training": {"command": ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "32", "--i-geometry-axis", "pca"], "wall_seconds": 21.263849152999967, "exit_code": 0, "timed_out": false}, "scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/released_leaderboard_a_selected_candidate/model.pt", "--config-dir", "<work-dir>/dataset/private/leaderboard_a_config", "--output", "<work-dir>/released_leaderboard_a_selected_candidate/score.json"], "wall_seconds": 1.6187168319999614, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.9840932401618171, "I_explain": "I: n=512, mae=1.44886e+18, scale=9.10845e+19. score = 1 - min(mae/scale, 1) = 1 - min(1.44886e+18/9.10845e+19, 1) = 0.984093", "O_score": 0.6868124996050216, "O_explain": "O: n=512, mae=0.573641, scale=1.83162. score = 1 - min(mae/scale, 1) = 1 - min(0.573641/1.83162, 1) = 0.686812", "A_score": 0.994140625, "A_explain": "A: n=512, mae=0.00585938, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 0.994141", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=512, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.9107724614441395, "bg_explain": "bg: n=512, mae=0.00892275, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.00892275/0.1, 1) = 0.910772", "total_score": 91.51637652421958, "total_explain": "Total: weighted mean of region scores * 100 = 91.5164", "param_count": 18990, "param_explain": "Params: 18990 < 20260 => no penalty", "__explain__": "[I]\n  I: n=512, mae=1.44886e+18, scale=9.10845e+19.\n  score = 1 - min(mae/scale, 1) = 1 - min(1.44886e+18/9.10845e+19, 1) = 0.984093.\n\n[O]\n  O: n=512, mae=0.573641, scale=1.83162.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.573641/1.83162, 1) = 0.686812.\n\n[A]\n  A: n=512, mae=0.00585938, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 0.994141.\n\n[I_entropy]\n  I_entropy: n=512, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=512, mae=0.00892275, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.00892275/0.1, 1) = 0.910772.\n\n[param multiplier]\n  Params: 18990 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 91.5164."}, "evaluation_config": {"n_per_region": 512, "seed": 0, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 2026, "configuration_count": 1, "points_per_region_per_config": 512, "scoring_seconds": 0.2346178239999972, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}
+2026-10-16T13:25:08.2463203Z --- released_leaderboard_b_repository_baseline/training.log: final 15 lines ---
+2026-10-16T13:25:08.2464039Z COMMAND ["python", "<work-dir>/repository-baseline/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5"]
+2026-10-16T13:25:08.2464752Z params=17424; I normalized MAE=3.26e-08; router_steps=2500; O_steps=2500; I threshold=7.19; validation_per_region=16384; I safety=1.5
+2026-10-16T13:25:08.2465060Z Saved model.pt; configs=1; elapsed=17.2s
+2026-10-16T13:25:09.7144418Z --- released_leaderboard_b_repository_baseline/score.log: final 15 lines ---
+2026-10-16T13:25:09.7144762Z 
+2026-10-16T13:25:09.7144838Z [I_entropy]
+2026-10-16T13:25:09.7145026Z   I_entropy: n=512, runs=10, mode=std.
+2026-10-16T13:25:09.7145340Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:25:09.7145619Z   Final score = mean(point scores) = 1.
+2026-10-16T13:25:09.7145774Z 
+2026-10-16T13:25:09.7145839Z [bg]
+2026-10-16T13:25:09.7146002Z   bg: n=512, mae=0.054091, scale=0.1.
+2026-10-16T13:25:09.7146272Z   score = 1 - min(mae/scale, 1) = 1 - min(0.054091/0.1, 1) = 0.45909.
+2026-10-16T13:25:09.7146478Z 
+2026-10-16T13:25:09.7146556Z [param multiplier]
+2026-10-16T13:25:09.7146745Z   Params: 17424 < 20260 => no penalty.
+2026-10-16T13:25:09.7146889Z 
+2026-10-16T13:25:09.7146958Z [total]
+2026-10-16T13:25:09.7147160Z   Total: weighted mean of region scores * 100 = 72.7411.
+2026-10-16T13:25:09.7153752Z ROUND2_FINAL_RESULT released_leaderboard_b repository_baseline {"candidate": "baseline_991a49b", "geometry_bands": 0, "geometry_axis": "affine", "training_source_sha256": "020024de3943b7f0a9659d74a6efc9bce43a0662f6765679ba7282aecec47933", "model_source_sha256": "d5cc9371f773354d8968e50a2136fa0e94f887a942074130e6a4b081aeb77a35", "configuration_count": 1, "training": {"command": ["python", "<work-dir>/repository-baseline/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5"], "wall_seconds": 18.50762588599997, "exit_code": 0, "timed_out": false}, "scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/released_leaderboard_b_repository_baseline/model.pt", "--config-dir", "<work-dir>/dataset/private/leaderboard_b_config", "--output", "<work-dir>/released_leaderboard_b_repository_baseline/score.json"], "wall_seconds": 1.4680100580000044, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.4836844723815681, "I_explain": "I: n=512, mae=4.65728e+17, scale=9.02022e+17. score = 1 - min(mae/scale, 1) = 1 - min(4.65728e+17/9.02022e+17, 1) = 0.483684", "O_score": 0.6962337071309864, "O_explain": "O: n=512, mae=0.554563, scale=1.82562. score = 1 - min(mae/scale, 1) = 1 - min(0.554563/1.82562, 1) = 0.696234", "A_score": 0.998046875, "A_explain": "A: n=512, mae=0.00195312, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 0.998047", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=512, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.45909008383750916, "bg_explain": "bg: n=512, mae=0.054091, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.054091/0.1, 1) = 0.45909", "total_score": 72.74110276700128, "total_explain": "Total: weighted mean of region scores * 100 = 72.7411", "param_count": 17424, "param_explain": "Params: 17424 < 20260 => no penalty", "__explain__": "[I]\n  I: n=512, mae=4.65728e+17, scale=9.02022e+17.\n  score = 1 - min(mae/scale, 1) = 1 - min(4.65728e+17/9.02022e+17, 1) = 0.483684.\n\n[O]\n  O: n=512, mae=0.554563, scale=1.82562.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.554563/1.82562, 1) = 0.696234.\n\n[A]\n  A: n=512, mae=0.00195312, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 0.998047.\n\n[I_entropy]\n  I_entropy: n=512, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=512, mae=0.054091, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.054091/0.1, 1) = 0.45909.\n\n[param multiplier]\n  Params: 17424 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 72.7411."}, "evaluation_config": {"n_per_region": 512, "seed": 0, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 2026, "configuration_count": 1, "points_per_region_per_config": 512, "scoring_seconds": 0.12832412699998486, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}
+2026-10-16T13:25:34.7829668Z --- released_leaderboard_b_selected_candidate/training.log: final 15 lines ---
+2026-10-16T13:25:34.7830928Z COMMAND ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "32", "--i-geometry-axis", "pca"]
+2026-10-16T13:25:34.7832256Z I_GEOMETRY {"bands": 32, "axis": "pca", "accepted_pieces": 29, "rejected_pieces": 3, "degenerate_pieces": 0, "positive_training_coverage": 0.881591796875, "geometry_parameters": 1491, "positive_samples": 20480, "negative_samples": 131072}
+2026-10-16T13:25:34.7833291Z params=18915; I normalized MAE=3.26e-08; router_steps=2500; O_steps=2500; I threshold=7.19; validation_per_region=16384; I safety=1.5
+2026-10-16T13:25:34.7833801Z Saved model.pt; configs=1; elapsed=23.7s
+2026-10-16T13:25:36.3003611Z --- released_leaderboard_b_selected_candidate/score.log: final 15 lines ---
+2026-10-16T13:25:36.3003941Z 
+2026-10-16T13:25:36.3004024Z [I_entropy]
+2026-10-16T13:25:36.3004219Z   I_entropy: n=512, runs=10, mode=std.
+2026-10-16T13:25:36.3004507Z   Rule: if any run is outside [-2026,2026], point score=0.
+2026-10-16T13:25:36.3004800Z   Final score = mean(point scores) = 1.
+2026-10-16T13:25:36.3004966Z 
+2026-10-16T13:25:36.3005033Z [bg]
+2026-10-16T13:25:36.3005203Z   bg: n=512, mae=0.054091, scale=0.1.
+2026-10-16T13:25:36.3005882Z   score = 1 - min(mae/scale, 1) = 1 - min(0.054091/0.1, 1) = 0.45909.
+2026-10-16T13:25:36.3006108Z 
+2026-10-16T13:25:36.3006194Z [param multiplier]
+2026-10-16T13:25:36.3006395Z   Params: 18915 < 20260 => no penalty.
+2026-10-16T13:25:36.3006549Z 
+2026-10-16T13:25:36.3006634Z [total]
+2026-10-16T13:25:36.3006851Z   Total: weighted mean of region scores * 100 = 81.8590.
+2026-10-16T13:25:36.3016100Z ROUND2_FINAL_RESULT released_leaderboard_b selected_candidate {"candidate": "hulls32_pca", "geometry_bands": 32, "geometry_axis": "pca", "training_source_sha256": "04ea837608021c1015ac0d1ee859883e9c0a4cb17b417828df08358ba74828dd", "model_source_sha256": "c76c6f113ac5012f8911b1543f0a6b112d9da9b73570eee5d1252d1fc08d4b5c", "configuration_count": 1, "training": {"command": ["python", "<repository>/solutions/day2_ioai_field.py", "--seconds", "265", "--router-steps", "2500", "--o-steps", "2500", "--validation-per-region", "16384", "--i-safety", "1.5", "--i-geometry-bands", "32", "--i-geometry-axis", "pca"], "wall_seconds": 25.066914858000075, "exit_code": 0, "timed_out": false}, "scoring": {"command": ["python", "<repository>/tools/benchmark_field.py", "--score-model", "<work-dir>/released_leaderboard_b_selected_candidate/model.pt", "--config-dir", "<work-dir>/dataset/private/leaderboard_b_config", "--output", "<work-dir>/released_leaderboard_b_selected_candidate/score.json"], "wall_seconds": 1.5172613820000151, "exit_code": 0, "timed_out": false}, "result": {"score": {"I_score": 0.9395776352317442, "I_explain": "I: n=512, mae=5.45023e+16, scale=9.02022e+17. score = 1 - min(mae/scale, 1) = 1 - min(5.45023e+16/9.02022e+17, 1) = 0.939578", "O_score": 0.6962337071309864, "O_explain": "O: n=512, mae=0.554563, scale=1.82562. score = 1 - min(mae/scale, 1) = 1 - min(0.554563/1.82562, 1) = 0.696234", "A_score": 0.998046875, "A_explain": "A: n=512, mae=0.00195312, scale=0. constant target => using scale=1.0. score = 1 - min(mae/1.0, 1) = 0.998047", "I_entropy_score": 1.0, "I_entropy_explain": "I_entropy: n=512, runs=10, mode=std. Rule: if any run is outside [-2026,2026], point score=0. Final score = mean(point scores) = 1", "bg_score": 0.45909008383750916, "bg_explain": "bg: n=512, mae=0.054091, scale=0.1. score = 1 - min(mae/scale, 1) = 1 - min(0.054091/0.1, 1) = 0.45909", "total_score": 81.8589660240048, "total_explain": "Total: weighted mean of region scores * 100 = 81.8590", "param_count": 18915, "param_explain": "Params: 18915 < 20260 => no penalty", "__explain__": "[I]\n  I: n=512, mae=5.45023e+16, scale=9.02022e+17.\n  score = 1 - min(mae/scale, 1) = 1 - min(5.45023e+16/9.02022e+17, 1) = 0.939578.\n\n[O]\n  O: n=512, mae=0.554563, scale=1.82562.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.554563/1.82562, 1) = 0.696234.\n\n[A]\n  A: n=512, mae=0.00195312, scale=0.\n  constant target => using scale=1.0.\n  score = 1 - min(mae/1.0, 1) = 0.998047.\n\n[I_entropy]\n  I_entropy: n=512, runs=10, mode=std.\n  Rule: if any run is outside [-2026,2026], point score=0.\n  Final score = mean(point scores) = 1.\n\n[bg]\n  bg: n=512, mae=0.054091, scale=0.1.\n  score = 1 - min(mae/scale, 1) = 1 - min(0.054091/0.1, 1) = 0.45909.\n\n[param multiplier]\n  Params: 18915 < 20260 => no penalty.\n\n[total]\n  Total: weighted mean of region scores * 100 = 81.8590."}, "evaluation_config": {"n_per_region": 512, "seed": 0, "range_mode": "p99", "entropy_runs": 10, "entropy_mode": "std", "enforce_unit_interval": true, "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5}, "torch_seed": 2026, "configuration_count": 1, "points_per_region_per_config": 512, "scoring_seconds": 0.16311477499993998, "hardware": {"platform": "Linux-6.17.0-1022-azure-x86_64-with-glibc2.39", "python": "3.13.16", "cpu": "x86_64", "cpu_count": 4, "torch": "2.8.0+cpu", "cuda_available": false, "device_used": "CPU", "torch_threads": 4}}}
+2026-10-16T13:25:36.3168103Z ##[group]Run actions/upload-artifact@v4
+2026-10-16T13:25:36.3168283Z with:
+2026-10-16T13:25:36.3168410Z   name: field-round2-cpu-results
+2026-10-16T13:25:36.3168715Z   path: work/field-round2/summary.json
+work/field-round2/provenance.json
+work/field-round2/*/*.log
+work/field-round2/*/*.json
+
+2026-10-16T13:25:36.3169191Z   if-no-files-found: warn
+2026-10-16T13:25:36.3169337Z   retention-days: 14
+2026-10-16T13:25:36.3169460Z   compression-level: 6
+2026-10-16T13:25:36.3169582Z   overwrite: false
+2026-10-16T13:25:36.3169704Z   include-hidden-files: false
+2026-10-16T13:25:36.3169839Z env:
+2026-10-16T13:25:36.3169993Z   pythonLocation: <python-runtime>
+2026-10-16T13:25:36.3170228Z   PKG_CONFIG_PATH: <python-runtime>
+2026-10-16T13:25:36.3170454Z   Python_ROOT_DIR: <python-runtime>
+2026-10-16T13:25:36.3170659Z   Python2_ROOT_DIR: <python-runtime>
+2026-10-16T13:25:36.3170897Z   Python3_ROOT_DIR: <python-runtime>
+2026-10-16T13:25:36.3171117Z   LD_LIBRARY_PATH: <python-runtime>
+2026-10-16T13:25:36.3171292Z ##[endgroup]
+2026-10-16T13:25:36.4291600Z (node:2505) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-16T13:25:36.4292041Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-16T13:25:36.4464923Z With the provided path, there will be 45 files uploaded
+2026-10-16T13:25:36.4465709Z Artifact name is valid!
+2026-10-16T13:25:36.4465936Z Root directory input is valid!
+2026-10-16T13:25:36.7697102Z Beginning upload of artifact content to blob storage
+2026-10-16T13:25:36.8117376Z (node:2505) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-10-16T13:25:37.0004612Z Uploaded bytes 42581
+2026-10-16T13:25:37.0405242Z Finished uploading artifact content to blob storage!
+2026-10-16T13:25:37.0406149Z SHA256 digest of uploaded artifact zip is e6c54260c6119bc6e61572ffbc0bc15c71cb6cfcde150f994dd73ef6d133f809
+2026-10-16T13:25:37.0407285Z Finalizing artifact upload
+2026-10-16T13:25:37.3009547Z Artifact field-round2-cpu-results.zip successfully finalized. Artifact ID 12048484237
+2026-10-16T13:25:37.3010345Z Artifact field-round2-cpu-results has been successfully uploaded! Final size is 42581 bytes. Artifact ID is 12048484237
+2026-10-16T13:25:37.3015019Z Artifact download URL: https://github.com/Sy5h/IOAI/actions/runs/38907040090/artifacts/12048484237
+2026-10-16T13:25:37.3167378Z Post job cleanup.
+2026-10-16T13:25:37.3970163Z (node:2518) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-10-16T13:25:37.3970581Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-10-16T13:25:37.4099681Z Post job cleanup.
+2026-10-16T13:25:37.4696355Z [command]/usr/bin/git version
+2026-10-16T13:25:37.4724751Z git version 2.55.0
+2026-10-16T13:25:37.4749872Z Temporarily overriding HOME='<runner-temp>' before making global git config changes
+2026-10-16T13:25:37.4750616Z Adding repository directory to the temporary git global config as a safe directory
+2026-10-16T13:25:37.4753204Z [command]/usr/bin/git config --global --add safe.directory <repository>
+2026-10-16T13:25:37.4788035Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-10-16T13:25:37.4820980Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-10-16T13:25:37.5024736Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-10-16T13:25:37.5057386Z http.https://github.com/.extraheader
+2026-10-16T13:25:37.5067589Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-10-16T13:25:37.5103927Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-10-16T13:25:37.5315863Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-10-16T13:25:37.5349406Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-10-16T13:25:37.5687553Z Cleaning up orphan processes
+2026-10-16T13:25:37.5937800Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@v4, actions/setup-python@v5, actions/upload-artifact@v4. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+
