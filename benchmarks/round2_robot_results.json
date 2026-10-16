@@ -1,0 +1,1211 @@
+{
+  "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+  "data_revision": "8a82acbdfda387269649d4bcf580fbdab1ed3cc6",
+  "evaluation_status": "Development re-evaluation: released A/B were already measured in round 1. They are not new unseen test sets.",
+  "selection_protocol": "Use only official train, same robot-stratified 48000/12000 split (seed 20261016), to select the candidate. Freeze before A/B re-evaluation. No fitting or tuning on evaluation answers.",
+  "timing_scope": "Fresh CPU solver subprocess, 4 threads, includes imports, JSON loading, features, training and prediction; excludes downloads and scorer. Shared Windows host; concurrent Order inference and other work can affect CPU wall time. Each run once; timing differences are not controlled dedicated-host speed estimates.",
+  "downloads": {
+    "performed_in_round_2": false,
+    "note": "Reuse previously downloaded pinned data; no model or additional data download."
+  },
+  "official_score_audit": {
+    "revision": "e1963801aa4cf33a5a03520b39fa6620a7894c54",
+    "source_sha256": "4a0a23a4cd521ee90b93b60eb3733b7d4d1d19dfd4fbea1971cf2e6b302395d8",
+    "scope": "Original scoring function only, not the full official Podman/notebook/time-limit environment."
+  },
+  "runs": [
+    {
+      "label": "baseline_mlp_a",
+      "task": "robot",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:23:32.670362+00:00",
+      "script_sha256": "4a825e25956813a8b66656f059db66560254e6d8964d6a1bd990c9e2eebd8815",
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\work\\round2\\baseline\\solutions\\day1_robot_chasing.py",
+        "--dataset-root",
+        "<workspace>\\work\\bench-order-robot\\robot\\test_leaderboard_a\\dataset",
+        "--output",
+        "<workspace>\\work\\round2\\robot\\runs\\baseline_a\\predictions.json",
+        "--budget",
+        "270",
+        "--model",
+        "mlp",
+        "--cpu-threads",
+        "4"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\robot\\test_leaderboard_a\\dataset",
+      "data_revision": "8a82acbdfda387269649d4bcf580fbdab1ed3cc6",
+      "evaluation_split": "test_leaderboard_a",
+      "truth_sha256": "afe0349dd9cc748a395fae8bb4eac31561d34aebea12fda6b143cd52883be389",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cpu",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 111.9381446000043,
+      "solver_logged_fallback": false,
+      "log_tail": "robot 0: epochs=39, validation=0.7033, learned=True\nrobot 1: epochs=44, validation=0.6813, learned=True\nrobot 2: epochs=35, validation=0.6873, learned=True\nrobot 3: epochs=44, validation=0.6760, learned=True\nrobot 4: epochs=34, validation=0.6953, learned=True\nrobot 5: epochs=34, validation=0.6680, learned=True\nwrote 3600 predictions in 110.8s\n",
+      "result": {
+        "metric": "mean_per_robot_accuracy_percent",
+        "score": 64.91666666666667,
+        "by_robot": {
+          "0": 65.66666666666667,
+          "1": 68.16666666666667,
+          "2": 65.66666666666667,
+          "3": 64.33333333333333,
+          "4": 63.666666666666664,
+          "5": 62.0
+        },
+        "rows": 3600,
+        "robots": 6
+      },
+      "round": 2,
+      "dependency_source_sha256": [],
+      "truth_source": "<workspace>\\work\\bench-order-robot\\scorer-only\\robot\\test_leaderboard_a_answers.json",
+      "evaluation_role": "released_A_B_development_re_evaluation",
+      "selection_protocol": "Select on the same 48000/12000 training-only split; freeze before released A/B. A/B were evaluated in round 1 and are not fresh unseen test sets.",
+      "run_id": "baseline_a",
+      "repeated_measurements": false,
+      "training_rows": 60000,
+      "parameters": {
+        "seed": 2026,
+        "budget_seconds": 270,
+        "threads": 4,
+        "internal_validation_fraction": 0.15,
+        "model": "MLP",
+        "hidden": [
+          192,
+          64
+        ],
+        "max_epochs": 60,
+        "learning_rate": 0.002,
+        "batch_size": 512,
+        "dropout": 0.05,
+        "weight_decay": 0.0001,
+        "patience": 8,
+        "features": 1328
+      },
+      "training_coverage": {
+        "learned_robot_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "learned_robots": 6,
+        "total_robots": 6,
+        "fallback_robots": 0
+      },
+      "sanitized_solver_log": "benchmarks/logs/round2_robot/baseline_a.log",
+      "official_score_audit": {
+        "score_rounded_4dp": 64.9167,
+        "matches": true
+      }
+    },
+    {
+      "label": "baseline_mlp_b",
+      "task": "robot",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:27:30.050965+00:00",
+      "script_sha256": "4a825e25956813a8b66656f059db66560254e6d8964d6a1bd990c9e2eebd8815",
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\work\\round2\\baseline\\solutions\\day1_robot_chasing.py",
+        "--dataset-root",
+        "<workspace>\\work\\bench-order-robot\\robot\\test_leaderboard_b\\dataset",
+        "--output",
+        "<workspace>\\work\\round2\\robot\\runs\\baseline_b\\predictions.json",
+        "--budget",
+        "270",
+        "--model",
+        "mlp",
+        "--cpu-threads",
+        "4"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\robot\\test_leaderboard_b\\dataset",
+      "data_revision": "8a82acbdfda387269649d4bcf580fbdab1ed3cc6",
+      "evaluation_split": "test_leaderboard_b",
+      "truth_sha256": "66b8179f3b2189e690b195f1f8b859e737b58031147d898557d766d86d971975",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cpu",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 66.03106120000302,
+      "solver_logged_fallback": false,
+      "log_tail": "robot 0: epochs=39, validation=0.7033, learned=True\nrobot 1: epochs=44, validation=0.6813, learned=True\nrobot 2: epochs=35, validation=0.6873, learned=True\nrobot 3: epochs=44, validation=0.6760, learned=True\nrobot 4: epochs=34, validation=0.6953, learned=True\nrobot 5: epochs=34, validation=0.6680, learned=True\nwrote 3600 predictions in 65.1s\n",
+      "result": {
+        "metric": "mean_per_robot_accuracy_percent",
+        "score": 63.94444444444445,
+        "by_robot": {
+          "0": 66.0,
+          "1": 64.0,
+          "2": 62.0,
+          "3": 63.666666666666664,
+          "4": 65.83333333333333,
+          "5": 62.166666666666664
+        },
+        "rows": 3600,
+        "robots": 6
+      },
+      "round": 2,
+      "dependency_source_sha256": [],
+      "truth_source": "<workspace>\\work\\bench-order-robot\\scorer-only\\robot\\test_leaderboard_b_answers.json",
+      "evaluation_role": "released_A_B_development_re_evaluation",
+      "selection_protocol": "Select on the same 48000/12000 training-only split; freeze before released A/B. A/B were evaluated in round 1 and are not fresh unseen test sets.",
+      "run_id": "baseline_b",
+      "repeated_measurements": false,
+      "training_rows": 60000,
+      "parameters": {
+        "seed": 2026,
+        "budget_seconds": 270,
+        "threads": 4,
+        "internal_validation_fraction": 0.15,
+        "model": "MLP",
+        "hidden": [
+          192,
+          64
+        ],
+        "max_epochs": 60,
+        "learning_rate": 0.002,
+        "batch_size": 512,
+        "dropout": 0.05,
+        "weight_decay": 0.0001,
+        "patience": 8,
+        "features": 1328
+      },
+      "training_coverage": {
+        "learned_robot_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "learned_robots": 6,
+        "total_robots": 6,
+        "fallback_robots": 0
+      },
+      "sanitized_solver_log": "benchmarks/logs/round2_robot/baseline_b.log",
+      "official_score_audit": {
+        "score_rounded_4dp": 63.9444,
+        "matches": true
+      }
+    },
+    {
+      "label": "baseline_mlp_holdout",
+      "task": "robot",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:10:59.090503+00:00",
+      "script_sha256": "4a825e25956813a8b66656f059db66560254e6d8964d6a1bd990c9e2eebd8815",
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\work\\round2\\baseline\\solutions\\day1_robot_chasing.py",
+        "--dataset-root",
+        "<workspace>\\work\\bench-order-robot\\robot\\holdout\\dataset",
+        "--output",
+        "<workspace>\\work\\round2\\robot\\runs\\baseline_holdout\\predictions.json",
+        "--budget",
+        "270",
+        "--model",
+        "mlp",
+        "--cpu-threads",
+        "4"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\robot\\holdout\\dataset",
+      "data_revision": "8a82acbdfda387269649d4bcf580fbdab1ed3cc6",
+      "evaluation_split": "train_holdout_seed20261016",
+      "truth_sha256": "92bd8a67cc63cd24866eeaa7a6a56da4aa78dc281411c375c6ecfa1c9cbcff82",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cpu",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 92.50855679999222,
+      "solver_logged_fallback": false,
+      "log_tail": "robot 0: epochs=40, validation=0.6867, learned=True\nrobot 1: epochs=38, validation=0.6767, learned=True\nrobot 2: epochs=30, validation=0.6492, learned=True\nrobot 3: epochs=33, validation=0.6208, learned=True\nrobot 4: epochs=43, validation=0.6700, learned=True\nrobot 5: epochs=41, validation=0.6675, learned=True\nwrote 12000 predictions in 89.1s\n",
+      "result": {
+        "metric": "mean_per_robot_accuracy_percent",
+        "score": 64.73333333333333,
+        "by_robot": {
+          "0": 67.85,
+          "1": 65.4,
+          "2": 63.7,
+          "3": 63.2,
+          "4": 64.35,
+          "5": 63.9
+        },
+        "rows": 12000,
+        "robots": 6
+      },
+      "round": 2,
+      "truth_source": "<workspace>\\work\\bench-order-robot\\scorer-only\\robot\\holdout_answers.json",
+      "evaluation_role": "training_only_holdout",
+      "selection_protocol": "Select on the same 48000/12000 training-only split; freeze before released A/B. A/B were evaluated in round 1 and are not fresh unseen test sets.",
+      "run_id": "baseline_holdout",
+      "repeated_measurements": false,
+      "training_rows": 48000,
+      "parameters": {
+        "seed": 2026,
+        "budget_seconds": 270,
+        "threads": 4,
+        "internal_validation_fraction": 0.15,
+        "model": "MLP",
+        "hidden": [
+          192,
+          64
+        ],
+        "max_epochs": 60,
+        "learning_rate": 0.002,
+        "batch_size": 512,
+        "dropout": 0.05,
+        "weight_decay": 0.0001,
+        "patience": 8,
+        "features": 1328
+      },
+      "training_coverage": {
+        "learned_robot_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "learned_robots": 6,
+        "total_robots": 6,
+        "fallback_robots": 0
+      },
+      "sanitized_solver_log": "benchmarks/logs/round2_robot/baseline_holdout.log",
+      "official_score_audit": {
+        "score_rounded_4dp": 64.7333,
+        "matches": true
+      }
+    },
+    {
+      "label": "local_grid_mlp_holdout",
+      "task": "robot",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:19:44.904503+00:00",
+      "script_sha256": "313dd4af386869af9edf1014a450b2b8375928c49ec14c1c62f4d8a5fa7b0b5c",
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\benchmarks\\round2_robot_candidate.py",
+        "--dataset-root",
+        "<workspace>\\work\\bench-order-robot\\robot\\holdout\\dataset",
+        "--output",
+        "<workspace>\\work\\round2\\robot\\runs\\local_grid_mlp_holdout\\predictions.json",
+        "--source",
+        "<workspace>/work/round2/baseline/solutions/day1_robot_chasing.py",
+        "--variant",
+        "local-grid-mlp",
+        "--budget",
+        "270",
+        "--cpu-threads",
+        "4"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\robot\\holdout\\dataset",
+      "data_revision": "8a82acbdfda387269649d4bcf580fbdab1ed3cc6",
+      "evaluation_split": "train_holdout_seed20261016",
+      "truth_sha256": "92bd8a67cc63cd24866eeaa7a6a56da4aa78dc281411c375c6ecfa1c9cbcff82",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cpu",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 88.52216960000806,
+      "solver_logged_fallback": false,
+      "log_tail": "candidate=local-grid-mlp; model=mlp\nrobot 0: epochs=19, validation=0.6933, learned=True\nrobot 1: epochs=29, validation=0.6983, learned=True\nrobot 2: epochs=23, validation=0.6658, learned=True\nrobot 3: epochs=29, validation=0.6592, learned=True\nrobot 4: epochs=19, validation=0.6717, learned=True\nrobot 5: epochs=21, validation=0.6792, learned=True\nwrote 12000 predictions in 87.2s\n",
+      "result": {
+        "metric": "mean_per_robot_accuracy_percent",
+        "score": 66.08333333333333,
+        "by_robot": {
+          "0": 67.65,
+          "1": 66.4,
+          "2": 67.35,
+          "3": 65.75,
+          "4": 65.7,
+          "5": 63.65
+        },
+        "rows": 12000,
+        "robots": 6
+      },
+      "round": 2,
+      "dependency_source_sha256": [
+        {
+          "path": "<workspace>\\outputs\\IOAI\\benchmarks\\round2_robot_features.py",
+          "sha256": "50eed5ce91ab06ea8c937a3965dbae065b3d2c23fe99b8aabf3b33a46f19ba34"
+        },
+        {
+          "path": "<workspace>\\work\\round2\\baseline\\solutions\\day1_robot_chasing.py",
+          "sha256": "4a825e25956813a8b66656f059db66560254e6d8964d6a1bd990c9e2eebd8815"
+        }
+      ],
+      "truth_source": "<workspace>\\work\\bench-order-robot\\scorer-only\\robot\\holdout_answers.json",
+      "evaluation_role": "training_only_holdout",
+      "selection_protocol": "Select on the same 48000/12000 training-only split; freeze before released A/B. A/B were evaluated in round 1 and are not fresh unseen test sets.",
+      "run_id": "local_grid_mlp_holdout",
+      "repeated_measurements": false,
+      "training_rows": 48000,
+      "parameters": {
+        "seed": 2026,
+        "budget_seconds": 270,
+        "threads": 4,
+        "internal_validation_fraction": 0.15,
+        "model": "MLP",
+        "hidden": [
+          192,
+          64
+        ],
+        "max_epochs": 60,
+        "learning_rate": 0.002,
+        "batch_size": 512,
+        "dropout": 0.05,
+        "weight_decay": 0.0001,
+        "patience": 8,
+        "features": 1622
+      },
+      "training_coverage": {
+        "learned_robot_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "learned_robots": 6,
+        "total_robots": 6,
+        "fallback_robots": 0
+      },
+      "sanitized_solver_log": "benchmarks/logs/round2_robot/local_grid_mlp_holdout.log",
+      "official_score_audit": {
+        "score_rounded_4dp": 66.0833,
+        "matches": true
+      }
+    },
+    {
+      "label": "paths_compact_mlp_holdout",
+      "task": "robot",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:16:14.806952+00:00",
+      "script_sha256": "7ec007b45f4622ffdacec8b93f547859ce5da8609f41049ab0ac4a48b1204f2e",
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\benchmarks\\round2_robot_candidate.py",
+        "--dataset-root",
+        "<workspace>\\work\\bench-order-robot\\robot\\holdout\\dataset",
+        "--output",
+        "<workspace>\\work\\round2\\robot\\runs\\paths_compact_mlp_holdout\\predictions.json",
+        "--source",
+        "<workspace>/work/round2/baseline/solutions/day1_robot_chasing.py",
+        "--variant",
+        "paths-compact-mlp",
+        "--budget",
+        "270",
+        "--cpu-threads",
+        "4"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\robot\\holdout\\dataset",
+      "data_revision": "8a82acbdfda387269649d4bcf580fbdab1ed3cc6",
+      "evaluation_split": "train_holdout_seed20261016",
+      "truth_sha256": "92bd8a67cc63cd24866eeaa7a6a56da4aa78dc281411c375c6ecfa1c9cbcff82",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cpu",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 85.76821140000538,
+      "solver_logged_fallback": false,
+      "log_tail": "candidate=paths-compact-mlp; extra path features; model=mlp\nrobot 0: epochs=28, validation=0.6408, learned=True\nrobot 1: epochs=49, validation=0.6400, learned=True\nrobot 2: epochs=39, validation=0.6175, learned=True\nrobot 3: epochs=41, validation=0.6092, learned=True\nrobot 4: epochs=28, validation=0.6125, learned=True\nrobot 5: epochs=30, validation=0.6267, learned=True\nwrote 12000 predictions in 82.2s\n",
+      "result": {
+        "metric": "mean_per_robot_accuracy_percent",
+        "score": 60.975,
+        "by_robot": {
+          "0": 61.8,
+          "1": 61.15,
+          "2": 61.25,
+          "3": 61.55,
+          "4": 59.0,
+          "5": 61.1
+        },
+        "rows": 12000,
+        "robots": 6
+      },
+      "round": 2,
+      "truth_source": "<workspace>\\work\\bench-order-robot\\scorer-only\\robot\\holdout_answers.json",
+      "evaluation_role": "training_only_holdout",
+      "selection_protocol": "Select on the same 48000/12000 training-only split; freeze before released A/B. A/B were evaluated in round 1 and are not fresh unseen test sets.",
+      "run_id": "paths_compact_mlp_holdout",
+      "repeated_measurements": false,
+      "training_rows": 48000,
+      "candidate_source_snapshot_sha256": {
+        "round2_robot_features.py": "d4238c8d18454e96435f5f8b4a5039d5d5452cf632ab53d30bd8098a7b13c2ec",
+        "round2_robot_candidate.py": "7ec007b45f4622ffdacec8b93f547859ce5da8609f41049ab0ac4a48b1204f2e"
+      },
+      "candidate_source_note": "Source snapshot preserved during development. The current reproduction wrapper adds variants/compatibility but retains this variant feature calculation.",
+      "parameters": {
+        "seed": 2026,
+        "budget_seconds": 270,
+        "threads": 4,
+        "internal_validation_fraction": 0.15,
+        "model": "MLP",
+        "hidden": [
+          192,
+          64
+        ],
+        "max_epochs": 60,
+        "learning_rate": 0.002,
+        "batch_size": 512,
+        "dropout": 0.05,
+        "weight_decay": 0.0001,
+        "patience": 8,
+        "features": 404
+      },
+      "training_coverage": {
+        "learned_robot_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "learned_robots": 6,
+        "total_robots": 6,
+        "fallback_robots": 0
+      },
+      "sanitized_solver_log": "benchmarks/logs/round2_robot/paths_compact_mlp_holdout.log",
+      "official_score_audit": {
+        "score_rounded_4dp": 60.975,
+        "matches": true
+      }
+    },
+    {
+      "label": "paths_hist_holdout",
+      "task": "robot",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:13:01.129633+00:00",
+      "script_sha256": "7ec007b45f4622ffdacec8b93f547859ce5da8609f41049ab0ac4a48b1204f2e",
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\benchmarks\\round2_robot_candidate.py",
+        "--dataset-root",
+        "<workspace>\\work\\bench-order-robot\\robot\\holdout\\dataset",
+        "--output",
+        "<workspace>\\work\\round2\\robot\\runs\\paths_hist_holdout\\predictions.json",
+        "--source",
+        "<workspace>/work/round2/baseline/solutions/day1_robot_chasing.py",
+        "--variant",
+        "paths-hist",
+        "--budget",
+        "270",
+        "--cpu-threads",
+        "4"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\robot\\holdout\\dataset",
+      "data_revision": "8a82acbdfda387269649d4bcf580fbdab1ed3cc6",
+      "evaluation_split": "train_holdout_seed20261016",
+      "truth_sha256": "92bd8a67cc63cd24866eeaa7a6a56da4aa78dc281411c375c6ecfa1c9cbcff82",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cpu",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 164.99576779999188,
+      "solver_logged_fallback": false,
+      "log_tail": "candidate=paths-hist; extra path features; model=hist\nrobot 0: hist iterations=98, features=404\nrobot 1: hist iterations=90, features=404\nrobot 2: hist iterations=102, features=404\nrobot 3: hist iterations=77, features=404\nrobot 4: hist iterations=78, features=404\nrobot 5: hist iterations=93, features=404\nwrote 12000 predictions in 164.3s\n",
+      "result": {
+        "metric": "mean_per_robot_accuracy_percent",
+        "score": 66.50833333333333,
+        "by_robot": {
+          "0": 68.25,
+          "1": 66.4,
+          "2": 66.75,
+          "3": 66.5,
+          "4": 64.95,
+          "5": 66.2
+        },
+        "rows": 12000,
+        "robots": 6
+      },
+      "round": 2,
+      "truth_source": "<workspace>\\work\\bench-order-robot\\scorer-only\\robot\\holdout_answers.json",
+      "evaluation_role": "training_only_holdout",
+      "selection_protocol": "Select on the same 48000/12000 training-only split; freeze before released A/B. A/B were evaluated in round 1 and are not fresh unseen test sets.",
+      "run_id": "paths_hist_holdout",
+      "repeated_measurements": false,
+      "training_rows": 48000,
+      "candidate_source_snapshot_sha256": {
+        "round2_robot_features.py": "d4238c8d18454e96435f5f8b4a5039d5d5452cf632ab53d30bd8098a7b13c2ec",
+        "round2_robot_candidate.py": "7ec007b45f4622ffdacec8b93f547859ce5da8609f41049ab0ac4a48b1204f2e"
+      },
+      "candidate_source_note": "Source snapshot preserved during development. The current reproduction wrapper adds variants/compatibility but retains this variant feature calculation.",
+      "parameters": {
+        "seed": 2026,
+        "budget_seconds": 270,
+        "threads": 4,
+        "internal_validation_fraction": 0.15,
+        "model": "HistGradientBoostingClassifier",
+        "features": 404,
+        "max_iter": 128,
+        "max_leaf_nodes": 31,
+        "learning_rate": 0.1,
+        "l2_regularization": 1,
+        "patience": 15
+      },
+      "training_coverage": {
+        "learned_robot_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "learned_robots": 6,
+        "total_robots": 6,
+        "fallback_robots": 0
+      },
+      "sanitized_solver_log": "benchmarks/logs/round2_robot/paths_hist_holdout.log",
+      "official_score_audit": {
+        "score_rounded_4dp": 66.5083,
+        "matches": true
+      }
+    },
+    {
+      "label": "relative_grid_mlp_holdout",
+      "task": "robot",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:17:55.408154+00:00",
+      "script_sha256": "d4f4822a3fe80fea71e8176b3834f268f3bbce32ea0a57642d569cc74af00228",
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\benchmarks\\round2_robot_candidate.py",
+        "--dataset-root",
+        "<workspace>\\work\\bench-order-robot\\robot\\holdout\\dataset",
+        "--output",
+        "<workspace>\\work\\round2\\robot\\runs\\relative_grid_mlp_holdout\\predictions.json",
+        "--source",
+        "<workspace>/work/round2/baseline/solutions/day1_robot_chasing.py",
+        "--variant",
+        "relative-grid-mlp",
+        "--budget",
+        "270",
+        "--cpu-threads",
+        "4"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\robot\\holdout\\dataset",
+      "data_revision": "8a82acbdfda387269649d4bcf580fbdab1ed3cc6",
+      "evaluation_split": "train_holdout_seed20261016",
+      "truth_sha256": "92bd8a67cc63cd24866eeaa7a6a56da4aa78dc281411c375c6ecfa1c9cbcff82",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cpu",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 79.64278809999814,
+      "solver_logged_fallback": false,
+      "log_tail": "candidate=relative-grid-mlp; extra path features; model=mlp\nrobot 0: epochs=19, validation=0.6150, learned=True\nrobot 1: epochs=18, validation=0.6158, learned=True\nrobot 2: epochs=20, validation=0.5783, learned=True\nrobot 3: epochs=23, validation=0.5842, learned=True\nrobot 4: epochs=18, validation=0.5825, learned=True\nrobot 5: epochs=19, validation=0.6075, learned=True\nwrote 12000 predictions in 78.5s\n",
+      "result": {
+        "metric": "mean_per_robot_accuracy_percent",
+        "score": 58.81666666666666,
+        "by_robot": {
+          "0": 60.3,
+          "1": 58.75,
+          "2": 58.35,
+          "3": 59.55,
+          "4": 57.25,
+          "5": 58.7
+        },
+        "rows": 12000,
+        "robots": 6
+      },
+      "round": 2,
+      "truth_source": "<workspace>\\work\\bench-order-robot\\scorer-only\\robot\\holdout_answers.json",
+      "evaluation_role": "training_only_holdout",
+      "selection_protocol": "Select on the same 48000/12000 training-only split; freeze before released A/B. A/B were evaluated in round 1 and are not fresh unseen test sets.",
+      "run_id": "relative_grid_mlp_holdout",
+      "repeated_measurements": false,
+      "training_rows": 48000,
+      "candidate_source_snapshot_sha256": {
+        "round2_robot_features.py": "d4238c8d18454e96435f5f8b4a5039d5d5452cf632ab53d30bd8098a7b13c2ec",
+        "round2_robot_candidate.py": "d4f4822a3fe80fea71e8176b3834f268f3bbce32ea0a57642d569cc74af00228"
+      },
+      "candidate_source_note": "Source snapshot preserved during development. The current reproduction wrapper adds variants/compatibility but retains this variant feature calculation.",
+      "parameters": {
+        "seed": 2026,
+        "budget_seconds": 270,
+        "threads": 4,
+        "internal_validation_fraction": 0.15,
+        "model": "MLP",
+        "hidden": [
+          192,
+          64
+        ],
+        "max_epochs": 60,
+        "learning_rate": 0.002,
+        "batch_size": 512,
+        "dropout": 0.05,
+        "weight_decay": 0.0001,
+        "patience": 8,
+        "features": 1866
+      },
+      "training_coverage": {
+        "learned_robot_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "learned_robots": 6,
+        "total_robots": 6,
+        "fallback_robots": 0
+      },
+      "sanitized_solver_log": "benchmarks/logs/round2_robot/relative_grid_mlp_holdout.log",
+      "official_score_audit": {
+        "score_rounded_4dp": 58.8167,
+        "matches": true
+      }
+    },
+    {
+      "label": "selected_local_mlp_a",
+      "task": "robot",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:25:54.533319+00:00",
+      "script_sha256": "1632f8aaf521997df2dbadc0c2448c0508c54573796f9751e4756584b46283fe",
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\solutions\\day1_robot_chasing.py",
+        "--dataset-root",
+        "<workspace>\\work\\bench-order-robot\\robot\\test_leaderboard_a\\dataset",
+        "--output",
+        "<workspace>\\work\\round2\\robot\\runs\\selected_local_a\\predictions.json",
+        "--budget",
+        "270",
+        "--model",
+        "mlp",
+        "--features",
+        "local",
+        "--cpu-threads",
+        "4"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\robot\\test_leaderboard_a\\dataset",
+      "data_revision": "8a82acbdfda387269649d4bcf580fbdab1ed3cc6",
+      "evaluation_split": "test_leaderboard_a",
+      "truth_sha256": "afe0349dd9cc748a395fae8bb4eac31561d34aebea12fda6b143cd52883be389",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cpu",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 73.192266500002,
+      "solver_logged_fallback": false,
+      "log_tail": "robot 0: epochs=51, validation=0.7500, learned=True\nrobot 1: epochs=19, validation=0.6913, learned=True\nrobot 2: epochs=18, validation=0.6720, learned=True\nrobot 3: epochs=25, validation=0.6933, learned=True\nrobot 4: epochs=40, validation=0.6907, learned=True\nrobot 5: epochs=34, validation=0.6853, learned=True\nwrote 3600 predictions in 72.3s\n",
+      "result": {
+        "metric": "mean_per_robot_accuracy_percent",
+        "score": 66.30555555555556,
+        "by_robot": {
+          "0": 70.16666666666667,
+          "1": 66.33333333333333,
+          "2": 63.833333333333336,
+          "3": 68.16666666666667,
+          "4": 63.0,
+          "5": 66.33333333333333
+        },
+        "rows": 3600,
+        "robots": 6
+      },
+      "round": 2,
+      "dependency_source_sha256": [],
+      "truth_source": "<workspace>\\work\\bench-order-robot\\scorer-only\\robot\\test_leaderboard_a_answers.json",
+      "evaluation_role": "released_A_B_development_re_evaluation",
+      "selection_protocol": "Select on the same 48000/12000 training-only split; freeze before released A/B. A/B were evaluated in round 1 and are not fresh unseen test sets.",
+      "run_id": "selected_local_a",
+      "repeated_measurements": false,
+      "training_rows": 60000,
+      "parameters": {
+        "seed": 2026,
+        "budget_seconds": 270,
+        "threads": 4,
+        "internal_validation_fraction": 0.15,
+        "model": "MLP",
+        "hidden": [
+          192,
+          64
+        ],
+        "max_epochs": 60,
+        "learning_rate": 0.002,
+        "batch_size": 512,
+        "dropout": 0.05,
+        "weight_decay": 0.0001,
+        "patience": 8,
+        "features": 1622
+      },
+      "training_coverage": {
+        "learned_robot_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "learned_robots": 6,
+        "total_robots": 6,
+        "fallback_robots": 0
+      },
+      "sanitized_solver_log": "benchmarks/logs/round2_robot/selected_local_a.log",
+      "official_score_audit": {
+        "score_rounded_4dp": 66.3056,
+        "matches": true
+      }
+    },
+    {
+      "label": "selected_local_mlp_b",
+      "task": "robot",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:29:25.555439+00:00",
+      "script_sha256": "1632f8aaf521997df2dbadc0c2448c0508c54573796f9751e4756584b46283fe",
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\solutions\\day1_robot_chasing.py",
+        "--dataset-root",
+        "<workspace>\\work\\bench-order-robot\\robot\\test_leaderboard_b\\dataset",
+        "--output",
+        "<workspace>\\work\\round2\\robot\\runs\\selected_local_b\\predictions.json",
+        "--budget",
+        "270",
+        "--model",
+        "mlp",
+        "--features",
+        "local",
+        "--cpu-threads",
+        "4"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\robot\\test_leaderboard_b\\dataset",
+      "data_revision": "8a82acbdfda387269649d4bcf580fbdab1ed3cc6",
+      "evaluation_split": "test_leaderboard_b",
+      "truth_sha256": "66b8179f3b2189e690b195f1f8b859e737b58031147d898557d766d86d971975",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cpu",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 55.707043500005966,
+      "solver_logged_fallback": false,
+      "log_tail": "robot 0: epochs=51, validation=0.7500, learned=True\nrobot 1: epochs=19, validation=0.6913, learned=True\nrobot 2: epochs=18, validation=0.6720, learned=True\nrobot 3: epochs=25, validation=0.6933, learned=True\nrobot 4: epochs=40, validation=0.6907, learned=True\nrobot 5: epochs=34, validation=0.6853, learned=True\nwrote 3600 predictions in 54.7s\n",
+      "result": {
+        "metric": "mean_per_robot_accuracy_percent",
+        "score": 64.47222222222223,
+        "by_robot": {
+          "0": 66.16666666666667,
+          "1": 66.0,
+          "2": 63.166666666666664,
+          "3": 61.666666666666664,
+          "4": 64.16666666666667,
+          "5": 65.66666666666667
+        },
+        "rows": 3600,
+        "robots": 6
+      },
+      "round": 2,
+      "dependency_source_sha256": [],
+      "truth_source": "<workspace>\\work\\bench-order-robot\\scorer-only\\robot\\test_leaderboard_b_answers.json",
+      "evaluation_role": "released_A_B_development_re_evaluation",
+      "selection_protocol": "Select on the same 48000/12000 training-only split; freeze before released A/B. A/B were evaluated in round 1 and are not fresh unseen test sets.",
+      "run_id": "selected_local_b",
+      "repeated_measurements": false,
+      "training_rows": 60000,
+      "parameters": {
+        "seed": 2026,
+        "budget_seconds": 270,
+        "threads": 4,
+        "internal_validation_fraction": 0.15,
+        "model": "MLP",
+        "hidden": [
+          192,
+          64
+        ],
+        "max_epochs": 60,
+        "learning_rate": 0.002,
+        "batch_size": 512,
+        "dropout": 0.05,
+        "weight_decay": 0.0001,
+        "patience": 8,
+        "features": 1622
+      },
+      "training_coverage": {
+        "learned_robot_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "learned_robots": 6,
+        "total_robots": 6,
+        "fallback_robots": 0
+      },
+      "sanitized_solver_log": "benchmarks/logs/round2_robot/selected_local_b.log",
+      "official_score_audit": {
+        "score_rounded_4dp": 64.4722,
+        "matches": true
+      }
+    },
+    {
+      "label": "target_grid_mlp_holdout",
+      "task": "robot",
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "started_utc": "2026-10-16T13:21:23.152686+00:00",
+      "script_sha256": "985a4eb035ad1c305b0d9d25843eee48a965b684a9b657f3e6a605396a2e77a2",
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\benchmarks\\round2_robot_candidate.py",
+        "--dataset-root",
+        "<workspace>\\work\\bench-order-robot\\robot\\holdout\\dataset",
+        "--output",
+        "<workspace>\\work\\round2\\robot\\runs\\target_grid_mlp_holdout\\predictions.json",
+        "--source",
+        "<workspace>/work/round2/baseline/solutions/day1_robot_chasing.py",
+        "--variant",
+        "target-grid-mlp",
+        "--budget",
+        "270",
+        "--cpu-threads",
+        "4"
+      ],
+      "dataset": "<workspace>\\work\\bench-order-robot\\robot\\holdout\\dataset",
+      "data_revision": "8a82acbdfda387269649d4bcf580fbdab1ed3cc6",
+      "evaluation_split": "train_holdout_seed20261016",
+      "truth_sha256": "92bd8a67cc63cd24866eeaa7a6a56da4aa78dc281411c375c6ecfa1c9cbcff82",
+      "environment": {
+        "python": "3.11.0",
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu_name": "Intel(R) Core(TM) Ultra 9 185H",
+        "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "gpu_inventory": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74",
+        "selected_device": "cpu",
+        "threads": 4,
+        "packages": {
+          "numpy": "2.3.3",
+          "scipy": "1.16.2",
+          "torch": "2.5.1+cu121",
+          "transformers": "4.45.0",
+          "scikit-learn": "1.7.2",
+          "huggingface-hub": "0.35.3"
+        }
+      },
+      "timing_scope": "solver subprocess wall clock; excludes downloads and scorer",
+      "repeat_index": 1,
+      "original_contest_environment": false,
+      "returncode": 0,
+      "status": "completed",
+      "run_seconds": 92.00989840000693,
+      "solver_logged_fallback": false,
+      "log_tail": "candidate=target-grid-mlp; model=mlp\nrobot 0: epochs=31, validation=0.6892, learned=True\nrobot 1: epochs=31, validation=0.6842, learned=True\nrobot 2: epochs=24, validation=0.6483, learned=True\nrobot 3: epochs=30, validation=0.6250, learned=True\nrobot 4: epochs=22, validation=0.6567, learned=True\nrobot 5: epochs=37, validation=0.6850, learned=True\nwrote 12000 predictions in 90.9s\n",
+      "result": {
+        "metric": "mean_per_robot_accuracy_percent",
+        "score": 64.14166666666667,
+        "by_robot": {
+          "0": 66.1,
+          "1": 63.75,
+          "2": 63.3,
+          "3": 64.05,
+          "4": 63.9,
+          "5": 63.75
+        },
+        "rows": 12000,
+        "robots": 6
+      },
+      "round": 2,
+      "dependency_source_sha256": [
+        {
+          "path": "<workspace>\\outputs\\IOAI\\benchmarks\\round2_robot_features.py",
+          "sha256": "50eed5ce91ab06ea8c937a3965dbae065b3d2c23fe99b8aabf3b33a46f19ba34"
+        },
+        {
+          "path": "<workspace>\\work\\round2\\baseline\\solutions\\day1_robot_chasing.py",
+          "sha256": "4a825e25956813a8b66656f059db66560254e6d8964d6a1bd990c9e2eebd8815"
+        }
+      ],
+      "truth_source": "<workspace>\\work\\bench-order-robot\\scorer-only\\robot\\holdout_answers.json",
+      "evaluation_role": "training_only_holdout",
+      "selection_protocol": "Select on the same 48000/12000 training-only split; freeze before released A/B. A/B were evaluated in round 1 and are not fresh unseen test sets.",
+      "run_id": "target_grid_mlp_holdout",
+      "repeated_measurements": false,
+      "training_rows": 48000,
+      "parameters": {
+        "seed": 2026,
+        "budget_seconds": 270,
+        "threads": 4,
+        "internal_validation_fraction": 0.15,
+        "model": "MLP",
+        "hidden": [
+          192,
+          64
+        ],
+        "max_epochs": 60,
+        "learning_rate": 0.002,
+        "batch_size": 512,
+        "dropout": 0.05,
+        "weight_decay": 0.0001,
+        "patience": 8,
+        "features": 1518
+      },
+      "training_coverage": {
+        "learned_robot_ids": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5
+        ],
+        "learned_robots": 6,
+        "total_robots": 6,
+        "fallback_robots": 0
+      },
+      "sanitized_solver_log": "benchmarks/logs/round2_robot/target_grid_mlp_holdout.log",
+      "official_score_audit": {
+        "score_rounded_4dp": 64.1417,
+        "matches": true
+      }
+    }
+  ],
+  "selection_frozen_before_A_B": {
+    "selected_variant": "local-grid-mlp",
+    "selected_features": 1622,
+    "baseline_features": 1328,
+    "selected_holdout_score": 66.08333333333333,
+    "baseline_holdout_score": 64.73333333333333,
+    "holdout_gain_percentage_points": 1.35,
+    "selected_holdout_run_seconds": 88.52216960000806,
+    "baseline_holdout_run_seconds": 92.50855679999222,
+    "selection_note": "After the training-only development comparison, retain the small MLP and select its best feature variant: preserve the complete original grid, add a robot-centered 5x5 semantic view and 44 interaction/relative-position features. HGB paths scored 0.425 points higher but took 164.996 seconds and matched the old HGB holdout score; that slower alternative is not promoted.",
+    "frozen_before_A_B": true,
+    "A_B_use": "Final development re-evaluation only; A/B were already public and measured in round 1. Do not tune after this point.",
+    "model_parameters": {
+      "hidden": [
+        192,
+        64
+      ],
+      "epochs": 60,
+      "learning_rate": 0.002,
+      "batch_size": 512,
+      "dropout": 0.05,
+      "weight_decay": 0.0001,
+      "validation_fraction": 0.15,
+      "patience": 8,
+      "seed": 2026,
+      "cpu_threads": 4,
+      "budget_seconds": 270
+    },
+    "selection_frozen_utc": "2026-10-16T13:23:30Z",
+    "standalone_source_sha256": "1632f8aaf521997df2dbadc0c2448c0508c54573796f9751e4756584b46283fe",
+    "verification": {
+      "synthetic_tests": 9,
+      "existing_tests": 17,
+      "exact_feature_equivalence_on_training_rows": 200
+    }
+  },
+  "paired_development_re_evaluation": [
+    {
+      "split": "test_leaderboard_a",
+      "baseline_score": 64.91666666666667,
+      "selected_score": 66.30555555555556,
+      "gain_percentage_points": 1.3888888888888857,
+      "baseline_seconds": 111.9381446000043,
+      "selected_seconds": 73.192266500002
+    },
+    {
+      "split": "test_leaderboard_b",
+      "baseline_score": 63.94444444444445,
+      "selected_score": 64.47222222222223,
+      "gain_percentage_points": 0.5277777777777786,
+      "baseline_seconds": 66.03106120000302,
+      "selected_seconds": 55.707043500005966
+    }
+  ],
+  "release_review_after_A_B": "Retain the preselected local MLP feature default after gains on both released A/B sets. No hyperparameter or feature tuning followed A/B. Timing remains a single shared-host observation."
+}
