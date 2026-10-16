@@ -1,0 +1,2450 @@
+{
+  "github_tree_sha": "e1963801aa4cf33a5a03520b39fa6620a7894c54",
+  "dataset_revision": "6f42de8f02c801618d0b90189bf4c759a9cd6381",
+  "note": "All files are already publicly downloadable. Directories named private contain released A/B test sets. Dataset/code/model revisions and exact SHA-256 hashes are pinned.",
+  "assets": [
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0000.png",
+      "destination": "dilemma/public/test_public/images/0000.png",
+      "bytes": 170087,
+      "sha256": "6b4e5b4d9b4e4e96929cf1aa7b5fc22d14e691552977d1b4e9328b35f00a0044"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0001.png",
+      "destination": "dilemma/public/test_public/images/0001.png",
+      "bytes": 390531,
+      "sha256": "76cfe8d72cc1813486184ab4e93e1379952501b0755539b0cc6783bc2999acf6"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0002.png",
+      "destination": "dilemma/public/test_public/images/0002.png",
+      "bytes": 324760,
+      "sha256": "584da85d48b75ea987658c043552154ec36e37f9fd6bc4bc8f9bd7102017962d"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0003.png",
+      "destination": "dilemma/public/test_public/images/0003.png",
+      "bytes": 232308,
+      "sha256": "6dd0cfa9723612d2d7a4deebacb513729ad54da7fcf2718ec452df8afe7228a5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0004.png",
+      "destination": "dilemma/public/test_public/images/0004.png",
+      "bytes": 292246,
+      "sha256": "f2e19a4d4524f50ccaf99a159190e29f4b570bffaa312a149503ac9c538b5c3f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0005.png",
+      "destination": "dilemma/public/test_public/images/0005.png",
+      "bytes": 362380,
+      "sha256": "010d3f1f92ac6c876cb632ad3a8ee6e14bcbe9aa219eec7f04bf33574535dc01"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0006.png",
+      "destination": "dilemma/public/test_public/images/0006.png",
+      "bytes": 253389,
+      "sha256": "057c7895ef549e91e16f50b73e9f2ecea0de0fee23c36c019320092eff1742e9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0007.png",
+      "destination": "dilemma/public/test_public/images/0007.png",
+      "bytes": 188960,
+      "sha256": "3bd5dea0aae00d96c02d660ce0400b6fe199ef369514ebd1404d711041d8f86f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0008.png",
+      "destination": "dilemma/public/test_public/images/0008.png",
+      "bytes": 260114,
+      "sha256": "28596a26a4c2780d3d7fdcd3aca440e0c5059050d565817c2887c98a32abca2c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0009.png",
+      "destination": "dilemma/public/test_public/images/0009.png",
+      "bytes": 197058,
+      "sha256": "e443da8cdabdbd6e42ec6897788938c3dd9ec73f94960b1f152b8f3f7719ff4f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0010.png",
+      "destination": "dilemma/public/test_public/images/0010.png",
+      "bytes": 418605,
+      "sha256": "1ce253c1803bcb14ac684cf10d342e2ad86ac8e985163a1f882b53faaae886ed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0011.png",
+      "destination": "dilemma/public/test_public/images/0011.png",
+      "bytes": 574402,
+      "sha256": "8b43534ca6e6baa9be2fff0c87850cb05f480d604e469e6ba5a9f8e1abee3e08"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0012.png",
+      "destination": "dilemma/public/test_public/images/0012.png",
+      "bytes": 118591,
+      "sha256": "0077845837ad913d4b11a45ce61662ce3e143b5cbd37aae3af1cc67e2e2aa69e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0013.png",
+      "destination": "dilemma/public/test_public/images/0013.png",
+      "bytes": 323290,
+      "sha256": "aab4f299b38f9d842a016a351ae6c16c74f41139a6434a264ae43101e91b58df"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0014.png",
+      "destination": "dilemma/public/test_public/images/0014.png",
+      "bytes": 276882,
+      "sha256": "4958920b3f5ffefc970d714ca5dd8d52df7b8280bb79b79657bb1ec157a552af"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0015.png",
+      "destination": "dilemma/public/test_public/images/0015.png",
+      "bytes": 426921,
+      "sha256": "84230c986b4308c6387219db33c67bda0ab3aa9580cc9d023276e31a525d779c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0016.png",
+      "destination": "dilemma/public/test_public/images/0016.png",
+      "bytes": 243982,
+      "sha256": "aaa2e5406e1519faee79ed95cb5e7ee54a789a63208ee907611ded182939fc40"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0017.png",
+      "destination": "dilemma/public/test_public/images/0017.png",
+      "bytes": 349710,
+      "sha256": "a9293bdced3f8ddaac7aee9ca818607d355ae748f913eba067e32cf9bb70034b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0018.png",
+      "destination": "dilemma/public/test_public/images/0018.png",
+      "bytes": 127336,
+      "sha256": "b3c36aff0548de2c5724af5fe484ef3a017ea3980c2862871501394f8b75e8eb"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0019.png",
+      "destination": "dilemma/public/test_public/images/0019.png",
+      "bytes": 309153,
+      "sha256": "be9855d90db7e711691d289b0e2726422776947132d66e43cd5a0fdad7082fcc"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0020.png",
+      "destination": "dilemma/public/test_public/images/0020.png",
+      "bytes": 50745,
+      "sha256": "881d7e98e025cf638f9697543733b19c002cfd0f3b205d75ae688ff7bab0b3ce"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0021.png",
+      "destination": "dilemma/public/test_public/images/0021.png",
+      "bytes": 289473,
+      "sha256": "e01f758eb910b80f0f828048fa2f65f090c1a7c6425785eb26694d935e447a68"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0022.png",
+      "destination": "dilemma/public/test_public/images/0022.png",
+      "bytes": 152282,
+      "sha256": "d81e5a8561db85f5f9e09b125470f76c92b09a8fa3a10cc5f57646ba72209bf1"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0023.png",
+      "destination": "dilemma/public/test_public/images/0023.png",
+      "bytes": 183815,
+      "sha256": "0467abb5a4e3f1a0eb1985b30d30dc2060ae5ae4c496c6cab8af7d26ac046927"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0024.png",
+      "destination": "dilemma/public/test_public/images/0024.png",
+      "bytes": 468939,
+      "sha256": "61c3a5266c71cc2e1e093578998fef90528867badc52c66d34e243fa38caa674"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0025.png",
+      "destination": "dilemma/public/test_public/images/0025.png",
+      "bytes": 231418,
+      "sha256": "f275abdb3de83008b7695ee105e253e8558eadc84a69a19745a3976c97062be0"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0026.png",
+      "destination": "dilemma/public/test_public/images/0026.png",
+      "bytes": 339517,
+      "sha256": "d6c11ef856ca76424243cf1f998400ab526868c86a56c84d2c135faeb10e878f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0027.png",
+      "destination": "dilemma/public/test_public/images/0027.png",
+      "bytes": 232739,
+      "sha256": "fe9372a069261bfb0d9a07351356173cbae312cbb95ebffadd6a3df5c893dccd"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0028.png",
+      "destination": "dilemma/public/test_public/images/0028.png",
+      "bytes": 193422,
+      "sha256": "51abfdb41ccf1b0ba87800af545600270561fd2f58dd83ea208d45c43e307f56"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0029.png",
+      "destination": "dilemma/public/test_public/images/0029.png",
+      "bytes": 227202,
+      "sha256": "7817fbb6537611d55894e8f3e2a94a42e98b8605c2dcea69b66b5fcf5627052b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0030.png",
+      "destination": "dilemma/public/test_public/images/0030.png",
+      "bytes": 291846,
+      "sha256": "267b49497cf7344ef750012b1a9036b33935331b74a4c0da9452603b9fa35fbb"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0031.png",
+      "destination": "dilemma/public/test_public/images/0031.png",
+      "bytes": 245209,
+      "sha256": "c230da7a04bfa75db1076fbc404e58ad885df1bfddec7905787d49dd77455905"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0032.png",
+      "destination": "dilemma/public/test_public/images/0032.png",
+      "bytes": 286206,
+      "sha256": "51d2f3b948a2ff0489778078a45ed4c9094d469ac0f257668f99f9a69dd63eb3"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0033.png",
+      "destination": "dilemma/public/test_public/images/0033.png",
+      "bytes": 375867,
+      "sha256": "84d1dd3b21a04967b0fb424d0827617ef83afd9345ad2d3f3d6d6983b31e1a7f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0034.png",
+      "destination": "dilemma/public/test_public/images/0034.png",
+      "bytes": 361319,
+      "sha256": "1f1a2e6df4d9d3a2442ec8156a587b197f5d9365d2aeb720ebbd43e90533aa47"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0035.png",
+      "destination": "dilemma/public/test_public/images/0035.png",
+      "bytes": 735351,
+      "sha256": "8592fdb7a146218c8f269c65e3322749693e1c39d93d8e74dd05645911f6d5e3"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0036.png",
+      "destination": "dilemma/public/test_public/images/0036.png",
+      "bytes": 193856,
+      "sha256": "de7be2868d0bf1866d5a636ce14b798678aee334468f79727307547e52a26523"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0037.png",
+      "destination": "dilemma/public/test_public/images/0037.png",
+      "bytes": 347491,
+      "sha256": "97c3763dc3340f8ef113c2a535d61fe262ef9a6e06f7d3609a540f3e709c983f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0038.png",
+      "destination": "dilemma/public/test_public/images/0038.png",
+      "bytes": 323817,
+      "sha256": "afd9ccccccb3820def4b587b65ff6dab04fb44fda132845f0b5481c215a8697d"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0039.png",
+      "destination": "dilemma/public/test_public/images/0039.png",
+      "bytes": 34000,
+      "sha256": "8fd8c6385135c516c442b9dcbdc30654edebfa347ef79af1e0abf3fccaafe4a3"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0040.png",
+      "destination": "dilemma/public/test_public/images/0040.png",
+      "bytes": 132665,
+      "sha256": "cb92031fa9e063cf4052f5d0d6283571d854e9b4a4d5ce94ca1b7aebb4bc7aec"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0041.png",
+      "destination": "dilemma/public/test_public/images/0041.png",
+      "bytes": 417351,
+      "sha256": "f255910efb489337c6c587eafd1e038d04f74c31a79e82377066e447c9b6328d"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0042.png",
+      "destination": "dilemma/public/test_public/images/0042.png",
+      "bytes": 166721,
+      "sha256": "0b340b52581d4e67f58201823c0530e6db14bed6c7adc34f109ffa3ff6e266ce"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0043.png",
+      "destination": "dilemma/public/test_public/images/0043.png",
+      "bytes": 299335,
+      "sha256": "333d5a3caae3e645805657b32e7bee943f1c954e121f7f2645f9d3068f89fb84"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0044.png",
+      "destination": "dilemma/public/test_public/images/0044.png",
+      "bytes": 265357,
+      "sha256": "faefc1026f98caf52239b86e0686780ffa306cc65b7770ee75d274d315ad917d"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0045.png",
+      "destination": "dilemma/public/test_public/images/0045.png",
+      "bytes": 275716,
+      "sha256": "80b48ef9a2f466d580236b02dc26f95bdb29a9741d7b27b2aaf167cb3a9955ad"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0046.png",
+      "destination": "dilemma/public/test_public/images/0046.png",
+      "bytes": 377424,
+      "sha256": "737c5ceb50e1cac1a25d54b47a9fb869aa53b139a667474f1f51acd78354b8d6"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0047.png",
+      "destination": "dilemma/public/test_public/images/0047.png",
+      "bytes": 304281,
+      "sha256": "e64cd9cb5011a88009f2f0b0c491750404e322253c5673c6683ff355a353fc60"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0048.png",
+      "destination": "dilemma/public/test_public/images/0048.png",
+      "bytes": 116022,
+      "sha256": "06735cc34667a237fb5292adcca15c4b7e44acaa5d360dfbd914d5eba04c16f3"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0049.png",
+      "destination": "dilemma/public/test_public/images/0049.png",
+      "bytes": 296148,
+      "sha256": "c86cbb30b3224128864649b13a67352ce34a5888ff1f8e278d08dbb2101e9849"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0050.png",
+      "destination": "dilemma/public/test_public/images/0050.png",
+      "bytes": 359182,
+      "sha256": "986c527ad972899422653ed619e026de033899a109605149cc6505b319d23104"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0051.png",
+      "destination": "dilemma/public/test_public/images/0051.png",
+      "bytes": 276160,
+      "sha256": "975884c4ce843f2e58cbc30524e29dfc7f511f06231ac67120b299d6312ed9e0"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0052.png",
+      "destination": "dilemma/public/test_public/images/0052.png",
+      "bytes": 372697,
+      "sha256": "eaf7094315fe46c5f1a86cdedff9fd03b446ced1730ff9266e48149dfc742b9c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0053.png",
+      "destination": "dilemma/public/test_public/images/0053.png",
+      "bytes": 326986,
+      "sha256": "2bc29f2abe11b5f064f8e461e1bb6fb96283f2298460fe26274bc90ccb122938"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0054.png",
+      "destination": "dilemma/public/test_public/images/0054.png",
+      "bytes": 517541,
+      "sha256": "5f44ccabe2bc4a592f505b5161db2cc2c27ddde0f9de80187b0973c8d365efee"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0055.png",
+      "destination": "dilemma/public/test_public/images/0055.png",
+      "bytes": 269870,
+      "sha256": "6f07f4a3b189b9371af7400664224aa06eab2e5e5d0633bd647eeae4b554f85b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0056.png",
+      "destination": "dilemma/public/test_public/images/0056.png",
+      "bytes": 223028,
+      "sha256": "1dcb0ba4f7af475401ed46ce6fcda31dd01c77210a0376d7679da1479d7707f0"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0057.png",
+      "destination": "dilemma/public/test_public/images/0057.png",
+      "bytes": 463188,
+      "sha256": "1c1cd775d146fa36d5453888b3b8666e98e83547838be79537792063ba738f22"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0058.png",
+      "destination": "dilemma/public/test_public/images/0058.png",
+      "bytes": 305009,
+      "sha256": "eddea1f789d9680e819506432bfe46c175ecb4cba796dc4058caa7918606a1cc"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0059.png",
+      "destination": "dilemma/public/test_public/images/0059.png",
+      "bytes": 272655,
+      "sha256": "c80c12f6c1206af7c0fc2b1f60d5e208ecf44d2ab3c79aa2854e8a7bc24aec31"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0060.png",
+      "destination": "dilemma/public/test_public/images/0060.png",
+      "bytes": 432571,
+      "sha256": "2ac9f2b7a85a88b2a4addbcbb0f72c573151908c3149007f39d35d8b322ca078"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0061.png",
+      "destination": "dilemma/public/test_public/images/0061.png",
+      "bytes": 273886,
+      "sha256": "347ab381a096f7c5968ccb765d5f6bdd4ea4cd67d9d489d52ed96c710684cc6b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0062.png",
+      "destination": "dilemma/public/test_public/images/0062.png",
+      "bytes": 417646,
+      "sha256": "af6c79795b418959cdac0bb81f287879232c9bc0e7355166d1c4a9fe501a368f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0063.png",
+      "destination": "dilemma/public/test_public/images/0063.png",
+      "bytes": 167766,
+      "sha256": "4ed8fd95fd9580e38e7c1e6c723687b510e4072d9bc8fca2aac997195f861a61"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0064.png",
+      "destination": "dilemma/public/test_public/images/0064.png",
+      "bytes": 164558,
+      "sha256": "5a8fa6df0d9a8543161b3ded2efe42aca74c862a4244ad72a269f00bb34de72a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0065.png",
+      "destination": "dilemma/public/test_public/images/0065.png",
+      "bytes": 401288,
+      "sha256": "5a030ed20650d08ca0ff9489590284f1384249b82e9b282a8342444198bacbd5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0066.png",
+      "destination": "dilemma/public/test_public/images/0066.png",
+      "bytes": 500888,
+      "sha256": "34d36925113a986c5145632ea83c40179ec7e990f7126138b0233b610ce0e2d8"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0067.png",
+      "destination": "dilemma/public/test_public/images/0067.png",
+      "bytes": 396728,
+      "sha256": "636d8800c5392710d50d6295cbda38694750d41085b9892f7060076b6e26fa2c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0068.png",
+      "destination": "dilemma/public/test_public/images/0068.png",
+      "bytes": 177963,
+      "sha256": "d4d5bfa22d12bdb6b61e563fdd226cd7f5cbd1579970d0f003e77185275b749a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0069.png",
+      "destination": "dilemma/public/test_public/images/0069.png",
+      "bytes": 503242,
+      "sha256": "750318eede5451e50d9176d21fac49ef95b145a57bb5773c7f69c5e30f7af6a4"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0070.png",
+      "destination": "dilemma/public/test_public/images/0070.png",
+      "bytes": 399337,
+      "sha256": "8ad7e121066763a7545cf42ad5bc54c4c145985c87b85c08f3cadd4e2bda5c35"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0071.png",
+      "destination": "dilemma/public/test_public/images/0071.png",
+      "bytes": 144171,
+      "sha256": "8d43bd3bf4569c6ca56561af0f4bfebeb06d5b953630a60c74d47c188f406897"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0072.png",
+      "destination": "dilemma/public/test_public/images/0072.png",
+      "bytes": 298636,
+      "sha256": "0909b633f427f96d1952ca925ce957b9592f2cbf486b9e9360d9238aaa03a689"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0073.png",
+      "destination": "dilemma/public/test_public/images/0073.png",
+      "bytes": 216713,
+      "sha256": "f0da7ec099118f119475982ee56bd00c669001f6df85e4f51c702543c54e5fc5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0074.png",
+      "destination": "dilemma/public/test_public/images/0074.png",
+      "bytes": 175884,
+      "sha256": "2303216ebc3b9ddd9de3f8a4b0d0fbd6289e489c0cd37ba6a594aac78ae182f3"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0075.png",
+      "destination": "dilemma/public/test_public/images/0075.png",
+      "bytes": 260434,
+      "sha256": "52564cdccd1a8e84d0ac2b696bde932b3d8ac7190c562ee36564d54b30b90494"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0076.png",
+      "destination": "dilemma/public/test_public/images/0076.png",
+      "bytes": 275040,
+      "sha256": "6b9f214d8bd9233031e24ad0dd3b144211633eaa0bd9381f174c094e9ade5c54"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0077.png",
+      "destination": "dilemma/public/test_public/images/0077.png",
+      "bytes": 220121,
+      "sha256": "8beeced9529987acc29e67a9541c36dc373d419262bfc8de4a324c1f27cf4cc0"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0078.png",
+      "destination": "dilemma/public/test_public/images/0078.png",
+      "bytes": 312570,
+      "sha256": "adbf13edaed031422475062fa53bbaeed3318b96603d88368bc8774b222926f4"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0079.png",
+      "destination": "dilemma/public/test_public/images/0079.png",
+      "bytes": 215297,
+      "sha256": "1610fd4d4374dfd6986d3697cefd0af30ab6b7cc274b1d243de006b249ddb4b6"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0080.png",
+      "destination": "dilemma/public/test_public/images/0080.png",
+      "bytes": 320589,
+      "sha256": "d1fea934305ea2036241e0bf335f159dd8b02919d8620bd552cea6440e98889b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0081.png",
+      "destination": "dilemma/public/test_public/images/0081.png",
+      "bytes": 167993,
+      "sha256": "4e7d4141e3b0303cea3589504ed4fa34cbeee1ef0e85b8878df8af40ed33d4cc"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0082.png",
+      "destination": "dilemma/public/test_public/images/0082.png",
+      "bytes": 203694,
+      "sha256": "5910a721fd6053508f857aa5bc167fb0bf2cd24d49675785b62cb785c96ff545"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0083.png",
+      "destination": "dilemma/public/test_public/images/0083.png",
+      "bytes": 186459,
+      "sha256": "041cf8996b915b34622c2cdb0d253bf780916ff7082f20780964fa7a84aca3f9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0084.png",
+      "destination": "dilemma/public/test_public/images/0084.png",
+      "bytes": 460299,
+      "sha256": "4f164ebcf462f5dbeee774e4d5c55ed52822afbc03fe5da2aa9dceb1faac6f67"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0085.png",
+      "destination": "dilemma/public/test_public/images/0085.png",
+      "bytes": 344151,
+      "sha256": "12b9b490c05d37f49a8ed06f7fc06a8223c0bc9577551fb65d8c5933bc8b5f64"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0086.png",
+      "destination": "dilemma/public/test_public/images/0086.png",
+      "bytes": 214646,
+      "sha256": "339f17a21591357b1de8b459f93214e1ef5877fa4cc3b3ee16f26426917f2f10"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0087.png",
+      "destination": "dilemma/public/test_public/images/0087.png",
+      "bytes": 346715,
+      "sha256": "382e2503091a67ef3c1fa10033bd81c4f5d8dcfd7e2a41de7785d275263e72ef"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0088.png",
+      "destination": "dilemma/public/test_public/images/0088.png",
+      "bytes": 430074,
+      "sha256": "11c4184ffcb4dd660b4ba707c15460b19461e68e5ebd25d687aee9bc7bcda7bb"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0089.png",
+      "destination": "dilemma/public/test_public/images/0089.png",
+      "bytes": 122714,
+      "sha256": "e6dc2cfb8c963ea8fef2020b552f434074a8ba55823ea4c3af39a348ad0d65bd"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0090.png",
+      "destination": "dilemma/public/test_public/images/0090.png",
+      "bytes": 437022,
+      "sha256": "23d84a5eb5b7573f600faa102b8ffe903e5cfa6b620138707dc62570e4e42bae"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0091.png",
+      "destination": "dilemma/public/test_public/images/0091.png",
+      "bytes": 557875,
+      "sha256": "8318714c95d37cabc82b1f1784cebe5a837b588575a1114aa0a7a25ad82330ed"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0092.png",
+      "destination": "dilemma/public/test_public/images/0092.png",
+      "bytes": 354429,
+      "sha256": "9bb9f765982aff60fb2f9cf46edf0063caaee034cf37fc63c80f83d5d338ea6e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0093.png",
+      "destination": "dilemma/public/test_public/images/0093.png",
+      "bytes": 328302,
+      "sha256": "2cd701d1f986dc2696400f1efa47a544c7056c262ab92df86a2d0f64b7e3d934"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0094.png",
+      "destination": "dilemma/public/test_public/images/0094.png",
+      "bytes": 230032,
+      "sha256": "7f77f8f25d2f0f47d6c52076e984637f2cd620ff48cbda148b370c306359d786"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0095.png",
+      "destination": "dilemma/public/test_public/images/0095.png",
+      "bytes": 143615,
+      "sha256": "8f247c0dd3de46e0b4d3cc4b2d44f6b449597fa866d56ddf422a35017426e71b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0096.png",
+      "destination": "dilemma/public/test_public/images/0096.png",
+      "bytes": 870362,
+      "sha256": "52d2c4547205728700a0d2aaeb15c367c4a16eea226ac1198898d5c521831618"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0097.png",
+      "destination": "dilemma/public/test_public/images/0097.png",
+      "bytes": 286653,
+      "sha256": "1e5de5e47286666798ad80755d0436645e8885f15816c25c80ee99ae7dd24a8d"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0098.png",
+      "destination": "dilemma/public/test_public/images/0098.png",
+      "bytes": 304299,
+      "sha256": "6a2b64089a2e14be035484011161c810bd49431e9d12e8ac2c60261e6f228e08"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/images/0099.png",
+      "destination": "dilemma/public/test_public/images/0099.png",
+      "bytes": 175997,
+      "sha256": "1b9191e204dcbf64da8b34b8ea876e6a621e078db6cbb8ceabb2db8501c9974d"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/test_public/labels.json",
+      "destination": "dilemma/public/test_public/labels.json",
+      "bytes": 1078,
+      "sha256": "6c836c43ba9892a4acaa71c1183e5d8797247e4abc74ce603ef5017f805e5b49"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0000.png",
+      "destination": "dilemma/public/train/images/0000.png",
+      "bytes": 430542,
+      "sha256": "a9630734dcb379711b4801ba6c7f41a459216afd0630c4c5dab0cc3995fa55e9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0001.png",
+      "destination": "dilemma/public/train/images/0001.png",
+      "bytes": 317681,
+      "sha256": "e21208c89cb1bdbd615ea03a2e3fd9438548e0cd75d6ab20cf5f015e077c5bfc"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0002.png",
+      "destination": "dilemma/public/train/images/0002.png",
+      "bytes": 168615,
+      "sha256": "a75b010bed6ad82d5fd200ff33e6c4cb25a94db1b0146d740f38afa8280f0e9e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0003.png",
+      "destination": "dilemma/public/train/images/0003.png",
+      "bytes": 158350,
+      "sha256": "ba0a5a018bdd99e22fec66fca28c9a6ad792344e49f1326b5444dff2642eb794"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0004.png",
+      "destination": "dilemma/public/train/images/0004.png",
+      "bytes": 439338,
+      "sha256": "25c974688715baa29d21ea601c2fe93b27be015f92d1e571cc659f110b515644"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0005.png",
+      "destination": "dilemma/public/train/images/0005.png",
+      "bytes": 286944,
+      "sha256": "596864f504d62b3b3be5da31875c12c3d399844f111956a9d6397e67896a9477"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0006.png",
+      "destination": "dilemma/public/train/images/0006.png",
+      "bytes": 499704,
+      "sha256": "869e8811eba0cf941f0ffc4a99e10a2c8de19bbf1611265663f054fdef2f6362"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0007.png",
+      "destination": "dilemma/public/train/images/0007.png",
+      "bytes": 349551,
+      "sha256": "45f4df81d5e1d4239e62a8302e07a816a1faf8761d72a2f0296da74175306041"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0008.png",
+      "destination": "dilemma/public/train/images/0008.png",
+      "bytes": 437546,
+      "sha256": "633096742dc67a4b91fcffa59da3ea95a517ebb99fb5bd5bc78652d84cda5904"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0009.png",
+      "destination": "dilemma/public/train/images/0009.png",
+      "bytes": 157565,
+      "sha256": "ab1e12d7692d7d6fe822a5ed32307c6ee16e36d6dd76b3b2397284ff8249778d"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0010.png",
+      "destination": "dilemma/public/train/images/0010.png",
+      "bytes": 200864,
+      "sha256": "b27c5b86132ec7d835c22d1c1df715c930ecbd06696c2531b92672b3480d30bb"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0011.png",
+      "destination": "dilemma/public/train/images/0011.png",
+      "bytes": 281983,
+      "sha256": "887e5e0d6e3b662c57d69213e47fa4345da3f2edc2c0b101e7bf5c57f800f12c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0012.png",
+      "destination": "dilemma/public/train/images/0012.png",
+      "bytes": 259094,
+      "sha256": "ebcd4d8a00f388f19e581e1d0120ead0edd8dcfb3e652cbec14c0085767d7cfd"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0013.png",
+      "destination": "dilemma/public/train/images/0013.png",
+      "bytes": 190636,
+      "sha256": "7d74086f30b47b26d0ebfc8006f5f9e6b91b78cf705621e8265f9c224e81b714"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0014.png",
+      "destination": "dilemma/public/train/images/0014.png",
+      "bytes": 675791,
+      "sha256": "a6c7abc0524b77cb385de6ad171b60caedbda0ae63b79021a90d3caa92f11886"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0015.png",
+      "destination": "dilemma/public/train/images/0015.png",
+      "bytes": 160678,
+      "sha256": "f55a9ee0f9024b142a1cc6085132425bb4b8d802625773c3bab6a5f20e344ab9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0016.png",
+      "destination": "dilemma/public/train/images/0016.png",
+      "bytes": 391879,
+      "sha256": "84863d526fb103b159e6571593bc5374b7208757a193a98ee4dc26a04c09cf2b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0017.png",
+      "destination": "dilemma/public/train/images/0017.png",
+      "bytes": 428822,
+      "sha256": "45613653bd3219a5e105b22af78fb03cec3cc95b9ecb4f0e2364c4c582ff993f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0018.png",
+      "destination": "dilemma/public/train/images/0018.png",
+      "bytes": 118386,
+      "sha256": "fb4cbb9cc6a7d82f7673a760aa39c2e07b1e923352e18450a20f5c541299fc1b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0019.png",
+      "destination": "dilemma/public/train/images/0019.png",
+      "bytes": 353722,
+      "sha256": "60d37a2f0c70e069002325dc7ff351b564e3cbb57163bcd9b7d00535849ee9d3"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0020.png",
+      "destination": "dilemma/public/train/images/0020.png",
+      "bytes": 123372,
+      "sha256": "aec94d1e9858ba3fb1b39d16135d4477f88287680d3b324b58823facf6bff5c7"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0021.png",
+      "destination": "dilemma/public/train/images/0021.png",
+      "bytes": 301764,
+      "sha256": "d9c0bb500511deda5d1ddd0ee5f1bc84d05cf2ac5c6222a81677b9fec7e3371b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0022.png",
+      "destination": "dilemma/public/train/images/0022.png",
+      "bytes": 266081,
+      "sha256": "8cfa95927e994638058ab0a25679f38afb7d0a384b3cd85250d0be9ca85ccb2b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0023.png",
+      "destination": "dilemma/public/train/images/0023.png",
+      "bytes": 381581,
+      "sha256": "522008c98cbe40d65744bcfba07c70201abbd45f21bee3faab9ed44270b9a6c8"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0024.png",
+      "destination": "dilemma/public/train/images/0024.png",
+      "bytes": 280440,
+      "sha256": "65b3567da66d7db7490cb5e6fb59059da7c9cfbc12fe8faf008f2bf3ba33f05e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0025.png",
+      "destination": "dilemma/public/train/images/0025.png",
+      "bytes": 323848,
+      "sha256": "ee20f42f0dfbb3322ec02488d1601c944a2e7395fa05c2935e2fb323972d1c8b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0026.png",
+      "destination": "dilemma/public/train/images/0026.png",
+      "bytes": 236739,
+      "sha256": "ff7c43f545a4ff720ec8bbc44f5f72ed6f141640893c9bff02a28c182e8630d2"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0027.png",
+      "destination": "dilemma/public/train/images/0027.png",
+      "bytes": 628992,
+      "sha256": "38a3b994a172cd8a3997d9c156d86801da38b0fae26027920b9d2c28bcd0d686"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0028.png",
+      "destination": "dilemma/public/train/images/0028.png",
+      "bytes": 59622,
+      "sha256": "3ec0b258bfd9c2f2e3164fa30d8d06ab2787a0feab2a69c26e7e530c41587b6e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0029.png",
+      "destination": "dilemma/public/train/images/0029.png",
+      "bytes": 231920,
+      "sha256": "469623d6a9da0721cb1949e3c9d6af3d1709559dcb5189b3e30401377c048d2a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0030.png",
+      "destination": "dilemma/public/train/images/0030.png",
+      "bytes": 332131,
+      "sha256": "353d726e2dc8ed069a87be3566db6d34ff02debccbadc1a55bb4b574cb2b09d4"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0031.png",
+      "destination": "dilemma/public/train/images/0031.png",
+      "bytes": 120482,
+      "sha256": "4e0a8dd5e6fa61811f38b1974b9700087232c6c0f74b0ae155a82afef596d4ae"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0032.png",
+      "destination": "dilemma/public/train/images/0032.png",
+      "bytes": 160667,
+      "sha256": "555a580c4171ff6b7d7d62850c9fd762be674ecce2d34e5cfd6f78a522e1342e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0033.png",
+      "destination": "dilemma/public/train/images/0033.png",
+      "bytes": 383286,
+      "sha256": "16e896ddba383f4310384ffe8ae38616797204a44a886871ae38c8fb85b3ab24"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0034.png",
+      "destination": "dilemma/public/train/images/0034.png",
+      "bytes": 224484,
+      "sha256": "e87a67dd567eb3bffad9aae97c3523248bf0e6bd24cad6ab445898296c5feb7e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0035.png",
+      "destination": "dilemma/public/train/images/0035.png",
+      "bytes": 520148,
+      "sha256": "5f5e052b0e913747de30474cf8fcc48dabfe5b28f2a426113244bcaee37fffda"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0036.png",
+      "destination": "dilemma/public/train/images/0036.png",
+      "bytes": 339037,
+      "sha256": "38b0d8214fb5e75adaa7017d6b2c2d1191acf6e8bb8a3c4c26820d931460d30b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0037.png",
+      "destination": "dilemma/public/train/images/0037.png",
+      "bytes": 304805,
+      "sha256": "bcc62537af747a762434212c4514981ddc03e5b56b05e132f417451a234499f0"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0038.png",
+      "destination": "dilemma/public/train/images/0038.png",
+      "bytes": 366009,
+      "sha256": "8b88d844442848d468bfa6d188c4adea413b65fa621ad632f44b0c970f6082f1"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0039.png",
+      "destination": "dilemma/public/train/images/0039.png",
+      "bytes": 427605,
+      "sha256": "b42218bbea077e9a709ecc0d112b1d97c02b689500d327c1b4ba73b21ecd713e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0040.png",
+      "destination": "dilemma/public/train/images/0040.png",
+      "bytes": 192863,
+      "sha256": "406307dcbc7f77ba214f1185f108a5894f4212ffbc31a470862eb58e4b96b893"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0041.png",
+      "destination": "dilemma/public/train/images/0041.png",
+      "bytes": 432475,
+      "sha256": "2eafa9185db7bdae98dda0e3e979f349fee0c625adcf08b96366da1708128d96"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0042.png",
+      "destination": "dilemma/public/train/images/0042.png",
+      "bytes": 316092,
+      "sha256": "60b5b4d1602bb0d07a87401d295f5e6466534d2317b41ec6b850a6dce15a4228"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0043.png",
+      "destination": "dilemma/public/train/images/0043.png",
+      "bytes": 294389,
+      "sha256": "e970930eb9ea596e3d115c111f2be83ac8f8e37b06ed273690682bafed5f907c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0044.png",
+      "destination": "dilemma/public/train/images/0044.png",
+      "bytes": 376843,
+      "sha256": "90ad5669a55bbb73e13d5b2a11f0a6eec6482c6ced704bac4d533567e0d58d96"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0045.png",
+      "destination": "dilemma/public/train/images/0045.png",
+      "bytes": 291061,
+      "sha256": "35cc48285e1b330eaff69f2df40e0693aa17754c32b21dd9346776a81bd1378d"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0046.png",
+      "destination": "dilemma/public/train/images/0046.png",
+      "bytes": 260244,
+      "sha256": "9995f1a0c6fa3003502eb8a7921545148d8727a233e915112b00b65300bb5db9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0047.png",
+      "destination": "dilemma/public/train/images/0047.png",
+      "bytes": 231154,
+      "sha256": "b14165886f47ac2ed58304fcb9c9f1d8f75c2e72e68bfa67ae138bcbe92b3650"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0048.png",
+      "destination": "dilemma/public/train/images/0048.png",
+      "bytes": 2581798,
+      "sha256": "8ee3742cee66bf64e886a7045357e1ca59e2072ce33fda19e7b553c3ffcf6d66"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0049.png",
+      "destination": "dilemma/public/train/images/0049.png",
+      "bytes": 401005,
+      "sha256": "d27f1017032daef7d57b07a682ba60bd083a8f9cc6d5d8eb69e593e1f064e00b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0050.png",
+      "destination": "dilemma/public/train/images/0050.png",
+      "bytes": 254872,
+      "sha256": "7845b30141d7801bb529721ef5587df9dafb7ee9fd196ba572686745a7d5a9ac"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0051.png",
+      "destination": "dilemma/public/train/images/0051.png",
+      "bytes": 885144,
+      "sha256": "341ff89662929246a7d626265f4e1f84ff7db60ebd0331c4d78bfaa82a8f01bd"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0052.png",
+      "destination": "dilemma/public/train/images/0052.png",
+      "bytes": 207126,
+      "sha256": "0a6b65515d400cc0690950c1e6d273c0d956747e04c792eff2bb81d8e329fac6"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0053.png",
+      "destination": "dilemma/public/train/images/0053.png",
+      "bytes": 423566,
+      "sha256": "00d01c5a92dcbf42cab13c52f2057086c5688d2d3ffdd728eeb219b29b11b78f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0054.png",
+      "destination": "dilemma/public/train/images/0054.png",
+      "bytes": 251016,
+      "sha256": "2d15ab365e87d2873cd5300a9ecd19484bdc228fb5710de7a7090020ffa9a589"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0055.png",
+      "destination": "dilemma/public/train/images/0055.png",
+      "bytes": 398009,
+      "sha256": "a718ac7dc025cbf899d532e762eb738d5868f9b95bedb20f87d47be920c40a71"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0056.png",
+      "destination": "dilemma/public/train/images/0056.png",
+      "bytes": 66753,
+      "sha256": "4575f6b1fe8c392eb9ccec5dca0a50f524a1de9793f5644aaa4d88391b1a1f61"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0057.png",
+      "destination": "dilemma/public/train/images/0057.png",
+      "bytes": 319302,
+      "sha256": "26635154ff5ac09e0edb538c253fae245bbfd9cdefca7e1ff439b3a6f856900f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0058.png",
+      "destination": "dilemma/public/train/images/0058.png",
+      "bytes": 238677,
+      "sha256": "b998f2be6cb931bdedbca1a281e2395b5488315c47a582fccf26c17d3e058cf2"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0059.png",
+      "destination": "dilemma/public/train/images/0059.png",
+      "bytes": 3366016,
+      "sha256": "506e7a71f7eabebd324b5123a1f43f4e31f7126a76e834a258404b6a955c842c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0060.png",
+      "destination": "dilemma/public/train/images/0060.png",
+      "bytes": 351721,
+      "sha256": "ece71f7280baedc7b94562f37047197b303f085f2e16e7cbeae98ec117c63257"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0061.png",
+      "destination": "dilemma/public/train/images/0061.png",
+      "bytes": 181273,
+      "sha256": "0cda5d9b2eb6099e5a07ed846058058597f2211ba64f0250a430d9213083530b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0062.png",
+      "destination": "dilemma/public/train/images/0062.png",
+      "bytes": 409057,
+      "sha256": "c0ab0e1c93b3fced5702efd9752dc1d677eb229eaa42a91fd74ce205db49bf64"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0063.png",
+      "destination": "dilemma/public/train/images/0063.png",
+      "bytes": 202234,
+      "sha256": "b13c4f2c6440d5ce9269488733fe56a93f5bb0ce364d2d59deca98f4f8a7de2c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0064.png",
+      "destination": "dilemma/public/train/images/0064.png",
+      "bytes": 186982,
+      "sha256": "0b83f9d88a7173d3779e17d699a2e69a68791fd00012872ef01633534141e460"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0065.png",
+      "destination": "dilemma/public/train/images/0065.png",
+      "bytes": 312610,
+      "sha256": "8e5c97f29b5f114d95f098ef1396c9a402b5835885416c01d207ba924ec5bc85"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0066.png",
+      "destination": "dilemma/public/train/images/0066.png",
+      "bytes": 411954,
+      "sha256": "b27f388ea4a741a340247f08df62381a658a9c38846a6146a775dad4d7f93907"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0067.png",
+      "destination": "dilemma/public/train/images/0067.png",
+      "bytes": 424928,
+      "sha256": "64f905d563433fa235549c9c19f9e850604c7b142afe3d217656c848b48109b7"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0068.png",
+      "destination": "dilemma/public/train/images/0068.png",
+      "bytes": 417269,
+      "sha256": "416fe975ac3135c9e06a9822e543aafba6d93ad8c05d3c6b764006f298af1d9a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0069.png",
+      "destination": "dilemma/public/train/images/0069.png",
+      "bytes": 275105,
+      "sha256": "640cc09ef38d380972e86f51f3dca1a961c8bff0928c7554c6b51246bdd0336c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0070.png",
+      "destination": "dilemma/public/train/images/0070.png",
+      "bytes": 405813,
+      "sha256": "2b44ed6eeacd27a577345ee5bdeb85f3025703c5e5228fdbe83f450a1aeb4081"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0071.png",
+      "destination": "dilemma/public/train/images/0071.png",
+      "bytes": 195263,
+      "sha256": "9ceb7b11694ae74470edaeed77976d56f652ed78a0739aa4e931e5a68a49ff0c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0072.png",
+      "destination": "dilemma/public/train/images/0072.png",
+      "bytes": 389188,
+      "sha256": "ecff157b14d17087823ae7a58cd88046678be0054509cda88616a11c83a560e0"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0073.png",
+      "destination": "dilemma/public/train/images/0073.png",
+      "bytes": 395655,
+      "sha256": "561d76e07aa2177ae4a34f3b36c59394b90b7c8efb8e0bdd2d1f294cf2a57076"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0074.png",
+      "destination": "dilemma/public/train/images/0074.png",
+      "bytes": 355258,
+      "sha256": "83f01c611bbc6fc4cf5b01449aa4efd9a3b00c3e470b889edc877c509fa9bd5b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0075.png",
+      "destination": "dilemma/public/train/images/0075.png",
+      "bytes": 237610,
+      "sha256": "d373b0f772dd6ad97520649ecb4f66c652b450fced76bb9b308030a2ec1ccc9a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0076.png",
+      "destination": "dilemma/public/train/images/0076.png",
+      "bytes": 368382,
+      "sha256": "a6c145c427d4b9232fe96b9bc2e4662fbf3c5fc1a0864f20d7fe77f4070e2b0b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0077.png",
+      "destination": "dilemma/public/train/images/0077.png",
+      "bytes": 301212,
+      "sha256": "c88483f70ce3bdab504228f6cdb771212e65def3f60e5b4e110f64507f93ef26"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0078.png",
+      "destination": "dilemma/public/train/images/0078.png",
+      "bytes": 169295,
+      "sha256": "96f43ec9b2de9e28388e219298c7c13fca574856d0deca41a6bffb719a8257a9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0079.png",
+      "destination": "dilemma/public/train/images/0079.png",
+      "bytes": 254566,
+      "sha256": "b8a28b75680b4b3fc4aac4cc920d713a0aaf24b3eaa3043bcb840b01d870b4ee"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0080.png",
+      "destination": "dilemma/public/train/images/0080.png",
+      "bytes": 146482,
+      "sha256": "64a4e8b5d4d591eb6630813379b4da367dec7c6fb4d51f05647dc5664ffcc047"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0081.png",
+      "destination": "dilemma/public/train/images/0081.png",
+      "bytes": 313103,
+      "sha256": "bbf9b9c43fee557dc071d4d320a2bc0fb4ad94e6eb1b225aff9aa7c6f7e48390"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0082.png",
+      "destination": "dilemma/public/train/images/0082.png",
+      "bytes": 346593,
+      "sha256": "31a334cb76ab1d1ccfa1d949e04472a021c89e07ed132f1dad87ed8874f3d4c6"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0083.png",
+      "destination": "dilemma/public/train/images/0083.png",
+      "bytes": 103273,
+      "sha256": "b3f06bf4b339e020e4d9281d98c32614793e1afd848a18f173fcb02f5886b24e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0084.png",
+      "destination": "dilemma/public/train/images/0084.png",
+      "bytes": 549808,
+      "sha256": "3c61d3dd3f750d1dca9bdb1ea560ab0f5e38a21d812c5ed9f60426242a0265b2"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0085.png",
+      "destination": "dilemma/public/train/images/0085.png",
+      "bytes": 409305,
+      "sha256": "bc65f0e91a0543ec82cf09145d0b151b06e31c8b989bcca964b1155e1c428280"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0086.png",
+      "destination": "dilemma/public/train/images/0086.png",
+      "bytes": 358754,
+      "sha256": "6da57736e0baab94928839415e571eb0371114c1129183abdd56d3e2f27d2091"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0087.png",
+      "destination": "dilemma/public/train/images/0087.png",
+      "bytes": 370287,
+      "sha256": "d0525323c3d10909055e9f3a42392e17346cddeb38e8a53b5ef6868b078e215c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0088.png",
+      "destination": "dilemma/public/train/images/0088.png",
+      "bytes": 135536,
+      "sha256": "da30d67f732eff8995a97c0447111b7f447d17c22f6abb7135081542908b94ec"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0089.png",
+      "destination": "dilemma/public/train/images/0089.png",
+      "bytes": 329995,
+      "sha256": "4387e209a2f03a70a5163a63c3230740c775adca94312301ab98c129e441ae02"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0090.png",
+      "destination": "dilemma/public/train/images/0090.png",
+      "bytes": 349909,
+      "sha256": "36a8ba5007237aca6c66c63ab4c0175cf181210fe59cd5e6a2ade04a6a8d88b4"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0091.png",
+      "destination": "dilemma/public/train/images/0091.png",
+      "bytes": 191214,
+      "sha256": "a239b736ab0ac640b9e7b256aa66f658f554607462b098a97548ef67ee44da06"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0092.png",
+      "destination": "dilemma/public/train/images/0092.png",
+      "bytes": 169600,
+      "sha256": "645aa16bf135b7d183e303ff8b25a9291f3739522ea6a2cb05fec23970794d95"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0093.png",
+      "destination": "dilemma/public/train/images/0093.png",
+      "bytes": 189026,
+      "sha256": "00d301d43bec70031c40fae9ee34e1f51500a98559348983f044c9ab6c33d35f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0094.png",
+      "destination": "dilemma/public/train/images/0094.png",
+      "bytes": 251832,
+      "sha256": "f1f42dd70853530f400000ce41c635c38a1504c5505c038c699a51a03db6915f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0095.png",
+      "destination": "dilemma/public/train/images/0095.png",
+      "bytes": 386286,
+      "sha256": "c86bb69e962a873bea40c86f711a210878b6359616184acdb000a513effaaead"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0096.png",
+      "destination": "dilemma/public/train/images/0096.png",
+      "bytes": 215775,
+      "sha256": "01ddb7b9c5c96cb572ba2fe5f7450e3e693280e71a15cc3c3e646a95adf98679"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0097.png",
+      "destination": "dilemma/public/train/images/0097.png",
+      "bytes": 230683,
+      "sha256": "1eebbe423ecbc3f60df350a33f00ac8634401ced04e3602860f53c7e62691095"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0098.png",
+      "destination": "dilemma/public/train/images/0098.png",
+      "bytes": 339768,
+      "sha256": "9bae9c44df88898b8947204300a8eefa47ccb8cea4bdbc09bd571649d9663db4"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/images/0099.png",
+      "destination": "dilemma/public/train/images/0099.png",
+      "bytes": 372615,
+      "sha256": "ff4577a0bf698e0304c15bedce952e1d795de56cae809b622613809b77adf75b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/public/train/labels.json",
+      "destination": "dilemma/public/train/labels.json",
+      "bytes": 1081,
+      "sha256": "45a0c0cd26adf524467a1bf7bfa94e3f0f2b532e64d6bdf2e4819a81532898aa"
+    },
+    {
+      "url": "https://download.pytorch.org/models/resnet18-f37072fd.pth",
+      "destination": "dilemma/models/resnet18.pth",
+      "bytes": 46830571,
+      "sha256": "f37072fd47e89c5e827621c5baffa7500819f7896bbacec160b1a16c560e07ec"
+    },
+    {
+      "url": "https://huggingface.co/timm/vit_tiny_patch16_224.augreg_in21k_ft_in1k/resolve/7d3afdd0cf93ad84d986eb2d6bcc5812ebd0b106/model.safetensors",
+      "destination": "dilemma/models/vit_tiny_patch16_224.safetensors",
+      "bytes": 22883348,
+      "sha256": "fecf81b492bd13ee7a5297cb74d1d417aac8bf7e1b7d96aed89c4691984587ed"
+    },
+    {
+      "url": "https://raw.githubusercontent.com/IOAI-official/IOAI-2026/e1963801aa4cf33a5a03520b39fa6620a7894c54/Individual-Contest/4_Double_Agent_Dilemma/code/grading-original/evaluate.py",
+      "destination": "dilemma/grading-original/evaluate.py",
+      "bytes": 7375,
+      "sha256": "aee4b5da5472b0e65f1a1c55f4e30a7000d2d527e6fd2c562779b121a07fde74"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0000.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0000.png",
+      "bytes": 182096,
+      "sha256": "770684098e18ff65844ce6d7a49e53979209cecdb6196d309449d9497c6862ad"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0001.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0001.png",
+      "bytes": 512859,
+      "sha256": "b2311a954db130248c7931cd28552b9dd7ad7a847f88745a84431d7ad7fbdbee"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0002.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0002.png",
+      "bytes": 321944,
+      "sha256": "2142798544817f48dacd8383f7c06e63521209d7baff3e0b82ae5c86f568da23"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0003.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0003.png",
+      "bytes": 362530,
+      "sha256": "ce91686329e4067c4e13cc73b35fdbb150924dfa93e19cc27144607ff99f0779"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0004.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0004.png",
+      "bytes": 263886,
+      "sha256": "0af1ab3596d060d2cfa2700e4b01952b4b0a5de03a1d23512d5f269d0d493ffd"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0005.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0005.png",
+      "bytes": 195627,
+      "sha256": "325eb885b3d259a62d906370a675c04fb348ff7a803ca570a52f35d23247dd68"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0006.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0006.png",
+      "bytes": 300801,
+      "sha256": "d8db3089aaab4c6d1b1a116ae441568f172bb9a51acc65836b4db55eb49b1468"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0007.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0007.png",
+      "bytes": 198886,
+      "sha256": "ca6c50c17f8aef43a4439da53253e365cdc48bf916d557b08f878001331bae60"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0008.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0008.png",
+      "bytes": 158032,
+      "sha256": "bb76a506828c98389d162ce85a7ad92df28f095251022a708fed9c7def0561cf"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0009.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0009.png",
+      "bytes": 327838,
+      "sha256": "7e6be64b0cebd94e5054764a4f4ccbed9c992356a24fc7def15b653a78098eef"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0010.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0010.png",
+      "bytes": 175463,
+      "sha256": "2b75c3e26d94a252b09d66f007eae2373f8231ce12a77de50e4d709ce0d9c16e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0011.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0011.png",
+      "bytes": 387654,
+      "sha256": "b5e39f7e8a732e18f453b6d3b101c6614d5603090af8032875ff02cb08503b5a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0012.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0012.png",
+      "bytes": 340556,
+      "sha256": "c183d98629df59f9412b49aa1b7117aff4caeaf7439c38dfabce78a0232e9161"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0013.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0013.png",
+      "bytes": 461908,
+      "sha256": "9c3e1a9ec685510927b4ab9f713f6f494e99bf951bfff3573ada6d55903a3051"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0014.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0014.png",
+      "bytes": 326373,
+      "sha256": "63a2eacdaf3ecdab82b13f66939b3397624f7035126015be9053a2b6eb73e3a6"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0015.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0015.png",
+      "bytes": 430532,
+      "sha256": "9a93199893d41b8280018ca866ca8274de4efbc04a31312a3f4ce9ac179348a7"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0016.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0016.png",
+      "bytes": 49622,
+      "sha256": "941faafd9c8b46abbedcb9442555c933fa90871223b61c0d59897318072dc7b2"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0017.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0017.png",
+      "bytes": 278107,
+      "sha256": "e5384ac20289d65413fcdbf4446f89a27a3672f592e0418ee99bc8cc0b16cc6f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0018.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0018.png",
+      "bytes": 494498,
+      "sha256": "33c0e813dc3e91cd1102857f3e69d5b0a44f0c0d3215410f1f44f07242b0bf8e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0019.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0019.png",
+      "bytes": 309454,
+      "sha256": "d2012de5d6db67d349db0205c2317bf99e105c604d12879526072e6b9defc9e8"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0020.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0020.png",
+      "bytes": 243621,
+      "sha256": "a14704a0b22eef743e148ddfa5f9cfb36dd32b1065c2641b27c4ab4dfee16b54"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0021.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0021.png",
+      "bytes": 235239,
+      "sha256": "f0698f096e449ea46c54321c35b75af46d60937a1632dfacb84c4d888026c70e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0022.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0022.png",
+      "bytes": 276008,
+      "sha256": "7f164e50bb79752a156eaf7d1b1a98493f3abb4ded5e89f302317dae6866c8c1"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0023.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0023.png",
+      "bytes": 300537,
+      "sha256": "fc56b0f2d35d856606b29bd21b48cde268602f7396412d3c04b489b5799db88a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0024.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0024.png",
+      "bytes": 486205,
+      "sha256": "da6feb579afb4a2a64480f4566899f87566274a14f004e2ca1fe939b2aba0f45"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0025.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0025.png",
+      "bytes": 402864,
+      "sha256": "59b200c57def0549e67a9f013bf0dffc604af01b8965c7bf81ddd8d6b67afb32"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0026.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0026.png",
+      "bytes": 159715,
+      "sha256": "bbb55d9bd75f4e0ebcd8ea4757700055a9c4bf7d8443a688e083a7049b0c23d6"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0027.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0027.png",
+      "bytes": 91965,
+      "sha256": "d04ae48f791fdaef5d664a51b3987098d89465282aa00b7828a4669750633082"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0028.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0028.png",
+      "bytes": 254352,
+      "sha256": "e2e8a26e55e673eb7a318842009caf99e4f2fa8e5d2523930b4eed893acce171"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0029.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0029.png",
+      "bytes": 245388,
+      "sha256": "700a50b50048d77bf0d0d843df91141c42f65ff5443c811919b073dffe31c4ef"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0030.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0030.png",
+      "bytes": 204950,
+      "sha256": "48d3942520d4b1ae56a0856baf04dd93a102b5845d43edb57490d6187c3783f4"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0031.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0031.png",
+      "bytes": 271924,
+      "sha256": "e51630a30b33dcf82e2ed6dc79d94cac63562705a086311f424bac6d16a6ab65"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0032.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0032.png",
+      "bytes": 286645,
+      "sha256": "88c41bd0261eda7a281fbc443fa54ff4fb2337486518196f351f81166258f631"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0033.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0033.png",
+      "bytes": 318101,
+      "sha256": "9bf46b15ee4441d758a53a6453ac06de47448e5c0b7385d441d3d76284a33843"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0034.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0034.png",
+      "bytes": 292549,
+      "sha256": "a15b8b532dc53eaedbef3aaf8b29d6449f4937354bd6d0132cd6598b3d40df95"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0035.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0035.png",
+      "bytes": 103239,
+      "sha256": "83ff3a947c938d4e1e5b091476425b66ec9b11478869a06e11ce64dc393de40a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0036.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0036.png",
+      "bytes": 324791,
+      "sha256": "3b63d1ffcbc828f5bf203818c538e983c7702b1343e8261710e078cc170a32a7"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0037.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0037.png",
+      "bytes": 96548,
+      "sha256": "81f0b8f2828bc5952c20ed88adc79ffe806d613183ab4da6580beb68e0a5c1a5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0038.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0038.png",
+      "bytes": 316731,
+      "sha256": "78a54fe6b9d59976a73ea0494524f8bbafac51e093a01ec68dce73df7a912307"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0039.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0039.png",
+      "bytes": 317508,
+      "sha256": "92c2fcafdbbed8b48ad948b9c62a39aa984f5402a16dfa12fbeae0ac857c2877"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0040.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0040.png",
+      "bytes": 2210155,
+      "sha256": "5091a8bb145700b444c6fe512474e485706c472423ca597d73170357f56a5e32"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0041.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0041.png",
+      "bytes": 421596,
+      "sha256": "a242fad59f0fd3ffb015b8cbd0f9ebafbd6de8ccead0f91cc138a39c5fcc6250"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0042.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0042.png",
+      "bytes": 589184,
+      "sha256": "db45e8c5d13f4429ef3193ab6e8df30cb3ec639d7cae4f49153ff0f47b669a15"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0043.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0043.png",
+      "bytes": 252454,
+      "sha256": "fb84ad1489329fb1fbdcc75818bffb245acbf84bd5892c2f5d3302a39a2fb666"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0044.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0044.png",
+      "bytes": 240055,
+      "sha256": "49742f96a0611bd6ffef42627b8f64edae39cff301b0ca4642a70d8858fab0af"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0045.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0045.png",
+      "bytes": 232726,
+      "sha256": "51e7e92a82f12cc44fd1a07e700d8005805e365d2d6d5dc3670a56da0ed2aaf9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0046.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0046.png",
+      "bytes": 138468,
+      "sha256": "5dc2579beee6ee2fbb1036922288bcedb131c9c288e095f9151461ca3636f376"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0047.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0047.png",
+      "bytes": 242052,
+      "sha256": "1a88f6b78861095ea2995e71c01879167d8ddf088ada5ee347e860940d217d23"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0048.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0048.png",
+      "bytes": 337758,
+      "sha256": "44581a3692bca6afab4e6b31da1de6edd6a4715c551e4e8dec6aabb5f63b90a8"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0049.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0049.png",
+      "bytes": 362490,
+      "sha256": "095dfb6eb29c1f47a33ab3e8063c653f561790a7aefcc70f884e035f91d9343a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0050.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0050.png",
+      "bytes": 342538,
+      "sha256": "ddce5e16a347e2c446625e700b607ce1cafa4b5b5d779a506c41b07cebe5713a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0051.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0051.png",
+      "bytes": 406849,
+      "sha256": "00ff245496c7594f25e9a66f9aa0c420b92d7c57720c73a20308ba11f3026aec"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0052.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0052.png",
+      "bytes": 259554,
+      "sha256": "e078245cbfc5e16273fcfc710c5c10d50638845501b88b8fd32eef4a5ae72e70"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0053.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0053.png",
+      "bytes": 301171,
+      "sha256": "fc75eb8f477ec5cf91a35fc4c819208b3a0f673fdd7fec83b1f65473fc7e7725"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0054.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0054.png",
+      "bytes": 223403,
+      "sha256": "a549fad43601ed3ca0de8d33ca4f6e64fdcd0cabd0de3a2b9f7c15310c17e774"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0055.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0055.png",
+      "bytes": 241158,
+      "sha256": "678ec507eb1eab75afd24316cd58d1ab3587a0506a4afc71e8653f5130f7caf8"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0056.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0056.png",
+      "bytes": 324059,
+      "sha256": "5901f334929a2cfdd5326595908ceed605f7c6468955113a271c00840fe7f267"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0057.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0057.png",
+      "bytes": 262723,
+      "sha256": "30a5847d4b45cbe8e1abd1a7339fd036288e2ec608751001dadb2a83e86916c7"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0058.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0058.png",
+      "bytes": 86514,
+      "sha256": "d2d775dda52d20d5bedbc833a6bb9d3528d797e4b90bebb628bfdf5a6b41ab90"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0059.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0059.png",
+      "bytes": 174606,
+      "sha256": "74c40705f759375b1654ea026271501615b5b5d9a3c92e287fff542a8aed17a2"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0060.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0060.png",
+      "bytes": 1005174,
+      "sha256": "486ab8027fe80e09dd10e763d0c4a4e489de978ea34147c77fbc4ae1ea5485d5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0061.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0061.png",
+      "bytes": 1407528,
+      "sha256": "741f05f4614b77975e3326b513c06ac46a622bf17164d9ed5a1c0a40a8114f0c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0062.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0062.png",
+      "bytes": 357643,
+      "sha256": "95478ca75a9415416bbcaa670ab1fbd7079222320804d5982b3ff278aeef69da"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0063.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0063.png",
+      "bytes": 254087,
+      "sha256": "8b542632b3ed7efcf2fee029570593d2264f6a569fb822deffb12cf893a47201"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0064.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0064.png",
+      "bytes": 166257,
+      "sha256": "544b3ab8b504ee0ebe5f2f2eec7073b5b7889094d910268497527a151db5ac73"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0065.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0065.png",
+      "bytes": 242607,
+      "sha256": "0e586f4e5036e902cd0e6a9dc15286e1b2ca3dc19be4cf620a7ce8d75bad42cf"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0066.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0066.png",
+      "bytes": 250251,
+      "sha256": "91c753a596713202b05b60dbc4c656951d342dac7f612846c6b6d4f546f1dd0b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0067.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0067.png",
+      "bytes": 337216,
+      "sha256": "81f73ca50a05f0074a7a75138218723ab8915c0b5b23ea0f9fdd412d20c71f24"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0068.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0068.png",
+      "bytes": 286839,
+      "sha256": "a2fa7ad9aae45896da5aa430020cc1401a0d1e4d880e4d58391ed7d7a3dae802"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0069.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0069.png",
+      "bytes": 196611,
+      "sha256": "64c88f40a2e307bbe8bf23395c505fabf38944020745d3a29f34d05e9e0cfef8"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0070.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0070.png",
+      "bytes": 326385,
+      "sha256": "b6d439f25301a0b8971a9e62853647cd2faf719f5755a4a7a165b5e0a08e70c6"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0071.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0071.png",
+      "bytes": 208443,
+      "sha256": "5fd3f93377e8e338c465ec0a6d8c6999ba4650b6f851dbbf9b53d87fcd0572f9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0072.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0072.png",
+      "bytes": 234699,
+      "sha256": "9f4f631ecabc0b6790e32de6801fb8fa26d34fbb5dce00148f5a90814722613f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0073.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0073.png",
+      "bytes": 218192,
+      "sha256": "ae01dabc554835f4b2d8fbe91c3ce806ad8d381471f1b5a3b2f1dd291c2eca2f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0074.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0074.png",
+      "bytes": 292820,
+      "sha256": "c616ee665eade8abde1a2cb58ccf5062c33ef430fb686d14a0b784971ef63a8f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0075.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0075.png",
+      "bytes": 187830,
+      "sha256": "090f8c65d1bd2ac8e6a6a8e6ed0ebb156e19e274605b2d98d7577f79e1e2c05a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0076.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0076.png",
+      "bytes": 377970,
+      "sha256": "d3a02539297f1494f06f8ca7e1bdf57bdff98bfa2a0087f3e69d4084c4138df5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0077.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0077.png",
+      "bytes": 283978,
+      "sha256": "abb26409268d1816fa5b3e85550092bd135d60856e8e06dab01c209f425d5873"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0078.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0078.png",
+      "bytes": 357622,
+      "sha256": "a547f4439ef7c7bf2185159cbf641c05663bfb584b5975a2a8ed1f6207888ad0"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0079.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0079.png",
+      "bytes": 349679,
+      "sha256": "501b689fc15bad69390ab455111811dafd87baff7fbd49b4437b72ca83100788"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0080.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0080.png",
+      "bytes": 232755,
+      "sha256": "db2c5a6e81502208d2a34d4ef57a71bdf0a84d491f032ee6c66658adbbdf7e76"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0081.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0081.png",
+      "bytes": 154675,
+      "sha256": "d78164d2bc4a358694052e46bca775249119a135b3ad813cf77005120311af25"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0082.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0082.png",
+      "bytes": 272613,
+      "sha256": "cdfaa1d85dc23b5484bad3ab231034c8d29767bc85de793ca989577c6d22cc0e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0083.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0083.png",
+      "bytes": 297921,
+      "sha256": "fed7773b28626b0e781f5a47dd9bdacd9b05e9a9d368b74ac2e648669272241b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0084.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0084.png",
+      "bytes": 231728,
+      "sha256": "786e091c5442fe25f19c85202cd87de6c1df3cf58642f85c89fa27e5f33532e5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0085.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0085.png",
+      "bytes": 146451,
+      "sha256": "2ed2364f3a12cac010d99b7fdd1f64ed217c3964530e601862c57f140c0c00cb"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0086.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0086.png",
+      "bytes": 219885,
+      "sha256": "5cc063b6c7f4809dbeb9b643e0b26cb349d742f1415bc200582934b6d7003550"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0087.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0087.png",
+      "bytes": 385977,
+      "sha256": "bc42626ee6146c730c0fab7f1e7edbca65928acdef40436e9bb147afce9aa3a6"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0088.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0088.png",
+      "bytes": 273923,
+      "sha256": "a57b1768b750496f01456fc89b48b8ee03bb03fd5dd506f3974dc55405293328"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0089.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0089.png",
+      "bytes": 68395,
+      "sha256": "e305b6e8ae953552525f91859cd1e65d8d422c51897795385f62d3efac4c4a69"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0090.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0090.png",
+      "bytes": 250341,
+      "sha256": "592d9938548a4686859fb5375cc4dc8bed93559a4144d106fbcc852e57b900ce"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0091.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0091.png",
+      "bytes": 324426,
+      "sha256": "18b0fcebe4486a4d0ad0a5b169365128458a191952f83988be9b6889973d9a91"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0092.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0092.png",
+      "bytes": 194831,
+      "sha256": "fd9b16270ba32f31194a0de0de3010c743751d7da61f26cac4e49e4a60dec747"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0093.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0093.png",
+      "bytes": 458359,
+      "sha256": "24481e2e99dc5e81a1556534e410b7e257a51db248a7b5f407e4cf8893773d12"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0094.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0094.png",
+      "bytes": 150718,
+      "sha256": "aada34e2e12ec24ab51e4feee60cd88c466fb033ff708a0e2a60b88e5a572055"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0095.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0095.png",
+      "bytes": 233662,
+      "sha256": "8911ba58f62a393d4b99728a6e6694c3d07e0fd8dbd3b115345ad04b135e301e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0096.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0096.png",
+      "bytes": 400721,
+      "sha256": "f438ce4ae62e14c2cd50492181a6bc02e5db1b18b81d26d25d250dc1830cf728"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0097.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0097.png",
+      "bytes": 206093,
+      "sha256": "ed268aa8699d172a371ca9380a5729827f96d85a4a34f30f608e37e82b157344"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0098.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0098.png",
+      "bytes": 246732,
+      "sha256": "e80a3472efb5ee392d55ee23227f3f67ea422e86c784f4df37905c5205d4726f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/images/0099.png",
+      "destination": "dilemma/private/test_leaderboard_a/images/0099.png",
+      "bytes": 351063,
+      "sha256": "7be232e08f2ddd99bb1d2815e029c8acb2925185cc73ad8ef500be9aab9742a4"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_a/labels.json",
+      "destination": "dilemma/private/test_leaderboard_a/labels.json",
+      "bytes": 1079,
+      "sha256": "c460087683c0134f538ac557a4fad5f346f0e736d4466c70114b198bac441e18"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0000.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0000.png",
+      "bytes": 231971,
+      "sha256": "57af1fc7c4fe0feb19d5a9f31f96ad30e3dc081257ef8ac9c5b21725c82e3185"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0001.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0001.png",
+      "bytes": 429333,
+      "sha256": "2e9ae6fc54e4d2eee60596da5479bb8a3265673b06e94d3056d321be4ad4032c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0002.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0002.png",
+      "bytes": 242457,
+      "sha256": "d58caa1cdb0aa645100685c8011f9f53ef26ab07b61647a674fd6c79607d0e7a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0003.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0003.png",
+      "bytes": 240697,
+      "sha256": "b555088a2fb6b5c1c7988d307c570208e9b8ef9623f9f7690905bd345b93ca63"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0004.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0004.png",
+      "bytes": 334660,
+      "sha256": "b169c6b4a19c802bd8f9c7d59a6f9e2682cce0114c294ec377a9bccb6ed022d7"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0005.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0005.png",
+      "bytes": 496557,
+      "sha256": "bbea5fb3d0e6333021c582ec448414a6ff288dc27b4cef7a46a342832e0eac2d"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0006.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0006.png",
+      "bytes": 264166,
+      "sha256": "ce1b9de180f352d9fa177600eef9ec8fcdffc907e1f4ae3d06b4d3691fada3c1"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0007.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0007.png",
+      "bytes": 462534,
+      "sha256": "fd351c15bbcf8daaff059cb3114a323cea814764b3a3fd8a5bff6b37cc954042"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0008.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0008.png",
+      "bytes": 264683,
+      "sha256": "f2701703d83325dff7f87f351432a8ea933e47e24305d7762280b8b9449faad3"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0009.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0009.png",
+      "bytes": 187244,
+      "sha256": "184579e2ab723d462020d92569a06b258d2426805e87469b7cdca17696395acd"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0010.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0010.png",
+      "bytes": 350868,
+      "sha256": "7b87b52a06cd00494f593f56edb9ee664e6ed1f9dd14569e0f189c4daf7481ff"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0011.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0011.png",
+      "bytes": 412187,
+      "sha256": "fe67289d5505907bde9322b6e94e78264f82cee69c5196473dde3b26fb097096"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0012.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0012.png",
+      "bytes": 258678,
+      "sha256": "e5ad28439c1875d550878674e9908d0981a32abbd9e12063b57fd318dc682ffd"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0013.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0013.png",
+      "bytes": 135679,
+      "sha256": "cf1fb60c798ad6519f7f27d24386910f009a476827072e6e9a8834968c7f32df"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0014.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0014.png",
+      "bytes": 194174,
+      "sha256": "f1b1d6e6ff75f76563f833fbb5777a2a8490c3341314a697ed0626fb0a856c18"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0015.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0015.png",
+      "bytes": 43822,
+      "sha256": "d10c401de6e17931b6c3f9a2a9c3de25f4e2a3c5efb814dddc92818a11e2e27b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0016.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0016.png",
+      "bytes": 218098,
+      "sha256": "5e4d6627287dc2551a25b39d42490deab008b9ef811c1c612208c20a38f2e85b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0017.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0017.png",
+      "bytes": 366825,
+      "sha256": "0cc8cc8319cc1e4e2f6402f85cc80afb5623fc82645b1348c6fd5d8ca6174494"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0018.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0018.png",
+      "bytes": 140825,
+      "sha256": "ec6d76e6333f491ac59c359531454a45477a0185b48c6c7c084251d31dafdf7a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0019.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0019.png",
+      "bytes": 286176,
+      "sha256": "df530a6217e5a9e5473bc36e00a3fec44673e91c5441c08c4165c2002ad1b91f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0020.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0020.png",
+      "bytes": 279250,
+      "sha256": "c3f41be4571a65ed51c6db978de3187bc268266380d82afb47de8c51f22cec3b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0021.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0021.png",
+      "bytes": 232724,
+      "sha256": "a23daa7ff903dbd03611f40f395f973ff0afbad05823ff05a0e245742e6783b1"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0022.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0022.png",
+      "bytes": 221488,
+      "sha256": "52602266e43a49db68e3fa075bf080df5360bbb1ae748ab80dd9e03d05bec7eb"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0023.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0023.png",
+      "bytes": 652185,
+      "sha256": "880e9e77d367bf0267bc3466aa06d077219c33469c43b793c661df44972c8238"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0024.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0024.png",
+      "bytes": 264691,
+      "sha256": "86344f2d013229053dd33a5dae7227a91f5c073a8d033ba6004a76b11ebb09ce"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0025.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0025.png",
+      "bytes": 54808,
+      "sha256": "a5a2d3c2e78342e0fb58f70b021e98d84591060f2cbfb899461412bbf0231d96"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0026.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0026.png",
+      "bytes": 349962,
+      "sha256": "a7f2ee1fd91b5d03540547c94b5d3ae853e6bf6a859f7c4e4c753c8ab302379b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0027.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0027.png",
+      "bytes": 198604,
+      "sha256": "8053916df5003912e23d0712345ed1ab18482ec8302cced82d507b0ca497e198"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0028.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0028.png",
+      "bytes": 437233,
+      "sha256": "4b973d21d071756cc9a265e5bbec1ca5fca15238c1112473be03d7ebdd35806c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0029.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0029.png",
+      "bytes": 551232,
+      "sha256": "0a6d4536ff8e6a116be2c5614cdc2924a23b640c63da3c257e179e9d6a751462"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0030.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0030.png",
+      "bytes": 433570,
+      "sha256": "c3d52c97be13ac65854df208cf338599283f7a92eade5c3a3639c1b624464e68"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0031.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0031.png",
+      "bytes": 489355,
+      "sha256": "46c2a1f30f5ee719d2214cab881b771318ed6b2ac382860ddf52164f4ac0c786"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0032.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0032.png",
+      "bytes": 360816,
+      "sha256": "44630272296aede5cdb5a058823843b34770707e7b65be30fdb220685417989d"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0033.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0033.png",
+      "bytes": 364663,
+      "sha256": "da265ac629696e6a63cd1e52ccbe1e899cd26775fafdd22080530b3b1fc31058"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0034.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0034.png",
+      "bytes": 236941,
+      "sha256": "17d2fe27e0331ab06dd8d59cc33504a2c4d7a8524e15ce0ae2c8aa58958b4bc0"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0035.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0035.png",
+      "bytes": 349083,
+      "sha256": "2e75a00b9f0956cb873f30fe6b8108b16f2225ecebcab80519869cb35d5e2b48"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0036.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0036.png",
+      "bytes": 207826,
+      "sha256": "361e83f720e0246b876f9018d9bc548aa2147e1bbe0d89f3b6fa1881e25095c8"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0037.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0037.png",
+      "bytes": 500470,
+      "sha256": "d24088f56c51b78629fcb3dff7da5633b8b0d1a8d029c1f148da3d8be711a952"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0038.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0038.png",
+      "bytes": 244872,
+      "sha256": "12cdb72d86d4e8bf9dae49109c406a7f380fa16674ad3f1b811db0fbe4830b41"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0039.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0039.png",
+      "bytes": 431454,
+      "sha256": "d5f12d9e27bb7bc22a25953830c00e5afb4738da62d8d4c8bd8939b09f7d0e72"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0040.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0040.png",
+      "bytes": 289093,
+      "sha256": "a4c1f0e22a5412103a9f4bd27277e304ae211adc2ff0ea01e5af89933073ba06"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0041.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0041.png",
+      "bytes": 130545,
+      "sha256": "d35d4822366a2c933d5d8018d2437ab7c4bc9feb34a8eb21baee928d2bb5e4e7"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0042.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0042.png",
+      "bytes": 248348,
+      "sha256": "b8d1ac35c8bc2e6ea356f69716724b8216e378f3ff97f8b741b51f5420e76a39"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0043.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0043.png",
+      "bytes": 430254,
+      "sha256": "6a2f487041dd7ddf0bcf1c772d43d235895bf9c8fb73f9cf6cd352fcef027c88"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0044.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0044.png",
+      "bytes": 437402,
+      "sha256": "864ad4cee80d5d0e7925bbd37362fbaa1dd5f1ae099c2a7bb55c97f2f201808e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0045.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0045.png",
+      "bytes": 61183,
+      "sha256": "0716307ecadd8e858a176f64f12fd4cbb735d0088c625c21801a983a7ef8fb96"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0046.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0046.png",
+      "bytes": 364654,
+      "sha256": "255dd086c893a86a7963b795889108473543561ec7ae991b6c48f673edfeefda"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0047.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0047.png",
+      "bytes": 339849,
+      "sha256": "1d981697c4afd522e4cb44fa5f6ea3bea86ab3ccd266da4332a3136a5179609c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0048.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0048.png",
+      "bytes": 79192,
+      "sha256": "21fe2d171c5ddb3c206fc68102d67e5a5032cff1fd94b21b0a7dd57f297e3ddb"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0049.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0049.png",
+      "bytes": 257951,
+      "sha256": "dba3c92992e14700a028566872f0884d802a92f612cf1390371d3b4ebff6ead9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0050.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0050.png",
+      "bytes": 272807,
+      "sha256": "fc980bcde06978e7d2efa6facbffedfc4deaccfdc7864dcd679c35752a94dd48"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0051.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0051.png",
+      "bytes": 230377,
+      "sha256": "2256737172efdf020974221afc7442a253173fd52331280bb505a3d9283d260f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0052.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0052.png",
+      "bytes": 551031,
+      "sha256": "412b469deafc362f229de7b69959589939c41b52f49557a99ed297a140c83ae9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0053.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0053.png",
+      "bytes": 208291,
+      "sha256": "4e8e9f9ba7f1e74a448a55d1f6c979828baf120e98d34da46372547b90f05226"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0054.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0054.png",
+      "bytes": 320200,
+      "sha256": "1c5b2e54a6eb072ea81675463e914841f5157b234e8811ab7a7762ea648e64af"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0055.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0055.png",
+      "bytes": 673520,
+      "sha256": "f0ed9437c4a7218baff51778d1f1699ec4bb5594755a9f5c2bcc33ba3d2b253b"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0056.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0056.png",
+      "bytes": 342212,
+      "sha256": "097d7aff6f3f71979cee51a2148aa5fe83aa7c00c86d3982be19a247ec9a5afe"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0057.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0057.png",
+      "bytes": 404632,
+      "sha256": "596858f8b7e95b3e72d345819f90db84a0cb27afecff82c1f8b9217584f30f93"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0058.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0058.png",
+      "bytes": 201709,
+      "sha256": "6a13147a06a20b4df65f42f5a1bd8a637a667388384ed3c4ff19df827271169a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0059.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0059.png",
+      "bytes": 481103,
+      "sha256": "a7a7c315828baff894c9862765c6da0f0c6e90d1e1bb46bcee94fd84eb0ec1b9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0060.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0060.png",
+      "bytes": 263439,
+      "sha256": "7b52d2fc3250d0bd56dabd68842198b9ec6a0ca81189823efc1be0cb52dc83c5"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0061.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0061.png",
+      "bytes": 424934,
+      "sha256": "c66edf86cc6b832b4f8699c20626f72bbef7813470558bcc7a151f00fa0e68ef"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0062.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0062.png",
+      "bytes": 175894,
+      "sha256": "41c1e9d1a5d9d7b5307538124b1025e20f41b0f19aca282fd0090c8df97109b4"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0063.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0063.png",
+      "bytes": 331146,
+      "sha256": "729b0b9829e8d10e3306f6345a274acb4368bb52a49e5165110ac602abd96722"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0064.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0064.png",
+      "bytes": 310103,
+      "sha256": "2a6dcb4215a66f6bc2fc4065d158b975632480e2f1e9eb53d9e730377b324353"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0065.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0065.png",
+      "bytes": 342592,
+      "sha256": "488eb0ae4c37842b3c8abfc23687c0b156674c086202d2dbf1078541d706f174"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0066.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0066.png",
+      "bytes": 326185,
+      "sha256": "be999c64095ba2b5b5311498e9051c5c74d271c25f8705830809594f99497f7c"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0067.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0067.png",
+      "bytes": 1807416,
+      "sha256": "1e9ab6da81e85b4538b4c4381a7c25c77b36d7024bd8eb4a7be5f3aa0a56cb59"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0068.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0068.png",
+      "bytes": 237190,
+      "sha256": "200bc760465e46464bec58749544f7084df46160d928994256cf06a8cb9de869"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0069.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0069.png",
+      "bytes": 223003,
+      "sha256": "134acf8f7348ed628fdf7334c5f8a6407e43d3fc507819743a0d4e128cff3ba9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0070.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0070.png",
+      "bytes": 392191,
+      "sha256": "e8c5a45a031556d06e998e97146267e66812d802a2410926e5587ecfbf1775d3"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0071.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0071.png",
+      "bytes": 189093,
+      "sha256": "656c065447b3ca29f4c62c150c8087d06ae589b8977063e25f81b613213c60d1"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0072.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0072.png",
+      "bytes": 173942,
+      "sha256": "b203f5bc79b0a07d5a7d00bc5fde90786894746f294af389aae42ea24e90d427"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0073.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0073.png",
+      "bytes": 291318,
+      "sha256": "5bb9597e37dd48a32fd85c95b019d83949034438f16df2eab0befc43257f2069"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0074.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0074.png",
+      "bytes": 406675,
+      "sha256": "de02c346d3fe10e496b26df3d657a1e2220dfa026b28d742163bc676f10c905f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0075.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0075.png",
+      "bytes": 333483,
+      "sha256": "30b53d0ecab7e261efc1a06935320d26743ac1ac50f463ef6dd4d73071fd5cae"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0076.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0076.png",
+      "bytes": 402684,
+      "sha256": "8fe17f195ae3c4ca320aafd533df12d2d852f5d4757844200a842e11e99879cc"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0077.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0077.png",
+      "bytes": 248277,
+      "sha256": "c05a656ccb0cb03200da0587075585396ea309283f61ea6a69254c6eb8f421cc"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0078.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0078.png",
+      "bytes": 724523,
+      "sha256": "ce601e6b6387dd5f6c3ce374b8ab52446d25861ded30d12e4663ef53cd76dea6"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0079.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0079.png",
+      "bytes": 370138,
+      "sha256": "d4d76fcc1c485906000d2c4fa2a53f410184d13077f46b68a7b941da9eb72486"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0080.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0080.png",
+      "bytes": 163065,
+      "sha256": "faa4394287e57ae036fb95f60441af3c24304edf1e034a7713846bcb29cad682"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0081.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0081.png",
+      "bytes": 368361,
+      "sha256": "6892716e532a1804373ec63ea969ea624a0dac69d1c0205fca1ebd8dc60e2ae8"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0082.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0082.png",
+      "bytes": 317934,
+      "sha256": "401d97b009fb23af4cbd2eabf7b27626bc782e9ca0347f489ee32ddc4a5772db"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0083.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0083.png",
+      "bytes": 223575,
+      "sha256": "05a0e2f73f6ceab6cbb870dfb3a2f771a13638d193a1f1235c91222999829337"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0084.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0084.png",
+      "bytes": 180755,
+      "sha256": "cc52604aee02a600910db5bc7e5a245055aee10fcebe2f0af69b8a0b1cd24b5d"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0085.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0085.png",
+      "bytes": 364363,
+      "sha256": "56f5105406596217e8dbebf3f774e80c18afc581000214dfbab664b094622d1a"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0086.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0086.png",
+      "bytes": 166411,
+      "sha256": "7891d7b40d2bcadb58bf3cbe2e1f344d00714512b7613fa697e673ef6ca95bbe"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0087.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0087.png",
+      "bytes": 292674,
+      "sha256": "39c557616444e7b36e644628997d2e218f8b170cbd3313ee6bb9fed84136489e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0088.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0088.png",
+      "bytes": 245309,
+      "sha256": "e5a4b41db509d710c5b1e2819aed2698e1bc3c878e9701ae4926b60a7507abad"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0089.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0089.png",
+      "bytes": 458152,
+      "sha256": "d46b87f632ca4aef115e9d9c692cba7132f87bece1215994a8914a60a7dfbfe1"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0090.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0090.png",
+      "bytes": 284661,
+      "sha256": "add76a7abe1a53a64f71fbbf972f439137680dc48b29669ccdc65aede5d72b9e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0091.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0091.png",
+      "bytes": 205560,
+      "sha256": "ed0a57ce3ab41493d75a27354934532fe790bee5c8609518cbfc7017d4f3ab09"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0092.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0092.png",
+      "bytes": 271920,
+      "sha256": "e65e2a9d697f370bccfc9f11ae03925054158012f075e91de80190deb1b0cef6"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0093.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0093.png",
+      "bytes": 253833,
+      "sha256": "4713592da2482c05e6a7cee4f703a73bdf2e2fd5cc98b5b83d8fb4578eb9334f"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0094.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0094.png",
+      "bytes": 387830,
+      "sha256": "8e932c0f04ef667dcfe25521da8b72a40a578a54a7d61a691196e41e43ea35b1"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0095.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0095.png",
+      "bytes": 97534,
+      "sha256": "bd03e87dbeb45c82dbb1fed17d0d660cf5a5966ff204a72bc31af4a244e55792"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0096.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0096.png",
+      "bytes": 267225,
+      "sha256": "750546c1937f46576b36504c57f70f9246d5506b647ac037f5daa20377a62f62"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0097.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0097.png",
+      "bytes": 266732,
+      "sha256": "88e346c524e1190e3ba3795bde1f38968766fd3ba6bce9002a607f5267d6ad0e"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0098.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0098.png",
+      "bytes": 241357,
+      "sha256": "63d0c1eb3b1e164eda60ad49dc0aa67a06cdfb1151766e5bdc8cad70f05de3bd"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/images/0099.png",
+      "destination": "dilemma/private/test_leaderboard_b/images/0099.png",
+      "bytes": 149584,
+      "sha256": "54f60509fe706cebb62482efa257b12b6ef062bf8087fdd6b948fb2fe493fbe9"
+    },
+    {
+      "url": "https://huggingface.co/datasets/IOAI-official/ioai-2026-double-agent-dilemma/resolve/6f42de8f02c801618d0b90189bf4c759a9cd6381/private/test_leaderboard_b/labels.json",
+      "destination": "dilemma/private/test_leaderboard_b/labels.json",
+      "bytes": 1079,
+      "sha256": "81f5c0875d4ec8e838498dbe8036d106edc30611aa98401f660e5e10f469ceed"
+    }
+  ],
+  "model_revision": "7d3afdd0cf93ad84d986eb2d6bcc5812ebd0b106"
+}
