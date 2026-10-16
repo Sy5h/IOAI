@@ -81,7 +81,7 @@ HGB 학습에는 `numpy`, `scikit-learn`과 그 의존성 `threadpoolctl`이 필
 
 기준 소스는 commit `b3e60ae8e14b55d97c44214dc1ec7d8e49295a89`입니다. [실측 JSON](../benchmarks/results_order_robot.json), [재현 실행기](../benchmarks/reproduce_order_robot.py), [고정 revision 다운로드 도구](../benchmarks/download_order_robot.py), [탐색 후보 재현 코드](../benchmarks/robot_candidates.py)에 명령·버전·소스 해시·로그를 기록했습니다. 정상 완료 측정 뒤에는, 후속 로봇 학습에서 예외가 발생해도 이미 저장한 예측을 보존하도록 예외 처리만 보완했습니다. 이 경로는 위 정상 완료 실행에서는 사용되지 않았습니다.
 
-[공식 채점 함수 교차 검증](../benchmarks/scoring_audit_order_robot.json)에서는 고정 revision의 원본 `score_submission`을 저장된 예측에 적용하여 점수가 소수점 4자리까지 일치함을 확인했습니다. Podman 실행·GPU 할당·notebook 변환·시간 제한을 포함한 공식 전체 grader를 실행한 검증은 아닙니다.
+[공식 채점 함수 교차 검증](../benchmarks/scoring_audit_order_robot.json)에서는 고정 revision의 원본 `score_submission`을 저장된 예측에 적용했습니다. 이 문제 8회와 Find the Order 11회, 총 19회 모두 점수가 소수점 4자리까지 일치했습니다. Podman 실행·GPU 할당·notebook 변환·시간 제한을 포함한 공식 전체 grader를 실행한 검증은 아닙니다.
 
 공개된 공식 grader runbook에는 다음 **출제 측 참고 점수**가 기록되어 있습니다.
 
