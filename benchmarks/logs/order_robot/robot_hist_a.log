@@ -1,0 +1,7 @@
+robot 0: hist iterations=128, features=176
+robot 1: hist iterations=98, features=176
+robot 2: hist iterations=106, features=176
+robot 3: hist iterations=89, features=176
+robot 4: hist iterations=111, features=176
+robot 5: hist iterations=84, features=176
+wrote 3600 predictions in 100.0s

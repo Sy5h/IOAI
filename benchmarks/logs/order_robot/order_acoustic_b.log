@@ -1,0 +1,3 @@
+<workspace>\outputs\IOAI\solutions\day1_find_the_order.py:118: WavFileWarning: Chunk (non-data) not understood, skipping it.
+  rate, audio = wavfile.read(str(path))
+speaker constraints accepted for 71/100 dialogues; elapsed=42.628s

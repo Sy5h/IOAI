@@ -1,0 +1,7 @@
+robot 0: epochs=39, validation=0.7033, learned=True
+robot 1: epochs=44, validation=0.6813, learned=True
+robot 2: epochs=35, validation=0.6873, learned=True
+robot 3: epochs=44, validation=0.6760, learned=True
+robot 4: epochs=34, validation=0.6953, learned=True
+robot 5: epochs=34, validation=0.6680, learned=True
+wrote 3600 predictions in 96.9s
