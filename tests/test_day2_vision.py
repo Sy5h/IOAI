@@ -7,6 +7,7 @@ import sys
 import tempfile
 import time
 import unittest
+from unittest.mock import patch
 import zipfile
 from pathlib import Path
 
@@ -68,6 +69,35 @@ class AttackTests(unittest.TestCase):
                                     deadline=time.monotonic() - 1)
         self.assertEqual(torch.count_nonzero(expired).item(), 0)
 
+    def test_larger_step_fallback_recovers_a_small_step_failure(self):
+        image = torch.full((3, 2, 2), 0.5)
+        keep, fool = PixelClassifier(0, 0.2), PixelClassifier(1, 0.4975)
+        preprocess = lambda value: value
+        small = attack.attack_one(image, 0, keep, fool, preprocess,
+                                  max_steps=20, learning_rate=0.0001)
+        self.assertEqual(torch.count_nonzero(small).item(), 0)
+        recovered = attack.attack_with_fallback(image, 0, keep, fool, preprocess,
+                                                 max_steps=20, learning_rate=0.0001)
+        self.assertTrue(attack.is_success(image, recovered, 0, keep, fool, preprocess))
+        expired = attack.attack_with_fallback(image, 0, keep, fool, preprocess,
+                                               deadline=time.monotonic() - 1)
+        self.assertEqual(torch.count_nonzero(expired).item(), 0)
+
+    def test_retry_still_runs_when_primary_attempt_uses_its_entire_budget(self):
+        image = torch.zeros(3, 2, 2)
+        clock = [0.]
+        completed_retry = torch.ones_like(image)
+        def attempt(*args, deadline, learning_rate, **kwargs):
+            if learning_rate < 0.001:
+                clock[0] = deadline
+                return torch.zeros_like(image)
+            self.assertLess(clock[0], deadline)
+            return completed_retry
+        with patch.object(attack.time, "monotonic", side_effect=lambda: clock[0]), \
+             patch.object(attack, "attack_one", side_effect=attempt):
+            delta = attack.attack_with_fallback(image, 0, None, None, None, deadline=10.)
+        torch.testing.assert_close(delta, completed_retry)
+
     def test_flat_zip_roundtrip(self):
         stream = io.BytesIO()
         with zipfile.ZipFile(stream, "w") as archive:
@@ -80,6 +110,18 @@ class AttackTests(unittest.TestCase):
 
 
 class FieldTests(unittest.TestCase):
+    def test_conservative_calibration_checks_samples_after_first_chunk(self):
+        model = CustomModel()
+        model.router = nn.Linear(2, 5)
+        with torch.no_grad():
+            model.router.weight.zero_()
+            model.router.bias.zero_()
+            model.router.weight[model.I, 0] = 1.
+        validation = [(torch.zeros(3000, 2), torch.zeros(3000, 1)) for _ in range(5)]
+        validation[-1][0][-1, 0] = 42.
+        threshold = field_train.calibrate_i_threshold(model, validation, safety=1.5)
+        self.assertEqual(threshold, 43.5)
+
     def test_dropout_head_bounds_levels_and_exact_metric(self):
         torch.manual_seed(2026)
         head = DropoutField().train()

@@ -22,6 +22,10 @@ def load_module(name):
 
 order = load_module("day1_find_the_order")
 robots = load_module("day1_robot_chasing")
+benchmark_spec = importlib.util.spec_from_file_location(
+    "benchmark_order_robot", ROOT / "benchmarks" / "reproduce_order_robot.py")
+benchmark = importlib.util.module_from_spec(benchmark_spec)
+benchmark_spec.loader.exec_module(benchmark)
 
 
 def observation(robot=0, mission="approach the red ball", direction=0):
@@ -168,6 +172,26 @@ class RobotTests(unittest.TestCase):
             robots.main(["--dataset-root", str(root), "--output", str(output), "--epochs", "0"])
             self.assertEqual(json.loads(output.read_text()), [4, 2, 4])
 
+    def test_later_training_failure_preserves_saved_progress(self):
+        from unittest.mock import patch
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            (root / "train").mkdir()
+            (root / "test_public").mkdir()
+            rows = [observation(0), observation(1)]
+            (root / "train" / "observations.json").write_text(json.dumps(rows))
+            (root / "train" / "labels.json").write_text(json.dumps([2, 4]))
+            (root / "test_public" / "observations.json").write_text(json.dumps(rows))
+            output = root / "predictions.json"
+
+            def interrupted(*args):
+                robots.write_predictions([3, 4], output)
+                raise RuntimeError("synthetic failure after first robot")
+
+            with patch.object(robots, "hist_train_predict", side_effect=interrupted):
+                robots.main(["--dataset-root", str(root), "--output", str(output), "--model", "hist"])
+            self.assertEqual(json.loads(output.read_text()), [3, 4])
+
     @unittest.skipUnless(importlib.util.find_spec("torch") and importlib.util.find_spec("numpy"),
                          "torch/numpy not installed")
     def test_small_training_smoke(self):
@@ -179,6 +203,35 @@ class RobotTests(unittest.TestCase):
         predictions = robots.train_predict(train, labels, test, defaults, args, time.monotonic() + 30)
         self.assertEqual(len(predictions), 2)
         self.assertTrue(all(type(action) is int and action in range(6) for action in predictions))
+
+    @unittest.skipUnless(importlib.util.find_spec("sklearn") and importlib.util.find_spec("numpy"),
+                         "scikit-learn/numpy not installed")
+    def test_histogram_training_smoke(self):
+        train = [observation(0, direction=i % 4) for i in range(24)]
+        labels = [i % 4 for i in range(24)]
+        test = [observation(0, direction=1), observation(0, direction=2)]
+        with tempfile.TemporaryDirectory() as temporary:
+            output = str(Path(temporary) / "predictions.json")
+            args = robots.make_parser().parse_args([
+                "--hist-iterations", "2", "--cpu-threads", "1", "--output", output])
+            defaults = robots.majority_actions(train, labels)
+            predictions = robots.hist_train_predict(
+                train, labels, test, defaults, args, time.monotonic() + 30)
+            self.assertEqual(len(predictions), 2)
+            self.assertEqual(json.loads(Path(output).read_text()), predictions)
+            self.assertTrue(all(type(action) is int and action in range(6) for action in predictions))
+
+
+class BenchmarkMetricTests(unittest.TestCase):
+    def test_robot_macro_average_not_row_weighted(self):
+        observations = [{"robot_id": 0}, {"robot_id": 0}, {"robot_id": 0}, {"robot_id": 1}]
+        result = benchmark.robot_metric([0, 0, 0, 0], [0, 0, 0, 1], observations)
+        self.assertEqual(result["score"], 50.0)
+
+    def test_order_missing_and_invalid_dialogues_receive_zero(self):
+        truth = {"0": [0, 1, 2], "1": [1, 0, 2]}
+        self.assertEqual(benchmark.order_metric({"0": [0, 1, 2]}, truth)["score"], 50.0)
+        self.assertEqual(benchmark.order_metric({"0": [0, 0, 2]}, truth)["score"], 0.0)
 
 
 if __name__ == "__main__":
