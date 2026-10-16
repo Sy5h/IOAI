@@ -25,7 +25,9 @@ REPO = Path(__file__).resolve().parents[1]
 SPLITS = {"public": "public/train_config", "released_leaderboard_a": "private/leaderboard_a_config",
           "released_leaderboard_b": "private/leaderboard_b_config"}
 VALIDATION_SEEDS = (1729, 8071)
-CANDIDATE_STEPS = (2500, 10000, 25000)
+FIXED_STEPS = 2500
+VALIDATION_POINTS_PER_REGION = 8192
+CALIBRATION_OPTIONS = ((1024, 0.5), (16384, 1.5), (65536, 2.5))
 
 
 def get(url):
@@ -104,7 +106,7 @@ def read_config_values(config_dir):
     return json.loads(multiple.read_text()) if multiple.is_file() else [json.loads((config_dir / "field_config.json").read_text())]
 
 
-def score(model_path, config_dir, output, eval_seed=None):
+def score(model_path, config_dir, output, eval_seed=None, n_per_region=None):
     import torch
     from core import FieldConfig, EvalConfig, evaluate_model
     torch.set_num_threads(min(4, os.cpu_count() or 1))
@@ -113,6 +115,8 @@ def score(model_path, config_dir, output, eval_seed=None):
     eval_values = json.loads((config_dir / "eval_config.json").read_text())
     if eval_seed is not None:
         eval_values["seed"] = eval_seed
+    if n_per_region is not None:
+        eval_values["n_per_region"] = n_per_region
     # Explicit dropout seed makes the stochastic baseline reproducible too.
     torch_seed = 2026 + int(eval_values["seed"])
     torch.manual_seed(torch_seed)
@@ -135,7 +139,7 @@ def score(model_path, config_dir, output, eval_seed=None):
     print(result.get("__explain__", result), flush=True)
 
 
-def train_model(work, run_dir, kind, config_dir, steps=None):
+def train_model(work, run_dir, kind, config_dir, steps=None, calibration=None):
     run_dir.mkdir(parents=True, exist_ok=True)
     shutil.copytree(config_dir, run_dir / "data/train_config", dirs_exist_ok=True)
     env = os.environ.copy()
@@ -157,21 +161,26 @@ def train_model(work, run_dir, kind, config_dir, steps=None):
         command = [sys.executable, str(training_source), "--seconds", "265"]
         if steps is not None:
             command += ["--router-steps", str(steps), "--o-steps", str(steps)]
+        if calibration is not None:
+            command += ["--validation-per-region", str(calibration[0]), "--i-safety", str(calibration[1])]
     shutil.copy2(model_source, run_dir / "custom_model.py")
     result = {"training_source_sha256": hashlib.sha256(training_source.read_bytes()).hexdigest(),
               "model_source_sha256": hashlib.sha256(model_source.read_bytes()).hexdigest(),
               "router_steps_requested": steps, "o_steps_requested": steps,
+              "calibration": None if calibration is None else {"validation_per_region": calibration[0], "i_safety": calibration[1]},
               "configuration_count": len(read_config_values(config_dir)),
               "training": execute(command, run_dir, env, run_dir / "training.log", timeout=350)}
     return result, env
 
 
-def score_run(run_dir, config_dir, env, label="score", eval_seed=None):
+def score_run(run_dir, config_dir, env, label="score", eval_seed=None, n_per_region=None):
     output = run_dir / (label + ".json")
     command = [sys.executable, str(Path(__file__).resolve()), "--score-model", str(run_dir / "model.pt"),
                "--config-dir", str(config_dir), "--output", str(output)]
     if eval_seed is not None:
         command += ["--eval-seed", str(eval_seed)]
+    if n_per_region is not None:
+        command += ["--n-per-region", str(n_per_region)]
     timing = execute(command, run_dir, env, run_dir / (label + ".log"), timeout=180)
     if timing["exit_code"] != 0 or not output.is_file():
         raise RuntimeError(f"Scoring failed: {run_dir.name}/{label}")
@@ -185,9 +194,10 @@ def main():
     parser.add_argument("--config-dir")
     parser.add_argument("--output")
     parser.add_argument("--eval-seed", type=int)
+    parser.add_argument("--n-per-region", type=int)
     args = parser.parse_args()
     if args.score_model:
-        score(Path(args.score_model), Path(args.config_dir), Path(args.output), args.eval_seed)
+        score(Path(args.score_model), Path(args.config_dir), Path(args.output), args.eval_seed, args.n_per_region)
         return
     if platform.system() != "Linux" or sys.version_info[:2] != (3, 13):
         raise RuntimeError("This benchmark requires Linux x86-64 and CPython 3.13.")
@@ -197,36 +207,42 @@ def main():
     config_dirs = prepare(work)
     summary = {"official_revision": OFFICIAL_REV, "dataset_revision": DATA_REV,
                "baseline_commit": BASELINE_REV, "device": "CPU",
-               "note": "Already released configurations, including directories named private; not hidden leaderboard submissions.",
+               "note": "Development re-evaluation after observing earlier A/B errors; not independent confirmation or a hidden leaderboard submission.",
                "selection": {"split": "public/train_config", "validation_seeds": list(VALIDATION_SEEDS),
-                             "candidate_steps": list(CANDIDATE_STEPS), "candidates": {}}, "runs": {}}
+                             "fixed_steps": FIXED_STEPS, "validation_points_per_region": VALIDATION_POINTS_PER_REGION,
+                             "calibration_options": list(CALIBRATION_OPTIONS), "candidates": {}}, "runs": {}}
     def save():
         (work / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
-    # Hyperparameter selection is completed before any seed-0 or A/B evaluation.
-    for steps in CANDIDATE_STEPS:
-        run_dir = work / f"selection_steps_{steps}"
-        report, env = train_model(work, run_dir, "repository_improved", config_dirs["public"], steps)
+    # This follow-up was motivated by earlier A/B errors. Candidate choice itself
+    # uses public generated holdouts only; final scores are development re-tests.
+    for calibration in CALIBRATION_OPTIONS:
+        key = f"n{calibration[0]}_s{calibration[1]}"
+        run_dir = work / f"selection_{key}"
+        report, env = train_model(work, run_dir, "reliability_candidate", config_dirs["public"], FIXED_STEPS, calibration)
         if report["training"]["exit_code"] != 0:
-            summary["selection"]["candidates"][str(steps)] = report
+            summary["selection"]["candidates"][key] = report
             save()
             raise RuntimeError("Candidate training failed; inspect training log")
         report["validation"] = {str(seed): score_run(run_dir, config_dirs["public"], env,
-                                  label=f"validation_{seed}", eval_seed=seed) for seed in VALIDATION_SEEDS}
+                                  label=f"validation_{seed}", eval_seed=seed,
+                                  n_per_region=VALIDATION_POINTS_PER_REGION) for seed in VALIDATION_SEEDS}
         report["mean_validation_score"] = sum(x["result"]["score"]["total_score"]
                                                    for x in report["validation"].values()) / len(VALIDATION_SEEDS)
-        summary["selection"]["candidates"][str(steps)] = report
-        print("SELECTION", steps, json.dumps(report), flush=True)
+        summary["selection"]["candidates"][key] = report
+        print("SELECTION", key, json.dumps(report), flush=True)
         save()
-    selected = max(CANDIDATE_STEPS, key=lambda s: (summary["selection"]["candidates"][str(s)]["mean_validation_score"], -s))
-    summary["selection"]["selected_steps"] = selected
-    print("SELECTED_STEPS", selected, flush=True)
+    selected = max(CALIBRATION_OPTIONS, key=lambda c: (
+        summary["selection"]["candidates"][f"n{c[0]}_s{c[1]}"]["mean_validation_score"], -c[0]))
+    summary["selection"]["selected_calibration"] = {"validation_per_region": selected[0], "i_safety": selected[1]}
+    print("SELECTED_CALIBRATION", json.dumps(summary["selection"]["selected_calibration"]), flush=True)
     save()
     for split, config_dir in config_dirs.items():
         summary["runs"][split] = {}
-        for name in ("official_baseline", "repository_original", "repository_improved"):
+        for name in ("official_baseline", "repository_original", "reliability_candidate"):
             run_dir = work / f"{split}_{name}"
             report, env = train_model(work, run_dir, name, config_dir,
-                                      steps=selected if name == "repository_improved" else None)
+                                      steps=FIXED_STEPS if name == "reliability_candidate" else None,
+                                      calibration=selected if name == "reliability_candidate" else None)
             summary["runs"][split][name] = report
             if report["training"]["exit_code"] == 0 and (run_dir / "model.pt").is_file():
                 report.update(score_run(run_dir, config_dir, env))
