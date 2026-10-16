@@ -1,0 +1,1798 @@
+{
+  "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+  "date": "2026-10-16",
+  "local_reproduction": true,
+  "host_hardware": {
+    "cpu": "Intel(R) Core(TM) Ultra 9 185H",
+    "logical_cpus": 22,
+    "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU",
+    "gpu_vram_mib": 8188
+  },
+  "notes": [
+    "These are actual local executions on official released data, not contest-server submissions.",
+    "No test answers or private Potato embeddings are read by any solver. Scoring runs in separate parent processes.",
+    "Runtime starts before child process creation and includes imports, model/data loading, fitting, inference, file writing, and process exit. Scorer preparation and downloads are excluded.",
+    "Potato uses CPU only, BLAS 4 threads, and runs during another task's GPU work; OS file cache may be warm. No persistent solver feature cache.",
+    "Potato development uses 160 vocabulary words excluding official public targets and the public embedding judge. A/B were never used to tune parameters.",
+    "Potato .008 improved public-space development scores but did not materially generalize to released private-space A/B. Default .06 is retained.",
+    "Original official Potato baseline is included as a separate reference; before means repository baseline commit, not that official baseline.",
+    "Ghost pretrain 200 texts are all in train 1221, so they are not duplicated. Pretest 60 texts have no exact-text overlap with train.",
+    "Ghost evaluation uses fresh processes and recomputes all embeddings. The training-only tuning cache is never used for final run_seconds.",
+    "Ghost has exclusive use of the GPU; light concurrent CPU/file/download work may continue. GPU driver and OS file caches may be warm. Each model is loaded into a fresh process; this is not a cold-machine benchmark.",
+    "Ghost had two native failures: length-bucketed pretest and original-loop C10/prior0 B. Both exited 3221226505 (0xC0000409) before an embedding-completion/validation log, with no Python traceback. Cause unconfirmed; neither length sorting nor C is established as the cause. All runs retained, candidates not adopted, baseline C2/prior.25 restored.",
+    "An additional fresh-process baseline B stability run passed at the identical 90.80969023066716 score in 83.375 seconds. Baseline has four successful runs total; B was measured twice. This does not establish the cause of the native candidate failures.",
+    "Paths are sanitized. Full per-game logs, prediction files, and unredacted run records remain in the local work directory."
+  ],
+  "preparation_failures": [
+    {
+      "step": "Initial subagent download attempt",
+      "error": "DNS getaddrinfo 11001; root session had network permission",
+      "resolution": "Root ran pinned download scripts successfully"
+    }
+  ],
+  "potato": {
+    "metric": "100 * mean(0 on failure, otherwise 1 - .02*max(0, winning_turn-10))",
+    "runs": [
+      {
+        "label": "Local simulation on official PUBLIC embeddings; not official hidden score",
+        "suite": "dev",
+        "games": 160,
+        "wins": 127,
+        "score": 66.54999999999995,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day1_potato.py"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+        "seed": 20261016,
+        "tag": "before-dev",
+        "run_seconds": 10.23399999999674,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "temperature": 0.06,
+          "error_floor": 0.08,
+          "support_size": 256,
+          "budget_seconds": 580
+        }
+      },
+      {
+        "label": "Local simulation on official PUBLIC embeddings; not official hidden score",
+        "suite": "dev",
+        "games": 160,
+        "wins": 153,
+        "score": 87.28750000000001,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day1_potato.py",
+          "--temperature",
+          ".03"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+        "seed": 20261016,
+        "tag": "dev-t03",
+        "run_seconds": 7.889999999999418,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "temperature": 0.03,
+          "error_floor": 0.08,
+          "support_size": 256,
+          "budget_seconds": 580
+        }
+      },
+      {
+        "label": "Local simulation on official PUBLIC embeddings; not official hidden score",
+        "suite": "dev",
+        "games": 160,
+        "wins": 158,
+        "score": 92.53749999999997,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day1_potato.py",
+          "--temperature",
+          ".015"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+        "seed": 20261016,
+        "tag": "dev-t015",
+        "run_seconds": 7.062000000005355,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "temperature": 0.015,
+          "error_floor": 0.08,
+          "support_size": 256,
+          "budget_seconds": 580
+        }
+      },
+      {
+        "label": "Local simulation on official PUBLIC embeddings; not official hidden score",
+        "suite": "dev",
+        "games": 160,
+        "wins": 158,
+        "score": 93.8125,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day1_potato.py",
+          "--temperature",
+          ".008"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+        "seed": 20261016,
+        "tag": "dev-t008",
+        "run_seconds": 7.0939999999973224,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "temperature": 0.008,
+          "error_floor": 0.08,
+          "support_size": 256,
+          "budget_seconds": 580
+        }
+      },
+      {
+        "label": "Local simulation on official PUBLIC embeddings; not official hidden score",
+        "suite": "public",
+        "games": 120,
+        "wins": 51,
+        "score": 36.00000000000001,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\work\\bench-potato-ghost\\potato_original_baseline.py"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "3115f4d07c91ac976eef3feafcfdd7d5bfdb728268f731c21fc57823baa161f8",
+        "seed": 20261016,
+        "tag": "official-public",
+        "run_seconds": 1.2810000000026776,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "method": "official nearest-neighbor baseline"
+        }
+      },
+      {
+        "label": "Local simulation on official PUBLIC embeddings; not official hidden score",
+        "suite": "public",
+        "games": 120,
+        "wins": 112,
+        "score": 84.89999999999999,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\work\\bench-potato-ghost\\potato_before.py"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+        "seed": 20261016,
+        "tag": "before-public",
+        "run_seconds": 6.2810000000026776,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "temperature": 0.06,
+          "error_floor": 0.08,
+          "support_size": 256,
+          "budget_seconds": 580
+        }
+      },
+      {
+        "label": "Local simulation on official PUBLIC embeddings; not official hidden score",
+        "suite": "public",
+        "games": 120,
+        "wins": 120,
+        "score": 97.79999999999998,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day1_potato.py",
+          "--temperature",
+          ".008"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+        "seed": 20261016,
+        "tag": "after-public",
+        "run_seconds": 4.047000000005937,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "temperature": 0.008,
+          "error_floor": 0.08,
+          "support_size": 256,
+          "budget_seconds": 580
+        }
+      },
+      {
+        "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+        "suite": "leaderboard_a",
+        "games": 120,
+        "wins": 23,
+        "score": 15.0,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\work\\bench-potato-ghost\\potato_original_baseline.py"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "3115f4d07c91ac976eef3feafcfdd7d5bfdb728268f731c21fc57823baa161f8",
+        "seed": 20261016,
+        "tag": "official-leaderboard_a",
+        "run_seconds": 1.5780000000086147,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "method": "official nearest-neighbor baseline"
+        }
+      },
+      {
+        "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+        "suite": "leaderboard_a",
+        "games": 120,
+        "wins": 63,
+        "score": 44.250000000000014,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\work\\bench-potato-ghost\\potato_before.py"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+        "seed": 20261016,
+        "tag": "before-leaderboard_a",
+        "run_seconds": 6.4060000000026776,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "temperature": 0.06,
+          "error_floor": 0.08,
+          "support_size": 256,
+          "budget_seconds": 580
+        }
+      },
+      {
+        "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+        "suite": "leaderboard_a",
+        "games": 120,
+        "wins": 62,
+        "score": 44.166666666666664,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day1_potato.py",
+          "--temperature",
+          ".008"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+        "seed": 20261016,
+        "tag": "after-leaderboard_a",
+        "run_seconds": 9.39100000000326,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "temperature": 0.008,
+          "error_floor": 0.08,
+          "support_size": 256,
+          "budget_seconds": 580
+        }
+      },
+      {
+        "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+        "suite": "leaderboard_b",
+        "games": 120,
+        "wins": 25,
+        "score": 17.083333333333332,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\work\\bench-potato-ghost\\potato_original_baseline.py"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "3115f4d07c91ac976eef3feafcfdd7d5bfdb728268f731c21fc57823baa161f8",
+        "seed": 20261016,
+        "tag": "official-leaderboard_b",
+        "run_seconds": 1.4689999999973224,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "method": "official nearest-neighbor baseline"
+        }
+      },
+      {
+        "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+        "suite": "leaderboard_b",
+        "games": 120,
+        "wins": 69,
+        "score": 48.89999999999999,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\work\\bench-potato-ghost\\potato_before.py"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+        "seed": 20261016,
+        "tag": "before-leaderboard_b",
+        "run_seconds": 8.046999999991385,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "temperature": 0.06,
+          "error_floor": 0.08,
+          "support_size": 256,
+          "budget_seconds": 580
+        }
+      },
+      {
+        "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+        "suite": "leaderboard_b",
+        "games": 120,
+        "wins": 68,
+        "score": 49.166666666666664,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day1_potato.py",
+          "--temperature",
+          ".008"
+        ],
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+        "seed": 20261016,
+        "tag": "after-leaderboard_b",
+        "run_seconds": 8.437999999994645,
+        "status": "ok",
+        "repetitions": 1,
+        "download_included": false,
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "parameters": {
+          "temperature": 0.008,
+          "error_floor": 0.08,
+          "support_size": 256,
+          "budget_seconds": 580
+        }
+      },
+      {
+        "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+        "suite": "leaderboard_a",
+        "games": 120,
+        "wins": 63,
+        "score": 44.250000000000014,
+        "run_seconds": 6.092999999993481,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day1_potato.py"
+        ],
+        "status": "ok",
+        "error": null,
+        "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+        "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+        "metric": "100 * mean(0 if not solved, else 1 - .02 * max(0, winning_turn - 10))",
+        "repetitions": 1,
+        "download_included": false,
+        "parameters": {
+          "temperature": 0.06,
+          "error_floor": 0.08,
+          "support_size": 256,
+          "budget_seconds": 580
+        },
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "numpy": "2.3.3",
+          "blas_threads": 4
+        },
+        "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+        "seed": 20261016,
+        "tag": "portable-default-a"
+      }
+    ],
+    "selected_default": {
+      "temperature": 0.06,
+      "error_floor": 0.08,
+      "support_size": 256
+    }
+  },
+  "ghost": {
+    "metric": "100 * mean(exp(-absolute_character_error/100))",
+    "runs": [
+      {
+        "task": "ghost",
+        "split": "leaderboard_a",
+        "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+        "data_revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+        "model_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+        "metric": "100 * mean(exp(-abs(predicted_character - true_character)/100))",
+        "repetitions": 1,
+        "download_included": false,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day2_ghost_of_the_machine.py",
+          "--train-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\train",
+          "--test-dir",
+          "<workspace>\\work\\bench-potato-ghost\\evaluation-assets\\ghost\\private\\test_leaderboard_a",
+          "--model-dir",
+          "<workspace>\\work\\bench-potato-ghost\\models\\bge-base-en-v1.5",
+          "--output",
+          "<workspace>\\work\\bench-potato-ghost\\results\\ghost-after-leaderboard_a.predictions.jsonl",
+          "--device",
+          "cuda",
+          "--regularization-c",
+          "10.0",
+          "--prior-strength",
+          "0.0"
+        ],
+        "parameters": {
+          "solver_args": [
+            "--device",
+            "cuda",
+            "--regularization-c",
+            "10.0",
+            "--prior-strength",
+            "0.0"
+          ],
+          "whole_run_limit": 600
+        },
+        "script_sha256": "85b2a0312887d5d7a7a758b7ad3db1b27422948e65241b08cb0ce7c938dedfe0",
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "threads": 4,
+          "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+          "libraries": {
+            "numpy": "2.3.3",
+            "torch": "2.5.1+cu121",
+            "transformers": "4.45.0",
+            "scikit-learn": "1.7.2",
+            "safetensors": "0.6.2"
+          },
+          "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74"
+        },
+        "local_reproduction": true,
+        "sandbox": "separate processes; not an OS security sandbox",
+        "run_seconds": 91.96899999999732,
+        "returncode": 0,
+        "score": 90.43742108980342,
+        "mean_absolute_character_error": 31.555263157894736,
+        "exact_boundaries": 330,
+        "count": 380,
+        "status": "ok",
+        "tag": "ghost-after-leaderboard_a",
+        "solver_log": "Learned separator(s): ['. ']; article validation=183\nArticle-holdout score: 92.6620 (local split, NOT official leaderboard)\nWrote 380 predictions in 87.4s\n",
+        "resolved_parameters": {
+          "regularization_c": 10.0,
+          "prior_strength": 0.0,
+          "expected_score": false,
+          "length_bucketing": false,
+          "batch_size": 64,
+          "max_length": 128,
+          "seed": 42,
+          "budget_seconds": 540,
+          "train_articles": 1221,
+          "validation_articles": 183
+        },
+        "intended_count": 380,
+        "adopted_variant": false,
+        "variant": "candidate_not_adopted"
+      },
+      {
+        "task": "ghost",
+        "split": "leaderboard_b",
+        "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+        "data_revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+        "model_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+        "metric": "100 * mean(exp(-abs(predicted_character - true_character)/100))",
+        "repetitions": 1,
+        "download_included": false,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day2_ghost_of_the_machine.py",
+          "--train-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\train",
+          "--test-dir",
+          "<workspace>\\work\\bench-potato-ghost\\evaluation-assets\\ghost\\private\\test_leaderboard_b",
+          "--model-dir",
+          "<workspace>\\work\\bench-potato-ghost\\models\\bge-base-en-v1.5",
+          "--output",
+          "<workspace>\\work\\bench-potato-ghost\\results\\ghost-after-leaderboard_b.predictions.jsonl",
+          "--device",
+          "cuda",
+          "--regularization-c",
+          "10.0",
+          "--prior-strength",
+          "0.0"
+        ],
+        "parameters": {
+          "solver_args": [
+            "--device",
+            "cuda",
+            "--regularization-c",
+            "10.0",
+            "--prior-strength",
+            "0.0"
+          ],
+          "whole_run_limit": 600
+        },
+        "script_sha256": "85b2a0312887d5d7a7a758b7ad3db1b27422948e65241b08cb0ce7c938dedfe0",
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "threads": 4,
+          "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+          "libraries": {
+            "numpy": "2.3.3",
+            "torch": "2.5.1+cu121",
+            "transformers": "4.45.0",
+            "scikit-learn": "1.7.2",
+            "safetensors": "0.6.2"
+          },
+          "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74"
+        },
+        "local_reproduction": true,
+        "sandbox": "separate processes; not an OS security sandbox",
+        "run_seconds": 36.65600000000268,
+        "returncode": 3221226505,
+        "status": "failed",
+        "error": "RuntimeError('Solver exit code 3221226505; see log')",
+        "tag": "ghost-after-leaderboard_b",
+        "solver_log": "Learned separator(s): ['. ']; article validation=183\n",
+        "resolved_parameters": {
+          "regularization_c": 10.0,
+          "prior_strength": 0.0,
+          "expected_score": false,
+          "length_bucketing": false,
+          "batch_size": 64,
+          "max_length": 128,
+          "seed": 42,
+          "budget_seconds": 540,
+          "train_articles": 1221,
+          "validation_articles": 183
+        },
+        "score": null,
+        "intended_count": 380,
+        "adopted_variant": false,
+        "variant": "candidate_not_adopted"
+      },
+      {
+        "task": "ghost",
+        "split": "pretest",
+        "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+        "data_revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+        "model_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+        "metric": "100 * mean(exp(-abs(predicted_character - true_character)/100))",
+        "repetitions": 1,
+        "download_included": false,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day2_ghost_of_the_machine.py",
+          "--train-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\train",
+          "--test-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\pretest",
+          "--model-dir",
+          "<workspace>\\work\\bench-potato-ghost\\models\\bge-base-en-v1.5",
+          "--output",
+          "<workspace>\\work\\bench-potato-ghost\\results\\ghost-after-pretest.predictions.jsonl",
+          "--device",
+          "cuda",
+          "--regularization-c",
+          "10.0",
+          "--prior-strength",
+          "0.0"
+        ],
+        "parameters": {
+          "solver_args": [
+            "--device",
+            "cuda",
+            "--regularization-c",
+            "10.0",
+            "--prior-strength",
+            "0.0"
+          ],
+          "whole_run_limit": 600
+        },
+        "script_sha256": "85b2a0312887d5d7a7a758b7ad3db1b27422948e65241b08cb0ce7c938dedfe0",
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "threads": 4,
+          "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+          "libraries": {
+            "numpy": "2.3.3",
+            "torch": "2.5.1+cu121",
+            "transformers": "4.45.0",
+            "scikit-learn": "1.7.2",
+            "safetensors": "0.6.2"
+          },
+          "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74"
+        },
+        "local_reproduction": true,
+        "sandbox": "separate processes; not an OS security sandbox",
+        "run_seconds": 77.09399999999732,
+        "returncode": 0,
+        "score": 93.10809173370063,
+        "mean_absolute_character_error": 32.45,
+        "exact_boundaries": 55,
+        "count": 60,
+        "status": "ok",
+        "tag": "ghost-after-pretest",
+        "solver_log": "Learned separator(s): ['. ']; article validation=183\nArticle-holdout score: 92.6620 (local split, NOT official leaderboard)\nWrote 60 predictions in 72.9s\n",
+        "resolved_parameters": {
+          "regularization_c": 10.0,
+          "prior_strength": 0.0,
+          "expected_score": false,
+          "length_bucketing": false,
+          "batch_size": 64,
+          "max_length": 128,
+          "seed": 42,
+          "budget_seconds": 540,
+          "train_articles": 1221,
+          "validation_articles": 183
+        },
+        "intended_count": 60,
+        "adopted_variant": false,
+        "variant": "candidate_not_adopted"
+      },
+      {
+        "task": "ghost",
+        "split": "leaderboard_a",
+        "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+        "data_revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+        "model_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+        "metric": "100 * mean(exp(-abs(predicted_character - true_character)/100))",
+        "repetitions": 1,
+        "download_included": false,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\work\\bench-potato-ghost\\ghost_before.py",
+          "--train-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\train",
+          "--test-dir",
+          "<workspace>\\work\\bench-potato-ghost\\evaluation-assets\\ghost\\private\\test_leaderboard_a",
+          "--model-dir",
+          "<workspace>\\work\\bench-potato-ghost\\models\\bge-base-en-v1.5",
+          "--output",
+          "<workspace>\\work\\bench-potato-ghost\\results\\ghost-before-leaderboard_a.predictions.jsonl",
+          "--device",
+          "cuda",
+          "--regularization-c",
+          "2.0",
+          "--prior-strength",
+          "0.25"
+        ],
+        "parameters": {
+          "solver_args": [
+            "--device",
+            "cuda",
+            "--regularization-c",
+            "2.0",
+            "--prior-strength",
+            "0.25"
+          ],
+          "whole_run_limit": 600
+        },
+        "script_sha256": "446fc5783ac8c0a9ea845fd2d17771e472f0b54f31144239249699e89b0be789",
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "threads": 4,
+          "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+          "libraries": {
+            "numpy": "2.3.3",
+            "torch": "2.5.1+cu121",
+            "transformers": "4.45.0",
+            "scikit-learn": "1.7.2",
+            "safetensors": "0.6.2"
+          },
+          "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74"
+        },
+        "local_reproduction": true,
+        "sandbox": "separate processes; not an OS security sandbox",
+        "run_seconds": 90.36000000000058,
+        "returncode": 0,
+        "score": 90.51739326996056,
+        "mean_absolute_character_error": 27.23421052631579,
+        "exact_boundaries": 330,
+        "count": 380,
+        "status": "ok",
+        "tag": "ghost-before-leaderboard_a",
+        "solver_log": "Learned separator(s): ['. ']; article validation=183\nArticle-holdout score: 92.6131 (local split, NOT official leaderboard)\nWrote 380 predictions in 88.5s\n",
+        "resolved_parameters": {
+          "regularization_c": 2.0,
+          "prior_strength": 0.25,
+          "expected_score": false,
+          "length_bucketing": false,
+          "batch_size": 64,
+          "max_length": 128,
+          "seed": 42,
+          "budget_seconds": 540,
+          "train_articles": 1221,
+          "validation_articles": 183
+        },
+        "intended_count": 380,
+        "adopted_variant": true,
+        "variant": "retained_baseline"
+      },
+      {
+        "task": "ghost",
+        "split": "leaderboard_b",
+        "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+        "data_revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+        "model_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+        "metric": "100 * mean(exp(-abs(predicted_character - true_character)/100))",
+        "repetitions": 1,
+        "download_included": false,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\work\\bench-potato-ghost\\ghost_before.py",
+          "--train-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\train",
+          "--test-dir",
+          "<workspace>\\work\\bench-potato-ghost\\evaluation-assets\\ghost\\private\\test_leaderboard_b",
+          "--model-dir",
+          "<workspace>\\work\\bench-potato-ghost\\models\\bge-base-en-v1.5",
+          "--output",
+          "<workspace>\\work\\bench-potato-ghost\\results\\ghost-before-leaderboard_b.predictions.jsonl",
+          "--device",
+          "cuda",
+          "--regularization-c",
+          "2.0",
+          "--prior-strength",
+          "0.25"
+        ],
+        "parameters": {
+          "solver_args": [
+            "--device",
+            "cuda",
+            "--regularization-c",
+            "2.0",
+            "--prior-strength",
+            "0.25"
+          ],
+          "whole_run_limit": 600
+        },
+        "script_sha256": "446fc5783ac8c0a9ea845fd2d17771e472f0b54f31144239249699e89b0be789",
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "threads": 4,
+          "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+          "libraries": {
+            "numpy": "2.3.3",
+            "torch": "2.5.1+cu121",
+            "transformers": "4.45.0",
+            "scikit-learn": "1.7.2",
+            "safetensors": "0.6.2"
+          },
+          "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74"
+        },
+        "local_reproduction": true,
+        "sandbox": "separate processes; not an OS security sandbox",
+        "run_seconds": 85.46900000001187,
+        "returncode": 0,
+        "score": 90.80969023066716,
+        "mean_absolute_character_error": 22.58157894736842,
+        "exact_boundaries": 334,
+        "count": 380,
+        "status": "ok",
+        "tag": "ghost-before-leaderboard_b",
+        "solver_log": "Learned separator(s): ['. ']; article validation=183\nArticle-holdout score: 92.6131 (local split, NOT official leaderboard)\nWrote 380 predictions in 83.7s\n",
+        "resolved_parameters": {
+          "regularization_c": 2.0,
+          "prior_strength": 0.25,
+          "expected_score": false,
+          "length_bucketing": false,
+          "batch_size": 64,
+          "max_length": 128,
+          "seed": 42,
+          "budget_seconds": 540,
+          "train_articles": 1221,
+          "validation_articles": 183
+        },
+        "intended_count": 380,
+        "adopted_variant": true,
+        "variant": "retained_baseline"
+      },
+      {
+        "task": "ghost",
+        "split": "pretest",
+        "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+        "data_revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+        "model_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+        "metric": "100 * mean(exp(-abs(predicted_character - true_character)/100))",
+        "repetitions": 1,
+        "download_included": false,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\work\\bench-potato-ghost\\ghost_before.py",
+          "--train-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\train",
+          "--test-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\pretest",
+          "--model-dir",
+          "<workspace>\\work\\bench-potato-ghost\\models\\bge-base-en-v1.5",
+          "--output",
+          "<workspace>\\work\\bench-potato-ghost\\results\\ghost-before-pretest.predictions.jsonl",
+          "--device",
+          "cuda",
+          "--regularization-c",
+          "2.0",
+          "--prior-strength",
+          "0.25"
+        ],
+        "parameters": {
+          "solver_args": [
+            "--device",
+            "cuda",
+            "--regularization-c",
+            "2.0",
+            "--prior-strength",
+            "0.25"
+          ],
+          "whole_run_limit": 600
+        },
+        "script_sha256": "446fc5783ac8c0a9ea845fd2d17771e472f0b54f31144239249699e89b0be789",
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "threads": 4,
+          "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+          "libraries": {
+            "numpy": "2.3.3",
+            "torch": "2.5.1+cu121",
+            "transformers": "4.45.0",
+            "scikit-learn": "1.7.2",
+            "safetensors": "0.6.2"
+          },
+          "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74"
+        },
+        "local_reproduction": true,
+        "sandbox": "separate processes; not an OS security sandbox",
+        "run_seconds": 71.26600000000326,
+        "returncode": 0,
+        "score": 94.35963289264785,
+        "mean_absolute_character_error": 30.133333333333333,
+        "exact_boundaries": 56,
+        "count": 60,
+        "status": "ok",
+        "tag": "ghost-before-pretest",
+        "solver_log": "Learned separator(s): ['. ']; article validation=183\nArticle-holdout score: 92.6131 (local split, NOT official leaderboard)\nWrote 60 predictions in 69.4s\n",
+        "resolved_parameters": {
+          "regularization_c": 2.0,
+          "prior_strength": 0.25,
+          "expected_score": false,
+          "length_bucketing": false,
+          "batch_size": 64,
+          "max_length": 128,
+          "seed": 42,
+          "budget_seconds": 540,
+          "train_articles": 1221,
+          "validation_articles": 183
+        },
+        "intended_count": 60,
+        "adopted_variant": true,
+        "variant": "retained_baseline"
+      },
+      {
+        "task": "ghost",
+        "split": "leaderboard_a",
+        "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+        "data_revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+        "model_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+        "metric": "100 * mean(exp(-abs(predicted_character - true_character)/100))",
+        "repetitions": 1,
+        "download_included": false,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day2_ghost_of_the_machine.py",
+          "--train-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\train",
+          "--test-dir",
+          "<workspace>\\work\\bench-potato-ghost\\evaluation-assets\\ghost\\private\\test_leaderboard_a",
+          "--model-dir",
+          "<workspace>\\work\\bench-potato-ghost\\models\\bge-base-en-v1.5",
+          "--output",
+          "<workspace>\\work\\bench-potato-ghost\\results\\ghost-after-leaderboard_a.predictions.jsonl",
+          "--device",
+          "cuda",
+          "--regularization-c",
+          "10.0",
+          "--prior-strength",
+          "0.0"
+        ],
+        "parameters": {
+          "solver_args": [
+            "--device",
+            "cuda",
+            "--regularization-c",
+            "10.0",
+            "--prior-strength",
+            "0.0"
+          ],
+          "whole_run_limit": 600
+        },
+        "script_sha256": "fbc84809917fdb18afaf1f04d42034dfd234e60e1fda1da8641a90170f7b710a",
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "threads": 4,
+          "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+          "libraries": {
+            "numpy": "2.3.3",
+            "torch": "2.5.1+cu121",
+            "transformers": "4.45.0",
+            "scikit-learn": "1.7.2",
+            "safetensors": "0.6.2"
+          },
+          "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74"
+        },
+        "local_reproduction": true,
+        "sandbox": "separate processes; not an OS security sandbox",
+        "run_seconds": 50.23399999999674,
+        "returncode": 0,
+        "score": 90.43742108980342,
+        "mean_absolute_character_error": 31.555263157894736,
+        "exact_boundaries": 330,
+        "count": 380,
+        "status": "ok",
+        "tag": "ghost-bucket-attempt-leaderboard_a",
+        "solver_log": "Learned separator(s): ['. ']; article validation=183\nArticle-holdout score: 92.6620 (local split, NOT official leaderboard)\nWrote 380 predictions in 48.3s\n",
+        "resolved_parameters": {
+          "regularization_c": 10.0,
+          "prior_strength": 0.0,
+          "expected_score": false,
+          "length_bucketing": true,
+          "batch_size": 64,
+          "max_length": 128,
+          "seed": 42,
+          "budget_seconds": 540,
+          "train_articles": 1221,
+          "validation_articles": 183
+        },
+        "intended_count": 380,
+        "adopted_variant": false,
+        "variant": "length_bucket_experiment_not_adopted"
+      },
+      {
+        "task": "ghost",
+        "split": "leaderboard_b",
+        "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+        "data_revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+        "model_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+        "metric": "100 * mean(exp(-abs(predicted_character - true_character)/100))",
+        "repetitions": 1,
+        "download_included": false,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day2_ghost_of_the_machine.py",
+          "--train-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\train",
+          "--test-dir",
+          "<workspace>\\work\\bench-potato-ghost\\evaluation-assets\\ghost\\private\\test_leaderboard_b",
+          "--model-dir",
+          "<workspace>\\work\\bench-potato-ghost\\models\\bge-base-en-v1.5",
+          "--output",
+          "<workspace>\\work\\bench-potato-ghost\\results\\ghost-after-leaderboard_b.predictions.jsonl",
+          "--device",
+          "cuda",
+          "--regularization-c",
+          "10.0",
+          "--prior-strength",
+          "0.0"
+        ],
+        "parameters": {
+          "solver_args": [
+            "--device",
+            "cuda",
+            "--regularization-c",
+            "10.0",
+            "--prior-strength",
+            "0.0"
+          ],
+          "whole_run_limit": 600
+        },
+        "script_sha256": "fbc84809917fdb18afaf1f04d42034dfd234e60e1fda1da8641a90170f7b710a",
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "threads": 4,
+          "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+          "libraries": {
+            "numpy": "2.3.3",
+            "torch": "2.5.1+cu121",
+            "transformers": "4.45.0",
+            "scikit-learn": "1.7.2",
+            "safetensors": "0.6.2"
+          },
+          "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74"
+        },
+        "local_reproduction": true,
+        "sandbox": "separate processes; not an OS security sandbox",
+        "run_seconds": 51.35900000001129,
+        "returncode": 0,
+        "score": 91.15941637919838,
+        "mean_absolute_character_error": 21.705263157894738,
+        "exact_boundaries": 335,
+        "count": 380,
+        "status": "ok",
+        "tag": "ghost-bucket-attempt-leaderboard_b",
+        "solver_log": "Learned separator(s): ['. ']; article validation=183\nArticle-holdout score: 92.6620 (local split, NOT official leaderboard)\nWrote 380 predictions in 49.5s\n",
+        "resolved_parameters": {
+          "regularization_c": 10.0,
+          "prior_strength": 0.0,
+          "expected_score": false,
+          "length_bucketing": true,
+          "batch_size": 64,
+          "max_length": 128,
+          "seed": 42,
+          "budget_seconds": 540,
+          "train_articles": 1221,
+          "validation_articles": 183
+        },
+        "intended_count": 380,
+        "adopted_variant": false,
+        "variant": "length_bucket_experiment_not_adopted"
+      },
+      {
+        "task": "ghost",
+        "split": "pretest",
+        "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+        "data_revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+        "model_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+        "metric": "100 * mean(exp(-abs(predicted_character - true_character)/100))",
+        "repetitions": 1,
+        "download_included": false,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day2_ghost_of_the_machine.py",
+          "--train-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\train",
+          "--test-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\pretest",
+          "--model-dir",
+          "<workspace>\\work\\bench-potato-ghost\\models\\bge-base-en-v1.5",
+          "--output",
+          "<workspace>\\work\\bench-potato-ghost\\results\\ghost-after-pretest.predictions.jsonl",
+          "--device",
+          "cuda",
+          "--regularization-c",
+          "10.0",
+          "--prior-strength",
+          "0.0"
+        ],
+        "parameters": {
+          "solver_args": [
+            "--device",
+            "cuda",
+            "--regularization-c",
+            "10.0",
+            "--prior-strength",
+            "0.0"
+          ],
+          "whole_run_limit": 600
+        },
+        "script_sha256": "fbc84809917fdb18afaf1f04d42034dfd234e60e1fda1da8641a90170f7b710a",
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "threads": 4,
+          "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+          "libraries": {
+            "numpy": "2.3.3",
+            "torch": "2.5.1+cu121",
+            "transformers": "4.45.0",
+            "scikit-learn": "1.7.2",
+            "safetensors": "0.6.2"
+          },
+          "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74"
+        },
+        "local_reproduction": true,
+        "sandbox": "separate processes; not an OS security sandbox",
+        "run_seconds": 31.343999999997322,
+        "returncode": 3221226505,
+        "status": "failed",
+        "error": "RuntimeError('Solver exit code 3221226505; see log')",
+        "tag": "ghost-bucket-attempt-pretest",
+        "solver_log": "Learned separator(s): ['. ']; article validation=183\n",
+        "resolved_parameters": {
+          "regularization_c": 10.0,
+          "prior_strength": 0.0,
+          "expected_score": false,
+          "length_bucketing": true,
+          "batch_size": 64,
+          "max_length": 128,
+          "seed": 42,
+          "budget_seconds": 540,
+          "train_articles": 1221,
+          "validation_articles": 183
+        },
+        "score": null,
+        "intended_count": 60,
+        "adopted_variant": false,
+        "variant": "length_bucket_experiment_not_adopted"
+      },
+      {
+        "task": "ghost",
+        "split": "leaderboard_b",
+        "baseline_commit": "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89",
+        "data_revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+        "model_revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+        "metric": "100 * mean(exp(-abs(predicted_character - true_character)/100))",
+        "repetitions": 1,
+        "download_included": false,
+        "command": [
+          "python",
+          "-u",
+          "<workspace>\\outputs\\IOAI\\solutions\\day2_ghost_of_the_machine.py",
+          "--train-dir",
+          "<workspace>\\work\\bench-potato-ghost\\ghost-source\\public\\train",
+          "--test-dir",
+          "<workspace>\\work\\bench-potato-ghost\\evaluation-assets\\ghost\\private\\test_leaderboard_b",
+          "--model-dir",
+          "<workspace>\\work\\bench-potato-ghost\\models\\bge-base-en-v1.5",
+          "--output",
+          "<workspace>\\work\\bench-potato-ghost\\results\\ghost-stability-leaderboard_b.predictions.jsonl",
+          "--device",
+          "cuda",
+          "--regularization-c",
+          "2",
+          "--prior-strength",
+          ".25"
+        ],
+        "parameters": {
+          "solver_args": [
+            "--device",
+            "cuda",
+            "--regularization-c",
+            "2",
+            "--prior-strength",
+            ".25"
+          ],
+          "whole_run_limit": 600
+        },
+        "script_sha256": "446fc5783ac8c0a9ea845fd2d17771e472f0b54f31144239249699e89b0be789",
+        "hardware": {
+          "platform": "Windows-10-10.0.26200-SP0",
+          "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+          "logical_cpus": 22,
+          "threads": 4,
+          "python": "3.11.0 (main, Oct 24 2022, 18:26:48) [MSC v.1933 64 bit (AMD64)]",
+          "libraries": {
+            "numpy": "2.3.3",
+            "torch": "2.5.1+cu121",
+            "transformers": "4.45.0",
+            "scikit-learn": "1.7.2",
+            "safetensors": "0.6.2"
+          },
+          "gpu": "NVIDIA GeForce RTX 4070 Laptop GPU, 8188 MiB, 591.74"
+        },
+        "local_reproduction": true,
+        "sandbox": "separate processes; not an OS security sandbox",
+        "run_seconds": 83.375,
+        "returncode": 0,
+        "score": 90.80969023066716,
+        "mean_absolute_character_error": 22.58157894736842,
+        "exact_boundaries": 334,
+        "count": 380,
+        "status": "ok",
+        "tag": "ghost-stability-leaderboard_b",
+        "solver_log": "Learned separator(s): ['. ']; article validation=183\nArticle-holdout score: 92.6131 (local split, NOT official leaderboard)\nWrote 380 predictions in 81.7s\n",
+        "resolved_parameters": {
+          "regularization_c": 2.0,
+          "prior_strength": 0.25,
+          "expected_score": false,
+          "length_bucketing": false,
+          "batch_size": 64,
+          "max_length": 128,
+          "seed": 42,
+          "budget_seconds": 540,
+          "train_articles": 1221,
+          "validation_articles": 183
+        },
+        "intended_count": 380,
+        "adopted_variant": true,
+        "variant": "retained_baseline"
+      }
+    ],
+    "selected_default": {
+      "regularization_c": 2.0,
+      "prior_strength": 0.25,
+      "expected_score": false,
+      "length_bucketing": false
+    },
+    "tuning_candidate_adopted": false,
+    "tuning": {
+      "split": "TRAIN article holdout; no test rows or labels accessed",
+      "seed": 42,
+      "separators": [
+        ". "
+      ],
+      "mean_fraction": 0.5970245204778769,
+      "records": [
+        {
+          "C": 2.0,
+          "prior_strength": 0.0,
+          "expected_score": false,
+          "score": 92.61314362534702,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 1.125
+        },
+        {
+          "C": 2.0,
+          "prior_strength": 0.0,
+          "expected_score": true,
+          "score": 92.59485440688363,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 1.639999999999418
+        },
+        {
+          "C": 2.0,
+          "prior_strength": 0.25,
+          "expected_score": false,
+          "score": 92.61314362534702,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 2.139999999999418
+        },
+        {
+          "C": 2.0,
+          "prior_strength": 0.25,
+          "expected_score": true,
+          "score": 92.59485440688363,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 2.672000000005937
+        },
+        {
+          "C": 2.0,
+          "prior_strength": 1.0,
+          "expected_score": false,
+          "score": 91.68728721557294,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 3.1560000000026776
+        },
+        {
+          "C": 2.0,
+          "prior_strength": 1.0,
+          "expected_score": true,
+          "score": 91.68728721557294,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 3.687000000005355
+        },
+        {
+          "C": 10.0,
+          "prior_strength": 0.0,
+          "expected_score": false,
+          "score": 92.66202721185309,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 1.187999999994645
+        },
+        {
+          "C": 10.0,
+          "prior_strength": 0.0,
+          "expected_score": true,
+          "score": 92.64373799338969,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 1.75
+        },
+        {
+          "C": 10.0,
+          "prior_strength": 0.25,
+          "expected_score": false,
+          "score": 91.76468626453975,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 2.235000000000582
+        },
+        {
+          "C": 10.0,
+          "prior_strength": 0.25,
+          "expected_score": true,
+          "score": 91.76468626453975,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 2.797000000005937
+        },
+        {
+          "C": 10.0,
+          "prior_strength": 1.0,
+          "expected_score": false,
+          "score": 91.38118751012983,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 3.25
+        },
+        {
+          "C": 10.0,
+          "prior_strength": 1.0,
+          "expected_score": true,
+          "score": 91.38118751012983,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 3.827999999994063
+        },
+        {
+          "C": 100.0,
+          "prior_strength": 0.0,
+          "expected_score": false,
+          "score": 92.2813760902993,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 1.2820000000065193
+        },
+        {
+          "C": 100.0,
+          "prior_strength": 0.0,
+          "expected_score": true,
+          "score": 92.2813760902993,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 1.7820000000065193
+        },
+        {
+          "C": 100.0,
+          "prior_strength": 0.25,
+          "expected_score": false,
+          "score": 92.2813760902993,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 2.2820000000065193
+        },
+        {
+          "C": 100.0,
+          "prior_strength": 0.25,
+          "expected_score": true,
+          "score": 92.2813760902993,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 2.8280000000086147
+        },
+        {
+          "C": 100.0,
+          "prior_strength": 1.0,
+          "expected_score": false,
+          "score": 92.37448879457588,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 3.2820000000065193
+        },
+        {
+          "C": 100.0,
+          "prior_strength": 1.0,
+          "expected_score": true,
+          "score": 92.37448879457588,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 3.8280000000086147
+        },
+        {
+          "C": 1000.0,
+          "prior_strength": 0.0,
+          "expected_score": false,
+          "score": 91.39483033454192,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 1.062999999994645
+        },
+        {
+          "C": 1000.0,
+          "prior_strength": 0.0,
+          "expected_score": true,
+          "score": 91.39483033454192,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 1.562999999994645
+        },
+        {
+          "C": 1000.0,
+          "prior_strength": 0.25,
+          "expected_score": false,
+          "score": 91.88864036829574,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 2.0
+        },
+        {
+          "C": 1000.0,
+          "prior_strength": 0.25,
+          "expected_score": true,
+          "score": 91.88864036829574,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 2.4539999999979045
+        },
+        {
+          "C": 1000.0,
+          "prior_strength": 1.0,
+          "expected_score": false,
+          "score": 91.38118751012983,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 2.937999999994645
+        },
+        {
+          "C": 1000.0,
+          "prior_strength": 1.0,
+          "expected_score": true,
+          "score": 91.38118751012983,
+          "validation_articles": 183,
+          "fit_articles": 1038,
+          "elapsed": 3.4539999999979045
+        }
+      ],
+      "selected": {
+        "C": 10.0,
+        "prior_strength": 0.0,
+        "expected_score": false,
+        "score": 92.66202721185309,
+        "validation_articles": 183,
+        "fit_articles": 1038,
+        "elapsed": 1.187999999994645
+      },
+      "run_seconds": 112.21899999999732,
+      "threads": 4,
+      "device": "cuda",
+      "cache_reused": false,
+      "cache_key": "1f81180ddafe622b4ac404a2a2defbb658225566a588816b041d62a0a21361f5",
+      "timing_scope": "development-only tuning; not a final solver runtime"
+    },
+    "input_overlap_audit": {
+      "pretrain_in_train": 200,
+      "train_count": 1221,
+      "validation_prefix500_in_fit": 0,
+      "pretest_text_or_prefix500_in_train": 0,
+      "A_text_or_prefix500_in_train": 0,
+      "B_text_or_prefix500_in_train": 0
+    }
+  },
+  "downloads": [
+    {
+      "repo": "IOAI-official/ioai-2026-potato",
+      "revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+      "remote_path": "public/vocabulary.json",
+      "local_path": "potato-source\\public\\vocabulary.json",
+      "bytes": 16183,
+      "sha256": "f2432b7efcca4a7718e3aba2ae89076bb80ab8ebb1913882d87c6b4989fce898",
+      "download_seconds": 0.7189999999973224
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-potato",
+      "revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+      "remote_path": "public/public_embeddings.npy",
+      "local_path": "potato-source\\public\\public_embeddings.npy",
+      "bytes": 16404608,
+      "sha256": "21a9b583399ca67525b8287345874f2af2c589e74c9a733ce488abf118583a93",
+      "download_seconds": 2.452999999994063
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-potato",
+      "revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+      "remote_path": "public/test_public.json",
+      "local_path": "potato-source\\public\\test_public.json",
+      "bytes": 1525,
+      "sha256": "e134fa0420ca6387bf28019789d96c5ee1ccffc26c55350c27d76c3a3fb88bed",
+      "download_seconds": 0.7820000000065193
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-ghost-of-the-machine",
+      "revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+      "remote_path": "public/train/data.jsonl",
+      "local_path": "ghost-source\\public\\train\\data.jsonl",
+      "bytes": 4984461,
+      "sha256": "c27c03f5ada7f79f9845f513dbebed4b6235a99690fae304bb454b65b89a1b63",
+      "download_seconds": 2.2969999999913853
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-ghost-of-the-machine",
+      "revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+      "remote_path": "public/train_answers.jsonl",
+      "local_path": "ghost-source\\public\\train_answers.jsonl",
+      "bytes": 65934,
+      "sha256": "8c9d4e2ee9e6c14282f4a403084c12a7f0989ccce8f3750fa784d81aabdfba60",
+      "download_seconds": 0.7339999999967404
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-ghost-of-the-machine",
+      "revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+      "remote_path": "public/pretrain/data.jsonl",
+      "local_path": "ghost-source\\public\\pretrain\\data.jsonl",
+      "bytes": 816688,
+      "sha256": "ab43ae376ae854defb15d7d54fbd5fc639793bdf5527d79201a97c018aa019f6",
+      "download_seconds": 0.9210000000020955
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-ghost-of-the-machine",
+      "revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+      "remote_path": "public/pretrain_answers.jsonl",
+      "local_path": "ghost-source\\public\\pretrain_answers.jsonl",
+      "bytes": 10800,
+      "sha256": "9e91f30d56966fcd342c7304831ee84a29705b4648496f3becf680e322234d83",
+      "download_seconds": 0.7189999999973224
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-ghost-of-the-machine",
+      "revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+      "remote_path": "public/pretest/data.jsonl",
+      "local_path": "ghost-source\\public\\pretest\\data.jsonl",
+      "bytes": 244846,
+      "sha256": "5ab3c4c9ad7c9e9426f2ea6b8575dc7d47311589c91f102efdb6115aa2ab2555",
+      "download_seconds": 0.7189999999973224
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-ghost-of-the-machine",
+      "revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+      "remote_path": "public/pretest_answers.jsonl",
+      "local_path": "evaluation-assets/ghost/public/pretest_answers.jsonl",
+      "bytes": 3240,
+      "sha256": "04d3a0b1980c5fabdae0fb8b41f49658e2a177e11a57abff33861f3ba60bff56",
+      "download_seconds": 2.7660000000032596,
+      "relocated_after_download_for_scorer_separation": true
+    },
+    {
+      "repo": "BAAI/bge-base-en-v1.5",
+      "revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+      "remote_path": "config.json",
+      "local_path": "models\\bge-base-en-v1.5\\config.json",
+      "bytes": 777,
+      "sha256": "bc00af31a4a31b74040d73370aa83b62da34c90b75eb77bfa7db039d90abd591",
+      "download_seconds": 0.32800000000861473
+    },
+    {
+      "repo": "BAAI/bge-base-en-v1.5",
+      "revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+      "remote_path": "model.safetensors",
+      "local_path": "models\\bge-base-en-v1.5\\model.safetensors",
+      "bytes": 437955512,
+      "sha256": "c7c1988aae201f80cf91a5dbbd5866409503b89dcaba877ca6dba7dd0a5167d7",
+      "download_seconds": 65.39100000000326
+    },
+    {
+      "repo": "BAAI/bge-base-en-v1.5",
+      "revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+      "remote_path": "tokenizer.json",
+      "local_path": "models\\bge-base-en-v1.5\\tokenizer.json",
+      "bytes": 711396,
+      "sha256": "d241a60d5e8f04cc1b2b3e9ef7a4921b27bf526d9f6050ab90f9267a1f9e5c66",
+      "download_seconds": 1.0779999999940628
+    },
+    {
+      "repo": "BAAI/bge-base-en-v1.5",
+      "revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+      "remote_path": "tokenizer_config.json",
+      "local_path": "models\\bge-base-en-v1.5\\tokenizer_config.json",
+      "bytes": 366,
+      "sha256": "9261e7d79b44c8195c1cada2b453e55b00aeb81e907a6664974b4d7776172ab3",
+      "download_seconds": 0.4220000000059372
+    },
+    {
+      "repo": "BAAI/bge-base-en-v1.5",
+      "revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+      "remote_path": "special_tokens_map.json",
+      "local_path": "models\\bge-base-en-v1.5\\special_tokens_map.json",
+      "bytes": 125,
+      "sha256": "b6d346be366a7d1d48332dbc9fdf3bf8960b5d879522b7799ddba59e76237ee3",
+      "download_seconds": 0.3909999999887077
+    },
+    {
+      "repo": "BAAI/bge-base-en-v1.5",
+      "revision": "a5beb1e3e68b9ab74eb54cfd186867f64f240e1a",
+      "remote_path": "vocab.txt",
+      "local_path": "models\\bge-base-en-v1.5\\vocab.txt",
+      "bytes": 231508,
+      "sha256": "07eced375cec144d27c900241f3e339478dec958f92fddbc551f295c992038a3",
+      "download_seconds": 0.9370000000053551
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-potato",
+      "revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+      "remote_path": "private/vocabulary.json",
+      "local_path": "potato\\private\\vocabulary.json",
+      "bytes": 16183,
+      "sha256": "f2432b7efcca4a7718e3aba2ae89076bb80ab8ebb1913882d87c6b4989fce898",
+      "download_seconds": 0.7029999999940628
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-potato",
+      "revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+      "remote_path": "private/private_embeddings.npy",
+      "local_path": "potato\\private\\private_embeddings.npy",
+      "bytes": 26247296,
+      "sha256": "e670d13ab2510f9f6d779add63875828953a6d5da90ee8123b24ad164ac72577",
+      "download_seconds": 2.625
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-potato",
+      "revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+      "remote_path": "private/secrets_leaderboard_a.json",
+      "local_path": "potato\\private\\secrets_leaderboard_a.json",
+      "bytes": 1425,
+      "sha256": "34313616ad6ba4835e9e8264100ed90c3e2eba582e22f7a82992979e530cc86e",
+      "download_seconds": 0.7660000000032596
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-potato",
+      "revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+      "remote_path": "private/secrets_leaderboard_b.json",
+      "local_path": "potato\\private\\secrets_leaderboard_b.json",
+      "bytes": 1390,
+      "sha256": "444fd9cd25db2efdff36ff10190b4eebd216f787e034131ea354eb88cac336a7",
+      "download_seconds": 0.6560000000026776
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-ghost-of-the-machine",
+      "revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+      "remote_path": "private/test_leaderboard_a/data.jsonl",
+      "local_path": "ghost\\private\\test_leaderboard_a\\data.jsonl",
+      "bytes": 1543509,
+      "sha256": "8867fc78c21a44a2950f25810ff62cc584535671cafc4741869e8f014836f4e1",
+      "download_seconds": 0.8279999999940628
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-ghost-of-the-machine",
+      "revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+      "remote_path": "private/test_leaderboard_a_answers.jsonl",
+      "local_path": "ghost\\private\\test_leaderboard_a_answers.jsonl",
+      "bytes": 20520,
+      "sha256": "ba709cae0306de920507086a48cebe498045a68492d20292621b586571f1c282",
+      "download_seconds": 0.6870000000053551
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-ghost-of-the-machine",
+      "revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+      "remote_path": "private/test_leaderboard_b/data.jsonl",
+      "local_path": "ghost\\private\\test_leaderboard_b\\data.jsonl",
+      "bytes": 1548909,
+      "sha256": "d26dd641667eb7369ab1293cbf9a068a0b3ac6500322a7b4e5cf43d081e9518b",
+      "download_seconds": 1.125
+    },
+    {
+      "repo": "IOAI-official/ioai-2026-ghost-of-the-machine",
+      "revision": "6dcd17d529f154935cda550c6e80f9801887a316",
+      "remote_path": "private/test_leaderboard_b_answers.jsonl",
+      "local_path": "ghost\\private\\test_leaderboard_b_answers.jsonl",
+      "bytes": 20520,
+      "sha256": "263cbf36ce7dd1e6ae288e0bcd11ccf8859856d0ed4c1ed5ecf0b20913114155",
+      "download_seconds": 0.7039999999979045
+    }
+  ]
+}
