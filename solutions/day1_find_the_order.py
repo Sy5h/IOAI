@@ -348,7 +348,7 @@ def make_parser():
     parser.add_argument("--max-audio-seconds", type=float, default=30)
     parser.add_argument("--context-tokens", type=int, default=96)
     parser.add_argument("--target-tokens", type=int, default=64)
-    parser.add_argument("--beam", type=int, default=16)
+    parser.add_argument("--beam", type=int, default=256)
     parser.add_argument("--prefix-only", action="store_true", help="stdlib-only baseline; no model loading")
     parser.add_argument("--no-speakers", action="store_true")
     return parser

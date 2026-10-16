@@ -1,4 +1,4 @@
-"""IOAI 2026 Day 1: Robot Chasing, per-robot compact tabular classifiers.
+"""IOAI 2026 Day 1: Robot Chasing, per-robot small classifiers.
 
 Uses only training labels, deterministic instruction parsing and observable grid
 features. No path-planner assumptions, pretrained model or test-label reads.
@@ -18,6 +18,8 @@ import zlib
 COLORS = {"red": 0, "green": 1, "blue": 2, "purple": 3, "yellow": 4, "grey": 5, "gray": 5}
 OBJECTS = {"key": 5, "ball": 6, "box": 7}
 DELTAS = ((-1, 0), (1, 0), (0, -1), (0, 1))
+NEIGHBORS = tuple(tuple((r + dr) * 8 + c + dc if 0 <= r + dr < 8 and 0 <= c + dc < 8 else -1
+                        for dr, dc in DELTAS) for r in range(8) for c in range(8))
 PAIR_RE = re.compile(r"\b(red|green|blue|purple|yellow|gr[ae]y)\s+(?:colou?red\s+)?(key|ball|box)\b")
 
 
@@ -144,6 +146,81 @@ def feature_vector(observation):
                            np.asarray(values, dtype=np.float32), word_features))
 
 
+def interaction_features(observation, mission):
+    """Observable pickup/drop conditions and orientation-relative offsets.
+
+    These are classifier inputs. Even blocked movement actions remain available,
+    since attempting movement also changes the robot's facing direction.
+    """
+    cells = [tuple(cell) for row in observation['image'] for cell in row]
+    objects = [cell[0] for cell in cells]
+    position = objects.index(10)
+    r, c = divmod(position, 8)
+    direction = int(observation['direction'])
+    carrying = tuple(observation.get('carrying') or (-1, -1))
+    pairs = mission['pairs'] + [(-1, -1)] * (2 - len(mission['pairs']))
+    source, destination = pairs
+    locations = [[i for i, cell in enumerate(cells) if cell == pair] for pair in pairs]
+    carrying_source = source[0] >= 0 and carrying == source
+    is_put = mission['family'] == 2
+    active = locations[1] if is_put and carrying_source else locations[0]
+    adjacent_destination = {neighbor for i in locations[1] for neighbor in NEIGHBORS[i] if neighbor >= 0}
+    values = [float(carrying_source), float(is_put and carrying_source),
+              float(is_put and not carrying_source), float(carrying[0] >= 0 and not carrying_source)]
+    for action, neighbor in enumerate(NEIGHBORS[position]):
+        cell = cells[neighbor] if neighbor >= 0 else (2, 0)
+        empty = cell[0] == 1
+        pick_source = source[0] >= 0 and cell == source and carrying[0] < 0
+        drop_near_destination = empty and neighbor in adjacent_destination and carrying_source and is_put
+        values += [float(empty), float(cell[0] == 11), float(pick_source),
+                   float(drop_near_destination), float(action == direction and pick_source),
+                   float(action == direction and drop_near_destination)]
+    forward = DELTAS[direction]
+    right = (forward[1], -forward[0])
+    for targets in (locations[0], locations[1], active):
+        offsets = [(divmod(i, 8)[0] - r, divmod(i, 8)[1] - c) for i in targets]
+        if offsets:
+            dr, dc = min(offsets, key=lambda pair: abs(pair[0]) + abs(pair[1]))
+            values += [dr / 6, dc / 6, (dr * forward[0] + dc * forward[1]) / 6,
+                       (dr * right[0] + dc * right[1]) / 6,
+                       float(sum(abs(a) + abs(b) == abs(dr) + abs(dc) for a, b in offsets)) / 6]
+        else:
+            values += [0, 0, 0, 0, 0]
+    values.append(min((abs(a // 8 - b // 8) + abs(a % 8 - b % 8)
+                       for a in locations[0] for b in locations[1]), default=12) / 12)
+    return values
+
+
+def local_feature_vector(observation):
+    """Preserve the full original grid; append a centered 5x5 semantic view."""
+    import numpy as np
+
+    base = feature_vector(observation)
+    mission = parse_mission(observation['mission'])
+    pairs = mission['pairs'] + [(-1, -1)] * (2 - len(mission['pairs']))
+    r, c = robot_position(observation['image'])
+    planes = np.zeros((10, 5, 5), dtype=np.float32)
+    planes[2] = 1  # Outside the observed room is represented as wall.
+    for rr in range(max(0, r - 2), min(8, r + 3)):
+        for cc in range(max(0, c - 2), min(8, c + 3)):
+            cell = tuple(observation['image'][rr][cc])
+            obj, color = cell
+            row, col = rr - r + 2, cc - c + 2
+            planes[0, row, col] = float(cell == pairs[0])
+            planes[1, row, col] = float(cell == pairs[1])
+            planes[2, row, col] = float(obj == 2)
+            planes[3, row, col] = float(obj in (5, 6, 7))
+            if obj == 11:
+                planes[4 + color, row, col] = 1
+    return np.concatenate((base, planes.reshape(-1),
+                           np.asarray(interaction_features(observation, mission), dtype=np.float32)))
+
+
+def model_features(observation, args):
+    return (local_feature_vector(observation) if getattr(args, 'features', 'base') == 'local'
+            else feature_vector(observation))
+
+
 def majority_actions(observations, labels):
     if len(observations) != len(labels) or not labels:
         raise ValueError("training observations and labels must have equal, nonzero length")
@@ -178,7 +255,7 @@ def train_predict(train, labels, test, defaults, args, stop_at):
     rng = np.random.default_rng(args.seed)
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     predictions = [int(defaults[o["robot_id"]]) for o in test]
-    feature_count = len(feature_vector(train[0]))
+    feature_count = len(model_features(train[0], args))
     states = []
     # Prepare one robot at a time; feature time is included in the total budget.
     for robot in range(6):
@@ -191,7 +268,7 @@ def train_predict(train, labels, test, defaults, args, stop_at):
         validation_size = max(1, int(len(indices) * args.validation_fraction))
         x = np.empty((len(indices), feature_count), dtype=np.float32)
         for row, index in enumerate(indices):
-            x[row] = feature_vector(train[index])
+            x[row] = model_features(train[index], args)
             if row % 256 == 0 and time.monotonic() >= stop_at:
                 return predictions
         y = np.asarray([labels[i] for i in indices], dtype=np.int64)
@@ -258,7 +335,7 @@ def train_predict(train, labels, test, defaults, args, stop_at):
         indices = [i for i, o in enumerate(test) if o["robot_id"] == state["robot"]]
         for start in range(0, len(indices), args.batch_size):
             batch = indices[start:start + args.batch_size]
-            x = torch.from_numpy(np.stack([feature_vector(test[i]) for i in batch])).to(device)
+            x = torch.from_numpy(np.stack([model_features(test[i], args) for i in batch])).to(device)
             with torch.inference_mode():
                 labels_out = model(x).argmax(dim=1).cpu().tolist()
             for index, action in zip(batch, labels_out):
@@ -317,6 +394,8 @@ def make_parser():
     parser.add_argument("--budget", type=float, default=270, help="soft total seconds; statement limit is 300s")
     parser.add_argument("--epochs", type=int, default=60)
     parser.add_argument("--model", choices=("hist", "mlp"), default="mlp")
+    parser.add_argument("--features", choices=("base", "local"), default="local",
+                        help="MLP features: original base or full grid plus local view; hist keeps its original compact features")
     parser.add_argument("--hist-iterations", type=int, default=128)
     parser.add_argument("--hidden", type=int, default=192)
     parser.add_argument("--batch-size", type=int, default=512)

@@ -214,7 +214,7 @@ def train_o(model, samples, deadline, max_steps=2500, batch_size=2048):
 def train_one_config(cfg, make_batch, model_class, device, deadline,
                      samples_per_region=4096, validation_per_region=16384, seed=2026,
                      router_steps=2500, o_steps=2500, i_safety=1.5,
-                     i_geometry_bands=0, i_geometry_axis="affine"):
+                     i_geometry_bands=32, i_geometry_axis="pca"):
     torch.manual_seed(seed)
     i_min, i_max = float(cfg.i_grad_min), float(cfg.i_grad_max)
     if not i_max > i_min:
@@ -266,9 +266,9 @@ def main(argv=None):
     parser.add_argument("--router-steps", type=int, default=2500)
     parser.add_argument("--o-steps", type=int, default=2500)
     parser.add_argument("--i-safety", type=float, default=1.5)
-    parser.add_argument("--i-geometry-bands", type=int, choices=(0, 16, 32), default=0,
+    parser.add_argument("--i-geometry-bands", type=int, choices=(0, 16, 32), default=32,
                         help="0 keeps margin routing; 16/32 fits conservative sample hulls.")
-    parser.add_argument("--i-geometry-axis", choices=("affine", "pca"), default="affine")
+    parser.add_argument("--i-geometry-axis", choices=("affine", "pca"), default="pca")
     args = parser.parse_args(argv)
     start = time.monotonic()
     try:
