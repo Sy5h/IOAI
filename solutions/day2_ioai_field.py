@@ -79,11 +79,14 @@ def calibrate_i_threshold(model, validation_regions, safety=0.5):
     device = next(model.parameters()).device
     xy = torch.cat([pair[0] for pair in validation_regions[1:]], 0).to(device)
     model.eval()
+    largest_false_margin = -float("inf")
     with torch.no_grad():
-        logits = model.router(xy)
-        other = logits.clone()
-        other[:, model.I] = -torch.inf
-        largest_false_margin = (logits[:, model.I] - other.max(1).values).max().item()
+        for batch in xy.split(8192):
+            logits = model.router(batch)
+            other = logits.clone()
+            other[:, model.I] = -torch.inf
+            margin = (logits[:, model.I] - other.max(1).values).max().item()
+            largest_false_margin = max(largest_false_margin, margin)
     model.i_threshold = max(0.0, largest_false_margin + safety)
     return model.i_threshold
 
@@ -129,7 +132,7 @@ def train_o(model, samples, deadline, max_steps=2500, batch_size=2048):
 
 def train_one_config(cfg, make_batch, model_class, device, deadline,
                      samples_per_region=4096, validation_per_region=1024, seed=2026,
-                     router_steps=25000, o_steps=25000):
+                     router_steps=2500, o_steps=2500, i_safety=0.5):
     torch.manual_seed(seed)
     i_min, i_max = float(cfg.i_grad_min), float(cfg.i_grad_max)
     if not i_max > i_min:
@@ -144,10 +147,11 @@ def train_one_config(cfg, make_batch, model_class, device, deadline,
     remaining = max(0.0, deadline - time.monotonic())
     router_deadline = time.monotonic() + remaining * 0.62
     router_steps = train_router(model, regions, router_deadline, max_steps=router_steps)
-    threshold = calibrate_i_threshold(model, validation)
+    threshold = calibrate_i_threshold(model, validation, safety=i_safety)
     o_steps = train_o(model, regions[1], deadline, max_steps=o_steps)
     print(f"params={parameter_count}; I normalized MAE={affine_mae:.3g}; "
-          f"router_steps={router_steps}; O_steps={o_steps}; I threshold={threshold:.3g}",
+          f"router_steps={router_steps}; O_steps={o_steps}; I threshold={threshold:.3g}; "
+          f"validation_per_region={validation_per_region}; I safety={i_safety}",
           flush=True)
     if affine_mae > 0.01:
         print("Warning: first-I affine fit residual is high; inspect this config.", flush=True)
@@ -164,8 +168,9 @@ def main(argv=None):
     parser.add_argument("--samples-per-region", type=int, default=4096)
     parser.add_argument("--validation-per-region", type=int, default=1024)
     parser.add_argument("--seed", type=int, default=2026)
-    parser.add_argument("--router-steps", type=int, default=25000)
-    parser.add_argument("--o-steps", type=int, default=25000)
+    parser.add_argument("--router-steps", type=int, default=2500)
+    parser.add_argument("--o-steps", type=int, default=2500)
+    parser.add_argument("--i-safety", type=float, default=0.5)
     args = parser.parse_args(argv)
     start = time.monotonic()
     try:
@@ -191,7 +196,7 @@ def main(argv=None):
             samples_per_region=args.samples_per_region,
             validation_per_region=args.validation_per_region,
             seed=args.seed + 1000 * i,
-            router_steps=args.router_steps, o_steps=args.o_steps,
+            router_steps=args.router_steps, o_steps=args.o_steps, i_safety=args.i_safety,
         )
         models.append(model)
     output = Path(args.output)
