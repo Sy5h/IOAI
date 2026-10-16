@@ -91,6 +91,87 @@ def calibrate_i_threshold(model, validation_regions, safety=1.5):
     return model.i_threshold
 
 
+def convex_hull(points):
+    """Two-dimensional monotone chain; no geometric information from the runtime."""
+    points = np.unique(np.asarray(points, dtype=np.float64), axis=0)
+    if len(points) < 3:
+        return np.empty((0, 2))
+    def cross(a, b, c):
+        ab, ac = b - a, c - a
+        return ab[0] * ac[1] - ab[1] * ac[0]
+    lower, upper = [], []
+    for point in points:
+        while len(lower) >= 2 and cross(lower[-2], lower[-1], point) <= 0:
+            lower.pop()
+        lower.append(point)
+    for point in points[::-1]:
+        while len(upper) >= 2 and cross(upper[-2], upper[-1], point) <= 0:
+            upper.pop()
+        upper.append(point)
+    return np.asarray(lower[:-1] + upper[:-1])
+
+
+def fit_i_geometry(model, positive_xy, negative_xy, bands=32, max_edges=20, axis="affine"):
+    """Fit inner convex pieces, rejecting any piece containing a non-I sample.
+
+    The learned linear I gradient orders samples into thin, equally populated
+    strips. Each piece is a convex hull of observed positive samples, never an
+    extrapolated rectangle. A concave boundary can still be bridged by a hull;
+    independent generated negative samples veto the entire affected piece.
+    This is conservative calibration, not a proof of zero unseen false positives.
+    """
+    if not 1 <= bands <= 32 or max_edges < 3:
+        raise ValueError("Use 1..32 geometry bands and at least 3 edges.")
+    positive = np.asarray(positive_xy.cpu(), dtype=np.float64)
+    negative = np.asarray(negative_xy.cpu(), dtype=np.float64)
+    if axis == "affine":
+        direction = model.i_part.weight.detach().cpu().double().numpy().reshape(2)
+    elif axis == "pca":
+        _, vectors = np.linalg.eigh(np.cov(positive, rowvar=False))
+        direction = vectors[:, -1]
+    else:
+        raise ValueError("Geometry axis must be affine or pca.")
+    order = np.argsort(positive @ direction, kind="stable")
+    coefficients = []
+    rejected, degenerate = 0, 0
+    for indices in np.array_split(order, bands):
+        hull = convex_hull(positive[indices])
+        if len(hull) < 3:
+            degenerate += 1
+            continue
+        # Keeping a subset of hull vertices can only shrink its convex region.
+        if len(hull) > max_edges:
+            hull = hull[np.linspace(0, len(hull), max_edges, endpoint=False).astype(int)]
+        edge = np.roll(hull, -1, axis=0) - hull
+        normal = np.stack((edge[:, 1], -edge[:, 0]), axis=1)
+        normal /= np.linalg.norm(normal, axis=1, keepdims=True)
+        width = np.ptp(hull @ normal.T, axis=0).min()
+        inset = max(2e-7, 1e-4 * float(width))
+        offset = -(normal * hull).sum(axis=1) + inset
+        coefficient = np.column_stack((normal, offset)).astype(np.float32)
+        # First cull by a bounding box to avoid a large N x edges temporary.
+        within_box = ((negative >= hull.min(0)) & (negative <= hull.max(0))).all(1)
+        candidates = negative[within_box].astype(np.float32)
+        if len(candidates) and ((candidates @ coefficient[:, :2].T + coefficient[:, 2]) <= 0).all(1).any():
+            rejected += 1
+            continue
+        coefficients.append(coefficient)
+    base_count = sum(p.numel() for p in model.parameters())
+    if model.i_geometry is not None:
+        base_count -= sum(p.numel() for p in model.i_geometry.parameters())
+    if base_count + sum(c.size for c in coefficients) >= 20260:
+        raise ValueError("Fitted geometry exceeds the official parameter budget.")
+    model.set_i_geometry(coefficients)
+    with torch.no_grad():
+        device = next(model.parameters()).device
+        coverage = model.i_geometry(positive_xy.to(device)).float().mean().item()
+    return {"bands": bands, "axis": axis, "accepted_pieces": len(coefficients),
+            "rejected_pieces": rejected, "degenerate_pieces": degenerate,
+            "positive_training_coverage": coverage,
+            "geometry_parameters": sum(c.size for c in coefficients),
+            "positive_samples": len(positive), "negative_samples": len(negative)}
+
+
 def train_router(model, regions, deadline, max_steps=2500, batch_size=2048):
     device = next(model.parameters()).device
     x = torch.cat([pair[0] for pair in regions], 0).to(device)
@@ -132,7 +213,8 @@ def train_o(model, samples, deadline, max_steps=2500, batch_size=2048):
 
 def train_one_config(cfg, make_batch, model_class, device, deadline,
                      samples_per_region=4096, validation_per_region=16384, seed=2026,
-                     router_steps=2500, o_steps=2500, i_safety=1.5):
+                     router_steps=2500, o_steps=2500, i_safety=1.5,
+                     i_geometry_bands=0, i_geometry_axis="affine"):
     torch.manual_seed(seed)
     i_min, i_max = float(cfg.i_grad_min), float(cfg.i_grad_max)
     if not i_max > i_min:
@@ -144,11 +226,24 @@ def train_one_config(cfg, make_batch, model_class, device, deadline,
     regions = collect_regions(make_batch, cfg, samples_per_region, seed)
     validation = collect_regions(make_batch, cfg, validation_per_region, seed + 100_000)
     affine_mae = fit_affine_i(model, *regions[0])
-    remaining = max(0.0, deadline - time.monotonic())
+    training_deadline = deadline - (15.0 if i_geometry_bands else 0.0)
+    remaining = max(0.0, training_deadline - time.monotonic())
     router_deadline = time.monotonic() + remaining * 0.62
     router_steps = train_router(model, regions, router_deadline, max_steps=router_steps)
     threshold = calibrate_i_threshold(model, validation, safety=i_safety)
-    o_steps = train_o(model, regions[1], deadline, max_steps=o_steps)
+    o_steps = train_o(model, regions[1], training_deadline, max_steps=o_steps)
+    if i_geometry_bands:
+        background_xy, _ = make_batch(65536, cfg, include_regions=("bg",),
+                                      stratified=True, seed=seed + 200_000)
+        positive_xy = torch.cat((regions[0][0], validation[0][0]))
+        negative_xy = torch.cat([pair[0] for pair in validation[1:]] +
+                                [torch.as_tensor(background_xy, dtype=torch.float32)])
+        geometry = fit_i_geometry(model, positive_xy, negative_xy, bands=i_geometry_bands,
+                                  axis=i_geometry_axis)
+        print("I_GEOMETRY " + json.dumps(geometry), flush=True)
+    parameter_count = sum(p.numel() for p in model.parameters())
+    if parameter_count >= 20260 or list(model.buffers()):
+        raise ValueError("Model must have <20260 parameters and no buffers.")
     print(f"params={parameter_count}; I normalized MAE={affine_mae:.3g}; "
           f"router_steps={router_steps}; O_steps={o_steps}; I threshold={threshold:.3g}; "
           f"validation_per_region={validation_per_region}; I safety={i_safety}",
@@ -171,6 +266,9 @@ def main(argv=None):
     parser.add_argument("--router-steps", type=int, default=2500)
     parser.add_argument("--o-steps", type=int, default=2500)
     parser.add_argument("--i-safety", type=float, default=1.5)
+    parser.add_argument("--i-geometry-bands", type=int, choices=(0, 16, 32), default=0,
+                        help="0 keeps margin routing; 16/32 fits conservative sample hulls.")
+    parser.add_argument("--i-geometry-axis", choices=("affine", "pca"), default="affine")
     args = parser.parse_args(argv)
     start = time.monotonic()
     try:
@@ -197,6 +295,8 @@ def main(argv=None):
             validation_per_region=args.validation_per_region,
             seed=args.seed + 1000 * i,
             router_steps=args.router_steps, o_steps=args.o_steps, i_safety=args.i_safety,
+            i_geometry_bands=args.i_geometry_bands,
+            i_geometry_axis=args.i_geometry_axis,
         )
         models.append(model)
     output = Path(args.output)

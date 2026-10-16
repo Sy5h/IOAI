@@ -39,6 +39,23 @@ class DropoutField(nn.Module):
         return self.linear(self.dropout(ones))
 
 
+class ConvexRegionUnion(nn.Module):
+    """A union of sample-fitted convex regions, stored only as Parameters."""
+
+    def __init__(self, coefficients):
+        super().__init__()
+        self.halfspaces = nn.ParameterList([
+            nn.Parameter(torch.as_tensor(value, dtype=torch.float32).clone(),
+                         requires_grad=False) for value in coefficients
+        ])
+
+    def forward(self, xy):
+        inside = torch.zeros(len(xy), dtype=torch.bool, device=xy.device)
+        for coefficient in self.halfspaces:
+            inside = inside | ((xy @ coefficient[:, :2].T + coefficient[:, 2]) <= 0).all(1)
+        return inside
+
+
 class CustomModel(nn.Module):
     I, O, A, I_ENTROPY, BG = range(5)
 
@@ -52,6 +69,10 @@ class CustomModel(nn.Module):
                                     requires_grad=False)
         # Scalar metadata is permitted by the official validator.
         self.i_threshold = 0.0
+        self.i_geometry = None
+
+    def set_i_geometry(self, coefficients):
+        self.i_geometry = ConvexRegionUnion(coefficients).to(self.i_scale.device)
 
     def regions(self, xy):
         logits = self.router(xy)
@@ -59,6 +80,8 @@ class CustomModel(nn.Module):
         other = logits.clone()
         other[:, self.I] = -torch.inf
         competitor_value, competitor_class = other.max(dim=1)
+        if self.i_geometry is not None:
+            return torch.where(self.i_geometry(xy), torch.zeros_like(region), competitor_class)
         trusted_i = logits[:, self.I] - competitor_value >= self.i_threshold
         return torch.where((region == self.I) & ~trusted_i, competitor_class, region)
 
