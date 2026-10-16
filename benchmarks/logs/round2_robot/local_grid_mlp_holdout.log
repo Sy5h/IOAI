@@ -1,0 +1,8 @@
+candidate=local-grid-mlp; model=mlp
+robot 0: epochs=19, validation=0.6933, learned=True
+robot 1: epochs=29, validation=0.6983, learned=True
+robot 2: epochs=23, validation=0.6658, learned=True
+robot 3: epochs=29, validation=0.6592, learned=True
+robot 4: epochs=19, validation=0.6717, learned=True
+robot 5: epochs=21, validation=0.6792, learned=True
+wrote 12000 predictions in 87.2s

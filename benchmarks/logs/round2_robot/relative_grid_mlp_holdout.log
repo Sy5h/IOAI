@@ -1,0 +1,8 @@
+candidate=relative-grid-mlp; extra path features; model=mlp
+robot 0: epochs=19, validation=0.6150, learned=True
+robot 1: epochs=18, validation=0.6158, learned=True
+robot 2: epochs=20, validation=0.5783, learned=True
+robot 3: epochs=23, validation=0.5842, learned=True
+robot 4: epochs=18, validation=0.5825, learned=True
+robot 5: epochs=19, validation=0.6075, learned=True
+wrote 12000 predictions in 78.5s

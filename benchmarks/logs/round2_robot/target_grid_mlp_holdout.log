@@ -1,0 +1,8 @@
+candidate=target-grid-mlp; model=mlp
+robot 0: epochs=31, validation=0.6892, learned=True
+robot 1: epochs=31, validation=0.6842, learned=True
+robot 2: epochs=24, validation=0.6483, learned=True
+robot 3: epochs=30, validation=0.6250, learned=True
+robot 4: epochs=22, validation=0.6567, learned=True
+robot 5: epochs=37, validation=0.6850, learned=True
+wrote 12000 predictions in 90.9s

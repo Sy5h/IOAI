@@ -1,0 +1,8 @@
+candidate=paths-compact-mlp; extra path features; model=mlp
+robot 0: epochs=28, validation=0.6408, learned=True
+robot 1: epochs=49, validation=0.6400, learned=True
+robot 2: epochs=39, validation=0.6175, learned=True
+robot 3: epochs=41, validation=0.6092, learned=True
+robot 4: epochs=28, validation=0.6125, learned=True
+robot 5: epochs=30, validation=0.6267, learned=True
+wrote 12000 predictions in 82.2s
