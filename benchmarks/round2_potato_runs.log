@@ -1,0 +1,163 @@
+RUN baseline_leaderboard_a
+{"completed": 20, "total": 120, "elapsed": 1.6410000000032596}
+{"completed": 40, "total": 120, "elapsed": 2.4690000000118744}
+{"completed": 60, "total": 120, "elapsed": 3.5320000000065193}
+{"completed": 80, "total": 120, "elapsed": 4.985000000000582}
+{"completed": 100, "total": 120, "elapsed": 6.26600000000326}
+{"completed": 120, "total": 120, "elapsed": 7.032000000006519}
+{
+  "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+  "suite": "leaderboard_a",
+  "games": 120,
+  "wins": 63,
+  "score": 44.250000000000014,
+  "run_seconds": 7.063000000009197,
+  "command": [
+    "python",
+    "-u",
+    "<workspace>\\work\\round2\\baseline\\solutions\\day1_potato.py"
+  ],
+  "status": "ok",
+  "error": null,
+  "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+  "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+  "metric": "100 * mean(0 if not solved, else 1 - .02 * max(0, winning_turn - 10))",
+  "repetitions": 1,
+  "download_included": false,
+  "parameters": {
+    "solver_args": [],
+    "whole_run_limit": 600
+  },
+  "hardware": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+    "logical_cpus": 22,
+    "numpy": "2.3.3",
+    "blas_threads": 4
+  },
+  "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+  "seed": 20261016
+}
+
+RUN candidate_leaderboard_a
+{"completed": 20, "total": 120, "elapsed": 1.1410000000032596}
+{"completed": 40, "total": 120, "elapsed": 1.6410000000032596}
+{"completed": 60, "total": 120, "elapsed": 2.1560000000026776}
+{"completed": 80, "total": 120, "elapsed": 2.6560000000026776}
+{"completed": 100, "total": 120, "elapsed": 3.1410000000032596}
+{"completed": 120, "total": 120, "elapsed": 3.625}
+{
+  "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+  "suite": "leaderboard_a",
+  "games": 120,
+  "wins": 68,
+  "score": 47.41666666666665,
+  "run_seconds": 3.6560000000026776,
+  "command": [
+    "python",
+    "-u",
+    "<workspace>\\outputs\\IOAI\\solutions\\day1_potato.py"
+  ],
+  "status": "ok",
+  "error": null,
+  "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+  "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+  "metric": "100 * mean(0 if not solved, else 1 - .02 * max(0, winning_turn - 10))",
+  "repetitions": 1,
+  "download_included": false,
+  "parameters": {
+    "solver_args": [],
+    "whole_run_limit": 600
+  },
+  "hardware": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+    "logical_cpus": 22,
+    "numpy": "2.3.3",
+    "blas_threads": 4
+  },
+  "script_sha256": "8245b7632bb06b48365be45104e564ba96a5837c0389145c5f630a700d4305e8",
+  "seed": 20261016
+}
+
+RUN baseline_leaderboard_b
+{"completed": 20, "total": 120, "elapsed": 1.7659999999887077}
+{"completed": 40, "total": 120, "elapsed": 2.702999999994063}
+{"completed": 60, "total": 120, "elapsed": 3.5939999999973224}
+{"completed": 80, "total": 120, "elapsed": 4.421999999991385}
+{"completed": 100, "total": 120, "elapsed": 5.375}
+{"completed": 120, "total": 120, "elapsed": 6.375}
+{
+  "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+  "suite": "leaderboard_b",
+  "games": 120,
+  "wins": 69,
+  "score": 48.89999999999999,
+  "run_seconds": 6.390999999988708,
+  "command": [
+    "python",
+    "-u",
+    "<workspace>\\work\\round2\\baseline\\solutions\\day1_potato.py"
+  ],
+  "status": "ok",
+  "error": null,
+  "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+  "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+  "metric": "100 * mean(0 if not solved, else 1 - .02 * max(0, winning_turn - 10))",
+  "repetitions": 1,
+  "download_included": false,
+  "parameters": {
+    "solver_args": [],
+    "whole_run_limit": 600
+  },
+  "hardware": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+    "logical_cpus": 22,
+    "numpy": "2.3.3",
+    "blas_threads": 4
+  },
+  "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+  "seed": 20261016
+}
+
+RUN candidate_leaderboard_b
+{"completed": 20, "total": 120, "elapsed": 1.25}
+{"completed": 40, "total": 120, "elapsed": 1.7810000000026776}
+{"completed": 60, "total": 120, "elapsed": 2.2969999999913853}
+{"completed": 80, "total": 120, "elapsed": 2.811999999990803}
+{"completed": 100, "total": 120, "elapsed": 3.75}
+{"completed": 120, "total": 120, "elapsed": 4.796999999991385}
+{
+  "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+  "suite": "leaderboard_b",
+  "games": 120,
+  "wins": 75,
+  "score": 54.40000000000001,
+  "run_seconds": 4.8439999999973224,
+  "command": [
+    "python",
+    "-u",
+    "<workspace>\\outputs\\IOAI\\solutions\\day1_potato.py"
+  ],
+  "status": "ok",
+  "error": null,
+  "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+  "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+  "metric": "100 * mean(0 if not solved, else 1 - .02 * max(0, winning_turn - 10))",
+  "repetitions": 1,
+  "download_included": false,
+  "parameters": {
+    "solver_args": [],
+    "whole_run_limit": 600
+  },
+  "hardware": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+    "logical_cpus": 22,
+    "numpy": "2.3.3",
+    "blas_threads": 4
+  },
+  "script_sha256": "8245b7632bb06b48365be45104e564ba96a5837c0389145c5f630a700d4305e8",
+  "seed": 20261016
+}

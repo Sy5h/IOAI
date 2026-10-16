@@ -1,0 +1,665 @@
+{
+  "measurement_date": "2026-10-16",
+  "task": "Potato",
+  "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+  "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+  "metric": "100 * mean(0 if not solved, else 1 - .02 * max(0, winning_turn - 10))",
+  "selection": {
+    "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+    "selected": "mixture_guess_8",
+    "selection": "highest mean of three public-only noisy judges on 64 development words; retained after a disjoint 128-word confirmation at a new projection seed",
+    "confirmation_baseline": 25.026041666666668,
+    "confirmation_candidate": 25.5625,
+    "fixed_before_this_round_AB": true,
+    "candidate_sha256": "8245b7632bb06b48365be45104e564ba96a5837c0389145c5f630a700d4305e8"
+  },
+  "development": {
+    "label": "PUBLIC-only synthetic development, NOT an official score",
+    "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+    "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+    "seed": 20261017,
+    "games_per_judge": 64,
+    "target_indices_sha256": "90089c9a2af7f18f1c11fa2453fa255456b24294196d3b547eff3a179404ac55",
+    "selection_rule": "Mean of the three perturbed judges; exact public score is descriptive only.",
+    "candidates": {
+      "baseline": {
+        "parameters": {},
+        "judges": {
+          "public_exact": {
+            "score": 76.28124999999999,
+            "wins": 57,
+            "games": 64,
+            "simulation_seconds": 2.25
+          },
+          "public_projection_128": {
+            "score": 44.78124999999999,
+            "wins": 32,
+            "games": 64,
+            "simulation_seconds": 2.264999999999418
+          },
+          "public_projection_32": {
+            "score": 19.156250000000004,
+            "wins": 14,
+            "games": 64,
+            "simulation_seconds": 2.5789999999979045
+          },
+          "public_projection_128_noise_05": {
+            "score": 22.6875,
+            "wins": 17,
+            "games": 64,
+            "simulation_seconds": 2.5460000000020955
+          }
+        },
+        "robust_mean": 28.875
+      },
+      "guess_only": {
+        "parameters": {
+          "guess_after": 1
+        },
+        "judges": {
+          "public_exact": {
+            "score": 63.34375,
+            "wins": 49,
+            "games": 64,
+            "simulation_seconds": 0.25
+          },
+          "public_projection_128": {
+            "score": 25.0625,
+            "wins": 20,
+            "games": 64,
+            "simulation_seconds": 0.26600000000325963
+          },
+          "public_projection_32": {
+            "score": 9.3125,
+            "wins": 7,
+            "games": 64,
+            "simulation_seconds": 0.3129999999946449
+          },
+          "public_projection_128_noise_05": {
+            "score": 11.75,
+            "wins": 10,
+            "games": 64,
+            "simulation_seconds": 0.2960000000020955
+          }
+        },
+        "robust_mean": 15.375
+      },
+      "guess_after_8": {
+        "parameters": {
+          "guess_after": 8
+        },
+        "judges": {
+          "public_exact": {
+            "score": 76.0625,
+            "wins": 55,
+            "games": 64,
+            "simulation_seconds": 1.0160000000032596
+          },
+          "public_projection_128": {
+            "score": 47.71875,
+            "wins": 34,
+            "games": 64,
+            "simulation_seconds": 1.0159999999887077
+          },
+          "public_projection_32": {
+            "score": 22.9375,
+            "wins": 17,
+            "games": 64,
+            "simulation_seconds": 1.0310000000026776
+          },
+          "public_projection_128_noise_05": {
+            "score": 22.9375,
+            "wins": 17,
+            "games": 64,
+            "simulation_seconds": 1.0160000000032596
+          }
+        },
+        "robust_mean": 31.197916666666668
+      },
+      "guess_after_12": {
+        "parameters": {
+          "guess_after": 12
+        },
+        "judges": {
+          "public_exact": {
+            "score": 78.53125,
+            "wins": 58,
+            "games": 64,
+            "simulation_seconds": 1.389999999999418
+          },
+          "public_projection_128": {
+            "score": 47.28125,
+            "wins": 34,
+            "games": 64,
+            "simulation_seconds": 1.4060000000026776
+          },
+          "public_projection_32": {
+            "score": 19.375,
+            "wins": 14,
+            "games": 64,
+            "simulation_seconds": 1.3910000000032596
+          },
+          "public_projection_128_noise_05": {
+            "score": 21.875,
+            "wins": 16,
+            "games": 64,
+            "simulation_seconds": 1.4059999999881256
+          }
+        },
+        "robust_mean": 29.510416666666668
+      },
+      "direct_bonus_3": {
+        "parameters": {
+          "bonus": 3.0
+        },
+        "judges": {
+          "public_exact": {
+            "score": 78.71875,
+            "wins": 56,
+            "games": 64,
+            "simulation_seconds": 1.8910000000032596
+          },
+          "public_projection_128": {
+            "score": 47.9375,
+            "wins": 35,
+            "games": 64,
+            "simulation_seconds": 2.25
+          },
+          "public_projection_32": {
+            "score": 15.125,
+            "wins": 11,
+            "games": 64,
+            "simulation_seconds": 2.5310000000026776
+          },
+          "public_projection_128_noise_05": {
+            "score": 23.875,
+            "wins": 19,
+            "games": 64,
+            "simulation_seconds": 2.562999999994645
+          }
+        },
+        "robust_mean": 28.979166666666668
+      },
+      "forget_095": {
+        "parameters": {
+          "retention": 0.95
+        },
+        "judges": {
+          "public_exact": {
+            "score": 69.59375,
+            "wins": 52,
+            "games": 64,
+            "simulation_seconds": 2.139999999999418
+          },
+          "public_projection_128": {
+            "score": 56.125,
+            "wins": 42,
+            "games": 64,
+            "simulation_seconds": 2.2030000000086147
+          },
+          "public_projection_32": {
+            "score": 21.906250000000004,
+            "wins": 17,
+            "games": 64,
+            "simulation_seconds": 2.6410000000032596
+          },
+          "public_projection_128_noise_05": {
+            "score": 26.187500000000004,
+            "wins": 20,
+            "games": 64,
+            "simulation_seconds": 2.452999999994063
+          }
+        },
+        "robust_mean": 34.739583333333336
+      },
+      "forget_090": {
+        "parameters": {
+          "retention": 0.9
+        },
+        "judges": {
+          "public_exact": {
+            "score": 63.625,
+            "wins": 49,
+            "games": 64,
+            "simulation_seconds": 2.0939999999973224
+          },
+          "public_projection_128": {
+            "score": 43.96875,
+            "wins": 34,
+            "games": 64,
+            "simulation_seconds": 2.4060000000026776
+          },
+          "public_projection_32": {
+            "score": 21.5,
+            "wins": 17,
+            "games": 64,
+            "simulation_seconds": 2.672000000005937
+          },
+          "public_projection_128_noise_05": {
+            "score": 31.906250000000004,
+            "wins": 25,
+            "games": 64,
+            "simulation_seconds": 2.4219999999913853
+          }
+        },
+        "robust_mean": 32.458333333333336
+      },
+      "floor_020": {
+        "parameters": {
+          "floor": 0.2
+        },
+        "judges": {
+          "public_exact": {
+            "score": 70.875,
+            "wins": 53,
+            "games": 64,
+            "simulation_seconds": 2.047000000005937
+          },
+          "public_projection_128": {
+            "score": 47.9375,
+            "wins": 35,
+            "games": 64,
+            "simulation_seconds": 2.25
+          },
+          "public_projection_32": {
+            "score": 21.65625,
+            "wins": 16,
+            "games": 64,
+            "simulation_seconds": 5.264999999999418
+          },
+          "public_projection_128_noise_05": {
+            "score": 26.8125,
+            "wins": 21,
+            "games": 64,
+            "simulation_seconds": 4.2039999999979045
+          }
+        },
+        "robust_mean": 32.135416666666664
+      },
+      "mixture": {
+        "parameters": {
+          "temperatures": [
+            0.03,
+            0.06,
+            0.12
+          ],
+          "floor": 0.12
+        },
+        "judges": {
+          "public_exact": {
+            "score": 84.53125,
+            "wins": 61,
+            "games": 64,
+            "simulation_seconds": 2.327999999994063
+          },
+          "public_projection_128": {
+            "score": 55.3125,
+            "wins": 41,
+            "games": 64,
+            "simulation_seconds": 2.9530000000086147
+          },
+          "public_projection_32": {
+            "score": 18.3125,
+            "wins": 14,
+            "games": 64,
+            "simulation_seconds": 3.436999999990803
+          },
+          "public_projection_128_noise_05": {
+            "score": 25.906249999999996,
+            "wins": 19,
+            "games": 64,
+            "simulation_seconds": 3.172000000005937
+          }
+        },
+        "robust_mean": 33.177083333333336
+      },
+      "mixture_guess_8": {
+        "parameters": {
+          "temperatures": [
+            0.03,
+            0.06,
+            0.12
+          ],
+          "floor": 0.12,
+          "guess_after": 8
+        },
+        "judges": {
+          "public_exact": {
+            "score": 79.8125,
+            "wins": 56,
+            "games": 64,
+            "simulation_seconds": 1.360000000000582
+          },
+          "public_projection_128": {
+            "score": 58.25,
+            "wins": 43,
+            "games": 64,
+            "simulation_seconds": 1.389999999999418
+          },
+          "public_projection_32": {
+            "score": 22.812500000000004,
+            "wins": 17,
+            "games": 64,
+            "simulation_seconds": 1.5939999999973224
+          },
+          "public_projection_128_noise_05": {
+            "score": 26.875,
+            "wins": 20,
+            "games": 64,
+            "simulation_seconds": 1.5160000000032596
+          }
+        },
+        "robust_mean": 35.979166666666664
+      },
+      "vote": {
+        "parameters": {
+          "vote": true
+        },
+        "judges": {
+          "public_exact": {
+            "score": 90.84375,
+            "wins": 63,
+            "games": 64,
+            "simulation_seconds": 2.0460000000020955
+          },
+          "public_projection_128": {
+            "score": 38.0,
+            "wins": 30,
+            "games": 64,
+            "simulation_seconds": 3.2189999999973224
+          },
+          "public_projection_32": {
+            "score": 14.96875,
+            "wins": 12,
+            "games": 64,
+            "simulation_seconds": 3.202999999994063
+          },
+          "public_projection_128_noise_05": {
+            "score": 18.1875,
+            "wins": 14,
+            "games": 64,
+            "simulation_seconds": 3.1570000000065193
+          }
+        },
+        "robust_mean": 23.71875
+      },
+      "vote_guess_8": {
+        "parameters": {
+          "vote": true,
+          "guess_after": 8
+        },
+        "judges": {
+          "public_exact": {
+            "score": 85.6875,
+            "wins": 60,
+            "games": 64,
+            "simulation_seconds": 1.25
+          },
+          "public_projection_128": {
+            "score": 38.24999999999999,
+            "wins": 30,
+            "games": 64,
+            "simulation_seconds": 1.235000000000582
+          },
+          "public_projection_32": {
+            "score": 14.875,
+            "wins": 12,
+            "games": 64,
+            "simulation_seconds": 1.0779999999940628
+          },
+          "public_projection_128_noise_05": {
+            "score": 19.374999999999996,
+            "wins": 15,
+            "games": 64,
+            "simulation_seconds": 1.125
+          }
+        },
+        "robust_mean": 24.16666666666666
+      }
+    },
+    "threads": 4,
+    "selected": "mixture_guess_8"
+  },
+  "confirmation": {
+    "label": "PUBLIC-only synthetic development, NOT an official score",
+    "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+    "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+    "seed": 20261018,
+    "games_per_judge": 128,
+    "excluded_prior_development": true,
+    "target_indices_sha256": "95f8d11967696740fcae865460ab46ca98b4e2824decb97a8c947ea3f1e5b09d",
+    "selection_rule": "Mean of the three perturbed judges; exact public score is descriptive only.",
+    "candidates": {
+      "baseline": {
+        "parameters": {},
+        "judges": {
+          "public_exact": {
+            "score": 68.15625,
+            "wins": 102,
+            "games": 128,
+            "simulation_seconds": 3.735000000000582
+          },
+          "public_projection_128": {
+            "score": 45.62500000000001,
+            "wins": 70,
+            "games": 128,
+            "simulation_seconds": 4.062000000005355
+          },
+          "public_projection_32": {
+            "score": 8.96875,
+            "wins": 13,
+            "games": 128,
+            "simulation_seconds": 4.547000000005937
+          },
+          "public_projection_128_noise_05": {
+            "score": 20.484375,
+            "wins": 32,
+            "games": 128,
+            "simulation_seconds": 4.405999999988126
+          }
+        },
+        "robust_mean": 25.026041666666668
+      },
+      "mixture_guess_8": {
+        "parameters": {
+          "temperatures": [
+            0.03,
+            0.06,
+            0.12
+          ],
+          "floor": 0.12,
+          "guess_after": 8
+        },
+        "judges": {
+          "public_exact": {
+            "score": 76.17187499999999,
+            "wins": 110,
+            "games": 128,
+            "simulation_seconds": 2.125
+          },
+          "public_projection_128": {
+            "score": 47.65625,
+            "wins": 72,
+            "games": 128,
+            "simulation_seconds": 2.437000000005355
+          },
+          "public_projection_32": {
+            "score": 7.109375000000001,
+            "wins": 11,
+            "games": 128,
+            "simulation_seconds": 2.4069999999919673
+          },
+          "public_projection_128_noise_05": {
+            "score": 21.921875,
+            "wins": 33,
+            "games": 128,
+            "simulation_seconds": 2.4840000000112923
+          }
+        },
+        "robust_mean": 25.5625
+      }
+    },
+    "threads": 4,
+    "selected": "mixture_guess_8"
+  },
+  "notes": [
+    "No extra model, training data, GPU, or private-space fitting. Only the supplied public embedding matrix is used by the solver.",
+    "Twelve policies were compared on 64 non-public-target vocabulary words using three synthetic perturbed public-space judges. Selection used the mean noisy-judge score, not the exact public-space score.",
+    "The selected policy was checked once on 128 disjoint words and new random projections. Its mean gain was small and the strongest distortion worsened; these synthetic scores are not official scores.",
+    "The candidate was frozen before this round's A/B. Earlier A/B performance was already known, so these released A/B runs are development re-evaluations, not independent blind confirmation. No further tuning followed the results.",
+    "All A/B targets and private embeddings remain scorer-only. Solver stdin contains only normal comparison feedback. This is process separation, not a security sandbox.",
+    "Each final row is one fresh solver process: imports, public resource loading, all 120 games, writing protocol outputs, and process exit are included. Judge/data preparation and prior downloads are excluded.",
+    "CPU only, BLAS 4 threads. Other agents' CPU/GPU/file work may run concurrently; OS file caches may be warm. Times are not dedicated-hardware throughput estimates.",
+    "All four final runs completed. Raw per-game records and original logs remain in the Git-ignored work directory; published records omit target hashes and per-game answers."
+  ],
+  "adopted_parameters": {
+    "temperature": 0.06,
+    "component_temperatures": [
+      0.03,
+      0.06,
+      0.12
+    ],
+    "error_floor": 0.12,
+    "posterior_mode": "mixture",
+    "guess_after": 8,
+    "support_size": 256
+  },
+  "runs": [
+    {
+      "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+      "suite": "leaderboard_a",
+      "games": 120,
+      "wins": 63,
+      "score": 44.250000000000014,
+      "run_seconds": 7.063000000009197,
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\work\\round2\\baseline\\solutions\\day1_potato.py"
+      ],
+      "status": "ok",
+      "error": null,
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+      "metric": "100 * mean(0 if not solved, else 1 - .02 * max(0, winning_turn - 10))",
+      "repetitions": 1,
+      "download_included": false,
+      "parameters": {
+        "solver_args": [],
+        "whole_run_limit": 600
+      },
+      "hardware": {
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "numpy": "2.3.3",
+        "blas_threads": 4
+      },
+      "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+      "seed": 20261016,
+      "variant": "baseline"
+    },
+    {
+      "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+      "suite": "leaderboard_a",
+      "games": 120,
+      "wins": 68,
+      "score": 47.41666666666665,
+      "run_seconds": 3.6560000000026776,
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\solutions\\day1_potato.py"
+      ],
+      "status": "ok",
+      "error": null,
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+      "metric": "100 * mean(0 if not solved, else 1 - .02 * max(0, winning_turn - 10))",
+      "repetitions": 1,
+      "download_included": false,
+      "parameters": {
+        "solver_args": [],
+        "whole_run_limit": 600
+      },
+      "hardware": {
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "numpy": "2.3.3",
+        "blas_threads": 4
+      },
+      "script_sha256": "8245b7632bb06b48365be45104e564ba96a5837c0389145c5f630a700d4305e8",
+      "seed": 20261016,
+      "variant": "candidate"
+    },
+    {
+      "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+      "suite": "leaderboard_b",
+      "games": 120,
+      "wins": 69,
+      "score": 48.89999999999999,
+      "run_seconds": 6.390999999988708,
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\work\\round2\\baseline\\solutions\\day1_potato.py"
+      ],
+      "status": "ok",
+      "error": null,
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+      "metric": "100 * mean(0 if not solved, else 1 - .02 * max(0, winning_turn - 10))",
+      "repetitions": 1,
+      "download_included": false,
+      "parameters": {
+        "solver_args": [],
+        "whole_run_limit": 600
+      },
+      "hardware": {
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "numpy": "2.3.3",
+        "blas_threads": 4
+      },
+      "script_sha256": "6846d7de7e32727caa6c26cc3a2f307ab2d76a322b39dcb1a9499d69dbf32588",
+      "seed": 20261016,
+      "variant": "baseline"
+    },
+    {
+      "label": "Local re-evaluation of released official private embeddings and targets; not a contest server run",
+      "suite": "leaderboard_b",
+      "games": 120,
+      "wins": 75,
+      "score": 54.40000000000001,
+      "run_seconds": 4.8439999999973224,
+      "command": [
+        "python",
+        "-u",
+        "<workspace>\\outputs\\IOAI\\solutions\\day1_potato.py"
+      ],
+      "status": "ok",
+      "error": null,
+      "baseline_commit": "991a49b48092286967b5bd7cada465e336ebc4af",
+      "data_revision": "122716fc56a212e58b1756158bdeb4c2ea2da5e6",
+      "metric": "100 * mean(0 if not solved, else 1 - .02 * max(0, winning_turn - 10))",
+      "repetitions": 1,
+      "download_included": false,
+      "parameters": {
+        "solver_args": [],
+        "whole_run_limit": 600
+      },
+      "hardware": {
+        "platform": "Windows-10-10.0.26200-SP0",
+        "cpu": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel",
+        "logical_cpus": 22,
+        "numpy": "2.3.3",
+        "blas_threads": 4
+      },
+      "script_sha256": "8245b7632bb06b48365be45104e564ba96a5837c0389145c5f630a700d4305e8",
+      "seed": 20261016,
+      "variant": "candidate"
+    }
+  ]
+}
