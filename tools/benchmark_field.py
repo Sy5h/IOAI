@@ -1,7 +1,8 @@
-"""Reproduce the public IOAI Field score on the official supported CPU runtime.
+"""Reproduce IOAI Field on its supported runtime; tune only on public holdouts.
 
-Downloads public configuration and unmodified protected runtime from pinned
-revisions. No private split, secrets, paid resources, or protection bypasses.
+Public-data revisions and the original repository implementation are pinned.
+Only already published JSON configuration files are downloaded from the dataset.
+The protected Linux x86-64 CPython 3.13 generator is used without modification.
 """
 import argparse
 import hashlib
@@ -18,8 +19,13 @@ import urllib.request
 
 OFFICIAL_REV = "e1963801aa4cf33a5a03520b39fa6620a7894c54"
 DATA_REV = "35136ba0abb05ea8dcdb6ec3db200617a9da6104"
+BASELINE_REV = "b3e60ae8e14b55d97c44214dc1ec7d8e49295a89"
 DATA_REPO = "IOAI-official/ioai-2026-ioai-field"
 REPO = Path(__file__).resolve().parents[1]
+SPLITS = {"public": "public/train_config", "released_leaderboard_a": "private/leaderboard_a_config",
+          "released_leaderboard_b": "private/leaderboard_b_config"}
+VALIDATION_SEEDS = (1729, 8071)
+CANDIDATE_STEPS = (2500, 10000, 25000)
 
 
 def get(url):
@@ -57,15 +63,23 @@ def prepare(work):
     entries = json.loads(get(f"https://huggingface.co/api/datasets/{DATA_REPO}/tree/{DATA_REV}?recursive=true&expand=false"))
     for entry in entries:
         path = entry["path"]
-        if entry["type"] != "file" or not path.startswith("public/train_config/"):
+        if entry["type"] != "file" or not any(path.startswith(p + "/") for p in SPLITS.values()):
+            continue
+        if not path.endswith(("field_config.json", "field_configs.json", "eval_config.json")):
             continue
         url = f"https://huggingface.co/datasets/{DATA_REPO}/resolve/{DATA_REV}/{urllib.parse.quote(path)}"
         fetch(url, work / "dataset" / path, provenance)
-    config_dir = work / "dataset/public/train_config"
-    if not (config_dir / "field_config.json").is_file():
-        raise FileNotFoundError("Pinned PUBLIC field configuration missing")
+    for filename in ("day2_ioai_field.py", "field_custom_model.py"):
+        url = f"https://raw.githubusercontent.com/Sy5h/IOAI/{BASELINE_REV}/solutions/{filename}"
+        fetch(url, work / "repository-baseline" / filename, provenance)
+    config_dirs = {name: work / "dataset" / path for name, path in SPLITS.items()}
+    for directory in config_dirs.values():
+        if not any((directory / name).is_file() for name in ("field_config.json", "field_configs.json")):
+            raise FileNotFoundError(f"Pinned released field configuration missing: {directory.name}")
+        if not (directory / "eval_config.json").is_file():
+            raise FileNotFoundError(f"Pinned released evaluation configuration missing: {directory.name}")
     (work / "provenance.json").write_text(json.dumps(provenance, indent=2), encoding="utf-8")
-    return config_dir
+    return config_dirs
 
 
 def execute(command, cwd, env, logfile, timeout):
@@ -79,27 +93,39 @@ def execute(command, cwd, env, logfile, timeout):
             exit_code, timed_out = result.returncode, False
         except subprocess.TimeoutExpired:
             exit_code, timed_out = None, True
+    print(f"--- {logfile.parent.name}/{logfile.name}: final 15 lines ---", flush=True)
+    print("\n".join(logfile.read_text(encoding="utf-8", errors="replace").splitlines()[-15:]), flush=True)
     return {"command": command, "wall_seconds": time.monotonic() - started,
             "exit_code": exit_code, "timed_out": timed_out}
 
 
-def score(model_path, config_dir, output):
+def read_config_values(config_dir):
+    multiple = config_dir / "field_configs.json"
+    return json.loads(multiple.read_text()) if multiple.is_file() else [json.loads((config_dir / "field_config.json").read_text())]
+
+
+def score(model_path, config_dir, output, eval_seed=None):
     import torch
     from core import FieldConfig, EvalConfig, evaluate_model
     torch.set_num_threads(min(4, os.cpu_count() or 1))
-    # torch.load needs the same canonical custom_model module used in training.
     sys.path.insert(0, str(model_path.parent))
-    cfg = FieldConfig(**json.loads((config_dir / "field_config.json").read_text()))
-    eval_path = config_dir / "eval_config.json"
-    eval_values = json.loads(eval_path.read_text()) if eval_path.is_file() else {
-        "n_per_region": 512, "seed": 2026, "range_mode": "p99", "entropy_runs": 10,
-        "entropy_mode": "std", "enforce_unit_interval": True,
-        "entropy_min": -2026, "entropy_max": 2026, "max_params": 20260, "param_penalty": 0.5,
-    }
+    configs = [FieldConfig(**raw) for raw in read_config_values(config_dir)]
+    eval_values = json.loads((config_dir / "eval_config.json").read_text())
+    if eval_seed is not None:
+        eval_values["seed"] = eval_seed
+    # Explicit dropout seed makes the stochastic baseline reproducible too.
+    torch_seed = 2026 + int(eval_values["seed"])
+    torch.manual_seed(torch_seed)
     started = time.monotonic()
-    model = torch.load(model_path, map_location="cpu", weights_only=False)
-    result = evaluate_model(model, cfg, EvalConfig(**eval_values))
-    report = {"score": result, "evaluation_config": eval_values,
+    models = torch.load(model_path, map_location="cpu", weights_only=False)
+    models = models if isinstance(models, list) else [models]
+    if len(models) != len(configs):
+        raise ValueError("Saved model count differs from mounted configuration count")
+    scores = [evaluate_model(model, cfg, EvalConfig(**eval_values)) for model, cfg in zip(models, configs)]
+    result = scores[0] if len(scores) == 1 else {
+        "total_score": sum(item["total_score"] for item in scores) / len(scores), "per_config": scores}
+    report = {"score": result, "evaluation_config": eval_values, "torch_seed": torch_seed,
+              "configuration_count": len(configs), "points_per_region_per_config": eval_values["n_per_region"],
               "scoring_seconds": time.monotonic() - started,
               "hardware": {"platform": platform.platform(), "python": platform.python_version(),
                            "cpu": platform.processor(), "cpu_count": os.cpu_count(),
@@ -109,60 +135,106 @@ def score(model_path, config_dir, output):
     print(result.get("__explain__", result), flush=True)
 
 
+def train_model(work, run_dir, kind, config_dir, steps=None):
+    run_dir.mkdir(parents=True, exist_ok=True)
+    shutil.copytree(config_dir, run_dir / "data/train_config", dirs_exist_ok=True)
+    env = os.environ.copy()
+    env.update({"PYTHONPATH": os.pathsep.join((str(run_dir), str(work / "official/grading-original"))),
+                "OMP_NUM_THREADS": "4", "MKL_NUM_THREADS": "4", "MPLBACKEND": "Agg",
+                "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1"})
+    if kind == "official_baseline":
+        baseline = work / "official/baseline-original"
+        model_source = baseline / "custom_model.py"
+        notebook = json.loads((baseline / "solution.ipynb").read_text(encoding="utf-8"))
+        source = "\n\n".join("".join(c["source"]) for c in notebook["cells"] if c["cell_type"] == "code")
+        training_source = run_dir / "train.py"
+        training_source.write_text(source, encoding="utf-8")
+        command = [sys.executable, "train.py"]
+    else:
+        source_dir = work / "repository-baseline" if kind == "repository_original" else REPO / "solutions"
+        model_source = source_dir / "field_custom_model.py"
+        training_source = source_dir / "day2_ioai_field.py"
+        command = [sys.executable, str(training_source), "--seconds", "265"]
+        if steps is not None:
+            command += ["--router-steps", str(steps), "--o-steps", str(steps)]
+    shutil.copy2(model_source, run_dir / "custom_model.py")
+    result = {"training_source_sha256": hashlib.sha256(training_source.read_bytes()).hexdigest(),
+              "model_source_sha256": hashlib.sha256(model_source.read_bytes()).hexdigest(),
+              "router_steps_requested": steps, "o_steps_requested": steps,
+              "configuration_count": len(read_config_values(config_dir)),
+              "training": execute(command, run_dir, env, run_dir / "training.log", timeout=350)}
+    return result, env
+
+
+def score_run(run_dir, config_dir, env, label="score", eval_seed=None):
+    output = run_dir / (label + ".json")
+    command = [sys.executable, str(Path(__file__).resolve()), "--score-model", str(run_dir / "model.pt"),
+               "--config-dir", str(config_dir), "--output", str(output)]
+    if eval_seed is not None:
+        command += ["--eval-seed", str(eval_seed)]
+    timing = execute(command, run_dir, env, run_dir / (label + ".log"), timeout=180)
+    if timing["exit_code"] != 0 or not output.is_file():
+        raise RuntimeError(f"Scoring failed: {run_dir.name}/{label}")
+    return {"scoring": timing, "result": json.loads(output.read_text())}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--work-dir", default="work/field-benchmark")
     parser.add_argument("--score-model")
     parser.add_argument("--config-dir")
     parser.add_argument("--output")
+    parser.add_argument("--eval-seed", type=int)
     args = parser.parse_args()
     if args.score_model:
-        score(Path(args.score_model), Path(args.config_dir), Path(args.output))
+        score(Path(args.score_model), Path(args.config_dir), Path(args.output), args.eval_seed)
         return
     if platform.system() != "Linux" or sys.version_info[:2] != (3, 13):
         raise RuntimeError("This benchmark requires Linux x86-64 and CPython 3.13.")
     work = Path(args.work_dir).resolve()
     work.mkdir(parents=True, exist_ok=True)
     overall_start = time.monotonic()
-    config_dir = prepare(work)
-    env = os.environ.copy()
-    env.update({"PYTHONPATH": str(work / "official/grading-original"),
-                "OMP_NUM_THREADS": "4", "MKL_NUM_THREADS": "4", "MPLBACKEND": "Agg",
-                "HF_HUB_OFFLINE": "1", "TRANSFORMERS_OFFLINE": "1"})
+    config_dirs = prepare(work)
     summary = {"official_revision": OFFICIAL_REV, "dataset_revision": DATA_REV,
-               "split": "public/train_config", "device": "CPU",
-               "note": "Public-config CPU reproduction; not contest GPU or hidden leaderboard results.",
-               "runs": {}}
-    for name in ("official_baseline", "repository_current"):
-        run_dir = work / name
-        run_dir.mkdir(exist_ok=True)
-        shutil.copytree(config_dir, run_dir / "data/train_config", dirs_exist_ok=True)
-        if name == "official_baseline":
-            baseline = work / "official/baseline-original"
-            shutil.copy2(baseline / "custom_model.py", run_dir / "custom_model.py")
-            notebook = json.loads((baseline / "solution.ipynb").read_text(encoding="utf-8"))
-            source = "\n\n".join("".join(c["source"]) for c in notebook["cells"] if c["cell_type"] == "code")
-            (run_dir / "train.py").write_text(source, encoding="utf-8")
-            command = [sys.executable, "train.py"]
-        else:
-            shutil.copy2(REPO / "solutions/field_custom_model.py", run_dir / "custom_model.py")
-            command = [sys.executable, str(REPO / "solutions/day2_ioai_field.py"), "--seconds", "265"]
-        training = execute(command, run_dir, env, run_dir / "training.log", timeout=350)
-        summary["runs"][name] = {"training": training}
-        model_path = run_dir / "model.pt"
-        if training["exit_code"] == 0 and model_path.is_file():
-            result_path = run_dir / "score.json"
-            scoring = execute([sys.executable, str(Path(__file__).resolve()), "--score-model", str(model_path),
-                               "--config-dir", str(config_dir), "--output", str(result_path)],
-                              run_dir, env, run_dir / "scoring.log", timeout=180)
-            summary["runs"][name]["scoring"] = scoring
-            if result_path.is_file():
-                summary["runs"][name]["result"] = json.loads(result_path.read_text())
-        print(name, json.dumps(summary["runs"][name]), flush=True)
+               "baseline_commit": BASELINE_REV, "device": "CPU",
+               "note": "Already released configurations, including directories named private; not hidden leaderboard submissions.",
+               "selection": {"split": "public/train_config", "validation_seeds": list(VALIDATION_SEEDS),
+                             "candidate_steps": list(CANDIDATE_STEPS), "candidates": {}}, "runs": {}}
+    def save():
         (work / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    # Hyperparameter selection is completed before any seed-0 or A/B evaluation.
+    for steps in CANDIDATE_STEPS:
+        run_dir = work / f"selection_steps_{steps}"
+        report, env = train_model(work, run_dir, "repository_improved", config_dirs["public"], steps)
+        if report["training"]["exit_code"] != 0:
+            summary["selection"]["candidates"][str(steps)] = report
+            save()
+            raise RuntimeError("Candidate training failed; inspect training log")
+        report["validation"] = {str(seed): score_run(run_dir, config_dirs["public"], env,
+                                  label=f"validation_{seed}", eval_seed=seed) for seed in VALIDATION_SEEDS}
+        report["mean_validation_score"] = sum(x["result"]["score"]["total_score"]
+                                                   for x in report["validation"].values()) / len(VALIDATION_SEEDS)
+        summary["selection"]["candidates"][str(steps)] = report
+        print("SELECTION", steps, json.dumps(report), flush=True)
+        save()
+    selected = max(CANDIDATE_STEPS, key=lambda s: (summary["selection"]["candidates"][str(s)]["mean_validation_score"], -s))
+    summary["selection"]["selected_steps"] = selected
+    print("SELECTED_STEPS", selected, flush=True)
+    save()
+    for split, config_dir in config_dirs.items():
+        summary["runs"][split] = {}
+        for name in ("official_baseline", "repository_original", "repository_improved"):
+            run_dir = work / f"{split}_{name}"
+            report, env = train_model(work, run_dir, name, config_dir,
+                                      steps=selected if name == "repository_improved" else None)
+            summary["runs"][split][name] = report
+            if report["training"]["exit_code"] == 0 and (run_dir / "model.pt").is_file():
+                report.update(score_run(run_dir, config_dir, env))
+            print("FINAL_RESULT", split, name, json.dumps(report), flush=True)
+            save()
     summary["total_setup_training_scoring_seconds"] = time.monotonic() - overall_start
-    (work / "summary.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
-    if any("result" not in x for x in summary["runs"].values()):
+    save()
+    if any("result" not in r for split in summary["runs"].values() for r in split.values()):
         raise SystemExit("At least one model failed; inspect uploaded training/scoring logs.")
 
 
